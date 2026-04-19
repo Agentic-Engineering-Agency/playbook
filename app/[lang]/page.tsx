@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { i18n } from '@/lib/i18n';
 import { notFound } from 'next/navigation';
+import { HomeLayout } from 'fumadocs-ui/layouts/home';
+import { baseOptions } from '@/lib/layout.shared';
 import type { Metadata } from 'next';
 
 export default async function LocaleHomePage(
@@ -9,9 +11,11 @@ export default async function LocaleHomePage(
   const { lang } = await props.params;
   if (!(i18n.languages as string[]).includes(lang)) notFound();
 
-  // Currently only Spanish is served under a locale prefix
+  // HomeLayout wraps the landing directly so it isn't inherited by /es/docs/*.
+  // Mirrors how the EN tree uses app/(home)/layout.tsx scoped to just /.
   return (
-    <main className="flex flex-col items-center justify-center flex-1 px-4 py-20 text-center">
+    <HomeLayout {...baseOptions()}>
+      <main className="flex flex-col items-center justify-center flex-1 px-4 py-20 text-center">
       <span className="text-xs font-mono text-fd-muted-foreground uppercase tracking-widest mb-4">
         Agentic Engineering Agency
       </span>
@@ -70,6 +74,7 @@ export default async function LocaleHomePage(
         </a>
       </footer>
     </main>
+    </HomeLayout>
   );
 }
 
