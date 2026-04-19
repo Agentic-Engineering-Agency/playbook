@@ -3,89 +3,81 @@ import Link from 'next/link';
 export default function HomePage() {
   return (
     <main className="flex flex-col items-center justify-center flex-1 px-4 py-20 text-center">
+      <span className="text-xs font-mono text-fd-muted-foreground uppercase tracking-widest mb-4">
+        Agentic Engineering Agency
+      </span>
       <h1 className="text-4xl font-bold mb-4 max-w-2xl">
-        Ship a polished prototype in an afternoon.{' '}
-        <span className="text-fd-primary">Without writing code.</span>
+        The Playbook
       </h1>
-      <p className="text-fd-muted-foreground text-lg mb-10 max-w-xl">
-        The Agentic Engineering Playbook teaches non-developer students how to build
-        real React + shadcn/ui prototypes using a free AI coding agent.
+      <p className="text-fd-muted-foreground text-lg mb-12 max-w-xl">
+        We build with AI agents for LATAM startups. This is where we share what we&apos;ve learned.
       </p>
-      <div className="flex gap-4 flex-wrap justify-center mb-16">
-        <Link
-          href="/docs"
-          className="rounded-md bg-fd-primary text-fd-primary-foreground px-6 py-3 font-medium hover:opacity-90 transition-opacity"
-        >
-          Read the guide
-        </Link>
-        <Link
-          href="/blog"
-          className="rounded-md border border-fd-border px-6 py-3 font-medium hover:bg-fd-muted transition-colors"
-        >
-          Blog
-        </Link>
-        <Link
-          href="/cases"
-          className="rounded-md border border-fd-border px-6 py-3 font-medium hover:bg-fd-muted transition-colors"
-        >
-          Case studies
-        </Link>
-      </div>
 
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl w-full text-left">
-        {steps.map((step) => (
+      <section className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl w-full text-left mb-12">
+        {sections.map((s) => (
           <Link
-            key={step.href}
-            href={step.href}
+            key={s.href}
+            href={s.href}
             className="rounded-lg border border-fd-border p-5 hover:bg-fd-muted transition-colors"
           >
-            <span className="text-xs font-mono text-fd-muted-foreground uppercase tracking-wider">
-              {step.label}
-            </span>
-            <h2 className="font-semibold mt-1 mb-1">{step.title}</h2>
-            <p className="text-sm text-fd-muted-foreground">{step.description}</p>
+            <h2 className="font-semibold mb-1">{s.title}</h2>
+            <p className="text-sm text-fd-muted-foreground">{s.description}</p>
           </Link>
         ))}
       </section>
+
+      <div className="max-w-3xl w-full text-left rounded-lg border border-fd-primary/30 bg-fd-primary/5 p-6">
+        <span className="text-xs font-mono text-fd-primary uppercase tracking-widest">
+          Featured guide
+        </span>
+        <h2 className="font-semibold text-lg mt-1 mb-2">Prototype Kit</h2>
+        <p className="text-sm text-fd-muted-foreground mb-4">
+          Ship a polished React + shadcn prototype in an afternoon, without writing code.
+        </p>
+        <Link
+          href="/docs/prototype-kit"
+          className="rounded-md bg-fd-primary text-fd-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition-opacity inline-block"
+        >
+          Start →
+        </Link>
+      </div>
+
+      <footer className="mt-16 flex gap-6 text-sm text-fd-muted-foreground">
+        <a
+          href="https://github.com/Agentic-Engineering-Agency"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-fd-foreground transition-colors"
+        >
+          GitHub
+        </a>
+        <a
+          href="https://agenticengineering.agency"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-fd-foreground transition-colors"
+        >
+          agenticengineering.agency
+        </a>
+      </footer>
     </main>
   );
 }
 
-const steps = [
+const sections = [
   {
-    label: 'Step 1',
-    title: 'Install the agent',
-    description: 'Install Gemini CLI and authenticate with your Google account.',
-    href: '/docs/guide/01-install-agent',
+    title: 'Guides',
+    description: 'Opinionated playbooks for teams shipping with AI agents.',
+    href: '/docs',
   },
   {
-    label: 'Step 2',
-    title: 'Install prototype-kit',
-    description: 'Add the extension that teaches the agent your stack.',
-    href: '/docs/guide/02-install-mcps',
+    title: 'Case Studies',
+    description: 'Real products we built and what the process looked like.',
+    href: '/cases',
   },
   {
-    label: 'Step 3',
-    title: 'Prepare your docs',
-    description: 'Write three short documents: product brief, UX vibes, screens.',
-    href: '/docs/guide/03-prepare-docs',
-  },
-  {
-    label: 'Step 4',
-    title: 'Run the prompt',
-    description: 'Open the agent, run /prototype-from-docs, answer its questions.',
-    href: '/docs/guide/04-run-prompt',
-  },
-  {
-    label: 'Step 5',
-    title: 'Open the prototype',
-    description: 'Start the dev server and see your prototype at localhost:5173.',
-    href: '/docs/guide/05-open-prototype',
-  },
-  {
-    label: 'Case study',
-    title: 'Billi',
-    description: 'The first prototype built with this workflow — a finance app for Mexico.',
-    href: '/cases/billi',
+    title: 'Blog',
+    description: 'Short posts on agentic development, tools, and craft.',
+    href: '/blog',
   },
 ];

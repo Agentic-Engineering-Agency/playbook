@@ -12,91 +12,82 @@ export default async function LocaleHomePage(
   // Currently only Spanish is served under a locale prefix
   return (
     <main className="flex flex-col items-center justify-center flex-1 px-4 py-20 text-center">
+      <span className="text-xs font-mono text-fd-muted-foreground uppercase tracking-widest mb-4">
+        Agentic Engineering Agency
+      </span>
       <h1 className="text-4xl font-bold mb-4 max-w-2xl">
-        Construye un prototipo pulido en una tarde.{' '}
-        <span className="text-fd-primary">Sin escribir código.</span>
+        El Playbook
       </h1>
-      <p className="text-fd-muted-foreground text-lg mb-10 max-w-xl">
-        El Agentic Engineering Playbook enseña a estudiantes universitarios sin experiencia en
-        código cómo construir prototipos reales con React y shadcn/ui usando un agente de IA
-        gratuito.
+      <p className="text-fd-muted-foreground text-lg mb-12 max-w-xl">
+        Construimos con agentes de IA para startups de LATAM. Aquí compartimos lo que hemos aprendido.
       </p>
-      <div className="flex gap-4 flex-wrap justify-center mb-16">
-        <Link
-          href="/es/docs"
-          className="rounded-md bg-fd-primary text-fd-primary-foreground px-6 py-3 font-medium hover:opacity-90 transition-opacity"
-        >
-          Leer la guía
-        </Link>
-        <Link
-          href="/blog"
-          className="rounded-md border border-fd-border px-6 py-3 font-medium hover:bg-fd-muted transition-colors"
-        >
-          Blog
-        </Link>
-        <Link
-          href="/cases"
-          className="rounded-md border border-fd-border px-6 py-3 font-medium hover:bg-fd-muted transition-colors"
-        >
-          Casos de estudio
-        </Link>
-      </div>
 
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl w-full text-left">
-        {steps.map((step) => (
+      <section className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl w-full text-left mb-12">
+        {sections.map((s) => (
           <Link
-            key={step.href}
-            href={step.href}
+            key={s.href}
+            href={s.href}
             className="rounded-lg border border-fd-border p-5 hover:bg-fd-muted transition-colors"
           >
-            <span className="text-xs font-mono text-fd-muted-foreground uppercase tracking-wider">
-              {step.label}
-            </span>
-            <h2 className="font-semibold mt-1 mb-1">{step.title}</h2>
-            <p className="text-sm text-fd-muted-foreground">{step.description}</p>
+            <h2 className="font-semibold mb-1">{s.title}</h2>
+            <p className="text-sm text-fd-muted-foreground">{s.description}</p>
           </Link>
         ))}
       </section>
+
+      <div className="max-w-3xl w-full text-left rounded-lg border border-fd-primary/30 bg-fd-primary/5 p-6">
+        <span className="text-xs font-mono text-fd-primary uppercase tracking-widest">
+          Guía destacada
+        </span>
+        <h2 className="font-semibold text-lg mt-1 mb-2">Prototype Kit</h2>
+        <p className="text-sm text-fd-muted-foreground mb-4">
+          Construye un prototipo pulido con React + shadcn en una tarde, sin escribir código.
+        </p>
+        <Link
+          href="/es/docs/prototype-kit"
+          className="rounded-md bg-fd-primary text-fd-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition-opacity inline-block"
+        >
+          Empezar →
+        </Link>
+      </div>
+
+      <footer className="mt-16 flex gap-6 text-sm text-fd-muted-foreground">
+        <a
+          href="https://github.com/Agentic-Engineering-Agency"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-fd-foreground transition-colors"
+        >
+          GitHub
+        </a>
+        <a
+          href="https://agenticengineering.agency"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-fd-foreground transition-colors"
+        >
+          agenticengineering.agency
+        </a>
+      </footer>
     </main>
   );
 }
 
-const steps = [
+const sections = [
   {
-    label: 'Paso 1',
-    title: 'Instalar el agente',
-    description: 'Instala Gemini CLI y autentícate con tu cuenta de Google.',
-    href: '/es/docs/guide/01-install-agent',
+    title: 'Guías',
+    description: 'Manuales con criterio para equipos que construyen con agentes de IA.',
+    href: '/es/docs',
   },
   {
-    label: 'Paso 2',
-    title: 'Instalar prototype-kit',
-    description: 'Añade la extensión que le enseña al agente tu stack.',
-    href: '/es/docs/guide/02-install-mcps',
+    title: 'Casos de estudio',
+    description: 'Productos reales que construimos y cómo fue el proceso.',
+    href: '/cases',
   },
   {
-    label: 'Paso 3',
-    title: 'Preparar tus documentos',
-    description: 'Escribe tres documentos cortos: brief de producto, vibes de UX, pantallas.',
-    href: '/es/docs/guide/03-prepare-docs',
-  },
-  {
-    label: 'Paso 4',
-    title: 'Ejecutar el prompt',
-    description: 'Abre el agente, ejecuta /prototype-from-docs y responde sus preguntas.',
-    href: '/es/docs/guide/04-run-prompt',
-  },
-  {
-    label: 'Paso 5',
-    title: 'Abrir el prototipo',
-    description: 'Inicia el servidor de desarrollo y ve tu prototipo en localhost:5173.',
-    href: '/es/docs/guide/05-open-prototype',
-  },
-  {
-    label: 'Caso de estudio',
-    title: 'Billi',
-    description: 'El primer prototipo construido con este flujo — una app de finanzas para México.',
-    href: '/cases/billi',
+    title: 'Blog',
+    description: 'Notas sobre desarrollo agéntico, herramientas y craft.',
+    href: '/blog',
   },
 ];
 
@@ -114,7 +105,7 @@ export async function generateMetadata(
     return {
       title: 'Agentic Engineering Playbook',
       description:
-        'Aprende a construir prototipos React + shadcn/ui con un agente de IA, sin escribir código.',
+        'Construimos con agentes de IA para startups de LATAM. Guías, casos de estudio y notas del proceso.',
     };
   }
   return { title: 'Agentic Engineering Playbook' };

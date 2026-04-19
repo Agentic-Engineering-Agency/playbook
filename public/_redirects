@@ -6,4 +6,8 @@
 # Ensure /es root redirects to the Spanish docs landing page.
 /es /es/docs 302
 
+# Permanent redirects: old /docs/guide/* paths → new /docs/prototype-kit/*
+/docs/guide/:step /docs/prototype-kit/:step 301
+/es/docs/guide/:step /es/docs/prototype-kit/:step 301
+
 # Fallback: anything not matched is handled by the static HTML files.
