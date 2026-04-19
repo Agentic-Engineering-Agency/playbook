@@ -7,16 +7,18 @@ description: Write the three short documents the agent needs to build your proto
 
 The agent builds what you describe. Three documents are required. They do not need to be long — clear and specific beats long and vague every time.
 
-Create all three files in your project folder:
+Create a `docs/` folder inside your project and put all three files there. The agent looks for this folder by default; any extras you drop in (screenshots, reference mockups, a PDF PRD) also get read.
 
 ```bash
 # macOS / Linux
-touch ~/my-prototype/product-brief.md ~/my-prototype/ux-vibes.md ~/my-prototype/screens.md
+mkdir -p ~/my-prototype/docs
+touch ~/my-prototype/docs/product-brief.md ~/my-prototype/docs/ux-vibes.md ~/my-prototype/docs/screens.md
 ```
 
 ```powershell
 # Windows PowerShell
-New-Item $HOME\my-prototype\product-brief.md, $HOME\my-prototype\ux-vibes.md, $HOME\my-prototype\screens.md -ItemType File
+New-Item -ItemType Directory -Force $HOME\my-prototype\docs | Out-Null
+New-Item $HOME\my-prototype\docs\product-brief.md, $HOME\my-prototype\docs\ux-vibes.md, $HOME\my-prototype\docs\screens.md -ItemType File
 ```
 
 ## Document 1: `product-brief.md`

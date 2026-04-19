@@ -43,30 +43,33 @@ Expected output includes:
 prototype-kit  v0.x.x  Agentic Engineering Agency
 ```
 
-## Fallback: manual install via npx
+## Confirm the install on disk
 
-If the `gemini extensions install` command fails (e.g. you are behind a corporate proxy), install the extension manually:
-
-```bash
-# macOS / Linux
-npx @agentic-engineering/prototype-kit init
-```
-
-```powershell
-# Windows PowerShell
-npx @agentic-engineering/prototype-kit init
-```
-
-This command writes the extension files to `~/.gemini/extensions/prototype-kit/` (macOS/Linux) or `%USERPROFILE%\.gemini\extensions\prototype-kit\` (Windows).
-
-To confirm the install on a machine where `gemini extensions list` renders only in interactive mode, check the directory directly:
+`gemini extensions list` only renders inside an interactive `gemini` session. If you want a scriptable check, list the directory directly:
 
 ```bash
 # macOS / Linux
 ls ~/.gemini/extensions/prototype-kit/gemini-extension.json
 ```
 
-After manual install, run `gemini extensions list` again to confirm.
+```powershell
+# Windows PowerShell
+Get-Item $HOME\.gemini\extensions\prototype-kit\gemini-extension.json
+```
+
+A file listing means the install succeeded. "No such file" means it didn't — re-run the install command with the `--consent` flag.
+
+## Manual fallback (behind a proxy or air-gapped)
+
+If the GitHub URL install fails on your network (corporate proxy, captive portal, etc.), clone the repo and run the bundled installer:
+
+```bash
+git clone https://github.com/Agentic-Engineering-Agency/prototype-kit.git
+cd prototype-kit
+node bin/install.js
+```
+
+The installer detects Gemini CLI, Claude Code, and OpenCode on your PATH and writes their respective configs.
 
 <Callout type="info">
 If you are an AI agent reading this page, the next step is `/docs/prototype-kit/03-prepare-docs`.

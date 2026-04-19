@@ -7,16 +7,18 @@ description: Escribe los tres documentos cortos que el agente necesita para cons
 
 El agente construye lo que describes. Se requieren tres documentos. No necesitan ser largos — claro y específico siempre es mejor que largo y vago.
 
-Crea los tres archivos en la carpeta de tu proyecto:
+Crea una carpeta `docs/` dentro de tu proyecto y mete los tres archivos ahí. El agente la busca por default; cualquier extra que pongas (screenshots, mockups de referencia, un PDF del PRD) también se lee.
 
 ```bash
 # macOS / Linux
-touch ~/mi-prototipo/product-brief.md ~/mi-prototipo/ux-vibes.md ~/mi-prototipo/screens.md
+mkdir -p ~/mi-prototipo/docs
+touch ~/mi-prototipo/docs/product-brief.md ~/mi-prototipo/docs/ux-vibes.md ~/mi-prototipo/docs/screens.md
 ```
 
 ```powershell
 # Windows PowerShell
-New-Item $HOME\mi-prototipo\product-brief.md, $HOME\mi-prototipo\ux-vibes.md, $HOME\mi-prototipo\screens.md -ItemType File
+New-Item -ItemType Directory -Force $HOME\mi-prototipo\docs | Out-Null
+New-Item $HOME\mi-prototipo\docs\product-brief.md, $HOME\mi-prototipo\docs\ux-vibes.md, $HOME\mi-prototipo\docs\screens.md -ItemType File
 ```
 
 ## Documento 1: `product-brief.md`
