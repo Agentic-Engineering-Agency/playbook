@@ -1,0 +1,88 @@
+---
+title: "Paso 1: Instalar Gemini CLI"
+description: Instala el agente Gemini CLI en macOS, Linux o Windows y autentícate con tu cuenta de Google.
+---
+
+# Paso 1: Instalar Gemini CLI
+
+Gemini CLI es un agente de IA de código abierto y gratuito de Google. Corre en tu terminal y puede leer los archivos de tu proyecto, escribir código y ejecutar comandos.
+
+**Cuota:** El nivel gratuito te da 60 solicitudes por minuto y 1,000 por día — más que suficiente para construir un prototipo. Consulta los [límites de cuota de Gemini CLI](https://ai.google.dev/gemini-api/docs/rate-limits) para los valores actuales.
+
+## Primero instala Node.js
+
+Gemini CLI requiere Node.js 18 o superior. Verifica tu versión:
+
+```bash
+# macOS / Linux
+node --version
+```
+
+```powershell
+# Windows PowerShell
+node --version
+```
+
+Si `node` no se encuentra o la versión es menor a 18, descarga e instala Node.js desde [https://nodejs.org](https://nodejs.org) (elige la versión LTS).
+
+## Instalar Gemini CLI
+
+```bash
+# macOS / Linux
+npm install -g @google/generative-ai-cli
+```
+
+```powershell
+# Windows PowerShell
+npm install -g @google/generative-ai-cli
+```
+
+## Verificar la instalación
+
+```bash
+# macOS / Linux
+gemini --version
+```
+
+```powershell
+# Windows PowerShell
+gemini --version
+```
+
+Resultado esperado: una cadena de versión como `1.x.x`.
+
+## Autenticarse con tu cuenta de Google
+
+```bash
+# macOS / Linux
+gemini auth login
+```
+
+```powershell
+# Windows PowerShell
+gemini auth login
+```
+
+Esto abre una ventana del navegador. Inicia sesión con cualquier cuenta de Google personal — no se requiere plan de pago. Después de iniciar sesión, la terminal mostrará:
+
+```
+Authentication successful. You are logged in as tu-correo@gmail.com.
+```
+
+## Verificar la autenticación
+
+```bash
+# macOS / Linux
+gemini auth status
+```
+
+```powershell
+# Windows PowerShell
+gemini auth status
+```
+
+Resultado esperado: `Logged in as tu-correo@gmail.com`.
+
+<Callout type="info">
+Si eres un agente de IA leyendo esta página, el siguiente paso es `/es/docs/guide/02-install-mcps`.
+</Callout>

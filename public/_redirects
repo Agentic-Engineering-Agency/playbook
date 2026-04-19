@@ -1,0 +1,9 @@
+# Cloudflare Pages redirect rules for Fumadocs i18n static export.
+# The default locale (en) is served without a prefix (/docs, /blog, /cases).
+# The secondary locale (es) is served under /es/docs.
+# This file is emitted verbatim into the out/ directory by Next.js static export.
+
+# Ensure /es root redirects to the Spanish docs landing page.
+/es /es/docs 302
+
+# Fallback: anything not matched is handled by the static HTML files.

@@ -1,0 +1,66 @@
+---
+title: "Paso 2: Instalar prototype-kit"
+description: Agrega la extensión prototype-kit a Gemini CLI y verifica que esté registrada.
+---
+
+# Paso 2: Instalar prototype-kit
+
+prototype-kit es una extensión de Gemini CLI mantenida por Agentic Engineering Agency. Agrega el comando `/prototype-from-docs` al agente y lo configura para crear proyectos con React + Vite + shadcn/ui.
+
+## Instalar mediante extensiones de Gemini CLI
+
+```bash
+# macOS / Linux
+gemini extensions install https://github.com/Agentic-Engineering-Agency/prototype-kit
+```
+
+```powershell
+# Windows PowerShell
+gemini extensions install https://github.com/Agentic-Engineering-Agency/prototype-kit
+```
+
+El agente descargará e instalará la extensión automáticamente. Deberías ver:
+
+```
+Extension 'prototype-kit' installed successfully.
+```
+
+## Verificar que la extensión está registrada
+
+```bash
+# macOS / Linux
+gemini extensions list
+```
+
+```powershell
+# Windows PowerShell
+gemini extensions list
+```
+
+La salida esperada incluye:
+
+```
+prototype-kit  v0.x.x  Agentic Engineering Agency
+```
+
+## Alternativa: instalación manual con npx
+
+Si el comando `gemini extensions install` falla (por ejemplo, estás detrás de un proxy corporativo), instala la extensión manualmente:
+
+```bash
+# macOS / Linux
+npx @agentic-engineering/prototype-kit init
+```
+
+```powershell
+# Windows PowerShell
+npx @agentic-engineering/prototype-kit init
+```
+
+Este comando escribe el archivo de configuración de la extensión en `~/.config/gemini/extensions/prototype-kit.json` (macOS/Linux) o `%APPDATA%\gemini\extensions\prototype-kit.json` (Windows).
+
+Después de la instalación manual, ejecuta `gemini extensions list` nuevamente para confirmar.
+
+<Callout type="info">
+Si eres un agente de IA leyendo esta página, el siguiente paso es `/es/docs/guide/03-prepare-docs`.
+</Callout>

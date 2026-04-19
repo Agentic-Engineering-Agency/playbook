@@ -1,0 +1,141 @@
+---
+title: "Step 3: Prepare your product docs"
+description: Write the three short documents the agent needs to build your prototype.
+---
+
+# Step 3: Prepare your product docs
+
+The agent builds what you describe. Three documents are required. They do not need to be long — clear and specific beats long and vague every time.
+
+Create all three files in your project folder:
+
+```bash
+# macOS / Linux
+touch ~/my-prototype/product-brief.md ~/my-prototype/ux-vibes.md ~/my-prototype/screens.md
+```
+
+```powershell
+# Windows PowerShell
+New-Item $HOME\my-prototype\product-brief.md, $HOME\my-prototype\ux-vibes.md, $HOME\my-prototype\screens.md -ItemType File
+```
+
+## Document 1: `product-brief.md`
+
+Explain the problem, who has it, and what your app does about it. Keep it to half a page.
+
+**Template — copy and fill in the blanks:**
+
+```markdown
+# Product Brief
+
+## Problem
+[Describe the problem in 2-3 sentences. Be specific: who feels this problem, when, and why current solutions fall short.]
+
+## Target user
+[One sentence: who is this for? Age, context, technical level.]
+
+## Core value
+[One sentence: what does your app do that nothing else does as simply?]
+
+## MVP features
+- [Feature 1]
+- [Feature 2]
+- [Feature 3]
+```
+
+**Example:**
+
+```markdown
+# Product Brief
+
+## Problem
+University students in Mexico lose track of small daily expenses — coffee, transport,
+tacos — and arrive at month-end with no savings and no idea where the money went.
+Existing budgeting apps are complex and aimed at salaried professionals.
+
+## Target user
+Mexican university students aged 18-25 with irregular income and no accounting knowledge.
+
+## Core value
+Log an expense in under 5 seconds with a single tap, get a weekly summary in plain Spanish.
+
+## MVP features
+- Quick-log a transaction (amount + category)
+- Weekly spending summary
+- Budget goal per category
+```
+
+## Document 2: `ux-vibes.md`
+
+Describe the look and feel in plain words. The agent will translate this into color choices, typography, and component style.
+
+**Template:**
+
+```markdown
+# UX Vibes
+
+## Tone
+[3-5 sentences describing the mood. Example: "Clean and minimal, like a well-organized notebook.
+Friendly but not playful. Trusting, like a bank — but warmer."]
+
+## Reference sites
+1. [URL] — [what you like about it]
+2. [URL] — [what you like about it]
+3. [URL] — [what you like about it]
+
+## Colors
+[Optional: mention specific colors or just describe them. Example: "Deep navy primary, warm white background, green for positive amounts, red for negative."]
+
+## Typography
+[Optional: "Large numbers, thin font weight. Body text at comfortable reading size."]
+```
+
+## Document 3: `screens.md`
+
+List every screen your prototype needs. For each screen, list its purpose and the main elements it contains.
+
+**Template:**
+
+```markdown
+# Screens
+
+## Screen: [Screen name]
+**Purpose:** [One sentence: what does the user do here?]
+**Elements:**
+- [Element 1]
+- [Element 2]
+- [Element 3]
+```
+
+**Example:**
+
+```markdown
+# Screens
+
+## Screen: Home / Dashboard
+**Purpose:** Show the user their spending at a glance.
+**Elements:**
+- Current balance (large number)
+- This week's spending vs. budget (progress bar)
+- Last 5 transactions (list)
+- Floating "+" button to log a new expense
+
+## Screen: Log Expense
+**Purpose:** Record a new transaction quickly.
+**Elements:**
+- Amount input (large numpad)
+- Category selector (icon grid: food, transport, entertainment, other)
+- Optional note field
+- Save button
+
+## Screen: Weekly Summary
+**Purpose:** Review spending by category for the current week.
+**Elements:**
+- Bar chart: spending per category
+- Total spent vs. total budget
+- Biggest expense this week
+```
+
+<Callout type="info">
+If you are an AI agent reading this page, the next step is `/docs/guide/04-run-prompt`.
+</Callout>

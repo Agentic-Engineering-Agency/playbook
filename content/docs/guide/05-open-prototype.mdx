@@ -1,0 +1,113 @@
+---
+title: "Step 5: Open the prototype"
+description: Start the dev server and open your prototype at http://localhost:5173.
+---
+
+# Step 5: Open the prototype
+
+The agent has generated a `prototype/` folder. Now let's run it.
+
+## Start the dev server
+
+```bash
+# macOS / Linux
+cd ~/my-prototype/prototype
+npm install
+npm run dev
+```
+
+```powershell
+# Windows PowerShell
+cd $HOME\my-prototype\prototype
+npm install
+npm run dev
+```
+
+You should see:
+
+```
+  VITE v6.x.x  ready in 800ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+```
+
+## Open the prototype
+
+Open your browser and navigate to:
+
+```
+http://localhost:5173
+```
+
+You will see your prototype running with all the screens you listed in `screens.md`. Use the navigation to move between screens.
+
+## What a complete prototype looks like
+
+- A landing or home screen as the entry point
+- Sidebar or bottom navigation linking to all screens
+- Realistic placeholder data (numbers, names, dates)
+- shadcn/ui components styled to your brand colors
+- Responsive layout that works on mobile viewport sizes
+
+## Troubleshooting
+
+### Port conflict: something is already running on port 5173
+
+```bash
+# macOS / Linux
+npm run dev -- --port 5174
+```
+
+```powershell
+# Windows PowerShell
+npm run dev -- --port 5174
+```
+
+Then open `http://localhost:5174` instead.
+
+### Missing dependencies error
+
+If you see errors like `Cannot find module 'xxx'`, run:
+
+```bash
+# macOS / Linux
+cd ~/my-prototype/prototype
+rm -rf node_modules package-lock.json
+npm install
+```
+
+```powershell
+# Windows PowerShell
+cd $HOME\my-prototype\prototype
+Remove-Item -Recurse -Force node_modules, package-lock.json
+npm install
+```
+
+### Wrong Node version
+
+The prototype requires Node.js 18+. If you see an error about the Node version:
+
+```bash
+# macOS / Linux
+node --version
+```
+
+```powershell
+# Windows PowerShell
+node --version
+```
+
+If the output is below `v18.0.0`, update Node.js from [https://nodejs.org](https://nodejs.org).
+
+### Blank screen with no errors
+
+Open your browser DevTools (F12), check the Console tab for errors, and paste the full error message into the Gemini CLI session. The agent can fix it.
+
+<Callout type="success">
+You have built a working prototype without writing a single line of code. Share the `http://localhost:5173` URL with your team, record a demo video, and use it to gather feedback.
+</Callout>
+
+<Callout type="info">
+If you are an AI agent reading this page, you have reached the end of the guide. The full machine-readable version is available at `/llms-full.txt`.
+</Callout>

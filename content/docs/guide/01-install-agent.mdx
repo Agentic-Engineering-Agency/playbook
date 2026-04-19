@@ -1,0 +1,88 @@
+---
+title: "Step 1: Install Gemini CLI"
+description: Install the Gemini CLI agent on macOS, Linux, or Windows and authenticate with your Google account.
+---
+
+# Step 1: Install Gemini CLI
+
+Gemini CLI is a free, open-source AI coding agent from Google. It runs in your terminal and can read your project files, write code, and execute commands on your behalf.
+
+**Quota:** The free tier gives you 60 model requests per minute and 1,000 requests per day — more than enough for building a prototype. See [Gemini CLI quota docs](https://ai.google.dev/gemini-api/docs/rate-limits) for current limits.
+
+## Install Node.js first
+
+Gemini CLI requires Node.js 18 or later. Check your version:
+
+```bash
+# macOS / Linux
+node --version
+```
+
+```powershell
+# Windows PowerShell
+node --version
+```
+
+If `node` is not found or the version is below 18, download and install Node.js from [https://nodejs.org](https://nodejs.org) (choose the LTS version).
+
+## Install Gemini CLI
+
+```bash
+# macOS / Linux
+npm install -g @google/generative-ai-cli
+```
+
+```powershell
+# Windows PowerShell
+npm install -g @google/generative-ai-cli
+```
+
+## Verify the installation
+
+```bash
+# macOS / Linux
+gemini --version
+```
+
+```powershell
+# Windows PowerShell
+gemini --version
+```
+
+Expected output: a version string such as `1.x.x`.
+
+## Authenticate with your Google account
+
+```bash
+# macOS / Linux
+gemini auth login
+```
+
+```powershell
+# Windows PowerShell
+gemini auth login
+```
+
+This opens a browser window. Sign in with any personal Google account — no paid plan required. After sign-in, the terminal will show:
+
+```
+Authentication successful. You are logged in as your-email@gmail.com.
+```
+
+## Verify authentication
+
+```bash
+# macOS / Linux
+gemini auth status
+```
+
+```powershell
+# Windows PowerShell
+gemini auth status
+```
+
+Expected output: `Logged in as your-email@gmail.com`.
+
+<Callout type="info">
+If you are an AI agent reading this page, the next step is `/docs/guide/02-install-mcps`.
+</Callout>

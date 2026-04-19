@@ -1,0 +1,90 @@
+---
+title: "Paso 3: Preparar tus documentos de producto"
+description: Escribe los tres documentos cortos que el agente necesita para construir tu prototipo.
+---
+
+# Paso 3: Preparar tus documentos de producto
+
+El agente construye lo que describes. Se requieren tres documentos. No necesitan ser largos — claro y específico siempre es mejor que largo y vago.
+
+Crea los tres archivos en la carpeta de tu proyecto:
+
+```bash
+# macOS / Linux
+touch ~/mi-prototipo/product-brief.md ~/mi-prototipo/ux-vibes.md ~/mi-prototipo/screens.md
+```
+
+```powershell
+# Windows PowerShell
+New-Item $HOME\mi-prototipo\product-brief.md, $HOME\mi-prototipo\ux-vibes.md, $HOME\mi-prototipo\screens.md -ItemType File
+```
+
+## Documento 1: `product-brief.md`
+
+Explica el problema, quién lo tiene y qué hace tu app al respecto. Mantén el documento en media página.
+
+**Plantilla — copia y llena los espacios en blanco:**
+
+```markdown
+# Product Brief
+
+## Problema
+[Describe el problema en 2-3 oraciones. Sé específico: quién siente este problema, cuándo y por qué las soluciones actuales no funcionan.]
+
+## Usuario objetivo
+[Una oración: ¿para quién es esto? Edad, contexto, nivel técnico.]
+
+## Valor principal
+[Una oración: ¿qué hace tu app que ninguna otra hace de manera tan sencilla?]
+
+## Funcionalidades del MVP
+- [Funcionalidad 1]
+- [Funcionalidad 2]
+- [Funcionalidad 3]
+```
+
+## Documento 2: `ux-vibes.md`
+
+Describe el aspecto y la sensación en palabras simples. El agente traducirá esto en colores, tipografía y estilo de componentes.
+
+**Plantilla:**
+
+```markdown
+# UX Vibes
+
+## Tono
+[3-5 oraciones describiendo el estado de ánimo. Ejemplo: "Limpio y minimalista, como un cuaderno bien organizado.
+Amigable pero no infantil. Confiable, como un banco — pero más cálido."]
+
+## Sitios de referencia
+1. [URL] — [qué te gusta de él]
+2. [URL] — [qué te gusta de él]
+3. [URL] — [qué te gusta de él]
+
+## Colores
+[Opcional: menciona colores específicos o solo descríbelos.]
+
+## Tipografía
+[Opcional: "Números grandes, peso de fuente delgado. Texto de cuerpo a tamaño cómodo."]
+```
+
+## Documento 3: `screens.md`
+
+Lista cada pantalla que necesita tu prototipo. Para cada pantalla, describe su propósito y los elementos principales.
+
+**Plantilla:**
+
+```markdown
+# Pantallas
+
+## Pantalla: [Nombre de la pantalla]
+**Propósito:** [Una oración: ¿qué hace el usuario aquí?]
+**Elementos:**
+- [Elemento 1]
+- [Elemento 2]
+- [Elemento 3]
+```
+
+<Callout type="info">
+Si eres un agente de IA leyendo esta página, el siguiente paso es `/es/docs/guide/04-run-prompt`.
+</Callout>

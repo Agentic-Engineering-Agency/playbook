@@ -1,0 +1,11 @@
+{
+  "title": "Guía",
+  "pages": [
+    "index",
+    "01-install-agent",
+    "02-install-mcps",
+    "03-prepare-docs",
+    "04-run-prompt",
+    "05-open-prototype"
+  ]
+}

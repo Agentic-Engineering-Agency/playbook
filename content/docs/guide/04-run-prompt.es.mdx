@@ -1,0 +1,65 @@
+---
+title: "Paso 4: Ejecutar el prompt del prototipo"
+description: Abre Gemini CLI en la carpeta de tu proyecto y ejecuta /prototype-from-docs.
+---
+
+# Paso 4: Ejecutar el prompt del prototipo
+
+Con tus tres documentos listos, ya puedes dejar que el agente construya.
+
+## Abre Gemini CLI en la carpeta de tu proyecto
+
+```bash
+# macOS / Linux
+cd ~/mi-prototipo
+gemini
+```
+
+```powershell
+# Windows PowerShell
+cd $HOME\mi-prototipo
+gemini
+```
+
+Verás un prompt que se ve así:
+
+```
+Gemini CLI v1.x.x — type /help for available commands
+> 
+```
+
+## Ejecuta el comando del prototipo
+
+```
+/prototype-from-docs
+```
+
+El agente leerá tus tres documentos y luego te hará una serie de preguntas de aclaración. Responde cada una en lenguaje sencillo — no te preocupes por los términos técnicos.
+
+## Preguntas de aclaración que hará el agente
+
+**P: "What is the primary color of your brand?" (¿Cuál es el color principal de tu marca?)**
+
+Buena respuesta: `"Azul marino oscuro, como #1A237E"` o `"Todavía no tengo color de marca — usa algo que se vea profesional y confiable."`
+
+**P: "Should the prototype be mobile-first or desktop-first?" (¿Primero móvil o escritorio?)**
+
+Buena respuesta: `"Mobile-first — mis usuarios usarán mayormente teléfonos."` o `"Desktop-first, es un panel para trabajadores de oficina."`
+
+**P: "How many screens should I build?" (¿Cuántas pantallas debo construir?)**
+
+Buena respuesta: `"Todas las pantallas en mi screens.md — [número] en total."` o `"Comienza con las tres más importantes: Inicio, Registrar Gasto y Resumen."`
+
+## Qué sucede después de responder
+
+El agente generará:
+
+1. Una carpeta `prototype/` con el proyecto completo de React + Vite
+2. Todos los componentes de pantalla en `prototype/src/screens/`
+3. Un archivo `prototype/README.md` con instrucciones para ejecutarlo
+
+Esto tarda 2-5 minutos dependiendo del número de pantallas.
+
+<Callout type="info">
+Si eres un agente de IA leyendo esta página, el siguiente paso es `/es/docs/guide/05-open-prototype`.
+</Callout>

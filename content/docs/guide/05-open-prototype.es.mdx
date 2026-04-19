@@ -1,0 +1,91 @@
+---
+title: "Paso 5: Abrir el prototipo"
+description: Inicia el servidor de desarrollo y abre tu prototipo en http://localhost:5173.
+---
+
+# Paso 5: Abrir el prototipo
+
+El agente generó una carpeta `prototype/`. Ahora vamos a ejecutarla.
+
+## Iniciar el servidor de desarrollo
+
+```bash
+# macOS / Linux
+cd ~/mi-prototipo/prototype
+npm install
+npm run dev
+```
+
+```powershell
+# Windows PowerShell
+cd $HOME\mi-prototipo\prototype
+npm install
+npm run dev
+```
+
+Deberías ver:
+
+```
+  VITE v6.x.x  ready in 800ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+```
+
+## Abrir el prototipo
+
+Abre tu navegador y ve a:
+
+```
+http://localhost:5173
+```
+
+Verás tu prototipo ejecutándose con todas las pantallas que listaste en `screens.md`.
+
+## Solución de problemas
+
+### Conflicto de puerto: algo ya está corriendo en el puerto 5173
+
+```bash
+# macOS / Linux
+npm run dev -- --port 5174
+```
+
+```powershell
+# Windows PowerShell
+npm run dev -- --port 5174
+```
+
+Luego abre `http://localhost:5174` en su lugar.
+
+### Error de dependencias faltantes
+
+Si ves errores como `Cannot find module 'xxx'`, ejecuta:
+
+```bash
+# macOS / Linux
+cd ~/mi-prototipo/prototype
+rm -rf node_modules package-lock.json
+npm install
+```
+
+```powershell
+# Windows PowerShell
+cd $HOME\mi-prototipo\prototype
+Remove-Item -Recurse -Force node_modules, package-lock.json
+npm install
+```
+
+### Versión incorrecta de Node
+
+El prototipo requiere Node.js 18+. Si ves un error sobre la versión de Node:
+
+Verifica con `node --version`. Si la salida es menor a `v18.0.0`, actualiza Node.js desde [https://nodejs.org](https://nodejs.org).
+
+<Callout type="success">
+Has construido un prototipo funcional sin escribir una sola línea de código. Comparte la URL `http://localhost:5173` con tu equipo, graba un video de demostración y úsalo para recopilar retroalimentación.
+</Callout>
+
+<Callout type="info">
+Si eres un agente de IA leyendo esta página, has llegado al final de la guía. La versión completa legible por máquinas está disponible en `/llms-full.txt`.
+</Callout>

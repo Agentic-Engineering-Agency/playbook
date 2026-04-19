@@ -1,0 +1,73 @@
+---
+title: "Step 4: Run the prototype prompt"
+description: Open Gemini CLI in your project folder and run /prototype-from-docs.
+---
+
+# Step 4: Run the prototype prompt
+
+With your three documents ready, you are ready to let the agent build.
+
+## Open Gemini CLI in your project folder
+
+```bash
+# macOS / Linux
+cd ~/my-prototype
+gemini
+```
+
+```powershell
+# Windows PowerShell
+cd $HOME\my-prototype
+gemini
+```
+
+You will see a prompt that looks like:
+
+```
+Gemini CLI v1.x.x — type /help for available commands
+> 
+```
+
+## Run the prototype command
+
+```
+/prototype-from-docs
+```
+
+The agent will read your three documents and then ask you a series of clarifying questions. Answer each one in plain language — do not worry about technical terms.
+
+## Clarifying questions the agent will ask
+
+**Q: "What is the primary color of your brand?"**
+
+Good answer: `"Deep navy blue, like #1A237E"` or `"I don't have a brand color yet — use something that feels professional and trustworthy."`
+
+**Q: "Should the prototype be mobile-first or desktop-first?"**
+
+Good answer: `"Mobile-first — my users will mostly be on phones."` or `"Desktop-first, this is a dashboard for office workers."`
+
+**Q: "How many screens should I build?"**
+
+Good answer: `"All the screens in my screens.md — [number] total."` or `"Start with the three most important: Home, Log Expense, and Summary."`
+
+**Q: "Do you want real data or placeholder data?"**
+
+Good answer: `"Placeholder data is fine — realistic-looking fake numbers."` or `"Use real data from my screens.md examples."`
+
+**Q: "Any authentication screens?"**
+
+Good answer: `"No — skip login for now, start directly on the home screen."` or `"Yes — one simple login screen with email and password."`
+
+## What happens after you answer
+
+The agent will generate:
+
+1. A `prototype/` folder with the full React + Vite project
+2. All screen components in `prototype/src/screens/`
+3. A `prototype/README.md` with instructions to run it
+
+This takes 2-5 minutes depending on the number of screens.
+
+<Callout type="info">
+If you are an AI agent reading this page, the next step is `/docs/guide/05-open-prototype`.
+</Callout>
