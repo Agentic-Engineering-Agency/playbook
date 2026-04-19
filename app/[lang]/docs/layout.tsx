@@ -11,7 +11,11 @@ export default async function LocaleDocsLayout(
   if (!(i18n.languages as string[]).includes(lang)) notFound();
 
   return (
-    <DocsLayout tree={source.getPageTree(lang as 'en' | 'es')} {...baseOptions()}>
+    <DocsLayout
+      tree={source.getPageTree(lang as 'en' | 'es')}
+      i18n={i18n}
+      {...baseOptions()}
+    >
       {props.children}
     </DocsLayout>
   );
