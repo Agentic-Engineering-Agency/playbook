@@ -1,6 +1,6 @@
 ---
-title: "Caso de estudio: Billi"
-description: Billi, una app de finanzas personales para México, fue el primer proyecto que creamos con prototype-kit.
+title: "Caso de estudio: Billi (en proceso)"
+description: Billi es el primer proyecto real que creamos con prototype-kit. El ciclo MVP de cuatro semanas arranca 2026-04-20; esta página se actualizará con los resultados reales conforme corra el ciclo.
 date: "2026-04-19"
 client: Agentic Engineering Agency
 ---
@@ -9,18 +9,26 @@ client: Agentic Engineering Agency
 
 Billi es una app de finanzas personales diseñada para el mercado mexicano — específicamente para estudiantes universitarios de 18-25 años que quieren rastrear gastos diarios sin la complejidad de las herramientas de presupuesto tradicionales.
 
-Billi fue el primer proyecto que creamos de principio a fin usando el flujo de trabajo de prototype-kit descrito en este Manual. Un estudiante sin conocimientos de desarrollo escribió los tres documentos requeridos (`product-brief.md`, `ux-vibes.md` y `screens.md`) en una tarde, ejecutó `/prototype-from-docs` y tuvo un prototipo funcional en React con cinco pantallas al final del mismo día.
+<Callout type="warn">
+**Este caso de estudio está en proceso.** El ciclo MVP de Billi arranca el **2026-04-20** y corre por cuatro semanas hasta el **2026-05-17**. Abajo dejamos la hipótesis que estamos probando; actualizaremos esta página con los resultados observados al cierre de cada ciclo.
+</Callout>
 
-## Lo que aprendimos
+## Hipótesis que estamos probando
 
-**La especificidad en `product-brief.md` vale la pena.** La primera iteración usó lenguaje vago como "una app fácil para presupuestos." La segunda iteración nombró al usuario objetivo explícitamente — "estudiantes universitarios mexicanos con ingresos irregulares" — y la interfaz generada inmediatamente se sintió más apropiada: etiquetas en español, signo de pesos, frecuencia semanal en lugar de mensual.
+Una persona sin conocimientos de desarrollo puede pasar de tres documentos markdown cortos (`product-brief.md`, `ux-vibes.md`, `screens.md`) a un prototipo funcional en React la misma tarde, usando el flujo de prototype-kit descrito en este Playbook. En concreto esperamos:
 
-**`ux-vibes.md` es el documento de mayor impacto.** Tres sitios de referencia y una descripción de tono de dos oraciones produjeron resultados visuales dramáticamente mejores que dos páginas de códigos de color hexadecimal. El agente interpreta el estado de ánimo mejor que las especificaciones.
+- De documentación a primer render en menos de tres horas.
+- Un prototipo suficientemente pulido para demostrarse frente a un jurado sin disculpas.
+- Menos de una intervención manual por pantalla generada.
 
-**El camino alternativo importa.** Cuando el agente encontró una descripción de pantalla ambigua, hizo una pregunta de aclaración en lugar de adivinar. Enseñar a los estudiantes a esperar y aceptar esas preguntas redujo la frustración y mejoró la calidad del resultado.
+## Lo que esperamos aprender (en orden de prioridad)
+
+**En qué secciones de `product-brief.md` importa realmente la especificidad.** Vamos a rastrear qué secciones del brief moldean más la UI generada: el planteamiento del problema, el usuario objetivo, la lista de funcionalidades MVP — y comparar los outputs cuando cualquiera de las tres es vaga versus específica.
+
+**Si `ux-vibes.md` supera a los códigos hex.** Correremos una iteración solo con sitios de referencia y adjetivos de tono, y otra con hex codes y especificaciones tipográficas, para comparar cuál produce un resultado visual más coherente.
+
+**Cómo maneja el agente la ambigüedad.** Anotaremos cada vez que el agente hace una pregunta de aclaración versus rellena con un default razonable — y si los defaults fueron aceptables.
 
 ## Estado actual
 
-Billi se encuentra actualmente en la Semana 1 de un ciclo de construcción de MVP de cuatro semanas. Este caso de estudio se actualizará con aprendizajes de cada ciclo.
-
-_Caso de estudio completo próximamente._
+La Semana 0 (planeación) está cerrada. El Ciclo 1 arranca el 2026-04-20. Esta página está programada para actualizarse al final de cada ciclo semanal.

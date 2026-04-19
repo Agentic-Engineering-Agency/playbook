@@ -11,15 +11,15 @@ prototype-kit es una extensión de Gemini CLI mantenida por Agentic Engineering 
 
 ```bash
 # macOS / Linux
-gemini extensions install https://github.com/Agentic-Engineering-Agency/prototype-kit
+gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/prototype-kit
 ```
 
 ```powershell
 # Windows PowerShell
-gemini extensions install https://github.com/Agentic-Engineering-Agency/prototype-kit
+gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/prototype-kit
 ```
 
-El agente descargará e instalará la extensión automáticamente. Deberías ver:
+La bandera `--consent` salta el prompt interactivo de confirmación. Sin ella, la instalación puede quedar en silencio cuando stdin está canalizado (por ejemplo, dentro de un script). El agente descargará e instalará la extensión automáticamente. Deberías ver:
 
 ```
 Extension 'prototype-kit' installed successfully.
@@ -57,7 +57,14 @@ npx @agentic-engineering/prototype-kit init
 npx @agentic-engineering/prototype-kit init
 ```
 
-Este comando escribe el archivo de configuración de la extensión en `~/.config/gemini/extensions/prototype-kit.json` (macOS/Linux) o `%APPDATA%\gemini\extensions\prototype-kit.json` (Windows).
+Este comando escribe los archivos de la extensión en `~/.gemini/extensions/prototype-kit/` (macOS/Linux) o `%USERPROFILE%\.gemini\extensions\prototype-kit\` (Windows).
+
+Para confirmar la instalación en una máquina donde `gemini extensions list` solo se renderiza en modo interactivo, revisa el directorio directamente:
+
+```bash
+# macOS / Linux
+ls ~/.gemini/extensions/prototype-kit/gemini-extension.json
+```
 
 Después de la instalación manual, ejecuta `gemini extensions list` nuevamente para confirmar.
 

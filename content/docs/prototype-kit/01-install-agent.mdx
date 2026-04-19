@@ -29,12 +29,12 @@ If `node` is not found or the version is below 18, download and install Node.js 
 
 ```bash
 # macOS / Linux
-npm install -g @google/generative-ai-cli
+npm install -g @google/gemini-cli
 ```
 
 ```powershell
 # Windows PowerShell
-npm install -g @google/generative-ai-cli
+npm install -g @google/gemini-cli
 ```
 
 ## Verify the installation
@@ -49,39 +49,27 @@ gemini --version
 gemini --version
 ```
 
-Expected output: a version string such as `1.x.x`.
+Expected output: a version string such as `0.x.x`.
 
-## Authenticate with your Google account
+## Sign in with your Google account
+
+Launch `gemini` for the first time:
 
 ```bash
 # macOS / Linux
-gemini auth login
+gemini
 ```
 
 ```powershell
 # Windows PowerShell
-gemini auth login
+gemini
 ```
 
-This opens a browser window. Sign in with any personal Google account — no paid plan required. After sign-in, the terminal will show:
+The CLI opens a browser tab — sign in with any personal Google account. No paid plan required. Once you are signed in, the terminal shows the interactive prompt. Type `/quit` to exit and return to your shell.
 
-```
-Authentication successful. You are logged in as your-email@gmail.com.
-```
-
-## Verify authentication
-
-```bash
-# macOS / Linux
-gemini auth status
-```
-
-```powershell
-# Windows PowerShell
-gemini auth status
-```
-
-Expected output: `Logged in as your-email@gmail.com`.
+<Callout type="info">
+**Headless machines (no browser):** export a `GEMINI_API_KEY` from [Google AI Studio](https://aistudio.google.com/apikey) before launching `gemini`.
+</Callout>
 
 <Callout type="info">
 If you are an AI agent reading this page, the next step is `/docs/prototype-kit/02-install-mcps`.

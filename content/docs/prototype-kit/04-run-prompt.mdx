@@ -38,25 +38,37 @@ The agent will read your three documents and then ask you a series of clarifying
 
 ## Clarifying questions the agent will ask
 
-**Q: "What is the primary color of your brand?"**
+The agent asks these five questions — in this order — before it touches any code. Have your answers ready.
 
-Good answer: `"Deep navy blue, like #1A237E"` or `"I don't have a brand color yet — use something that feels professional and trustworthy."`
+**1. Primary user persona — who is the main person using this product?**
 
-**Q: "Should the prototype be mobile-first or desktop-first?"**
+Strong answer: `"University student in Mexico, 18-25 years old, using the app on their phone between classes."` — names who, where, and when.
 
-Good answer: `"Mobile-first — my users will mostly be on phones."` or `"Desktop-first, this is a dashboard for office workers."`
+Weak answer: `"Everyone."` — no persona = generic UI.
 
-**Q: "How many screens should I build?"**
+**2. Three must-have screens — which three views must exist for the prototype to be demonstrable?**
 
-Good answer: `"All the screens in my screens.md — [number] total."` or `"Start with the three most important: Home, Log Expense, and Summary."`
+Strong answer: `"Home dashboard, Log expense, Weekly summary."` — three concrete screens the jury can click through.
 
-**Q: "Do you want real data or placeholder data?"**
+Weak answer: `"All the screens in screens.md."` — forces the agent to pick and probably pick wrong.
 
-Good answer: `"Placeholder data is fine — realistic-looking fake numbers."` or `"Use real data from my screens.md examples."`
+**3. Brand vibe — pick two adjectives that describe the visual tone.**
 
-**Q: "Any authentication screens?"**
+Strong answer: `"Minimal and authoritative."` or `"Warm and playful."` or `"Dark and technical."`
 
-Good answer: `"No — skip login for now, start directly on the home screen."` or `"Yes — one simple login screen with email and password."`
+Weak answer: `"Modern and clean."` — those words mean nothing; every default UI claims them.
+
+**4. Live data or mocked?**
+
+Strong answer: `"Mocked — realistic peso amounts, fake transaction history."` — makes the demo self-contained.
+
+Weak answer: `"Real if possible."` — unless you already have an API, this slows the agent down.
+
+**5. Any existing assets?**
+
+Strong answer: `"Logo at ./assets/logo.svg, primary color #1A237E, font is Inter."` or `"No assets yet, pick something."`
+
+Weak answer: Skipping the question — the agent will invent something and you may not like it.
 
 ## What happens after you answer
 

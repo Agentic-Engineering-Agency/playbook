@@ -73,6 +73,9 @@ export default async function LocaleHomePage(
   );
 }
 
+// Blog and cases only have EN routes wired up for now. Until /es/blog and
+// /es/cases exist, the ES landing only surfaces Guías to avoid dropping Spanish
+// readers onto English content without warning.
 const sections = [
   {
     title: 'Guías',
@@ -81,12 +84,12 @@ const sections = [
   },
   {
     title: 'Casos de estudio',
-    description: 'Productos reales que construimos y cómo fue el proceso.',
+    description: 'Productos reales que construimos y cómo fue el proceso (próximamente en español).',
     href: '/cases',
   },
   {
     title: 'Blog',
-    description: 'Notas sobre desarrollo agéntico, herramientas y craft.',
+    description: 'Notas sobre desarrollo con agentes, herramientas y craft (próximamente en español).',
     href: '/blog',
   },
 ];

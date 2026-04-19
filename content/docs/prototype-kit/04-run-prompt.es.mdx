@@ -38,17 +38,37 @@ El agente leerá tus tres documentos y luego te hará una serie de preguntas de 
 
 ## Preguntas de aclaración que hará el agente
 
-**P: "What is the primary color of your brand?" (¿Cuál es el color principal de tu marca?)**
+El agente hace estas cinco preguntas — en este orden — antes de tocar código. Ten tus respuestas listas.
 
-Buena respuesta: `"Azul marino oscuro, como #1A237E"` o `"Todavía no tengo color de marca — usa algo que se vea profesional y confiable."`
+**1. Persona principal — ¿quién es la persona que usa este producto?**
 
-**P: "Should the prototype be mobile-first or desktop-first?" (¿Primero móvil o escritorio?)**
+Respuesta fuerte: `"Estudiante universitaria en México, 18-25 años, que usa la app desde el celular entre clases."` — nombra quién, dónde y cuándo.
 
-Buena respuesta: `"Mobile-first — mis usuarios usarán mayormente teléfonos."` o `"Desktop-first, es un panel para trabajadores de oficina."`
+Respuesta débil: `"Todos."` — sin persona, UI genérica.
 
-**P: "How many screens should I build?" (¿Cuántas pantallas debo construir?)**
+**2. Tres pantallas must-have — ¿cuáles tres vistas deben existir para que el prototipo sea demostrable?**
 
-Buena respuesta: `"Todas las pantallas en mi screens.md — [número] en total."` o `"Comienza con las tres más importantes: Inicio, Registrar Gasto y Resumen."`
+Respuesta fuerte: `"Dashboard, Registrar gasto, Resumen semanal."` — tres pantallas concretas por las que el jurado puede navegar.
+
+Respuesta débil: `"Todas las de screens.md."` — obliga al agente a escoger y probablemente escoge mal.
+
+**3. Vibe de marca — elige dos adjetivos que describan el tono visual.**
+
+Respuesta fuerte: `"Minimalista y autoritario."` o `"Cálido y juguetón."` o `"Oscuro y técnico."`
+
+Respuesta débil: `"Moderno y limpio."` — esas palabras no significan nada; todas las UIs default dicen lo mismo.
+
+**4. ¿Datos reales o mock?**
+
+Respuesta fuerte: `"Mock — montos en pesos realistas, historial de transacciones falso."` — hace la demo autocontenida.
+
+Respuesta débil: `"Reales si se puede."` — a menos que ya tengas una API, esto solo atrasa al agente.
+
+**5. ¿Assets existentes?**
+
+Respuesta fuerte: `"Logo en ./assets/logo.svg, color primario #1A237E, tipografía Inter."` o `"Aún no tengo assets, inventa."`
+
+Respuesta débil: Saltar la pregunta — el agente se inventa algo y puede que no te guste.
 
 ## Qué sucede después de responder
 
