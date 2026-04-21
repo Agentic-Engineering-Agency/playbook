@@ -1,0 +1,122 @@
+---
+title: PM Kit
+description: Skills de agente que convierten a tu IA en un redactor competente de artefactos de gestión de proyectos, anclados a fuentes canónicas.
+---
+
+# Convierte a tu agente de IA en un redactor competente de artefactos de PM.
+
+Bienvenido a **pm-kit** — una colección de Agent Skills que tu agente de IA usa para redactar artefactos reales de gestión de proyectos: charters, registros de stakeholders, WBS, cronogramas, matrices de riesgo, retrospectivas y más. Cada skill viene con la fuente autoritativa adjunta y una lista de aceptación binaria, para que el resultado se ancle en PMBOK y Scrum en lugar de inventarse. Funciona con Claude Code y Gemini CLI.
+
+<Callout type="info">
+**Agentes de IA:** Descarga [`/llms-full.txt`](/llms-full.txt) para obtener la versión completa del manual en formato legible por máquinas.
+</Callout>
+
+## La tesis: tres principios que rigen todo
+
+Estos tres principios son el método del manual. Aparecen en la primera página, en el encabezado de cada capítulo y en el contenido de cada skill.
+
+### 1. Potenciar, nunca reemplazar
+
+El PM humano firma el artefacto. El agente redacta; tú revisas, editas y apruebas. La IA es un asistente del practicante, nunca un sustituto. Esta postura protege a los estudiantes de confiar ciegamente en contenido alucinado, y a los PMs en ejercicio de la ansiedad de que la IA "viene a quitarles el trabajo". Ni una cosa ni la otra: la IA aquí es una herramienta de borrador.
+
+### 2. Convoca al experto — automáticamente
+
+Todo agente que trabaje en un artefacto de PM debe estar anclado a la fuente autoritativa para ese artefacto (la Guía Scrum, PMBOK 7/8, regulaciones del dominio). En general los usuarios no tienen el hábito de adjuntar documentación, así que el kit lo hace por ellos: cada skill carga, como referencia adjunta o enlazada, la fuente canónica del artefacto que produce. El agente lee la fuente antes de redactar y la cita en la salida.
+
+### 3. Verificación binaria: APROBADO o RECHAZADO
+
+Cada artefacto incluye una lista corta de aceptación dentro de su skill. El revisor humano la corre y marca **APROBADO** o **RECHAZADO**. Un **RECHAZADO** regresa al skill con notas de la falla. Esta disciplina viene directo de la metodología SpecSafe de desarrollo y se traslada tal cual a los artefactos de PM: mismo rigor de cinco pasos, distinto tipo de salida.
+
+## El ciclo de vida en cinco fases
+
+El manual sigue el ciclo de vida completo de un proyecto, de la ideación al cierre. Cada fase agrupa varios artefactos; cada artefacto es un skill con su plantilla y su lista de aceptación.
+
+<Cards>
+  <Card title="1. Ideación" href="#ideacion">
+    Antes del charter: el laboratorio de brainstorming guía la selección del concepto con estrategias estructuradas.
+  </Card>
+  <Card title="2. Inicio" href="#inicio">
+    Charter del proyecto, registro e identificación de stakeholders, business case.
+  </Card>
+  <Card title="3. Planeación" href="#planeacion">
+    PRD, WBS, cronograma con Gantt, estimación de costos, matriz de riesgo, plan de comunicaciones, calidad y recursos.
+  </Card>
+  <Card title="4. Ejecución" href="#ejecucion">
+    Sprint planning, ejecución de historias, preparación de standup, sprint review.
+  </Card>
+  <Card title="5. Cierre" href="#cierre">
+    Retrospectiva, post-mortem, reporte de cierre del proyecto.
+  </Card>
+</Cards>
+
+## Para quién es
+
+Este kit fue pensado primero para PMs en formación y en ejercicio en Latinoamérica — en particular para la comunidad de la materia *Desarrollo y Administración de Proyectos*: docentes que necesitan un activo reutilizable para el aula y estudiantes cuyas entregas se evalúan justo con artefactos PMBOK y Scrum. También sirve a PMs que ya trabajan con agentes de IA y quieren salidas con forma de PMBOK por defecto, sin tener que recordarle al agente cuál es la fuente cada vez.
+
+No está pensado para product managers de software en el sentido del PM de producto digital — ese espacio ya está bien atendido. Esto es para gestión de proyectos como se enseña en programas de negocios, ingeniería y administración: un caso de uso distinto y más amplio.
+
+## Qué se incluye
+
+- **20 estrategias de brainstorming** con guion de facilitación (con la opción de instalar el paquete completo de 60).
+- **Charter, registro de stakeholders y business case** para la fase de inicio.
+- **PRD, WBS, cronograma con Gantt en Mermaid** y planes de comunicaciones, calidad y recursos.
+- **Matriz de riesgo** generada con estrategias de Reverse Brainstorming y Chaos Engineering.
+- **Estimación de costos** con planning poker, talla de camiseta y estimación de tres puntos.
+- **Sprint planning, sprint review y retrospectiva** alineados a Scrum.
+- **Post-mortem y reporte de cierre** para el cierre del proyecto.
+
+Cada artefacto trae su plantilla de salida y su lista de aceptación. Las salidas viven en `docs/pm-kit/outputs/` dentro de tu proyecto.
+
+## Idiomas
+
+El instalador acepta cualquier idioma natural que escribas en el prompt — escribe `español`, `English`, `português`, `français`, `kichwa` o lo que prefieras, y el agente se comunica en ese idioma. Las fuentes autoritativas que vienen empaquetadas (la Guía Scrum y el Manifiesto Ágil) están en inglés y en español latinoamericano. Para salidas en otros idiomas, el agente traduce sobre la marcha; la calidad depende de la capacidad de traducción del propio agente.
+
+## Instalar
+
+Una sola línea para empezar:
+
+```bash
+npx agentic-pm-kit install
+```
+
+El instalador interactivo te pregunta directorio destino, agentes (Claude Code, Gemini CLI o ambos), idioma de comunicación, idioma de salida, módulos a instalar y modo de fuentes (offline por defecto, online opcional). El recorrido completo paso a paso vive en la página de instalación.
+
+## Licencia y atribución
+
+MIT. La página de referencia recopila la lista completa de fuentes y atribuciones de terceros.
+
+## Detalle por fase
+
+Las cinco tarjetas de arriba apuntan a estas anclas. Las páginas dedicadas con el ejemplo trabajado en BookSwap Campus y la lista completa de skills llegan próximamente.
+
+<h3 id="ideacion">Ideación</h3>
+
+Laboratorio de brainstorming con 20 estrategias curadas para contexto PM (Cinco Porqués, Question Storming, Six Thinking Hats, Role Playing, Reverse Brainstorming, Chaos Engineering, entre otras). El skill de laboratorio te lleva paso a paso por la selección de la estrategia adecuada para tu problema, ejecuta la facilitación y emite un memorando de concepto listo para alimentar el charter.
+
+<h3 id="inicio">Inicio</h3>
+
+- **Charter del proyecto.** Consume el memorando de concepto y emite un charter con forma PMBOK.
+- **Registro e identificación de stakeholders.** Corre una estrategia de brainstorming (Role Playing o Six Thinking Hats) sobre el charter para enumerar stakeholders, y emite el registro.
+- **Business case / product brief.** Versión adaptada para audiencia PM.
+
+<h3 id="planeacion">Planeación</h3>
+
+- **PRD** simplificado para audiencia PM.
+- **WBS** que consume la jerarquía de épicas e historias y emite la descomposición con forma PMBOK.
+- **Épicas e historias** con criterios de aceptación.
+- **Cronograma / Gantt** con diagrama Mermaid y narrativa.
+- **Estimación de costos** que enseña planning poker, talla de camiseta y estimación de tres puntos con ejemplos.
+- **Matriz de riesgo** probabilidad × impacto.
+- **Planes de comunicaciones, calidad y recursos.**
+
+<h3 id="ejecucion">Ejecución</h3>
+
+- **Sprint planning** y **sprint review** alineados a Scrum.
+- **Ejecución de historias** (opcional, para equipos cuyo proyecto incluye un componente de código).
+- **Preparación de standup** que te ayuda a redactar tus tres viñetas (ayer / hoy / bloqueos). Explícitamente no reemplaza el standup; lo prepara.
+
+<h3 id="cierre">Cierre</h3>
+
+- **Retrospectiva** del sprint o del proyecto.
+- **Post-mortem** para incidentes serios o retrospectivas a nivel de proyecto.
+- **Reporte de cierre del proyecto** con forma PMBOK como artefacto final de firma.

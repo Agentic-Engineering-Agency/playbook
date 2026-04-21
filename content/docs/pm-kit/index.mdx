@@ -1,0 +1,122 @@
+---
+title: PM Kit
+description: Agent Skills that turn your AI into a competent drafter of project-management artifacts, anchored to canonical sources.
+---
+
+# Turn your AI agent into a competent drafter of PM artifacts.
+
+Welcome to **pm-kit** — a collection of Agent Skills your AI agent uses to draft real project-management artifacts: charters, stakeholder registers, WBS, schedules, risk matrices, retrospectives, and more. Every skill ships with its authoritative source attached and a binary acceptance checklist, so the output is anchored in PMBOK and Scrum rather than invented. Works with Claude Code and Gemini CLI.
+
+<Callout type="info">
+**AI agents:** Fetch [`/llms-full.txt`](/llms-full.txt) for the complete machine-readable version of this playbook.
+</Callout>
+
+## The thesis: three governing principles
+
+These three principles are the method of the playbook. They appear on the first page, on every chapter header, and inside every skill.
+
+### 1. Enhance, never replace
+
+The human PM signs the artifact. The agent drafts; you review, edit, and approve. AI is an assistant to the practitioner, never a substitute. This stance protects students from over-trusting hallucinated content, and protects working PMs from the anxiety that AI is "coming for the job." Neither: AI here is a drafting tool.
+
+### 2. Summon the SME — automatically
+
+Any agent working on a PM artifact must be anchored to the authoritative source for that artifact (the Scrum Guide, PMBOK 7/8, domain regulations). In practice users don't have the habit of attaching documentation, so the kit does it for them: every skill carries, as a bundled or linked reference, the canonical source for the artifact it produces. The agent reads the source before drafting and cites it in the output.
+
+### 3. Binary verification: PASS or FAIL
+
+Every artifact ships with a short acceptance checklist embedded in its skill. The human reviewer runs it and marks **PASS** or **FAIL**. A **FAIL** loops back to the skill with the failure notes. This discipline comes straight from the SpecSafe development methodology and ports as-is to PM artifacts: same five-step rigor, different output type.
+
+## The lifecycle in five phases
+
+The playbook follows the full project lifecycle, from ideation to closing. Each phase groups several artifacts; each artifact is a skill with its template and its acceptance checklist.
+
+<Cards>
+  <Card title="1. Ideation" href="#ideation">
+    Before the charter: the brainstorming lab guides concept selection through structured strategies.
+  </Card>
+  <Card title="2. Initiation" href="#initiation">
+    Project charter, stakeholder identification and register, business case.
+  </Card>
+  <Card title="3. Planning" href="#planning">
+    PRD, WBS, schedule with Gantt, cost estimation, risk matrix, communications, quality, and resource plans.
+  </Card>
+  <Card title="4. Execution" href="#execution">
+    Sprint planning, story execution, standup prep, sprint review.
+  </Card>
+  <Card title="5. Closing" href="#closing">
+    Retrospective, post-mortem, project closure report.
+  </Card>
+</Cards>
+
+## Who it's for
+
+This kit was built first for PMs in training and in practice across Latin America — in particular for the *Desarrollo y Administración de Proyectos* community: teachers who need a reusable classroom asset, and students whose deliverables are graded against PMBOK and Scrum artifacts. It also serves PMs who already work with AI agents and want PMBOK-shaped outputs by default, without having to remind the agent of the source on every invocation.
+
+It is explicitly not for product managers in the digital-product sense — that space is already well served. This is for project management as taught in business, engineering, and management programs: a different and broader use case.
+
+## What's included
+
+- **20 brainstorming strategies** with facilitation scripts (with the option to install the full deck of 60).
+- **Charter, stakeholder register, and business case** for the initiation phase.
+- **PRD, WBS, schedule with Mermaid Gantt** plus communications, quality, and resource plans.
+- **Risk matrix** generated using Reverse Brainstorming and Chaos Engineering strategies.
+- **Cost estimation** via planning poker, t-shirt sizing, and three-point estimation.
+- **Sprint planning, sprint review, and retrospective** aligned to Scrum.
+- **Post-mortem and closure report** for project closing.
+
+Each artifact ships with its output template and its acceptance checklist. Outputs land in `docs/pm-kit/outputs/` inside your project.
+
+## Languages
+
+The installer accepts any natural language you type into the prompt — write `español`, `English`, `português`, `français`, `kichwa`, or whatever you prefer, and the agent communicates in that language. The bundled authoritative sources (the Scrum Guide and the Agile Manifesto) ship in English and in Latin American Spanish. For output in other languages the agent translates on the fly; quality depends on the agent's own translation capability.
+
+## Install
+
+One line to start:
+
+```bash
+npx agentic-pm-kit install
+```
+
+The interactive installer prompts for the target directory, the agents (Claude Code, Gemini CLI, or both), the communication language, the output language, the modules to install, and the source mode (offline by default, online opt-in). The full step-by-step walkthrough lives on the install page.
+
+## License and attribution
+
+MIT. The reference page collects the full list of sources and third-party attributions.
+
+## Phase detail
+
+The five cards above link to these anchors. The dedicated pages with the BookSwap Campus worked example and the full skills catalog are coming soon.
+
+<h3 id="ideation">Ideation</h3>
+
+Brainstorming lab with 20 strategies curated for PM context (Five Whys, Question Storming, Six Thinking Hats, Role Playing, Reverse Brainstorming, Chaos Engineering, among others). The lab skill walks you through selecting the right strategy for your problem, runs the facilitation, and emits a concept memo ready to feed the charter.
+
+<h3 id="initiation">Initiation</h3>
+
+- **Project charter.** Consumes the concept memo and emits a PMBOK-shaped charter.
+- **Stakeholder identification and register.** Runs a brainstorming strategy (Role Playing or Six Thinking Hats) over the charter to enumerate stakeholders, and emits the register.
+- **Business case / product brief.** Adapted for a PM audience.
+
+<h3 id="planning">Planning</h3>
+
+- **PRD** simplified for a PM audience.
+- **WBS** that consumes the epic-and-story hierarchy and emits the PMBOK-shaped breakdown.
+- **Epics and stories** with acceptance criteria.
+- **Schedule / Gantt** with a Mermaid diagram and narrative.
+- **Cost estimation** that teaches planning poker, t-shirt sizing, and three-point estimation with worked examples.
+- **Risk matrix** with probability × impact.
+- **Communications, quality, and resource plans.**
+
+<h3 id="execution">Execution</h3>
+
+- **Sprint planning** and **sprint review** aligned to Scrum.
+- **Story execution** (optional, for teams whose project includes a code component).
+- **Standup prep** that helps you draft your three bullets (yesterday / today / blockers). Explicitly does not replace the standup; it prepares it.
+
+<h3 id="closing">Closing</h3>
+
+- **Retrospective** for the sprint or the project.
+- **Post-mortem** for serious incidents or project-level retrospectives.
+- **Project closure report** with PMBOK shape as the final sign-off artifact.
