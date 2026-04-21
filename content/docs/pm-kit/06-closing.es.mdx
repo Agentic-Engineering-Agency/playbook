@@ -77,7 +77,17 @@ El agente te guia en reunir los documentos fuente (charter aprobado, cronograma 
 
 ## Ejemplo trabajado — BookSwap Campus
 
+### Retrospectiva del Sprint 3
+
 La retrospectiva del Sprint 3 de BookSwap Campus se condujo con la skill `retrospective` bajo el lente Start/Stop/Continue y se enfocó en una meta cumplida sólo parcialmente (23/40 primeras transacciones). La sesión produjo cinco acciones accionables con dueño, fecha y criterio de éxito verificable —destacan el rediseño de onboarding al cierre del Sprint 4 y la nueva regla "historia estancada ≤ 2 días en revisión" ya firmada por el equipo—. La sección de seguimiento de retros previas cierra dos acciones como Resolved (pipeline de staging y guía de estilo UI) y una como Dropped con racional documentado (consultor externo de seguridad, consolidado dentro del pentest integral vía ADR-004). La retrospectiva alimenta directamente la discusión de planeación del Sprint 5 y se cruza con el hallazgo del memo Cinco Porqués sobre validación empírica de perfil de usuario. [Ver retrospectiva completa](./outputs/retrospective/sprint-3.md)
+
+### Post-mortem — caída de staging 2026-04-17
+
+El post-mortem de la caída de staging de 7 horas el 2026-04-17 se condujo con el skill `post-mortem` bajo contrato sin culpa. El incidente costó aproximadamente 32 persona-horas (~10 % de la capacidad del sprint) y se trazó a una práctica de gobierno ausente: sin bitácora de cambios, sin alerta de desviación de configuración y sin canal formal de incidentes con el proveedor de pagos — no a ninguna acción individual. Se produjeron seis acciones categorizadas como Prevenir / Detectar / Mitigar, cada una con dueño nombrado, fecha límite y criterio de éxito verificable — incluyendo el despliegue inmediato de una alerta de desviación de configuración y un canal conjunto de incidentes con el proveedor de pagos antes de la siguiente integración en staging. [Ver post-mortem completo](./outputs/post-mortem/2026-04-17-staging-outage.md)
+
+### Reporte de cierre (proyección previa al cierre)
+
+El reporte de cierre de BookSwap Campus v1 se generó con el skill `closure-report` como proyección previa al cierre durante el Sprint 4 (2026-04-21) — los marcadores de posición indican las métricas finales reales que se completarán al término del proyecto. El costo total proyectado es MXN 1,357,000, dentro del envelope MXN 1.25M–1.75M del charter; el M6 está previsto para el 2026-12-18; y sólo un cambio de alcance aprobado (CR-001, rediseño de onboarding) consta en el registro. El reporte consolida lecciones de la retrospectiva del Sprint 3 y del post-mortem de staging en un solo artefacto legible por el patrocinador, e incluye las ubicaciones de archivo de cada artefacto para el traspaso al cierre formal. [Ver reporte de cierre completo](./outputs/closure-report/bookswap-campus-v1.md)
 
 ---
 

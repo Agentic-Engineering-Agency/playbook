@@ -170,7 +170,41 @@ The agent will build the team roster with roles, assigned people (or "TBD"), all
 
 ## Worked example — BookSwap Campus
 
+### Product Requirements Document
+
+The BookSwap Campus v1 PRD was produced with the `prd` skill from the charter and stakeholder register, and defines 17 functional requirements (FR-001 to FR-017) organized around four user types: buyer student, seller student, university administrator, and platform moderator. Non-functional requirements mandate LFPDPPP data-privacy compliance, WCAG 2.1 AA accessibility, and a p95 response time under 2 seconds — figures the team set before writing a single line of code. Five open questions are tracked with named owners and resolution deadlines, including the legal status of escrow under Mexican payment regulation. [See full PRD](./outputs/prd/bookswap-campus-v1.md)
+
+### Work Breakdown Structure
+
+The BookSwap Campus v1 WBS was produced with the `wbs` skill and structures the project into 7 phases at Level 1 (Foundation through Closure), roughly 32 work packages at Level 3, and a Mermaid `graph TD` diagram that maps phases to sub-deliverables. Each package carries a WBS code, owner, estimated duration, and dependencies; the WBS dictionary calls out the five most ambiguous packages — including the escrow integration and the institutional email verification — whose acceptance criteria were unclear in the PRD. The WBS became the direct input for the schedule and for sprint backlog decomposition. [See full WBS](./outputs/wbs/bookswap-campus-v1.md)
+
+### Epics and Stories
+
+The BookSwap Campus v1 epics-and-stories artifact was produced with the `epics-and-stories` skill and decomposes the PRD into 7 epics (EP-01 through EP-07) and 18 user stories (ST-01 through ST-18). Priority distribution is 12 Must / 5 Should / 1 Could; every story includes Gherkin acceptance criteria (Given / When / Then) and explicit dependencies on prior stories, so the team entered sprint planning with a backlog that was already sequenced. EP-03 (Verified Onboarding) and EP-04 (Marketplace Core) carry the highest story count and map directly to the red-zone risks R1 and R2 in the risk matrix. [See full epics and stories](./outputs/epics-and-stories/bookswap-campus-v1.md)
+
+### Schedule (Gantt)
+
+The BookSwap Campus v1 schedule was produced with the `schedule-gantt` skill and spans approximately 160 business days on the critical path, from kick-off on 2026-05-04 (M0) to formal close on 2026-12-18 (M6), with go-live at M4 = 2026-08-12. The Mermaid `gantt` block defines 7 milestones and identifies parallel branches — UX design and infrastructure setup run concurrently with sprint development to preserve float — and the narrative calls out the five tasks with zero float that would delay go-live if they slip. The schedule is cross-referenced to the WBS so any slippage in a work package cascades visibly to its milestone. [See full schedule](./outputs/schedule-gantt/bookswap-campus-v1.md)
+
+### Cost Estimation — Sprint 4
+
+The Sprint 4 cost estimation was facilitated with the `cost-estimation` skill and combines two techniques: Planning Poker (Fibonacci) for the 10 user stories and PERT three-point estimation for the 2 infrastructure tasks. Planning Poker produced 68 total story points; against the team's observed velocity of ~40 pts/sprint from Sprint 3, the backlog requires ~1.7 sprints — so the team committed a 28-pt ceiling for Sprint 4 and planned to carry ~28 pts into Sprint 5 pending the payment-provider SDK assumption. The two PERT tasks produced a combined expected duration of 9.17 business days with an 80% confidence interval of [6.6 — 11.8 days]. [See full estimation](./outputs/cost-estimation/sprint-4-backlog.md)
+
+### Risk Matrix
+
 The baseline risk matrix (v1.0) was produced with the `risk-matrix` skill and identifies 12 risks across all four PMBOK categories (technical, external, organizational, project management). The initial snapshot places four risks in the red zone: R1 adoption below critical threshold and R2 onboarding friction (both scored 20), followed by R6 architecture under start-of-semester traffic and R8 listings containing copyrighted material (both scored 15). Every Top-5 risk carries a concrete response plan with actions, owner, trigger conditions, and target date (e.g., R2 is assigned to the Product Owner with a due date at end of Sprint 4, 2026-05-08). The artifact is cross-referenced with the charter: R2 guards the "median time-to-first-transaction ≤ 7 days" metric and R1 guards the 1,500-users end-of-semester objective. [See full matrix](./outputs/risk-matrix/bookswap-campus-v1-planning.md)
+
+### Communications Plan
+
+The BookSwap Campus v1 communications plan was produced with the `communication-plan` skill and maps 11 distinct audiences — from the university sponsor to payment provider technical contacts — to 8 recurring meeting formats and 4 escalation routes. The plan documents who sends what to whom, at what cadence, and through which channel, covering everything from the daily standup to the quarterly steering-committee report for La Salle and Panamericana. A 2-year document retention policy and clear rules about when to escalate a blocker to the sponsor (unresolved after 2 business days at team level) are included. [See full communications plan](./outputs/communication-plan/bookswap-campus-v1.md)
+
+### Quality Plan
+
+The BookSwap Campus v1 quality plan was produced with the `quality-plan` skill and defines 9 measurable quality metrics with hard minimum targets, including p95 response time < 2 s, automated test coverage ≥ 70%, WCAG 2.1 AA compliance for all public screens, and OWASP Top 10 clearance confirmed by a penetration test before M3. Process quality is enforced via the SpecSafe five-step discipline — spec, tests, implementation, verify, archive — so that every story enters the sprint with acceptance criteria and exits with tests that pass. A penetration test and accessibility audit are scheduled as formal gates before go-live. [See full quality plan](./outputs/quality-plan/bookswap-campus-v1.md)
+
+### Resource Plan
+
+The BookSwap Campus v1 resource plan was produced with the `resource-plan` skill and assembles a core team of 5 (PM, PO, Eng Lead, backend developer, frontend/UX developer) plus 4 honorario student moderators for the pilot semester, with 4 TBD roles whose designation deadlines are tracked before M1. Total projected cost is MXN 1,357,000 — MXN 980,000 in personnel and MXN 377,000 in infrastructure, software licenses, and contingency — placing the project within the MXN 1.25M–1.75M envelope authorized in the charter. Open hiring tasks (two university liaisons at La Salle and Panamericana) are flagged with a hard deadline to avoid slipping the go-live milestone. [See full resource plan](./outputs/resource-plan/bookswap-campus-v1.md)
 
 ---
 
