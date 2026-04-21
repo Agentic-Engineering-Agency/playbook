@@ -1,0 +1,85 @@
+---
+title: Initiation — Charter, Stakeholders, and Business Case
+description: Convert an approved concept into formal authorization. Three artifacts constitute project initiation — the charter, the stakeholder register, and the product brief — and together give the team both the mandate and the foundation to plan.
+---
+
+# Phase 1 — Initiation
+
+Initiation is the moment a project stops being an idea and becomes a formal commitment. The sponsor signs the charter. The team identifies everyone with a stake in the outcome. And the business case documents why the work is worth doing now.
+
+This phase is not bureaucracy: it is the first opportunity for the team to understand scope, constraints, and stakeholders before the pressure of execution begins. A solid initiation prevents the late conversations that sound like "why did nobody tell us that department had a vote?"
+
+The initiation phase begins when the ideated concept has the sponsor's go-ahead to become a formal project. It ends when the charter is signed, a first-version stakeholder register exists, and the product brief documents the business rationale.
+
+## When this phase begins
+
+Initiation starts as soon as the concept memo (or any equivalent input) has enough buy-in for the team to invest time in formalization. It does not require that ideation followed the Brainstorming Lab process — it can begin from any sponsor instruction. It ends before detailed planning.
+
+---
+
+<h3 id="charter">Artifact 1: Project Charter</h3>
+
+| | |
+|---|---|
+| **Skill** | `charter` |
+| **Type** | Extension — originally authored for Agentic PM Kit |
+| **When to use** | The sponsor is ready to formally authorize the project and needs a single document that names the work, grants authority, and sets the quality bar for every downstream planning artifact. |
+| **Acceptance checklist** | `docs/pm-kit/checklists/charter.md` inside your installed project |
+
+**Invocation pattern.** Open your agent in your project directory and instruct:
+
+> _Invoke the `charter` skill._
+
+The agent will collect available inputs (concept memo, product brief), capture the project identification data, SMART objectives, scope, milestones, high-level budget, constraints, assumptions, a preliminary risk summary, and the approval signatures block. The artifact is saved to `docs/pm-kit/outputs/charter/`.
+
+**Note on ordering.** The charter consumes the concept memo from the ideation phase and in turn feeds the stakeholder register. If the product brief does not exist yet, the skill can build the charter directly from the concept memo.
+
+---
+
+<h3 id="stakeholder-register">Artifact 2: Stakeholder Register</h3>
+
+| | |
+|---|---|
+| **Skill** | `stakeholder-register` |
+| **Type** | Extension — originally authored for Agentic PM Kit |
+| **When to use** | The charter exists and the team needs to systematically identify all parties with an interest or influence in the project outcome, classify them, and document how each relationship will be managed. |
+| **Acceptance checklist** | `docs/pm-kit/checklists/stakeholder-register.md` inside your installed project |
+
+**Invocation pattern.** Open your agent in your project directory and instruct:
+
+> _Invoke the `stakeholder-register` skill._
+
+The skill internally runs a structured brainstorming strategy — defaulting to `brainstorming-role-playing` or `brainstorming-six-thinking-hats` — applied against the charter to surface all interested parties. It then classifies each stakeholder in the influence × interest grid (Manage Closely / Keep Satisfied / Keep Informed / Monitor) and documents channel, cadence, and relationship owner. The artifact is saved to `docs/pm-kit/outputs/stakeholder-register/`.
+
+---
+
+<h3 id="product-brief">Artifact 3: Product Brief / Business Case</h3>
+
+| | |
+|---|---|
+| **Skill** | `product-brief` |
+| **Type** | Adapted from open-source MIT content. See `THIRD_PARTY_NOTICES.md`. |
+| **When to use** | The sponsor or steering committee requires a written rationale for the project before approving initiation; the team needs to sharpen a concept or brainstorming output into a structured, presentable 1–3 page brief. |
+| **Acceptance checklist** | `docs/pm-kit/checklists/product-brief.md` inside your installed project |
+
+**Invocation pattern.** Open your agent in your project directory and instruct:
+
+> _Invoke the `product-brief` skill._
+
+The agent will collect the problem statement, target users, desired outcomes with metrics, key risks, and the high-level approach. The product brief may be produced before or in parallel with the charter — it acts as the business justification, not as a substitute for the charter. The artifact is saved to `docs/pm-kit/outputs/product-brief/`.
+
+---
+
+## Worked example — BookSwap Campus
+
+_Worked example output will appear here once Team D runs the kit end-to-end on BookSwap Campus._
+
+---
+
+<Callout type="tip">
+**What initiation must get right**
+
+- **An unsigned charter is a draft.** A charter without the signatures block is not a charter — it is a draft. The formal sign-off by the sponsor, project manager, and any additional approvers is the act that authorizes the project. Without it, the team works without a mandate.
+- **Don't skip the stakeholder register.** Identifying stakeholders _after_ the project is underway is too late. Groups overlooked during initiation return during execution as blockers, scope changes, or product rejection.
+- **The product brief does not replace the charter.** The brief is the business justification; the charter is the formal authorization. Both can coexist and complement each other. Producing only one of the two leaves a gap.
+</Callout>

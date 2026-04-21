@@ -1,0 +1,94 @@
+---
+title: Ideation — Brainstorming Lab
+description: Select the right divergence strategy for your problem before committing to any concept. The Brainstorming Lab acts as an entry point and routes your session to one of 20 curated strategies.
+---
+
+# Phase 0 — Ideation
+
+Ideation is the work that happens _before_ the charter. You don't yet have an approved project name, a sponsor signing paperwork, or a budget. What you have is a situation: an unsolved problem, an opportunity to explore, or a question the team hasn't been able to answer. The ideation phase converts that vague situation into a concept clear enough to start a project on solid footing.
+
+In the project management lifecycle, ideation feeds directly into the initiation phase. A well-structured concept makes the charter easier to draft, the stakeholder register more accurate, and the product brief more honest. If you skip ideation or do it superficially, every phase that follows pays the cost: the team re-debates decisions that should already be made.
+
+## When this phase begins
+
+The ideation phase begins when someone — a sponsor, a teacher, a team — identifies a need or opportunity without a formal project existing yet. It ends when the team produces a **concept memo** that the sponsor can read and, if convinced, use as input for the charter.
+
+---
+
+<h3 id="brainstorming-lab">Artifact: Brainstorming Lab</h3>
+
+| | |
+|---|---|
+| **Skill** | `brainstorming-lab` |
+| **Type** | Router / meta-skill |
+| **When to use** | The team wants structured brainstorming but doesn't know which technique to use. The Lab asks diagnostic questions and recommends one or two strategies from the curated deck of 20. |
+| **Acceptance checklist** | `docs/pm-kit/checklists/brainstorming-lab.md` inside your installed project |
+
+**Invocation pattern.** Open your agent (Claude Code or Gemini CLI) in your project directory and instruct:
+
+> _Invoke the `brainstorming-lab` skill._
+
+The agent will ask three to five diagnostic questions about your situation, problem type, team size, and available time, then recommend the most appropriate strategy. Once the selection is ready, the agent saves the rationale to `docs/pm-kit/outputs/brainstorming-lab/`.
+
+---
+
+<h3 id="how-to-pick-a-strategy">How to pick the right strategy</h3>
+
+The Brainstorming Lab is the correct entry point when you're not sure which technique to apply. But if you already know your situation, you can invoke any of the 20 strategies directly.
+
+**Start by answering these two questions:**
+
+1. Do you need to _expand_ the solution space (generate more ideas) or _narrow_ it (find the best path)?
+2. Where are you in the project: early discovery, a specific blocker, or a decision among already-known options?
+
+If you don't have clear answers, invoke `brainstorming-lab` and let the agent run the diagnosis.
+
+---
+
+<h3 id="curated-strategies">The 20 strategies in the curated deck</h3>
+
+Each strategy is a standalone skill with a facilitation script included. Invoke whichever one the Lab recommends, or choose directly if you already know the technique you need.
+
+<details>
+<summary>Show all 20 strategies</summary>
+
+| Skill | When to use |
+|---|---|
+| `brainstorming-five-whys` | Root-cause analysis; best for convergent problem diagnosis |
+| `brainstorming-question-storming` | Generate questions before answers; best for early discovery |
+| `brainstorming-assumption-reversal` | Flip core assumptions; best for paradigm-shift moments |
+| `brainstorming-constraint-mapping` | Surface and challenge limitations; best for blocked planning |
+| `brainstorming-failure-analysis` | Learn from failures; best for risk identification |
+| `brainstorming-morphological-analysis` | Systematic parameter combinations; best for complex option spaces |
+| `brainstorming-six-thinking-hats` | Multi-perspective parallel thinking; best for teams needing structured debate |
+| `brainstorming-mind-mapping` | Visual idea branching; best for solo or small-team exploration |
+| `brainstorming-decision-tree-mapping` | Map decision paths and outcomes; best for choice evaluation |
+| `brainstorming-solution-matrix` | Grid of variables and approaches; best for systematic option comparison |
+| `brainstorming-resource-constraints` | Extreme limitation imposition; best for forcing creative priorities |
+| `brainstorming-role-playing` | Stakeholder perspective embodiment; best for empathy and stakeholder discovery |
+| `brainstorming-brain-writing-round-robin` | Silent written idea building in rotation; best for inclusive large groups |
+| `brainstorming-reverse-brainstorming` | Generate problems to reveal solutions; best for risk and opportunity discovery |
+| `brainstorming-what-if-scenarios` | Radical possibility exploration; best for breaking stuck thinking |
+| `brainstorming-first-principles-thinking` | Rebuild from fundamental truths; best for breakthrough innovation |
+| `brainstorming-values-archaeology` | Excavate deep motivating values; best for alignment and priority conflicts |
+| `brainstorming-alien-anthropologist` | Outsider's bewildered perspective; best for surfacing hidden assumptions |
+| `brainstorming-chaos-engineering` | Deliberate stress-testing; best for resilience and risk planning |
+| `brainstorming-anti-solution` | Generate ways to make the problem worse; best for revealing hidden assumptions |
+
+</details>
+
+---
+
+## Worked example — BookSwap Campus
+
+_Worked example output will appear here once Team D runs the kit end-to-end on BookSwap Campus._
+
+---
+
+<Callout type="tip">
+**What ideation must get right**
+
+- **Don't skip the diagnosis.** Choosing the wrong strategy produces ideas that don't fit the problem type. The Lab's five questions take minutes and save hours later.
+- **Capture the reasoning, not just the ideas.** The concept memo the Lab produces must explain why the team chose that angle, not just what ideas emerged. The charter will need it.
+- **One approved concept, not ten.** Ideation ends when there is a single concept clear enough for the sponsor to authorize. Two or three candidates without a decision is not an ideation deliverable — it's unfinished planning work.
+</Callout>

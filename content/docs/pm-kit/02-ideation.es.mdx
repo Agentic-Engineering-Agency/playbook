@@ -1,0 +1,94 @@
+---
+title: Ideación — Laboratorio de Brainstorming
+description: Selecciona la estrategia de divergencia correcta para tu problema antes de comprometerte con cualquier concepto. El Laboratorio de Brainstorming actúa como punto de entrada y enruta tu sesión a una de las 20 estrategias curadas.
+---
+
+# Fase 0 — Ideación
+
+La ideación es el trabajo que ocurre _antes_ del charter. No tienes todavía un nombre de proyecto aprobado, ni un patrocinador firmando papeles, ni un presupuesto. Lo que tienes es una situación: un problema sin resolver, una oportunidad a explorar, o una pregunta que el equipo no ha sabido responder. La fase de ideación convierte esa situación vaga en un concepto suficientemente claro para iniciar el proyecto con confianza.
+
+En el ciclo de vida de gestión de proyectos, la ideación alimenta directamente la fase de inicio. Un concepto bien estructurado hace que el charter sea más fácil de redactar, que el registro de stakeholders sea más preciso y que el product brief sea más honesto. Si te saltas la ideación o la haces de forma superficial, todas las fases que siguen pagan el costo: el equipo vuelve a debatir lo que ya debería estar decidido.
+
+## Cuándo comienza esta fase
+
+La fase de ideación comienza cuando alguien — un patrocinador, un docente, un equipo — identifica una necesidad o una oportunidad sin que todavía exista un proyecto formal. Termina cuando el equipo produce un **memorando de concepto** que el patrocinador puede leer y, si está convencido, usar como insumo para el charter.
+
+---
+
+<h3 id="brainstorming-lab">Artefacto: Laboratorio de Brainstorming</h3>
+
+| | |
+|---|---|
+| **Skill** | `brainstorming-lab` |
+| **Tipo** | Enrutador / meta-skill |
+| **Cuándo usarlo** | El equipo quiere hacer brainstorming estructurado pero no sabe qué técnica usar. El Laboratorio hace las preguntas de diagnóstico y recomienda una o dos estrategias del mazo curado de 20. |
+| **Lista de aceptación** | `docs/pm-kit/checklists/brainstorming-lab.md` dentro de tu proyecto instalado |
+
+**Patrón de invocación.** Abre tu agente (Claude Code o Gemini CLI) en el directorio de tu proyecto e instruye:
+
+> _Invoca el skill `brainstorming-lab`._
+
+El agente te hará entre tres y cinco preguntas de diagnóstico sobre tu situación, el tipo de problema, el tamaño del equipo y el tiempo disponible, y al final recomendará la estrategia más apropiada. Cuando la selección esté lista, el agente guardará el razonamiento en `docs/pm-kit/outputs/brainstorming-lab/`.
+
+---
+
+<h3 id="como-elegir-estrategia">Cómo elegir la estrategia correcta</h3>
+
+El Laboratorio de Brainstorming es el punto de entrada correcto cuando no tienes claro cuál técnica aplicar. Pero si ya conoces tu situación, puedes invocar cualquiera de las 20 estrategias directamente.
+
+**Primero responde estas dos preguntas:**
+
+1. ¿Necesitas _expandir_ el espacio de soluciones (generar más ideas) o _reducirlo_ (encontrar el mejor camino)?
+2. ¿Dónde estás en el proyecto: descubrimiento temprano, una restricción específica, o una decisión entre opciones ya conocidas?
+
+Si no tienes respuestas claras, invoca `brainstorming-lab` y deja que el agente conduzca el diagnóstico.
+
+---
+
+<h3 id="estrategias-curadas">Las 20 estrategias del mazo curado</h3>
+
+Cada estrategia es un skill autónomo con un guion de facilitación incluido. Invoca la que el Laboratorio recomiende, o elige directamente si ya conoces la técnica que necesitas.
+
+<details>
+<summary>Ver las 20 estrategias</summary>
+
+| Skill | Cuándo usar |
+|---|---|
+| `brainstorming-five-whys` | Análisis de causa raíz; mejor para diagnóstico convergente |
+| `brainstorming-question-storming` | Generar preguntas antes de respuestas; mejor para descubrimiento temprano |
+| `brainstorming-assumption-reversal` | Invertir supuestos centrales; mejor para momentos de cambio de paradigma |
+| `brainstorming-constraint-mapping` | Visibilizar y cuestionar restricciones; mejor para planificación bloqueada |
+| `brainstorming-failure-analysis` | Aprender de fracasos; mejor para identificación de riesgos |
+| `brainstorming-morphological-analysis` | Combinaciones sistemáticas de parámetros; mejor para espacios de opciones complejos |
+| `brainstorming-six-thinking-hats` | Pensamiento paralelo desde múltiples perspectivas; mejor para equipos que necesitan debate estructurado |
+| `brainstorming-mind-mapping` | Ramificación visual de ideas; mejor para exploración individual o en equipo pequeño |
+| `brainstorming-decision-tree-mapping` | Mapear caminos de decisión y resultados; mejor para evaluación de opciones |
+| `brainstorming-solution-matrix` | Cuadrícula de variables y enfoques; mejor para comparación sistemática de opciones |
+| `brainstorming-resource-constraints` | Imposición de limitaciones extremas; mejor para forzar prioridades creativas |
+| `brainstorming-role-playing` | Encarnar perspectivas de stakeholders; mejor para empatía y descubrimiento de partes interesadas |
+| `brainstorming-brain-writing-round-robin` | Construcción escrita y silenciosa de ideas en ronda; mejor para grupos grandes e inclusivos |
+| `brainstorming-reverse-brainstorming` | Generar problemas para revelar soluciones; mejor para descubrimiento de riesgos y oportunidades |
+| `brainstorming-what-if-scenarios` | Exploración radical de posibilidades; mejor para romper el pensamiento estancado |
+| `brainstorming-first-principles-thinking` | Reconstruir desde verdades fundamentales; mejor para innovación disruptiva |
+| `brainstorming-values-archaeology` | Excavar valores motivadores profundos; mejor para conflictos de alineación y prioridades |
+| `brainstorming-alien-anthropologist` | Perspectiva desconcertada del forastero; mejor para descubrir supuestos ocultos |
+| `brainstorming-chaos-engineering` | Prueba de estrés deliberada; mejor para resiliencia y planificación de riesgos |
+| `brainstorming-anti-solution` | Generar formas de empeorar el problema; mejor para revelar supuestos ocultos |
+
+</details>
+
+---
+
+## Ejemplo trabajado — BookSwap Campus
+
+_El ejemplo trabajado aparecerá aquí una vez que el Equipo D ejecute el kit completo en el proyecto BookSwap Campus._
+
+---
+
+<Callout type="tip">
+**Lo que no debe faltar en la ideación**
+
+- **No te saltes el diagnóstico.** Elegir la estrategia equivocada produce ideas que no encajan con el tipo de problema. Las cinco preguntas del Laboratorio sólo toman minutos y ahorran horas después.
+- **Registra el razonamiento, no sólo las ideas.** El memorando de concepto que produce el Laboratorio debe capturar por qué el equipo eligió ese ángulo, no sólo qué ideas surgieron. El charter lo necesitará.
+- **Un concepto aprobado, no diez.** La ideación termina cuando hay un solo concepto lo suficientemente claro para que el patrocinador lo autorice. Dos o tres candidatos sin decisión no es un entregable de ideación — es trabajo de planeación sin terminar.
+</Callout>

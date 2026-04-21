@@ -1,5 +1,13 @@
 {
   "title": "PM Kit",
-  "pages": ["index"],
-  "_todo": "Slots reservados para tareas futuras: C2 (01-install), C3 (02-ideation, 03-initiation, 04-planning, 05-execution, 06-closing) y C4 (07-reference). Agregar al arreglo pages cuando esos archivos existan."
+  "pages": [
+    "index",
+    "01-install",
+    "02-ideation",
+    "03-initiation",
+    "04-planning",
+    "05-execution",
+    "06-closing",
+    "07-reference"
+  ]
 }

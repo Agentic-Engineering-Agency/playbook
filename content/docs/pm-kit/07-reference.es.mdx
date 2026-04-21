@@ -1,0 +1,268 @@
+---
+title: Referencia
+description: Catálogo completo de skills, listas de aceptación, licencia y atribuciones de terceros del PM Kit.
+---
+
+# Referencia
+
+Esta página es el índice completo del kit: todos los skills agrupados por fase, todas las listas de aceptación, la licencia MIT, y la atribución completa de fuentes y marcas de terceros.
+
+---
+
+<h2 id="catalogo">1. Catálogo de skills</h2>
+
+El kit incluye 40 skills en total: 21 de brainstorming (estrategias individuales + el enrutador de laboratorio), 10 artefactos de extensión originales, 7 artefactos adaptados de fuentes de código abierto, y 2 skills facilitadas por el humano.
+
+Las clasificaciones son:
+- **[BMad-vendored]** — contenido adaptado del repositorio BMad-Method (MIT, © 2025 BMad Code, LLC) con atribución
+- **[Extension]** — contenido original, creado específicamente para Agentic PM Kit
+- **[Human-led]** — el agente enseña y facilita; el equipo humano produce los entregables
+
+Los enlaces a código fuente usan el repositorio de GitHub de Agentic Engineering Agency. El repositorio es el punto de referencia canónico; las URLs se actualizan en los lanzamientos.
+
+<h3 id="catalogo-ideacion">Fase 0 — Ideación</h3>
+
+| Skill | Descripción | Clasificación |
+|---|---|---|
+| `brainstorming-lab` | Enruta al usuario hacia la estrategia de brainstorming adecuada haciendo 3–5 preguntas diagnósticas. Invocar cuando el usuario quiere hacer brainstorming pero no sabe qué técnica usar. | [BMad-vendored] |
+| `brainstorming-five-whys` | Facilita un análisis de causa raíz con los Cinco Porqués. Invocar cuando un impedimento, desviación de cronograma, defecto recurrente o señal de insatisfacción de stakeholder necesita causa raíz. | [BMad-vendored] |
+| `brainstorming-question-storming` | Facilita una sesión de Question Storming que genera un banco estructurado de preguntas antes de proponer soluciones. Invocar cuando el equipo sospecha que está resolviendo el problema equivocado. | [BMad-vendored] |
+| `brainstorming-assumption-reversal` | Facilita una sesión de Inversión de Supuestos que superficie restricciones ocultas invirtiendo creencias centrales sobre un desafío. Invocar para romper el espacio de solución convencional. | [BMad-vendored] |
+| `brainstorming-constraint-mapping` | Facilita una sesión de Mapeo de Restricciones que identifica, categoriza y evalúa todas las restricciones de un desafío. Invocar para distinguir limitaciones reales de imaginadas. | [BMad-vendored] |
+| `brainstorming-failure-analysis` | Facilita una sesión de Análisis de Fallas que extrae lecciones de fracasos pasados para prevenir recurrencias. Invocar cuando el equipo necesita aprender de un incidente o entregable fallido. | [BMad-vendored] |
+| `brainstorming-morphological-analysis` | Facilita un Análisis Morfológico para explorar sistemáticamente combinaciones de parámetros en un problema de diseño complejo. Invocar para mapeo integral del espacio de solución. | [BMad-vendored] |
+| `brainstorming-six-thinking-hats` | Facilita una sesión de los Seis Sombreros para el Pensar que examina una decisión desde seis perspectivas estructuradas. Invocar para evaluar una decisión significativa sin colapsar en debate. | [BMad-vendored] |
+| `brainstorming-mind-mapping` | Facilita una sesión de Mind Mapping para organizar visualmente ideas que irradian desde un concepto central. Invocar para estructurar un tema abierto o capturar un brainstorming antes de converger. | [BMad-vendored] |
+| `brainstorming-decision-tree-mapping` | Facilita una sesión de Árbol de Decisión para visualizar caminos, resultados y riesgos de una decisión compleja. Invocar cuando una decisión multi-rama no ha sido mapeada en su totalidad. | [BMad-vendored] |
+| `brainstorming-solution-matrix` | Facilita una sesión de Matriz de Solución para puntuar y rankear opciones contra criterios ponderados. Invocar cuando se debe elegir entre dos o más alternativas con evaluación multi-criterio. | [BMad-vendored] |
+| `brainstorming-resource-constraints` | Facilita una sesión de ideación bajo Restricciones de Recursos para generar opciones creativas con limitaciones explícitas de presupuesto, tiempo o capacidad. | [BMad-vendored] |
+| `brainstorming-role-playing` | Facilita una sesión de Role Playing para generar soluciones y superficie puntos ciegos viendo el proyecto desde múltiples perspectivas de stakeholders. | [BMad-vendored] |
+| `brainstorming-brain-writing-round-robin` | Facilita un Brain Writing Round Robin en que los participantes contribuyen silenciosamente y secuencialmente para construir sobre ideas de otros. Invocar para generación inclusiva de ideas en equipos distribuidos. | [BMad-vendored] |
+| `brainstorming-reverse-brainstorming` | Facilita un Reverse Brainstorming para superficie riesgos ocultos ideando deliberadamente cómo causar el problema, luego invirtiendo los resultados. | [BMad-vendored] |
+| `brainstorming-what-if-scenarios` | Facilita una sesión de Escenarios "¿Qué Pasaría Si?" para explorar futuros plausibles y estresar los planes. Invocar para contingencias ante cambios en supuestos clave. | [BMad-vendored] |
+| `brainstorming-first-principles-thinking` | Facilita una sesión de Pensamiento desde Primeros Principios que elimina supuestos y reconstruye el entendimiento desde verdades fundamentales verificadas. | [BMad-vendored] |
+| `brainstorming-values-archaeology` | Facilita una Arqueología de Valores que excava valores no declarados y supuestos básicos que impulsan las decisiones de un equipo o stakeholder. | [BMad-vendored] |
+| `brainstorming-alien-anthropologist` | Facilita una sesión de Antropólogo Alienígena en la que el equipo examina su propio proyecto a través de los ojos de un observador externo completamente ajeno. | [BMad-vendored] |
+| `brainstorming-chaos-engineering` | Facilita una sesión de Chaos Engineering que estressa un plan de proyecto hipotizando deliberadamente fallas de peor caso. Invocar para registros de riesgo y análisis pre-mortem. | [BMad-vendored] |
+| `brainstorming-anti-solution` | Facilita una sesión de Anti-Solución que genera formas de empeorar el problema, luego invierte esos hallazgos. Invocar cuando el equipo está atrapado en un único marco de solución. | [BMad-vendored] |
+
+<h3 id="catalogo-inicio">Fase 1 — Inicio</h3>
+
+| Skill | Descripción | Clasificación |
+|---|---|---|
+| `charter` | Redacta un charter de proyecto con forma PMBOK desde un memorando de concepto o product brief. Invocar cuando se necesita documentación de la fase de inicio. | [Extension] |
+| `stakeholder-register` | Identifica, clasifica y documenta stakeholders del proyecto corriendo una estrategia de brainstorming estructurada contra el charter, luego emite el registro. Invocar al iniciar un proyecto o cuando el panorama de stakeholders necesita actualización sistemática. | [Extension] |
+| `product-brief` | Redacta un documento conciso de business case cubriendo planteamiento del problema, usuarios objetivo, métricas de éxito, riesgos clave y enfoque de alto nivel. Invocar para documentación de negocio antes o durante el inicio. | [BMad-vendored] |
+
+<h3 id="catalogo-planeacion">Fase 2 — Planeación</h3>
+
+| Skill | Descripción | Clasificación |
+|---|---|---|
+| `prd` | Redacta un Documento de Requisitos del Producto simplificado y compatible con PMBOK desde un product brief y charter. Invocar al inicio de la fase de planeación antes de descomponer el alcance. | [BMad-vendored] |
+| `wbs` | Construye una Estructura de Desglose del Trabajo (EDT) con forma PMBOK desde la jerarquía de épicas e historias del proyecto. Invocar para descomposición del alcance antes del cronograma y asignación de recursos. | [Extension] |
+| `epics-and-stories` | Descompone un PRD en Épicas e Historias de Usuario con forma INVEST con criterios de aceptación y prioridad. Invocar cuando el PRD está en baseline y el equipo necesita un backlog accionable. | [BMad-vendored] |
+| `schedule-gantt` | Produce un diagrama Mermaid-Gantt y narrativa de cronograma desde una EDT y estimaciones de esfuerzo. Invocar cuando el equipo necesita un plan temporal con dependencias y ruta crítica. | [Extension] |
+| `cost-estimation` | Enseña tres técnicas complementarias de estimación — Planning Poker, talla de camiseta y tres puntos (PERT) — y registra las estimaciones que produce el equipo. El agente enseña y facilita; el equipo estima. | [Human-led] |
+| `risk-matrix` | Produce una matriz de riesgo probabilidad × impacto con estrategias de respuesta estilo PMBOK. Invocar antes de una compuerta de planeación, revisión de hito o decisión go/no-go. | [Extension] |
+| `communication-plan` | Produce una matriz de comunicación con forma PMBOK, rutas de escalación y cadencia de reuniones. Invocar cuando el equipo necesita un plan formal de flujo de información a cada audiencia. | [Extension] |
+| `quality-plan` | Produce un plan de calidad conciso que define objetivos de calidad, métricas medibles, actividades de aseguramiento y puntos de control. Invocar antes de entrar a ejecución. | [Extension] |
+| `resource-plan` | Produce un plan de recursos conciso cubriendo roster del equipo, equipamiento, resumen de presupuesto, dependencias externas y cronograma de contratación. Invocar cuando el equipo necesita un registro explícito de compromisos. | [Extension] |
+
+<h3 id="catalogo-ejecucion">Fase 3 — Ejecución</h3>
+
+| Skill | Descripción | Clasificación |
+|---|---|---|
+| `sprint-planning` | Facilita un evento de Sprint Planning de Scrum, produciendo un sprint goal y un Sprint Backlog comprometido desde el Product Backlog priorizado. Invocar al inicio de cada sprint. | [BMad-vendored] |
+| `story-execution` | Facilita la ejecución y revisión de una historia de usuario individual a través de implementación, pruebas y aceptación. Invocar cuando un desarrollador o equipo está listo para trabajar en una historia con componente de código. | [BMad-vendored] |
+| `standup-prep` | Ayuda al usuario a preparar una nota de standup concisa de tres viñetas cubriendo ayer, hoy y bloqueos antes del Daily Scrum. No reemplaza el standup; lo prepara. | [Human-led] |
+| `sprint-review` | Facilita un evento de Sprint Review de Scrum, capturando lo construido, retroalimentación de stakeholders del demo y decisiones sobre el camino a seguir. Invocar cuando el sprint ha concluido. | [BMad-vendored] |
+
+<h3 id="catalogo-cierre">Fase 4 — Cierre</h3>
+
+| Skill | Descripción | Clasificación |
+|---|---|---|
+| `retrospective` | Facilita una retrospectiva de sprint o iteración que surfacea aprendizajes reales y produce ítems de acción con dueño y fecha. Invocar cuando un sprint o iteración ha cerrado. | [BMad-vendored] |
+| `post-mortem` | Facilita un post-mortem sin culpa para un incidente serio, casi-falla, o retrospectiva a nivel de proyecto. Invocar cuando una falla significativa ha ocurrido o el proyecto completo cierra. | [Extension] |
+| `closure-report` | Produce un reporte de cierre del proyecto con forma PMBOK adecuado para firma del patrocinador, consolidando charter, cronograma final, presupuesto final, retrospectivas, post-mortems y registros de aceptación. Invocar al cierre formal del proyecto. | [Extension] |
+
+---
+
+<h2 id="checklists">2. Listas de aceptación</h2>
+
+Cada skill de artefacto tiene una lista de aceptación pareada instalada en `docs/pm-kit/checklists/` dentro del directorio de tu proyecto. Estas rutas son locales al proyecto instalado — no son URLs del sitio.
+
+| Artifact | Resumen | Ruta de instalación |
+|---|---|---|
+| Brainstorming Lab | Verifica que la sesión produjo un concepto claro listo para alimentar al charter | `docs/pm-kit/checklists/brainstorming-lab.md` |
+| Five Whys | Verifica que se alcanzó causa raíz real (5 niveles), no solo síntoma | `docs/pm-kit/checklists/brainstorming-five-whys.md` |
+| Question Storming | Verifica que las preguntas reencuadran el problema antes de proponer soluciones | `docs/pm-kit/checklists/brainstorming-question-storming.md` |
+| Assumption Reversal | Verifica que los supuestos invertidos generaron al menos 3 caminos nuevos | `docs/pm-kit/checklists/brainstorming-assumption-reversal.md` |
+| Constraint Mapping | Verifica que las restricciones están priorizadas y al menos una es accionable | `docs/pm-kit/checklists/brainstorming-constraint-mapping.md` |
+| Failure Analysis | Verifica que los patrones de falla están documentados con acciones preventivas | `docs/pm-kit/checklists/brainstorming-failure-analysis.md` |
+| Morphological Analysis | Verifica que la matriz cubre todos los parámetros relevantes y la combinación elegida está justificada | `docs/pm-kit/checklists/brainstorming-morphological-analysis.md` |
+| Six Thinking Hats | Verifica que los seis sombreros fueron cubiertos y las perspectivas están separadas | `docs/pm-kit/checklists/brainstorming-six-thinking-hats.md` |
+| Mind Mapping | Verifica que el mapa captura todos los temas clave con al menos dos niveles de profundidad | `docs/pm-kit/checklists/brainstorming-mind-mapping.md` |
+| Decision Tree Mapping | Verifica que todas las ramas principales están mapeadas con probabilidades y resultados estimados | `docs/pm-kit/checklists/brainstorming-decision-tree-mapping.md` |
+| Solution Matrix | Verifica que los criterios están ponderados, las opciones puntuadas y la recomendación es defendible | `docs/pm-kit/checklists/brainstorming-solution-matrix.md` |
+| Resource Constraints | Verifica que las soluciones generadas respetan explícitamente las restricciones declaradas | `docs/pm-kit/checklists/brainstorming-resource-constraints.md` |
+| Role Playing | Verifica que al menos tres perspectivas de stakeholder distintas fueron representadas | `docs/pm-kit/checklists/brainstorming-role-playing.md` |
+| Brain Writing Round Robin | Verifica que todos los participantes contribuyeron y las ideas fueron construidas en rondas | `docs/pm-kit/checklists/brainstorming-brain-writing-round-robin.md` |
+| Reverse Brainstorming | Verifica que los riesgos identificados fueron invertidos en estrategias de mitigación concretas | `docs/pm-kit/checklists/brainstorming-reverse-brainstorming.md` |
+| What If Scenarios | Verifica que los escenarios cubren al menos un caso optimista, uno base y uno pesimista | `docs/pm-kit/checklists/brainstorming-what-if-scenarios.md` |
+| First Principles Thinking | Verifica que todos los supuestos heredados fueron cuestionados y reconstruidos desde evidencia | `docs/pm-kit/checklists/brainstorming-first-principles-thinking.md` |
+| Values Archaeology | Verifica que los valores subyacentes están documentados y el conflicto de raíz identificado | `docs/pm-kit/checklists/brainstorming-values-archaeology.md` |
+| Alien Anthropologist | Verifica que las observaciones están en voz de observador externo sin términos internos | `docs/pm-kit/checklists/brainstorming-alien-anthropologist.md` |
+| Chaos Engineering | Verifica que los escenarios de falla mapeados alimentan directamente al registro de riesgos | `docs/pm-kit/checklists/brainstorming-chaos-engineering.md` |
+| Anti-Solution | Verifica que los anti-patrones identificados fueron invertidos en al menos 3 soluciones accionables | `docs/pm-kit/checklists/brainstorming-anti-solution.md` |
+| Charter | Verifica que el charter nombra sponsor, objetivo, alcance, hitos y criterios de éxito con forma PMBOK | `docs/pm-kit/checklists/charter.md` |
+| Stakeholder Register | Verifica que cada stakeholder tiene influencia, interés y estrategia de compromiso documentadas | `docs/pm-kit/checklists/stakeholder-register.md` |
+| Product Brief | Verifica que el business case cubre problema, usuarios, métricas, riesgos y enfoque | `docs/pm-kit/checklists/product-brief.md` |
+| PRD | Verifica que los requisitos son medibles, trazables al charter y priorizados | `docs/pm-kit/checklists/prd.md` |
+| WBS | Verifica que la EDT cubre el 100% del alcance con paquetes de trabajo en el nivel apropiado | `docs/pm-kit/checklists/wbs.md` |
+| Epics and Stories | Verifica que cada historia cumple el criterio INVEST y tiene criterios de aceptación medibles | `docs/pm-kit/checklists/epics-and-stories.md` |
+| Schedule / Gantt | Verifica que el diagrama Mermaid renderiza y la ruta crítica está identificada | `docs/pm-kit/checklists/schedule-gantt.md` |
+| Cost Estimation | Verifica que las estimaciones del equipo están registradas con técnica, rango y nivel de confianza | `docs/pm-kit/checklists/cost-estimation.md` |
+| Risk Matrix | Verifica que cada riesgo tiene probabilidad, impacto, puntuación y respuesta documentadas | `docs/pm-kit/checklists/risk-matrix.md` |
+| Communication Plan | Verifica que cada stakeholder tiene su canal, frecuencia y responsable de comunicación asignados | `docs/pm-kit/checklists/communication-plan.md` |
+| Quality Plan | Verifica que los objetivos de calidad son medibles y los puntos de control están en el cronograma | `docs/pm-kit/checklists/quality-plan.md` |
+| Resource Plan | Verifica que el roster está completo, las dependencias externas documentadas y el presupuesto resumido | `docs/pm-kit/checklists/resource-plan.md` |
+| Sprint Planning | Verifica que el sprint goal está acordado y el Sprint Backlog comprometido por el equipo | `docs/pm-kit/checklists/sprint-planning.md` |
+| Story Execution | Verifica que la historia tiene definición de hecho, pruebas y aceptación del Product Owner | `docs/pm-kit/checklists/story-execution.md` |
+| Standup Prep | Verifica que las tres viñetas (ayer / hoy / bloqueos) son concisas y accionables | `docs/pm-kit/checklists/standup-prep.md` |
+| Sprint Review | Verifica que el incremento fue demostrado, la retroalimentación registrada y el backlog actualizado | `docs/pm-kit/checklists/sprint-review.md` |
+| Retrospective | Verifica que los ítems de acción tienen dueño, fecha y fueron acordados por el equipo | `docs/pm-kit/checklists/retrospective.md` |
+| Post-Mortem | Verifica que la línea de tiempo está completa, los factores contribuyentes identificados sin culpa y las acciones sistémicas asignadas | `docs/pm-kit/checklists/post-mortem.md` |
+| Closure Report | Verifica que el reporte consolida objetivos vs. resultados, firma del sponsor y lecciones aprendidas | `docs/pm-kit/checklists/closure-report.md` |
+
+---
+
+<h2 id="licencia">3. Licencia</h2>
+
+El paquete `agentic-pm-kit` se distribuye bajo la **Licencia MIT**.
+
+Resumen de términos: se concede permiso, sin costo alguno, para usar, copiar, modificar, fusionar, publicar, distribuir, sublicenciar y/o vender copias del software, siempre que el aviso de copyright y el aviso de permiso aparezcan en todas las copias o porciones sustanciales.
+
+El texto completo de la licencia está en el archivo [`LICENSE`](https://github.com/agentic-engineering-agency/agentic-pm-kit/blob/main/LICENSE) en la raíz del repositorio del paquete.
+
+---
+
+<h2 id="atribucion">4. Atribución de terceros</h2>
+
+El documento autoritativo de atribución es [`THIRD_PARTY_NOTICES.md`](https://github.com/agentic-engineering-agency/agentic-pm-kit/blob/main/THIRD_PARTY_NOTICES.md) en la raíz del repositorio. Lo que sigue es una síntesis para consulta rápida.
+
+<h3 id="atribucion-bmad">BMad-Method (MIT)</h3>
+
+**Copyright:** © 2025 BMad Code, LLC
+
+**Repositorio fuente:** https://github.com/bmad-code-org/BMAD-METHOD
+
+**Licencia:** MIT. Texto completo de la licencia: `vendor/bmad/LICENSE` (incluido en el paquete).
+
+Los siguientes skills en `agentic-pm-kit` adaptan estrategias de brainstorming, plantillas y patrones de facilitación de BMad-Method bajo la licencia MIT:
+
+- Las 21 skills de brainstorming (estrategias individuales + el enrutador de laboratorio)
+- Product Brief
+- PRD (Documento de Requisitos del Producto)
+- Epics and Stories
+- Sprint Planning
+- Sprint Review
+- Retrospective
+- Story Execution (opcional, para equipos con componente de código)
+
+Cada archivo de skill adaptado incluye una línea de encabezado de la forma:
+`> Adapted from bmad-method:<nombre-original> (MIT, © 2025 BMad Code, LLC). See THIRD_PARTY_NOTICES.md.`
+
+<h3 id="atribucion-scrum">Guía Scrum 2020 (CC BY-SA 4.0)</h3>
+
+**Autores:** Ken Schwaber y Jeff Sutherland
+
+**URL fuente:** https://scrumguides.org/scrum-guide.html
+
+**Licencia:** Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+**Versiones empaquetadas:**
+
+- Inglés: `vendor/pm-kit/scrum-guide-en.md`
+- Español latinoamericano: `vendor/pm-kit/scrum-guide-es.md` (traducción por Lucho Salazar y Marcelo Lopez; URL del PDF canónico: https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Spanish-Latin-South-American.pdf)
+
+La atribución de CC BY-SA 4.0 está en el bloque de encabezado de cada archivo empaquetado. Los distribuidores intermediarios que redistribuyan la Guía Scrum empaquetada deben mantener estos mismos términos.
+
+<h3 id="atribucion-manifiesto">Manifiesto Ágil (© 2001)</h3>
+
+**Autores:** Kent Beck, Mike Beedle, Arie van Bennekum, Alistair Cockburn, Ward Cunningham, Martin Fowler, James Grenning, Jim Highsmith, Andrew Hunt, Ron Jeffries, Jon Kern, Brian Marick, Robert C. Martin, Steve Mellor, Ken Schwaber, Jeff Sutherland, Dave Thomas
+
+**URLs fuente:** https://agilemanifesto.org/ y https://agilemanifesto.org/principles.html
+
+**Aviso de copyright:** © 2001, los autores mencionados.
+
+**Términos de reproducción:** "Esta declaración puede ser copiada libremente en cualquier forma, pero solo en su totalidad hasta este aviso."
+
+Empaquetado en: `vendor/pm-kit/agile-manifesto.md`. El archivo contiene el texto completo del Manifiesto — los cuatro valores, los doce principios, la lista completa de firmantes y el aviso de copyright original.
+
+---
+
+<h2 id="marcas">5. Aviso de marcas comerciales</h2>
+
+"BMad", "BMad Method" y "BMad Core" son marcas comerciales de BMad Code, LLC (según `TRADEMARK.md` en el repositorio de BMad). La licencia MIT cubre código y contenido fuente; no otorga derechos de marcas comerciales.
+
+Agentic PM Kit está **construido sobre metodología de código abierto de BMad-Method (MIT)**. Las referencias a BMad-Method en este paquete son únicamente de atribución de compatibilidad, consistentes con la política de marcas publicada por BMad Code, LLC. El nombre del paquete `agentic-pm-kit` no contiene ninguna marca BMad. Los skills adaptados han sido renombrados (por ejemplo, `bmad-product-brief` → `product-brief`); el origen se acredita en la línea de encabezado del archivo del skill, no en el nombre del skill.
+
+No usamos "BMad para PMs", "edición BMad PM" ni variantes similares. La atribución de compatibilidad aparece en los encabezados de los skills y en este documento de referencia únicamente.
+
+---
+
+<h2 id="fuentes">6. Fuentes canónicas</h2>
+
+El archivo `vendor/pm-kit/sources-index.json` en tu directorio de instalación es el registro autoritativo de URLs fuente. La tabla siguiente muestra el contenido de ese archivo para que los lectores puedan auditar de dónde ancla cada skill su contenido.
+
+| Clave | URL |
+|---|---|
+| `scrumGuide` | https://scrumguides.org/scrum-guide.html |
+| `scrumGuideEs` | https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Spanish-Latin-South-American.pdf |
+| `agileManifesto` | https://agilemanifesto.org/ |
+| `agileManifestoPrinciples` | https://agilemanifesto.org/principles.html |
+| `pmbok` | https://www.pmi.org/standards/pmbok |
+| `pmiTwelvePrinciples` | https://www.pmi.org/-/media/pmi/documents/public/pdf/pmbok-standards/12-project-management-principles.pdf |
+| `iso21500` | https://www.iso.org/standard/74947.html |
+| `iso21502` | https://www.iso.org/standard/74947.html |
+| `fiveWhys` | https://www.lean.org/lexicon-terms/5-whys/ |
+| `questionStorming` | https://rightquestion.org/what-is-the-qft/ |
+| `assumptionReversal` | https://en.wikipedia.org/wiki/Lateral_thinking |
+| `constraintMapping` | https://en.wikipedia.org/wiki/Theory_of_constraints |
+| `failureAnalysis` | https://en.wikipedia.org/wiki/Failure_analysis |
+| `morphologicalAnalysis` | https://www.swemorph.com/ma.html |
+| `sixThinkingHats` | https://www.debonogroup.com/services/core-programs/six-thinking-hats/ |
+| `mindMapping` | https://en.wikipedia.org/wiki/Mind_map |
+| `decisionTreeMapping` | https://en.wikipedia.org/wiki/Decision_tree |
+| `solutionMatrix` | https://en.wikipedia.org/wiki/Decision_matrix |
+| `resourceConstraints` | https://en.wikipedia.org/wiki/Theory_of_constraints |
+| `rolePlaying` | https://dschool.stanford.edu/resources/design-thinking-bootleg |
+| `brainWritingRoundRobin` | https://en.wikipedia.org/wiki/6-3-5_Brainwriting |
+| `reverseBrainstorming` | https://en.wikipedia.org/wiki/Reverse_brainstorming |
+| `whatIfScenarios` | https://en.wikipedia.org/wiki/Scenario_planning |
+| `firstPrinciplesThinking` | https://plato.stanford.edu/entries/aristotle-logic/ |
+| `valuesArchaeology` | https://en.wikipedia.org/wiki/Edgar_Schein |
+| `alienAnthropologist` | https://www.nngroup.com/articles/field-studies/ |
+| `chaosEngineering` | https://principlesofchaos.org/ |
+| `antiSolution` | https://fs.blog/inversion/ |
+| `brainstormingLab` | https://en.wikipedia.org/wiki/Brainstorming |
+| `charter` | https://www.pmi.org/-/media/pmi/documents/public/pdf/pmbok-standards/12-project-management-principles.pdf |
+| `stakeholderRegister` | https://en.wikipedia.org/wiki/Stakeholder_analysis |
+| `productBrief` | https://leanstack.com/lean-canvas |
+| `prd` | https://en.wikipedia.org/wiki/Product_requirements_document |
+| `wbs` | https://en.wikipedia.org/wiki/Work_breakdown_structure |
+| `epicsAndStories` | https://www.agilealliance.org/glossary/user-story |
+| `scheduleGantt` | https://en.wikipedia.org/wiki/Gantt_chart |
+| `costEstimation` | https://en.wikipedia.org/wiki/Three-point_estimation |
+| `riskMatrix` | https://en.wikipedia.org/wiki/Risk_matrix |
+| `communicationPlan` | https://en.wikipedia.org/wiki/Communications_management |
+| `qualityPlan` | https://en.wikipedia.org/wiki/Quality_management |
+| `resourcePlan` | https://en.wikipedia.org/wiki/Resource_management |
+| `sprintPlanning` | https://scrumguides.org/scrum-guide.html |
+| `storyExecution` | https://en.wikipedia.org/wiki/User_story |
+| `standupPrep` | https://scrumguides.org/scrum-guide.html |
+| `sprintReview` | https://scrumguides.org/scrum-guide.html |
+| `retrospective` | https://scrumguides.org/scrum-guide.html |
+| `postMortem` | https://sre.google/sre-book/postmortem-culture/ |
+| `closureReport` | https://en.wikipedia.org/wiki/Project_management |

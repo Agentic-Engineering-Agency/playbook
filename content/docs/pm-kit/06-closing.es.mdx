@@ -1,0 +1,96 @@
+---
+title: "Fase 5: Cierre"
+description: Retrospectiva, post-mortem y reporte de cierre — los tres skills que cierran cada sprint y cada proyecto con aprendizaje estructurado y documentación formal.
+---
+
+# Fase 5 — Cierre
+
+El cierre no es el final del trabajo; es el inicio del aprendizaje. Esta fase agrupa tres skills que transforman la experiencia acumulada del equipo en artefactos formales: la retrospectiva que inspecciona y adapta al ritmo del sprint, el post-mortem que analiza incidentes serios con una postura sin culpa, y el reporte de cierre que firma la conclusión formal del proyecto ante los patrocinadores y stakeholders.
+
+Saber cuál skill invocar — retrospectiva o post-mortem — importa. La confusión entre los dos produce documentos inadecuados para ambos propósitos. Esta página los distingue con claridad.
+
+<Callout type="info">
+**Convención de invocación.** Para cualquiera de los skills de esta fase, dile a tu agente: *Invoca el skill \<nombre\>.* El agente cargará el skill instalado, leerá tu `.pm-kit.config.json` y comenzará la facilitación en tu idioma configurado.
+</Callout>
+
+## Skills de la fase de cierre
+
+<h3 id="retrospectiva">Retrospectiva</h3>
+
+**Identificador:** `retrospective` — Adaptado de metodología open-source (MIT). Ver `THIRD_PARTY_NOTICES.md`.
+
+**Cuándo usarlo.** Al final de un sprint o iteración, cuando el equipo necesita una sesión estructurada de inspección y adaptación enfocada en el próximo sprint. Úsalo también cuando los impedimentos recurrentes sugieren que los acuerdos de trabajo del equipo necesitan revisión, o cuando se integra un nuevo miembro y corresponde una actualización de normas.
+
+**Cuándo NO usarlo.** No invoques este skill para incidentes serios ni para retrospectivas que abarcan múltiples sprints o el proyecto completo — para esos casos, usa el skill `post-mortem`. La diferencia es de escala y de propósito: la retrospectiva opera al ritmo del sprint, inspecciona el proceso del equipo y produce acciones para el siguiente ciclo. El post-mortem opera cuando el daño fue mayor que lo que puede resolver una retro de sprint.
+
+**Cómo invocarlo.** Dile a tu agente: *Invoca el skill retrospective.*
+
+El agente abre la sesión con el encuadre correcto: "Esta retrospectiva existe para mejorar el próximo sprint, no para evaluar individuos. Describe sistemas, procesos y condiciones, no las personas que los operaron." Luego te guía en: capturar metadatos y contexto, recoger lo que salió bien, lo que no salió bien (reescribiendo cualquier viñeta que señale a un individuo para que describa el sistema), las lecciones aprendidas y los ítems de acción. Cada ítem de acción debe tener dueño (rol o equipo), fecha límite y criterio de éxito observable — sin "TBD" ni equipos enteros como dueños. El agente también solicita el seguimiento de la retrospectiva anterior, si existe.
+
+La lente por defecto es **Empezar / Detener / Continuar**. Si el equipo prefiere, acepta **Glad / Sad / Mad**, **4Ls** o **Sailboat**; el agente registra la elección en el artefacto.
+
+**Artefacto generado.** `docs/pm-kit/outputs/retrospective/<sprint-slug>.md`
+
+**Lista de aceptación.** `docs/pm-kit/checklists/retrospective.md`
+
+---
+
+<h3 id="post-mortem">Post-mortem</h3>
+
+**Identificador:** `post-mortem` — Skill original de Agentic PM Kit (MIT).
+
+**Cuándo usarlo.** Cuando la superficie de aprendizaje es mayor que un sprint: un incidente serio que incumplió un SLA o causó impacto visible a usuarios o clientes; un cuasi-accidente cuyo mecanismo merece estudiarse; una retrospectiva de proyecto completo que abarca múltiples sprints; una entrega que produjo resultados materialmente peores que lo proyectado; o una revisión requerida por un hallazgo de auditoría, una notificación regulatoria o una escalación de cliente.
+
+**Cuándo NO usarlo.** No invoques este skill para la inspección regular al final de cada sprint — usa `retrospective`. Tampoco lo uses para el análisis de causa raíz de un defecto aislado — usa `brainstorming-five-whys`. Y no lo uses para asignar consecuencias de desempeño individuales: este skill es sin culpa por contrato y rechaza ese encuadre.
+
+**La postura sin culpa.** Este skill sigue la tradición del post-mortem sin culpa de Google SRE. El agente abre la sesión con el enunciado literal: *"Este es un post-mortem sin culpa. Estamos aquí para mejorar el sistema, no para culpar a las personas que lo operaron. El error humano es un punto de partida para el análisis, no un punto de llegada."* Cada participante debe reconocer esta postura antes de que se recopile cualquier dato. Si alguien no puede aceptarla, el skill indica pausar la sesión y escalar antes de continuar — un post-mortem conducido sin contrato de no culpa dañará al equipo y producirá hallazgos superficiales.
+
+**Análisis de causa raíz.** El skill aplica el patrón de los Cinco Porqués o un análisis multicapa equivalente. **Rechaza "error humano", "descuido del operador", "error del desarrollador" y cualquier equivalente como causa raíz terminal.** Si la cadena causal llega a una persona, el agente pregunta el siguiente porqué: ¿por qué el sistema, el proceso, la capacitación, las herramientas, la documentación, las alertas o la estructura de incentivos permitieron que esa persona cometiera ese error en ese momento? La cadena termina solo en una causa sistémica que el equipo puede cambiar.
+
+**Cómo invocarlo.** Dile a tu agente: *Invoca el skill post-mortem.*
+
+El agente te guía en: declarar la postura sin culpa, capturar metadatos, redactar el resumen ejecutivo legible por alguien ajeno al incidente, construir la línea de tiempo cronológica, cuantificar el impacto (interno y externo), realizar el análisis de causa raíz rechazando causas superficiales, documentar factores contribuyentes, registrar lo que funcionó bien y lo que pudo haber funcionado mejor, construir la tabla de ítems de acción (cada fila requiere: dueño, categoría Prevenir / Detectar / Mitigar, fecha límite, criterio de éxito y referencia cruzada a una causa raíz o factor contribuyente), y registrar los compromisos de seguimiento — incluyendo dónde se publicará el documento y quién supervisa el avance de las acciones.
+
+**Artefacto generado.** `docs/pm-kit/outputs/post-mortem/<fecha-incidente-slug>.md`
+
+**Lista de aceptación.** `docs/pm-kit/checklists/post-mortem.md`
+
+---
+
+<h3 id="reporte-de-cierre">Reporte de cierre del proyecto</h3>
+
+**Identificador:** `closure-report` — Skill original de Agentic PM Kit (MIT).
+
+**Cuándo usarlo.** Cuando el proyecto completo ha llegado al final de su fase de ejecución y se requiere cierre formal: todos los entregables han sido aceptados por stakeholders nombrados, el patrocinador o el órgano de gobierno solicita un registro formal de cierre, las lecciones de las retrospectivas y post-mortems necesitan consolidarse en un solo artefacto organizacional, el equipo se prepara para ser reasignado y los recursos deben liberarse formalmente, o el expediente del proyecto debe archivarse para auditoría, fines contractuales o institucionales.
+
+No invoques este skill para retrospectivas individuales de sprint ni para revisiones a mitad del proyecto. Invócalo solo cuando se esté cerrando el proyecto completo, no una fase.
+
+**Cómo invocarlo.** Dile a tu agente: *Invoca el skill closure-report.*
+
+El agente te guia en reunir los documentos fuente (charter aprobado, cronograma final planificado vs. real, resumen de presupuesto, registros de cambio de alcance, registros de aceptación de stakeholders, notas de retrospectivas y post-mortems), capturar metadatos del proyecto, redactar el resumen ejecutivo, registrar entregables con fecha de aceptación y el nombre de la persona que aceptó, comparar objetivos con resultados reales y fechas y presupuesto planificados contra reales, consolidar cambios de alcance y lecciones aprendidas agrupadas en cuatro temas (proceso, técnico, organizacional, stakeholders), documentar ítems pendientes y la liberación de recursos, confirmar las ubicaciones de archivo de artefactos y preparar el bloque de firma formal del patrocinador y la PM.
+
+**Artefacto generado.** `docs/pm-kit/outputs/closure-report/<nombre-proyecto-slug>.md`
+
+**Lista de aceptación.** `docs/pm-kit/checklists/closure-report.md`
+
+---
+
+## Ejemplo trabajado — BookSwap Campus
+
+_Worked example output will appear here once Team D runs the kit end-to-end on BookSwap Campus._
+
+---
+
+## Consejos para la fase de cierre
+
+<Callout type="warning">
+**Retrospectiva vs. post-mortem: elige con intención.** La retrospectiva es el evento regular al ritmo del sprint — inspecciona el proceso del equipo y produce acciones para el siguiente ciclo. El post-mortem es para cuando algo salió suficientemente mal como para merecer un análisis sistémico: incidentes serios, cuasi-accidentes y retrospectivas de proyecto completo. Usar la retrospectiva para un incidente serio produce un análisis superficial; usar el post-mortem para el cierre de cada sprint produce sobrecarga de proceso. Conoce la diferencia y elige en consecuencia.
+</Callout>
+
+<Callout type="warning">
+**El post-mortem sin postura sin culpa produce teatro, no aprendizaje.** Si la sesión comienza sin que todos los participantes reconozcan explícitamente la postura sin culpa, el skill indica pausar. Esta no es una formalidad: es la condición que permite que las personas digan lo que realmente pasó. Sin ella, los hallazgos serán los mismos de siempre y las acciones nunca se cerrarán.
+</Callout>
+
+<Callout type="info">
+**El reporte de cierre consolida, no duplica.** Su valor es integrar las lecciones de todas las retrospectivas y post-mortems del proyecto en un solo artefacto legible por el patrocinador. Reúne tus artefactos anteriores antes de invocarlo; el agente te preguntará por ellos en el primer paso de la facilitación.
+</Callout>

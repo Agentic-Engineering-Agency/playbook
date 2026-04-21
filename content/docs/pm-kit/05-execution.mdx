@@ -1,0 +1,116 @@
+---
+title: "Phase 4: Execution"
+description: Sprint planning, story execution, standup prep, and sprint review — the four skills that accompany the team through every sprint.
+---
+
+# Phase 4 — Execution
+
+The execution phase is where the plan becomes deliverable increments. Each sprint has four key moments: planning the work, executing the stories, maintaining daily synchronization, and reviewing what was built with stakeholders. This phase covers the four skills that serve those moments.
+
+The kit's three principles apply here with particular force: the agent is a drafter and facilitator, you are the PM who reviews and approves; each skill loads its authoritative source (the 2020 Scrum Guide) before facilitating; and every artifact ends at a binary acceptance checklist — **PASS** or **FAIL**.
+
+<Callout type="info">
+**Invocation convention.** For any skill in this phase, tell your agent: *Invoke the \<name\> skill.* The agent will load the installed skill, read your `.pm-kit.config.json`, and begin facilitation in your configured language.
+</Callout>
+
+## Execution phase skills
+
+<h3 id="sprint-planning">Sprint Planning</h3>
+
+**Identifier:** `sprint-planning` — Adapted from open-source methodology (MIT). See `THIRD_PARTY_NOTICES.md`.
+
+**When to use it.** At the start of each sprint, before any delivery work begins. The Product Backlog has been refined, the Product Owner has candidates for the sprint goal, and the team needs to commit to a concrete Sprint Backlog.
+
+Do not invoke it for backlog refinement, retrospectives, or mid-sprint replanning — those events have their own skills.
+
+**How to invoke it.** Tell your agent: *Invoke the sprint-planning skill.*
+
+The agent guides you in sequence through: gathering inputs (velocity, team availability, prioritized backlog), drafting the sprint goal, calculating team capacity, selecting Sprint Backlog items, identifying risks and dependencies, confirming the Definition of Done, and producing the complete artifact.
+
+**Generated artifact.** `docs/pm-kit/outputs/sprint-planning/<sprint-goal-slug>.md`
+
+**Acceptance checklist.** `docs/pm-kit/checklists/sprint-planning.md`
+
+---
+
+<h3 id="story-execution">Story Execution (optional)</h3>
+
+**Identifier:** `story-execution` — Adapted from open-source methodology (MIT). See `THIRD_PARTY_NOTICES.md`.
+
+<Callout type="info">
+**This skill is optional.** It is for teams whose project has a code-producing component — an application, a script, an integration, a data pipeline. Teams working on planning-only or research projects can skip it without losing any other execution-phase capability.
+</Callout>
+
+**When to use it.** When a team member begins active work on a user story that involves software implementation. The story is already in the Sprint Backlog, has clear acceptance criteria, and is assigned to someone.
+
+Do not invoke it for sprint planning, standup prep, or sprint review.
+
+**How to invoke it.** Tell your agent: *Invoke the story-execution skill.*
+
+The agent guides you through: confirming the story and its acceptance criteria, defining the implementation plan, recording the tests that will verify each criterion, capturing the review outcome, verifying the Definition of Done item by item, and recording lessons learned from that story.
+
+**Generated artifact.** `docs/pm-kit/outputs/story-execution/<story-slug>.md`
+
+**Acceptance checklist.** `docs/pm-kit/checklists/story-execution.md`
+
+---
+
+<h3 id="standup-prep">Standup Prep</h3>
+
+**Identifier:** `standup-prep` — Original Agentic PM Kit skill (MIT).
+
+<Callout type="warning">
+**Preparation, not replacement.** This skill helps you draft your personal three-bullet note in approximately two minutes, right before walking into the Daily Scrum. It does not conduct or substitute for the Daily Scrum itself — that is a team event that happens separately, in person or over video, with the full Scrum Team present.
+</Callout>
+
+**When to use it.** In the two minutes before your Daily Scrum meeting, when you want to quickly organize your thoughts — especially if the previous day was fragmented or a blocker has emerged that you need to articulate clearly.
+
+Do not invoke it for sprint planning, sprint review, or retrospective.
+
+**How to invoke it.** Tell your agent: *Invoke the standup-prep skill.*
+
+The agent asks you about the current sprint and sprint goal, what you finished or meaningfully advanced yesterday (connected to the sprint goal), what you are committing to today, and whether anything is blocking you or at risk of blocking you.
+
+**Generated artifact.** `docs/pm-kit/outputs/standup-prep/<date-person-slug>.md`
+
+**Acceptance checklist.** `docs/pm-kit/checklists/standup-prep.md`
+
+---
+
+<h3 id="sprint-review">Sprint Review</h3>
+
+**Identifier:** `sprint-review` — Adapted from open-source methodology (MIT). See `THIRD_PARTY_NOTICES.md`.
+
+**When to use it.** At the end of the sprint, after the work is done and before the retrospective begins. The team is ready to demo the increment to stakeholders and capture their feedback systematically.
+
+Do not invoke it for mid-sprint status checks, retrospectives, or sprint planning.
+
+**How to invoke it.** Tell your agent: *Invoke the sprint-review skill.*
+
+The agent guides you through: gathering sprint inputs, reviewing whether the sprint goal was met, recording completed and incomplete stories with their reasons, capturing demo feedback organized by theme, recording decisions made during the session, and documenting signals for the next sprint's planning.
+
+**Generated artifact.** `docs/pm-kit/outputs/sprint-review/<sprint-slug>.md`
+
+**Acceptance checklist.** `docs/pm-kit/checklists/sprint-review.md`
+
+---
+
+## Worked example — BookSwap Campus
+
+_Worked example output will appear here once Team D runs the kit end-to-end on BookSwap Campus._
+
+---
+
+## Tips for the execution phase
+
+<Callout type="warning">
+**standup-prep does not replace the Daily Scrum.** The note it generates is your personal input to the team event — not an official record and not a substitute for the live conversation. Bring your note to the Daily Scrum and use it as a guide for what to say, not as the event itself.
+</Callout>
+
+<Callout type="info">
+**Run sprint-review before the retrospective.** The 2020 Scrum Guide defines the Sprint Review as the inspect-the-increment event with stakeholders, and the retrospective as the inspect-the-team-and-process event. Running them in order lets you bring review signals into the retrospective as context.
+</Callout>
+
+<Callout type="info">
+**story-execution is per story, not per sprint.** Invoke it once for each story the team begins — not once at the start of the sprint for the entire Sprint Backlog. The artifact it produces is the implementation and review record for that individual story.
+</Callout>

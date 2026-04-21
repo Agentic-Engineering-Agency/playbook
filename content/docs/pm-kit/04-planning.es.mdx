@@ -1,0 +1,183 @@
+---
+title: Planeación — Del PRD al Plan de Recursos
+description: Nueve artefactos convierten el charter autorizado en un plan de proyecto completo — requisitos, alcance, cronograma, costos, riesgos, comunicaciones, calidad y recursos. Todos se producen en esta fase antes de que comience la ejecución.
+---
+
+# Fase 2 — Planeación
+
+La planeación convierte la autorización del charter en un conjunto de compromisos concretos. Al final de esta fase, el equipo sabe _qué_ va a entregar (PRD, WBS, épicas e historias), _cuándo_ (cronograma con Gantt), _cuánto cuesta_ (estimación de costos), _qué puede salir mal_ (matriz de riesgo), _cómo fluye la información_ (plan de comunicaciones), _con qué estándar de calidad_ (plan de calidad) y _con qué equipo y presupuesto_ (plan de recursos).
+
+Este es el momento en el que invertir tiempo produce el mayor retorno: un plan incompleto genera deuda de decisión que el equipo paga con intereses durante la ejecución.
+
+## Cuándo comienza esta fase
+
+La planeación comienza una vez que el charter está firmado y el registro de stakeholders tiene su primera versión aprobada. No es necesario que todos los artefactos de planeación se produzcan en el mismo orden para todos los proyectos, pero el PRD precede al WBS, el WBS precede al cronograma, y las épicas e historias alimentan tanto al WBS como al cronograma.
+
+---
+
+<h3 id="prd">Artefacto 1: PRD — Documento de Requisitos del Producto</h3>
+
+| | |
+|---|---|
+| **Skill** | `prd` |
+| **Tipo** | Adaptado de contenido MIT de fuente abierta. Ver `THIRD_PARTY_NOTICES.md`. |
+| **Cuándo usarlo** | El patrocinador aprobó el charter y el equipo debe definir los requisitos funcionales y no funcionales antes de descomponer el alcance en un WBS o un backlog de historias. |
+| **Lista de aceptación** | `docs/pm-kit/checklists/prd.md` dentro de tu proyecto instalado |
+
+**Patrón de invocación.**
+
+> _Invoca el skill `prd`._
+
+El agente construirá el PRD en diez pasos: descripción general, metas y no-metas, usuarios y casos de uso, requisitos funcionales (numerados FR-01, FR-02 …), requisitos no funcionales, restricciones y dependencias, métricas de éxito y preguntas abiertas. El artefacto se guarda en `docs/pm-kit/outputs/prd/`.
+
+---
+
+<h3 id="epics-and-stories">Artefacto 2: Épicas e Historias</h3>
+
+| | |
+|---|---|
+| **Skill** | `epics-and-stories` |
+| **Tipo** | Adaptado de contenido MIT de fuente abierta. Ver `THIRD_PARTY_NOTICES.md`. |
+| **Cuándo usarlo** | El PRD está revisado y aprobado, y el equipo necesita un backlog de historias accionables con criterios de aceptación antes del sprint planning o la construcción de la WBS. |
+| **Lista de aceptación** | `docs/pm-kit/checklists/epics-and-stories.md` dentro de tu proyecto instalado |
+
+**Patrón de invocación.**
+
+> _Invoca el skill `epics-and-stories`._
+
+El agente agrupará los requisitos funcionales en épicas, descompondrá cada épica en historias con formato "Como `<tipo de usuario>`, quiero `<acción>`, para que `<resultado>`", añadirá criterios de aceptación en notación Gherkin (Dado / Cuando / Entonces), asignará prioridad (Debe / Debería / Podría) y marcará dependencias entre historias. El artefacto se guarda en `docs/pm-kit/outputs/epics-and-stories/`.
+
+---
+
+<h3 id="wbs">Artefacto 3: WBS — Estructura de Desglose del Trabajo</h3>
+
+| | |
+|---|---|
+| **Skill** | `wbs` |
+| **Tipo** | Extension — originalmente desarrollado para Agentic PM Kit |
+| **Cuándo usarlo** | El backlog de épicas e historias está revisado y el equipo necesita una vista orientada a entregables del alcance — en lugar de una vista orientada a funcionalidades — antes de construir el cronograma o asignar recursos. |
+| **Lista de aceptación** | `docs/pm-kit/checklists/wbs.md` dentro de tu proyecto instalado |
+
+**Patrón de invocación.**
+
+> _Invoca el skill `wbs`._
+
+El agente construirá la WBS en tres niveles: fases o entregables principales (Nivel 1), sub-entregables (Nivel 2) y paquetes de trabajo (Nivel 3). Producirá un diagrama Mermaid `graph TD` con los nodos de Nivel 1 y Nivel 2 más una muestra representativa del Nivel 3, una tabla de detalle de paquetes de trabajo con código WBS, propietario, duración estimada y dependencias, y un diccionario WBS para los paquetes más críticos o ambiguos. El artefacto se guarda en `docs/pm-kit/outputs/wbs/`.
+
+---
+
+<h3 id="schedule-gantt">Artefacto 4: Cronograma / Gantt</h3>
+
+| | |
+|---|---|
+| **Skill** | `schedule-gantt` |
+| **Tipo** | Extension — originalmente desarrollado para Agentic PM Kit |
+| **Cuándo usarlo** | La WBS está completa y las estimaciones de esfuerzo existen; el equipo necesita un cronograma base con dependencias y ruta crítica identificada, en formato de diagrama Gantt. |
+| **Lista de aceptación** | `docs/pm-kit/checklists/schedule-gantt.md` dentro de tu proyecto instalado |
+
+**Patrón de invocación.**
+
+> _Invoca el skill `schedule-gantt`._
+
+El agente asignará IDs de tarea, mapeará dependencias, calculará la ruta crítica, identificará hitos clave y producirá un bloque `gantt` de Mermaid con secciones alineadas a la WBS. Completará la tabla de detalle de tareas, la narrativa de ruta crítica y los supuestos y riesgos del cronograma. El artefacto se guarda en `docs/pm-kit/outputs/schedule-gantt/`.
+
+---
+
+<h3 id="cost-estimation">Artefacto 5: Estimación de Costos</h3>
+
+| | |
+|---|---|
+| **Skill** | `cost-estimation` |
+| **Tipo** | Skill liderado por el equipo — el agente enseña y facilita; el equipo estima |
+| **Cuándo usarlo** | El backlog tiene historias o tareas sin dimensionar y el sprint planning es inminente, o se requiere una estimación total documentada con rango de confianza para una puerta de planeación. |
+| **Lista de aceptación** | `docs/pm-kit/checklists/cost-estimation.md` dentro de tu proyecto instalado |
+
+**Patrón de invocación.**
+
+> _Invoca el skill `cost-estimation`._
+
+El agente enseñará tres técnicas complementarias: **Planning Poker** (para historias de usuario con acuerdo de equipo, usando la secuencia de Fibonacci), **talla de camiseta** (para épicas o funcionalidades donde la precisión numérica no es todavía pertinente: S / M / L / XL) y **estimación de tres puntos / PERT** (para tareas donde la incertidumbre justifica un rango probabilístico, con fórmula `E = (O + 4M + P) / 6`). El agente facilita cada ronda y registra los valores producidos por el equipo — no fabrica cifras. El artefacto se guarda en `docs/pm-kit/outputs/cost-estimation/`.
+
+---
+
+<h3 id="risk-matrix">Artefacto 6: Matriz de Riesgo</h3>
+
+| | |
+|---|---|
+| **Skill** | `risk-matrix` |
+| **Tipo** | Extension — originalmente desarrollado para Agentic PM Kit |
+| **Cuándo usarlo** | Una puerta de planeación o revisión de hito requiere un registro formal de riesgos antes de la aprobación; el charter está firmado y el equipo debe aflorar riesgos antes de que comience la ejecución. |
+| **Lista de aceptación** | `docs/pm-kit/checklists/risk-matrix.md` dentro de tu proyecto instalado |
+
+**Patrón de invocación.**
+
+> _Invoca el skill `risk-matrix`._
+
+El agente invertirá los criterios de éxito del proyecto para generar modos de falla, tensionará el plan en cuatro categorías (técnica, externa, organizacional, gestión de proyecto), consolidará candidatos en forma de "Si `<causa>` ocurre, entonces `<efecto>` puede impactar `<objetivo>`", puntuará cada riesgo en probabilidad × impacto (1–5 cada eje), asignará una estrategia de respuesta PMBOK (evitar / mitigar / transferir / aceptar) y producirá la lista de los cinco riesgos de mayor prioridad con planes de respuesta concretos. El artefacto se guarda en `docs/pm-kit/outputs/risk-matrix/`.
+
+---
+
+<h3 id="communication-plan">Artefacto 7: Plan de Comunicaciones</h3>
+
+| | |
+|---|---|
+| **Skill** | `communication-plan` |
+| **Tipo** | Extension — originalmente desarrollado para Agentic PM Kit |
+| **Cuándo usarlo** | El registro de stakeholders está completo y el proyecto necesita un plan formal que rija cómo fluye la información del proyecto hacia cada audiencia — quién envía, qué, cuándo y por qué canal. |
+| **Lista de aceptación** | `docs/pm-kit/checklists/communication-plan.md` dentro de tu proyecto instalado |
+
+**Patrón de invocación.**
+
+> _Invoca el skill `communication-plan`._
+
+El agente construirá una matriz de comunicaciones (stakeholder × tipo de información × cadencia × canal × propietario del envío), documentará las rutas de escalación para bloqueos técnicos, solicitudes de cambio de alcance, variaciones de presupuesto y disputas entre stakeholders, listará la cadencia de reuniones recurrentes (standup, sprint review, retrospectiva, comité directivo) y documentará las reglas de higiene de la información. El artefacto se guarda en `docs/pm-kit/outputs/communication-plan/`.
+
+---
+
+<h3 id="quality-plan">Artefacto 8: Plan de Calidad</h3>
+
+| | |
+|---|---|
+| **Skill** | `quality-plan` |
+| **Tipo** | Extension — originalmente desarrollado para Agentic PM Kit |
+| **Cuándo usarlo** | El patrocinador o la PMO requieren un estándar de calidad escrito como puerta antes de la aprobación de ejecución; el equipo no tiene una definición compartida de qué significa "listo" o "aceptable" para los entregables del proyecto. |
+| **Lista de aceptación** | `docs/pm-kit/checklists/quality-plan.md` dentro de tu proyecto instalado |
+
+**Patrón de invocación.**
+
+> _Invoca el skill `quality-plan`._
+
+El agente capturará objetivos de calidad en tres dimensiones (calidad visible para el usuario, calidad interna del proceso, calidad de la documentación), establecerá métricas medibles con metas mínimas aceptables, definirá actividades de aseguramiento (preventivas) y de control (de detección), e identificará los estándares externos aplicables (ISO, WCAG, regulaciones del dominio). El artefacto se guarda en `docs/pm-kit/outputs/quality-plan/`.
+
+---
+
+<h3 id="resource-plan">Artefacto 9: Plan de Recursos</h3>
+
+| | |
+|---|---|
+| **Skill** | `resource-plan` |
+| **Tipo** | Extension — originalmente desarrollado para Agentic PM Kit |
+| **Cuándo usarlo** | La WBS y el cronograma están establecidos y el patrocinador necesita autorizar el presupuesto antes de que comience la ejecución; el roster del equipo tiene vacantes que deben documentarse. |
+| **Lista de aceptación** | `docs/pm-kit/checklists/resource-plan.md` dentro de tu proyecto instalado |
+
+**Patrón de invocación.**
+
+> _Invoca el skill `resource-plan`._
+
+El agente construirá el roster del equipo con roles, personas asignadas (o "Por definir"), porcentaje de dedicación y fechas de incorporación y liberación; identificará equipo, licencias de software e infraestructura; producirá el resumen de presupuesto en cuatro categorías (personas, herramientas y software, viajes y gastos, reserva de contingencia); documentará las dependencias externas de proveedores y equipos compartidos; y registrará la línea de tiempo de contratación para los roles no cubiertos. El artefacto se guarda en `docs/pm-kit/outputs/resource-plan/`.
+
+---
+
+## Ejemplo trabajado — BookSwap Campus
+
+_El ejemplo trabajado aparecerá aquí una vez que el Equipo D ejecute el kit completo en el proyecto BookSwap Campus._
+
+---
+
+<Callout type="tip">
+**Lo que no debe faltar en la planeación**
+
+- **El orden de los artefactos importa.** El PRD alimenta las épicas e historias; las épicas e historias alimentan el WBS; el WBS alimenta el cronograma; el cronograma y el WBS alimentan la estimación de costos y el plan de recursos. Saltarte un eslabón crea inconsistencias que se vuelven costosas de corregir en ejecución.
+- **La estimación de costos la hace el equipo, no el agente.** El skill de estimación enseña las técnicas y facilita las rondas, pero los números los produce el equipo. Un agente que "estima solo" produce cifras sin responsable — y sin responsable no hay compromiso.
+- **La matriz de riesgo no es un trámite.** El ejercicio de inversión de metas y el tensionado en cuatro categorías está diseñado para aflorar los riesgos que el equipo _no_ ve todavía. Si la matriz sólo tiene los riesgos obvios, el ejercicio no terminó.
+</Callout>

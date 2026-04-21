@@ -1,5 +1,13 @@
 {
   "title": "PM Kit",
-  "pages": ["index"],
-  "_todo": "Future page slots reserved for tasks C2 (01-install), C3 (02-ideation, 03-initiation, 04-planning, 05-execution, 06-closing), and C4 (07-reference). Add to pages array when those files land."
+  "pages": [
+    "index",
+    "01-install",
+    "02-ideation",
+    "03-initiation",
+    "04-planning",
+    "05-execution",
+    "06-closing",
+    "07-reference"
+  ]
 }

@@ -1,0 +1,96 @@
+---
+title: "Phase 5: Closing"
+description: Retrospective, post-mortem, and closure report — the three skills that close each sprint and each project with structured learning and formal documentation.
+---
+
+# Phase 5 — Closing
+
+Closing is not the end of work; it is the beginning of learning. This phase groups three skills that transform the team's accumulated experience into formal artifacts: the retrospective that inspects and adapts at the sprint cadence, the post-mortem that analyzes serious incidents with a blameless posture, and the closure report that formally signs off the project before sponsors and stakeholders.
+
+Knowing which skill to invoke — retrospective or post-mortem — matters. Confusing the two produces documents ill-suited for either purpose. This page draws that distinction clearly.
+
+<Callout type="info">
+**Invocation convention.** For any skill in this phase, tell your agent: *Invoke the \<name\> skill.* The agent will load the installed skill, read your `.pm-kit.config.json`, and begin facilitation in your configured language.
+</Callout>
+
+## Closing phase skills
+
+<h3 id="retrospective">Retrospective</h3>
+
+**Identifier:** `retrospective` — Adapted from open-source methodology (MIT). See `THIRD_PARTY_NOTICES.md`.
+
+**When to use it.** At the end of a sprint or iteration, when the team needs a structured inspect-and-adapt session focused on the next sprint. Also use it when recurring impediments suggest the team's working agreements need revisiting, or when a new team member has joined and a reset on norms is due.
+
+**When NOT to use it.** Do not invoke this skill for serious incidents or for retrospectives that span multiple sprints or the entire project — use the `post-mortem` skill for those. The difference is one of scale and purpose: the retrospective operates at the sprint cadence, inspects the team's process, and produces actions for the next cycle. The post-mortem operates when the damage was greater than what a sprint retro can address.
+
+**How to invoke it.** Tell your agent: *Invoke the retrospective skill.*
+
+The agent opens the session with the correct framing: "This retrospective exists to improve the next sprint, not to evaluate individuals. Describe systems, processes, and conditions — not the people who operated them." It then guides you through: capturing metadata and context, collecting what went well, what didn't go well (rewriting any bullet that points to an individual so it describes the system instead), lessons learned, and action items. Every action item must have an owner (role or team), a due date, and an observable success criterion — no "TBD" and no whole-team ownership. The agent also asks for follow-up on the previous retrospective, if one exists.
+
+The default lens is **Start / Stop / Continue**. If the team prefers, it accepts **Glad / Sad / Mad**, **4Ls**, or **Sailboat**; the agent records the choice in the artifact.
+
+**Generated artifact.** `docs/pm-kit/outputs/retrospective/<sprint-slug>.md`
+
+**Acceptance checklist.** `docs/pm-kit/checklists/retrospective.md`
+
+---
+
+<h3 id="post-mortem">Post-mortem</h3>
+
+**Identifier:** `post-mortem` — Original Agentic PM Kit skill (MIT).
+
+**When to use it.** When the learning surface is larger than a single sprint: a serious incident that breached an SLA or caused customer-visible impact; a near-miss whose mechanism is worth studying; a project-level retrospective spanning multiple sprints; a release that produced outcomes materially worse than forecast; or a review required by an audit finding, a regulatory notice, or a customer escalation.
+
+**When NOT to use it.** Do not invoke this skill for the regular inspect-and-adapt session at the end of each sprint — use `retrospective`. Do not use it for root-cause analysis of an isolated defect — use `brainstorming-five-whys`. And do not use it to assign individual performance consequences: this skill is blameless by contract and refuses that framing.
+
+**The blameless posture.** This skill follows the blameless post-mortem tradition from Google SRE. The agent opens the session with the literal statement: *"This is a blameless post-mortem. We are here to make the system better, not to blame the people who operated it. Human error is a starting point for analysis, not an endpoint."* Every participant must acknowledge this posture before any data is gathered. If someone cannot accept the posture, the skill instructs the facilitator to pause the session and escalate before continuing — a post-mortem held without a blameless contract will harm the team and produce shallow findings.
+
+**Root cause analysis.** The skill applies the Five Whys pattern or an equivalent multi-layered analysis. **It rejects "human error," "operator mistake," "developer oversight," and any equivalent as a terminal root cause.** If the causal chain reaches a person, the agent asks the next why: why did the system, process, training, tooling, documentation, alerting, or incentive structure allow that person to make that error at that moment? The chain terminates only at a systemic cause the team can change.
+
+**How to invoke it.** Tell your agent: *Invoke the post-mortem skill.*
+
+The agent guides you through: declaring the blameless posture, capturing metadata, drafting an executive summary readable by someone not on the incident call, building the chronological timeline, quantifying impact (internal and external), performing root cause analysis while rejecting superficial causes, documenting contributing factors, recording what went well and what could have gone better, building the action-item table (each row requires: owner, category Prevent / Detect / Mitigate, due date, success criterion, and cross-reference to a root cause or contributing factor), and recording follow-up commitments — including where the document will be published and who oversees progress on the action items.
+
+**Generated artifact.** `docs/pm-kit/outputs/post-mortem/<incident-date-slug>.md`
+
+**Acceptance checklist.** `docs/pm-kit/checklists/post-mortem.md`
+
+---
+
+<h3 id="closure-report">Project Closure Report</h3>
+
+**Identifier:** `closure-report` — Original Agentic PM Kit skill (MIT).
+
+**When to use it.** When the entire project has reached the end of its execution phase and formal closure is required: all planned deliverables have been accepted by named stakeholders, the sponsor or governance body has requested a formal closure record, lessons from retrospectives and post-mortems need to be consolidated into a single organizational artifact, the team is being reassigned and resources must be formally released, or the project record must be archived for audit, contractual, or institutional purposes.
+
+Do not invoke this skill for individual sprint retrospectives or mid-project reviews. Invoke it only when the entire project is being closed, not a single phase.
+
+**How to invoke it.** Tell your agent: *Invoke the closure-report skill.*
+
+The agent guides you through: gathering source documents (approved charter, final planned-vs-actual schedule, budget summary, scope-change records, stakeholder acceptance records, retrospective and post-mortem notes), capturing project metadata, drafting the executive summary, recording deliverables with acceptance dates and the name of the person who accepted each one, comparing objectives to actual outcomes and planned versus actual dates and budget, consolidating scope changes and lessons learned grouped into four themes (process, technical, organizational, stakeholder), documenting outstanding items and resource release, confirming artifact archival locations, and preparing the formal sign-off block for the sponsor and PM.
+
+**Generated artifact.** `docs/pm-kit/outputs/closure-report/<project-name-slug>.md`
+
+**Acceptance checklist.** `docs/pm-kit/checklists/closure-report.md`
+
+---
+
+## Worked example — BookSwap Campus
+
+_Worked example output will appear here once Team D runs the kit end-to-end on BookSwap Campus._
+
+---
+
+## Tips for the closing phase
+
+<Callout type="warning">
+**Retrospective vs. post-mortem: choose with intention.** The retrospective is the regular event at the sprint cadence — it inspects the team's process and produces actions for the next cycle. The post-mortem is for when something went badly enough to warrant systemic analysis: serious incidents, near-misses, and project-level retrospectives. Using the retrospective for a serious incident produces shallow analysis; using the post-mortem for every sprint close produces process overload. Know the difference and choose accordingly.
+</Callout>
+
+<Callout type="warning">
+**A post-mortem without a blameless contract produces theater, not learning.** If the session begins without every participant explicitly acknowledging the blameless posture, the skill instructs the facilitator to pause. This is not a formality: it is the condition that lets people say what actually happened. Without it, the findings will look the same as always and the action items will never close.
+</Callout>
+
+<Callout type="info">
+**The closure report consolidates, it does not duplicate.** Its value is integrating the lessons from all of the project's retrospectives and post-mortems into a single artifact readable by the sponsor. Gather your previous artifacts before invoking it — the agent asks for them in the first step of the facilitation.
+</Callout>

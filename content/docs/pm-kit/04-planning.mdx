@@ -1,0 +1,183 @@
+---
+title: Planning — From PRD to Resource Plan
+description: Nine artifacts convert the authorized charter into a complete project plan — requirements, scope, schedule, costs, risks, communications, quality, and resources. All are produced in this phase before execution begins.
+---
+
+# Phase 2 — Planning
+
+Planning converts the charter authorization into a set of concrete commitments. By the end of this phase, the team knows _what_ it will deliver (PRD, WBS, epics and stories), _when_ (schedule with Gantt), _how much it costs_ (cost estimation), _what can go wrong_ (risk matrix), _how information flows_ (communications plan), _to what quality standard_ (quality plan), and _with what team and budget_ (resource plan).
+
+This is the moment where investing time yields the highest return: an incomplete plan generates decision debt that the team pays with interest during execution.
+
+## When this phase begins
+
+Planning begins once the charter is signed and the stakeholder register has its first approved version. Not every planning artifact must be produced in the same order for all projects, but the PRD precedes the WBS, the WBS precedes the schedule, and epics and stories feed both the WBS and the schedule.
+
+---
+
+<h3 id="prd">Artifact 1: PRD — Product Requirements Document</h3>
+
+| | |
+|---|---|
+| **Skill** | `prd` |
+| **Type** | Adapted from open-source MIT content. See `THIRD_PARTY_NOTICES.md`. |
+| **When to use** | The sponsor has approved the charter and the team must now define functional and non-functional requirements before decomposing scope into a WBS or story backlog. |
+| **Acceptance checklist** | `docs/pm-kit/checklists/prd.md` inside your installed project |
+
+**Invocation pattern.**
+
+> _Invoke the `prd` skill._
+
+The agent will build the PRD in ten steps: overview, goals and non-goals, target users and use cases, functional requirements (numbered FR-01, FR-02 …), non-functional requirements, constraints and dependencies, success metrics, and open questions. The artifact is saved to `docs/pm-kit/outputs/prd/`.
+
+---
+
+<h3 id="epics-and-stories">Artifact 2: Epics and Stories</h3>
+
+| | |
+|---|---|
+| **Skill** | `epics-and-stories` |
+| **Type** | Adapted from open-source MIT content. See `THIRD_PARTY_NOTICES.md`. |
+| **When to use** | The PRD has been reviewed and baselined, and the team needs an actionable story backlog with acceptance criteria before sprint planning or WBS construction. |
+| **Acceptance checklist** | `docs/pm-kit/checklists/epics-and-stories.md` inside your installed project |
+
+**Invocation pattern.**
+
+> _Invoke the `epics-and-stories` skill._
+
+The agent will group functional requirements into epics, decompose each epic into user stories in the format "As a `<user type>`, I want `<action>`, so that `<outcome>`", add acceptance criteria in Gherkin notation (Given / When / Then), assign priority (Must / Should / Could), and tag dependencies between stories. The artifact is saved to `docs/pm-kit/outputs/epics-and-stories/`.
+
+---
+
+<h3 id="wbs">Artifact 3: WBS — Work Breakdown Structure</h3>
+
+| | |
+|---|---|
+| **Skill** | `wbs` |
+| **Type** | Extension — originally authored for Agentic PM Kit |
+| **When to use** | The epics-and-stories backlog is reviewed and the team needs a deliverable-oriented view of scope — rather than a feature-oriented view — before building the schedule or assigning resources. |
+| **Acceptance checklist** | `docs/pm-kit/checklists/wbs.md` inside your installed project |
+
+**Invocation pattern.**
+
+> _Invoke the `wbs` skill._
+
+The agent will construct the WBS across three levels: phases or major deliverables (Level 1), sub-deliverables (Level 2), and work packages (Level 3). It will produce a Mermaid `graph TD` diagram with Level 1 and Level 2 nodes plus a representative Level 3 sample, a work-package detail table with WBS code, owner, estimated duration, and dependencies, and a WBS dictionary for the most critical or ambiguous packages. The artifact is saved to `docs/pm-kit/outputs/wbs/`.
+
+---
+
+<h3 id="schedule-gantt">Artifact 4: Schedule / Gantt</h3>
+
+| | |
+|---|---|
+| **Skill** | `schedule-gantt` |
+| **Type** | Extension — originally authored for Agentic PM Kit |
+| **When to use** | The WBS is complete and effort estimates exist; the team needs a schedule baseline with dependencies and critical path identified, in Gantt diagram format. |
+| **Acceptance checklist** | `docs/pm-kit/checklists/schedule-gantt.md` inside your installed project |
+
+**Invocation pattern.**
+
+> _Invoke the `schedule-gantt` skill._
+
+The agent will assign task IDs, map dependencies, calculate the critical path, identify key milestones, and produce a Mermaid `gantt` block with sections aligned to the WBS. It will complete the task-detail table, critical-path narrative, and schedule assumptions and risks. The artifact is saved to `docs/pm-kit/outputs/schedule-gantt/`.
+
+---
+
+<h3 id="cost-estimation">Artifact 5: Cost Estimation</h3>
+
+| | |
+|---|---|
+| **Skill** | `cost-estimation` |
+| **Type** | Human-led skill — the agent teaches and facilitates; the team estimates |
+| **When to use** | The backlog contains unsized stories or tasks and sprint planning is imminent, or a documented total estimate with a confidence range is required for a planning gate. |
+| **Acceptance checklist** | `docs/pm-kit/checklists/cost-estimation.md` inside your installed project |
+
+**Invocation pattern.**
+
+> _Invoke the `cost-estimation` skill._
+
+The agent will teach three complementary techniques: **Planning Poker** (for user stories requiring team agreement, using the Fibonacci sequence), **T-shirt sizing** (for epics or features where numeric precision is not yet warranted: S / M / L / XL), and **three-point / PERT estimation** (for tasks where uncertainty warrants a probabilistic range, using the formula `E = (O + 4M + P) / 6`). The agent facilitates each round and records the values the team produces — it does not fabricate figures. The artifact is saved to `docs/pm-kit/outputs/cost-estimation/`.
+
+---
+
+<h3 id="risk-matrix">Artifact 6: Risk Matrix</h3>
+
+| | |
+|---|---|
+| **Skill** | `risk-matrix` |
+| **Type** | Extension — originally authored for Agentic PM Kit |
+| **When to use** | A planning gate or milestone review requires a formal risk register before approval; the charter is signed and the team must surface risks before execution begins. |
+| **Acceptance checklist** | `docs/pm-kit/checklists/risk-matrix.md` inside your installed project |
+
+**Invocation pattern.**
+
+> _Invoke the `risk-matrix` skill._
+
+The agent will invert the project's success criteria to generate failure modes, stress-test the plan across four categories (technical, external, organizational, project management), consolidate candidates as "If `<cause>` occurs, then `<effect>` may impact `<objective>`", score each risk on probability × impact (1–5 per axis), assign a PMBOK response strategy (avoid / mitigate / transfer / accept), and produce the top-5 priority risks with concrete response plans. The artifact is saved to `docs/pm-kit/outputs/risk-matrix/`.
+
+---
+
+<h3 id="communication-plan">Artifact 7: Communications Plan</h3>
+
+| | |
+|---|---|
+| **Skill** | `communication-plan` |
+| **Type** | Extension — originally authored for Agentic PM Kit |
+| **When to use** | The stakeholder register is complete and the project needs a formal plan governing how project information flows to each audience — who sends what, when, and through which channel. |
+| **Acceptance checklist** | `docs/pm-kit/checklists/communication-plan.md` inside your installed project |
+
+**Invocation pattern.**
+
+> _Invoke the `communication-plan` skill._
+
+The agent will build a communication matrix (stakeholder × information type × cadence × channel × sender), document escalation paths for technical blockers, scope-change requests, budget variances, and stakeholder disputes, list the recurring meeting cadence (standup, sprint review, retrospective, steering committee), and document information-hygiene rules. The artifact is saved to `docs/pm-kit/outputs/communication-plan/`.
+
+---
+
+<h3 id="quality-plan">Artifact 8: Quality Plan</h3>
+
+| | |
+|---|---|
+| **Skill** | `quality-plan` |
+| **Type** | Extension — originally authored for Agentic PM Kit |
+| **When to use** | The sponsor or PMO requires a written quality standard as a gate before execution approval; the team has no shared definition of what "done" or "acceptable" means for the project's deliverables. |
+| **Acceptance checklist** | `docs/pm-kit/checklists/quality-plan.md` inside your installed project |
+
+**Invocation pattern.**
+
+> _Invoke the `quality-plan` skill._
+
+The agent will capture quality objectives across three dimensions (user-visible output quality, internal process quality, documentation quality), establish measurable metrics with minimum acceptable targets, define assurance activities (prevention) and control activities (detection), and identify applicable external standards (ISO, WCAG, domain regulations). The artifact is saved to `docs/pm-kit/outputs/quality-plan/`.
+
+---
+
+<h3 id="resource-plan">Artifact 9: Resource Plan</h3>
+
+| | |
+|---|---|
+| **Skill** | `resource-plan` |
+| **Type** | Extension — originally authored for Agentic PM Kit |
+| **When to use** | The WBS and schedule are established and the sponsor needs to authorize the budget before execution begins; the team roster has open roles that must be documented. |
+| **Acceptance checklist** | `docs/pm-kit/checklists/resource-plan.md` inside your installed project |
+
+**Invocation pattern.**
+
+> _Invoke the `resource-plan` skill._
+
+The agent will build the team roster with roles, assigned people (or "TBD"), allocation percentage, and join and release dates; identify equipment, software licenses, and infrastructure; produce the budget summary in four categories (people, tools and software, travel and expenses, contingency reserve); document external vendor and shared-team dependencies; and record the hiring or onboarding timeline for unfilled roles. The artifact is saved to `docs/pm-kit/outputs/resource-plan/`.
+
+---
+
+## Worked example — BookSwap Campus
+
+_Worked example output will appear here once Team D runs the kit end-to-end on BookSwap Campus._
+
+---
+
+<Callout type="tip">
+**What planning must get right**
+
+- **Artifact order matters.** The PRD feeds epics and stories; epics and stories feed the WBS; the WBS feeds the schedule; the schedule and WBS together feed cost estimation and the resource plan. Skipping a link creates inconsistencies that become expensive to fix in execution.
+- **Cost estimation is done by the team, not the agent.** The cost-estimation skill teaches the techniques and facilitates the rounds, but the numbers come from the team. An agent that "estimates alone" produces figures with no owner — and without an owner there is no commitment.
+- **The risk matrix is not a formality.** The goal-inversion exercise and the four-category stress test are designed to surface the risks the team does not yet see. If the matrix contains only the obvious risks, the exercise is not finished.
+</Callout>

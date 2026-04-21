@@ -1,0 +1,343 @@
+---
+title: Installation
+description: Step-by-step walkthrough for installing pm-kit into your project with the interactive npx installer.
+---
+
+# Installation
+
+One line starts the interactive installer that sets up your project-management Agent Skills:
+
+```bash
+npx agentic-pm-kit install
+```
+
+The installer asks you **10 questions**, writes the files into your project, and records your answers in `.pm-kit.config.json`. There is no telemetry, and no network calls during installation beyond the initial npm package download.
+
+<Callout type="info">
+**Requirement:** Node.js 18 or later (Bun 1.0+ also works). Check with `node --version`.
+</Callout>
+
+---
+
+## The install walkthrough: 10 questions
+
+<h3 id="q1">Question 1 — Install target directory</h3>
+
+The installer proposes your current working directory as the destination and asks if you want to use it. If you answer "No," it prompts for the absolute path to your project directory.
+
+**When to change it:** when you want to install into a repository subdirectory or a project that is not the current directory.
+
+---
+
+<h3 id="q2">Question 2 — Project name</h3>
+
+Free-form text. The name is used to generate the `docs/pm-kit/README.md` for your project and is stored in the config.
+
+**Example of a good answer:** `BookSwap Campus`
+
+---
+
+<h3 id="q3">Question 3 — Project description</h3>
+
+One sentence describing your project. Also used in the generated README and gives the skills context when you invoke them.
+
+**Example of a good answer:** `Peer-to-peer used-textbook marketplace for university students in Mexico`
+
+---
+
+<h3 id="q4">Question 4 — Agent target(s)</h3>
+
+Multi-select. The options are **Claude Code** and **Gemini CLI**; both are checked by default. You can choose only one if you don't use the other.
+
+**Why it matters:** the install paths are different for each agent (see [On-disk layout](#resultado-en-disco) below). If you select Gemini CLI, skills are installed in a user-global location that is shared across all your Gemini projects.
+
+---
+
+<h3 id="q5">Question 5 — Agent communication language</h3>
+
+Free-form text. Type the language you want the agent to speak during facilitation.
+
+**Example of a good answer:** `English`
+
+Other valid options: `español`, `português`, `français`, `kichwa` — any natural language you type is stored verbatim in the config and the agent honors it.
+
+---
+
+<h3 id="q6">Question 6 — Artifact output language</h3>
+
+Free-form text. The language in which the agent should draft the final artifacts (charters, WBS, risk matrices, etc.). If you leave it blank, it defaults to the same language as the communication language.
+
+**When to differ:** if you want the agent to walk you through the process in Spanish but deliver artifacts in English because your client requires it, type `English` here and `español` in the previous question.
+
+---
+
+<h3 id="q7">Question 7 — Modules to install</h3>
+
+Multi-select. All are checked by default. The available modules are:
+
+| Module | Skills included |
+|---|---|
+| **Ideation** | Brainstorming lab with PM-curated strategies |
+| **Initiation** | Project charter, stakeholder register, product brief |
+| **Planning** | PRD, WBS, schedule/Gantt, cost estimation, risk matrix, communications, quality, and resource plans |
+| **Execution** | Sprint planning, story execution, standup prep, sprint review |
+| **Closing** | Retrospective, post-mortem, project closure report |
+
+If you only need one phase of the lifecycle, uncheck the rest.
+
+---
+
+<h3 id="q8">Question 8 — Brainstorming deck</h3>
+
+Single-select. The options are:
+
+- **Curated 20** (recommended): the 20 strategies optimized for PM context. This is the default.
+- **Full 60**: includes the 20 curated strategies plus ~40 general-purpose strategies that are not PM-specific. In v1 this option installs the curated 20-strategy deck while the additional strategies are being authored.
+
+<Callout type="info">
+Passing the `--full-deck` flag to the command skips this question and uses the full deck. In v1, the full deck falls back to the curated 20.
+</Callout>
+
+---
+
+<h3 id="q9">Question 9 — Authoritative-source mode</h3>
+
+Single-select. The options are:
+
+- **Offline (default):** skills use only the bundled sources — the Scrum Guide 2020 and the Agile Manifesto in English and Latin American Spanish — plus the agent's general knowledge of PMBOK concepts. No network calls on each skill invocation. Predictable, no runtime network dependency, and the right choice for most use cases.
+- **Online (opt-in):** skills instruct the agent to fetch the relevant canonical URLs before drafting. This gives access to public PMI pages and other up-to-date sources. It does not solve access to paywalled content (full PMBOK, ISO 21500), but for users who want maximum grounding in current sources it is the right option.
+
+<Callout type="info">
+Passing the `--online-mode` flag to the command skips this question and enables online mode.
+</Callout>
+
+---
+
+<h3 id="q10">Question 10 — Install summary and final confirmation</h3>
+
+Before writing any files, the installer shows a complete summary of all your answers: target directory, project name and description, selected agents, the paths where skills will be written, languages, modules, brainstorming deck, and source mode. You confirm with "Yes" to proceed or "No" to cancel with no changes.
+
+---
+
+## On-disk layout
+
+The installer always writes these files per project, regardless of which agents you selected:
+
+```
+<your-project>/
+├── docs/
+│   └── pm-kit/
+│       ├── README.md            ← generated with your project name and description
+│       ├── checklists/          ← one acceptance checklist per installed artifact
+│       ├── templates/           ← blank starter templates per artifact
+│       └── outputs/             ← your agent-generated artifacts land here
+├── vendor/
+│   └── pm-kit/
+│       ├── scrum-guide-en.md    ← Scrum Guide 2020 in English (CC BY-SA 4.0)
+│       ├── scrum-guide-es.md    ← Scrum Guide 2020 in Latin American Spanish
+│       ├── agile-manifesto.md   ← full text + copyright notice
+│       └── sources-index.json   ← PMI/ISO URLs with freshness dates
+│   └── bmad/
+│       └── LICENSE              ← MIT license for vendored open-source content
+└── .pm-kit.config.json          ← your install answers; base for subsequent runs
+```
+
+The skill paths depend on which agent(s) you selected:
+
+<h3 id="tree-claude">Claude Code only</h3>
+
+Claude Code auto-discovers skills from the project root. No additional configuration required.
+
+```
+<your-project>/
+└── .claude/
+    └── skills/
+        └── pm-kit/
+            ├── brainstorming-five-whys/
+            │   └── SKILL.md
+            ├── brainstorming-question-storming/
+            │   └── SKILL.md
+            ├── ... (up to 20 brainstorming strategies)
+            ├── charter/
+            │   └── SKILL.md
+            ├── stakeholder-register/
+            │   └── SKILL.md
+            ├── prd/
+            │   └── SKILL.md
+            └── ... (skills for installed modules)
+```
+
+<h3 id="tree-gemini">Gemini CLI only</h3>
+
+Gemini CLI discovers extensions from `~/.gemini/extensions/` at the user level, not from the project directory. This means pm-kit skills **are shared across all your Gemini CLI projects**. The installer creates an extension with a `gemini-extension.json` manifest and places skills under `~/.gemini/extensions/pm-kit/skills/`.
+
+```
+~/ (user home directory)
+└── .gemini/
+    └── extensions/
+        └── pm-kit/
+            ├── gemini-extension.json    ← extension manifest
+            └── skills/
+                ├── brainstorming-five-whys/
+                │   └── SKILL.md
+                ├── brainstorming-question-storming/
+                │   └── SKILL.md
+                ├── ... (up to 20 brainstorming strategies)
+                ├── charter/
+                │   └── SKILL.md
+                ├── stakeholder-register/
+                │   └── SKILL.md
+                └── ... (skills for installed modules)
+```
+
+<Callout type="info">
+**Gemini CLI is user-global.** If you have multiple Gemini CLI projects, they all share the same pm-kit installation. Reinstalling with a different config updates the global skills. If you need separate configurations per project, use Claude Code which installs per-project.
+</Callout>
+
+<h3 id="tree-both">Claude Code + Gemini CLI</h3>
+
+When you select both agents, the installer writes both trees:
+
+```
+<your-project>/
+├── .claude/
+│   └── skills/
+│       └── pm-kit/
+│           └── ... (per-project skills for Claude Code)
+├── docs/
+│   └── pm-kit/  (always per-project)
+├── vendor/      (always per-project)
+└── .pm-kit.config.json
+
+~/ (user home directory)
+└── .gemini/
+    └── extensions/
+        └── pm-kit/
+            ├── gemini-extension.json
+            └── skills/
+                └── ... (user-global skills for Gemini CLI)
+```
+
+---
+
+## Languages
+
+<h3 id="languages-freeform">Free-form language input</h3>
+
+The language fields accept any text string you type — there is no fixed menu. The value is stored verbatim in `.pm-kit.config.json` and passed to the agent as-is.
+
+**Languages with best coverage in bundled sources:** English and Latin American Spanish (the Scrum Guide ships in both). For any other language the agent translates on demand; quality depends on the agent's own translation capability.
+
+<h3 id="languages-comm-vs-output">`language.communication` vs `language.output`</h3>
+
+The config stores two separate language fields:
+
+- **`language.communication`** — the language the agent uses when speaking to you during facilitation: asking questions, explaining steps, confirming decisions. This is "the agent's voice."
+- **`language.output`** — the language used to draft the final artifacts. This is the language of the charter, WBS, risk matrix, etc.
+
+You can set them to the same value (most common) or to different values. Example: communication in Spanish, artifacts in English for an international client.
+
+---
+
+## Source mode
+
+<h3 id="sources-offline">Offline (default)</h3>
+
+Skills use only the bundled sources: the Scrum Guide 2020 (English and Latin American Spanish) and the Agile Manifesto. For PMBOK references, skills instruct the agent to cite concepts at the level of named principles and performance domains, without fabricating page numbers, direct quotations, or invented structural details. When the agent is uncertain about a specific PMBOK fact, it says so explicitly and points the reader to the canonical URL in `vendor/pm-kit/sources-index.json`.
+
+This mode is predictable, requires no per-invocation network connection, and is the right choice for most use cases.
+
+<h3 id="sources-online">Online (opt-in)</h3>
+
+In online mode, skills also instruct the agent to fetch the relevant canonical URLs before drafting. This gives access to public PMI pages, the available online PMBOK table of contents, and other up-to-date sources. It does not solve access to paywalled content, but for users who want maximum grounding in current sources it is the right option.
+
+Enable it at question 9 in the installer, or pass `--online-mode` to the command:
+
+```bash
+npx agentic-pm-kit install --online-mode
+```
+
+You can switch modes after the initial install through the subsequent-run menu.
+
+---
+
+## Subsequent runs
+
+When you run `npx agentic-pm-kit` (without the `install` subcommand) inside a directory that already has `.pm-kit.config.json`, the installer detects the existing installation and opens a menu with the following options:
+
+- **Add / remove modules** — install or uninstall lifecycle modules without reinstalling everything.
+- **Change language** — update the communication or artifact output language.
+- **Switch source mode** — toggle between offline and online.
+- **Reinstall** — refresh all skills and vendor files to the current package version (useful after `npm update`).
+- **Uninstall** — remove `.claude/skills/pm-kit/`, the Gemini CLI global extension, `docs/pm-kit/`, `vendor/pm-kit/`, and the config file. Artifacts you have generated in `docs/pm-kit/outputs/` are **not touched** during a reinstall; they are removed during a full uninstall.
+
+---
+
+## Troubleshooting
+
+<h3 id="command-not-found">The `npx agentic-pm-kit` command is not found</h3>
+
+The installer requires **Node.js 18 or later**. Check your version:
+
+```bash
+node --version
+```
+
+If `node` is not installed or the version is below 18, download Node.js from [nodejs.org](https://nodejs.org) (choose the LTS version). Bun 1.0+ also works:
+
+```bash
+bun --version
+bunx agentic-pm-kit install
+```
+
+If `node` is installed but `npx` can't find the package, ensure the npm `bin` directory is in your `PATH`.
+
+<h3 id="gemini-permissions">Permission errors on the Gemini CLI global install path</h3>
+
+If the installer fails when writing to `~/.gemini/extensions/pm-kit/`, the most likely cause is that the `~/.gemini/` directory was previously created by another process running as root. To verify and fix:
+
+```bash
+ls -la ~/.gemini/
+# If the owner is not you, run:
+sudo chown -R $USER:$USER ~/.gemini/
+```
+
+<h3 id="fresh-config">How to restart with a clean config</h3>
+
+To run the installer from scratch as if it were the first time:
+
+```bash
+rm .pm-kit.config.json
+npx agentic-pm-kit install
+```
+
+This removes the existing config and launches the full 10-question interactive flow. Existing skill and vendor files are overwritten with the new installation. Artifacts you have generated in `docs/pm-kit/outputs/` are not modified.
+
+<h3 id="uninstall">How to uninstall</h3>
+
+```bash
+npx agentic-pm-kit
+```
+
+The subsequent-run menu appears automatically when `.pm-kit.config.json` is detected. Select **Uninstall** to remove:
+
+- `<your-project>/.claude/skills/pm-kit/` (if Claude Code was installed)
+- `~/.gemini/extensions/pm-kit/` (if Gemini CLI was installed)
+- `<your-project>/docs/pm-kit/`
+- `<your-project>/vendor/pm-kit/`
+- `<your-project>/.pm-kit.config.json`
+
+Artifacts in `docs/pm-kit/outputs/` are removed along with the rest during a full uninstall. Move them before uninstalling if you want to keep them.
+
+---
+
+## Command-line flags
+
+| Flag | Effect |
+|---|---|
+| `--full-deck` | Skips question 8 and uses the full 60-strategy deck (falls back to curated 20 in v1) |
+| `--online-mode` | Skips question 9 and enables online source mode |
+| `--help`, `-h` | Prints command help |
+| `--version`, `-v` | Prints the package version |
+
+The next step is to invoke your first skill. Start with the Ideation module to develop your project concept before drafting the charter.

@@ -1,0 +1,85 @@
+---
+title: Inicio — Charter, Stakeholders y Business Case
+description: Convierte el concepto aprobado en autorización formal. Tres artefactos constituyen el inicio del proyecto — el charter, el registro de stakeholders y el product brief — y juntos dan al equipo el mandato y la base para planear.
+---
+
+# Fase 1 — Inicio
+
+El inicio es el momento en que el proyecto deja de ser una idea y se convierte en un compromiso formal. El patrocinador firma el charter. El equipo identifica a todos los actores que tienen interés o influencia en el resultado. Y el business case documenta por qué el trabajo vale hacerse ahora.
+
+Esta fase no es burocracia: es la primera oportunidad para que el equipo conozca el alcance, las restricciones y los stakeholders antes de que comience la presión de la ejecución. Un inicio sólido evita las conversaciones tardías del estilo "¿por qué nadie nos dijo que ese departamento tenía voto?".
+
+La fase de inicio comienza cuando el concepto ideado tiene el visto bueno del patrocinador para convertirse en un proyecto formal. Termina cuando el charter está firmado, el registro de stakeholders existe en su primera versión, y el product brief documenta la justificación del negocio.
+
+## Cuándo comienza esta fase
+
+El inicio arranca en cuanto el memorando de concepto (o cualquier entrada equivalente) tiene la aprobación suficiente para que el equipo invierta tiempo en formalizar. No requiere que la ideación haya seguido el proceso del Laboratorio de Brainstorming — puede comenzar con cualquier instrucción del patrocinador. Termina antes de la planeación detallada.
+
+---
+
+<h3 id="charter">Artefacto 1: Charter del Proyecto</h3>
+
+| | |
+|---|---|
+| **Skill** | `charter` |
+| **Tipo** | Extension — originalmente desarrollado para Agentic PM Kit |
+| **Cuándo usarlo** | El patrocinador está listo para autorizar formalmente el proyecto y necesita un documento único que nombre el trabajo, otorgue autoridad y fije el estándar de calidad para todos los artefactos de planeación posteriores. |
+| **Lista de aceptación** | `docs/pm-kit/checklists/charter.md` dentro de tu proyecto instalado |
+
+**Patrón de invocación.** Abre tu agente en el directorio de tu proyecto e instruye:
+
+> _Invoca el skill `charter`._
+
+El agente recopilará los insumos disponibles (memorando de concepto, product brief), capturará los datos de identificación del proyecto, objetivos SMART, alcance, hitos, presupuesto de alto nivel, restricciones, supuestos, un resumen preliminar de riesgos y el bloque de firmas de aprobación. El artefacto se guarda en `docs/pm-kit/outputs/charter/`.
+
+**Nota sobre el orden.** El charter consume el memorando de concepto de la fase de ideación y a su vez alimenta el registro de stakeholders. Si el product brief no existe todavía, el skill puede construir el charter directamente desde el memorando de concepto.
+
+---
+
+<h3 id="stakeholder-register">Artefacto 2: Registro de Stakeholders</h3>
+
+| | |
+|---|---|
+| **Skill** | `stakeholder-register` |
+| **Tipo** | Extension — originalmente desarrollado para Agentic PM Kit |
+| **Cuándo usarlo** | El charter existe y el equipo necesita identificar sistemáticamente a todas las partes con interés o influencia en el resultado del proyecto, clasificarlas y documentar cómo se gestionará cada relación. |
+| **Lista de aceptación** | `docs/pm-kit/checklists/stakeholder-register.md` dentro de tu proyecto instalado |
+
+**Patrón de invocación.** Abre tu agente en el directorio de tu proyecto e instruye:
+
+> _Invoca el skill `stakeholder-register`._
+
+El skill ejecuta internamente una estrategia de brainstorming estructurada — por defecto `brainstorming-role-playing` o `brainstorming-six-thinking-hats` — aplicada sobre el charter para aflorar todas las partes interesadas. Después clasifica a cada stakeholder en la cuadrícula influencia × interés (Gestionar de cerca / Mantener satisfechos / Mantener informados / Monitorear) y documenta canal, cadencia y responsable de la relación. El artefacto se guarda en `docs/pm-kit/outputs/stakeholder-register/`.
+
+---
+
+<h3 id="product-brief">Artefacto 3: Product Brief / Business Case</h3>
+
+| | |
+|---|---|
+| **Skill** | `product-brief` |
+| **Tipo** | Adaptado de contenido MIT de fuente abierta. Ver `THIRD_PARTY_NOTICES.md`. |
+| **Cuándo usarlo** | El patrocinador o el comité de dirección requiere una justificación escrita del proyecto antes de aprobar el inicio; el equipo necesita convertir un concepto o salida de brainstorming en un brief estructurado y presentable de 1 a 3 páginas. |
+| **Lista de aceptación** | `docs/pm-kit/checklists/product-brief.md` dentro de tu proyecto instalado |
+
+**Patrón de invocación.** Abre tu agente en el directorio de tu proyecto e instruye:
+
+> _Invoca el skill `product-brief`._
+
+El agente recopilará el problema, los usuarios objetivo, los resultados deseados con métricas, los riesgos clave y el enfoque de alto nivel. El product brief puede producirse antes o en paralelo al charter — actúa como justificación del negocio, no como sustituto del charter. El artefacto se guarda en `docs/pm-kit/outputs/product-brief/`.
+
+---
+
+## Ejemplo trabajado — BookSwap Campus
+
+_El ejemplo trabajado aparecerá aquí una vez que el Equipo D ejecute el kit completo en el proyecto BookSwap Campus._
+
+---
+
+<Callout type="tip">
+**Lo que no debe faltar en el inicio**
+
+- **El charter sin firma no es un charter.** Un charter no firmado es un borrador. El bloque de firmas — patrocinador, gerente de proyecto, aprobadores adicionales — es el acto formal que autoriza el proyecto. Sin él, el equipo trabaja sin mandato.
+- **No te saltes el registro de stakeholders.** Identificar stakeholders _después_ de que el proyecto está en marcha es tarde. Los grupos de interés omitidos en el inicio regresan en la ejecución como bloqueos, cambios de alcance o rechazo del producto.
+- **El product brief no reemplaza al charter.** El brief es la justificación del negocio; el charter es la autorización formal. Ambos pueden coexistir y se complementan. Producir sólo uno de los dos deja un vacío.
+</Callout>

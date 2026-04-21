@@ -1,0 +1,343 @@
+---
+title: Instalación
+description: Guía paso a paso para instalar pm-kit en tu proyecto con el instalador interactivo de npx.
+---
+
+# Instalación
+
+Una sola línea pone en marcha el instalador interactivo que configura tus Agent Skills de gestión de proyectos:
+
+```bash
+npx agentic-pm-kit install
+```
+
+El instalador te hace **10 preguntas**, escribe los archivos en tu proyecto y registra tus respuestas en `.pm-kit.config.json`. No hay telemetría, ni llamadas de red durante la instalación excepto la descarga inicial del paquete desde npm.
+
+<Callout type="info">
+**Requisito:** Node.js 18 o superior (Bun 1.0+ también funciona). Verifica con `node --version`.
+</Callout>
+
+---
+
+## El recorrido de instalación: 10 preguntas
+
+<h3 id="q1">Pregunta 1 — Directorio de instalación</h3>
+
+El instalador propone el directorio actual como destino y pregunta si quieres usarlo. Si respondes "No", te pide la ruta absoluta al directorio donde vive tu proyecto.
+
+**Cuándo cambiarlo:** cuando quieres instalar en un subdirectorio del repositorio o en un proyecto que no está en el directorio actual.
+
+---
+
+<h3 id="q2">Pregunta 2 — Nombre del proyecto</h3>
+
+Texto libre. El nombre se usa para generar el `docs/pm-kit/README.md` de tu proyecto y queda registrado en el config.
+
+**Ejemplo de buena respuesta:** `BookSwap Campus`
+
+---
+
+<h3 id="q3">Pregunta 3 — Descripción del proyecto</h3>
+
+Una oración que describa tu proyecto. También se usa en el README generado y sirve de contexto a los skills cuando los invocas.
+
+**Ejemplo de buena respuesta:** `Marketplace de libros de texto usados para estudiantes universitarios en México`
+
+---
+
+<h3 id="q4">Pregunta 4 — Agente(s) destino</h3>
+
+Selección múltiple. Las opciones son **Claude Code** y **Gemini CLI**; ambas vienen marcadas por defecto. Puedes elegir solo uno si no usas el otro.
+
+**Por qué importa:** los paths de instalación son distintos para cada agente (ver [Resultado en disco](#resultado-en-disco) más adelante). Si seleccionas Gemini CLI, los skills se instalan en una ubicación global de usuario, compartida entre todos tus proyectos de Gemini.
+
+---
+
+<h3 id="q5">Pregunta 5 — Idioma de comunicación del agente</h3>
+
+Texto libre. Escribe el idioma en el que quieres que el agente te hable durante la facilitación.
+
+**Ejemplo de buena respuesta:** `español`
+
+Otras opciones válidas: `English`, `português`, `français`, `kichwa` — cualquier idioma natural que escribas se almacena textualmente en la config y el agente lo respeta.
+
+---
+
+<h3 id="q6">Pregunta 6 — Idioma de salida de los artefactos</h3>
+
+Texto libre. Idioma en el que el agente debe redactar los artefactos finales (charters, WBS, matrices de riesgo, etc.). Si lo dejas en blanco, adopta el mismo idioma de comunicación.
+
+**Cuándo diferir:** si quieres que el agente te explique el proceso en español pero entregue los artefactos en inglés porque tu cliente así lo requiere, escribe `English` aquí y `español` en la pregunta anterior.
+
+---
+
+<h3 id="q7">Pregunta 7 — Módulos a instalar</h3>
+
+Selección múltiple. Todos vienen marcados por defecto. Los módulos disponibles son:
+
+| Módulo | Skills incluidos |
+|---|---|
+| **Ideación** | Laboratorio de brainstorming con estrategias curadas para PM |
+| **Inicio** | Charter del proyecto, registro de stakeholders, product brief |
+| **Planeación** | PRD, WBS, cronograma/Gantt, estimación de costos, matriz de riesgo, planes de comunicaciones, calidad y recursos |
+| **Ejecución** | Sprint planning, ejecución de historias, preparación de standup, sprint review |
+| **Cierre** | Retrospectiva, post-mortem, reporte de cierre del proyecto |
+
+Si solo necesitas una fase del ciclo de vida, desmarca las demás.
+
+---
+
+<h3 id="q8">Pregunta 8 — Mazo de brainstorming</h3>
+
+Selección simple. Las opciones son:
+
+- **Curado 20** (recomendado): las 20 estrategias optimizadas para contexto PM. Esta es la opción por defecto.
+- **Completo 60**: incluye las 20 curadas más ~40 estrategias de propósito general que no son específicas de PM. En v1 esta opción instala el mazo curado de 20 mientras las estrategias adicionales se terminan de autorear.
+
+<Callout type="info">
+Si pasas la bandera `--full-deck` al comando, se omite esta pregunta y el instalador usa el mazo completo. En v1, el mazo completo cae de vuelta al curado de 20.
+</Callout>
+
+---
+
+<h3 id="q9">Pregunta 9 — Modo de fuentes autoritativas</h3>
+
+Selección simple. Las opciones son:
+
+- **Offline (por defecto):** los skills usan exclusivamente las fuentes empaquetadas — la Guía Scrum 2020 y el Manifiesto Ágil en inglés y español latinoamericano — más el conocimiento general del agente sobre conceptos de PMBOK. No hay llamadas de red en cada invocación de un skill. Predecible, sin dependencias de red, y la opción correcta para la mayoría de los casos de uso.
+- **Online (opt-in):** los skills instruyen al agente para que obtenga las URLs canónicas relevantes antes de redactar. Esto da acceso a las páginas públicas de PMI y otras fuentes actualizadas. No soluciona el acceso a contenido detrás de paywall (PMBOK completo, ISO 21500), pero maximiza el anclaje a fuentes actuales para quienes lo necesitan.
+
+<Callout type="info">
+Si pasas la bandera `--online-mode` al comando, se omite esta pregunta y el instalador activa el modo online.
+</Callout>
+
+---
+
+<h3 id="q10">Pregunta 10 — Resumen de instalación y confirmación final</h3>
+
+Antes de escribir cualquier archivo, el instalador muestra un resumen completo con todas tus respuestas: directorio destino, nombre y descripción del proyecto, agentes seleccionados, paths donde se escribirán los skills, idiomas, módulos, mazo de brainstorming y modo de fuentes. Confirmas con "Sí" para proceder o "No" para cancelar sin cambios.
+
+---
+
+## Resultado en disco
+
+El instalador siempre escribe estos archivos por proyecto, sin importar los agentes que hayas seleccionado:
+
+```
+<tu-proyecto>/
+├── docs/
+│   └── pm-kit/
+│       ├── README.md            ← generado con el nombre y descripción del proyecto
+│       ├── checklists/          ← una lista de aceptación por artefacto instalado
+│       ├── templates/           ← plantillas en blanco por artefacto
+│       └── outputs/             ← aquí caen los artefactos que el agente genera
+├── vendor/
+│   └── pm-kit/
+│       ├── scrum-guide-en.md    ← Guía Scrum 2020 en inglés (CC BY-SA 4.0)
+│       ├── scrum-guide-es.md    ← Guía Scrum 2020 en español latinoamericano
+│       ├── agile-manifesto.md   ← texto completo + aviso de copyright
+│       └── sources-index.json   ← URLs de PMI/ISO con fechas de actualización
+│   └── bmad/
+│       └── LICENSE              ← licencia MIT de las fuentes de código abierto vendorizadas
+└── .pm-kit.config.json          ← tus respuestas de instalación; base de ejecuciones subsecuentes
+```
+
+Los paths de los skills dependen del agente que hayas seleccionado:
+
+<h3 id="arbol-claude">Solo Claude Code</h3>
+
+Claude Code descubre los skills automáticamente desde la raíz del proyecto. No se requiere ninguna configuración adicional.
+
+```
+<tu-proyecto>/
+└── .claude/
+    └── skills/
+        └── pm-kit/
+            ├── brainstorming-five-whys/
+            │   └── SKILL.md
+            ├── brainstorming-question-storming/
+            │   └── SKILL.md
+            ├── ... (hasta 20 estrategias de brainstorming)
+            ├── charter/
+            │   └── SKILL.md
+            ├── stakeholder-register/
+            │   └── SKILL.md
+            ├── prd/
+            │   └── SKILL.md
+            └── ... (skills de los módulos instalados)
+```
+
+<h3 id="arbol-gemini">Solo Gemini CLI</h3>
+
+Gemini CLI descubre extensiones desde `~/.gemini/extensions/` a nivel de usuario, no desde el directorio del proyecto. Esto significa que los skills de pm-kit **se comparten entre todos tus proyectos de Gemini CLI**. El instalador crea una extensión con su manifiesto `gemini-extension.json` y pone los skills bajo `~/.gemini/extensions/pm-kit/skills/`.
+
+```
+~/ (directorio home del usuario)
+└── .gemini/
+    └── extensions/
+        └── pm-kit/
+            ├── gemini-extension.json    ← manifiesto de la extensión
+            └── skills/
+                ├── brainstorming-five-whys/
+                │   └── SKILL.md
+                ├── brainstorming-question-storming/
+                │   └── SKILL.md
+                ├── ... (hasta 20 estrategias de brainstorming)
+                ├── charter/
+                │   └── SKILL.md
+                ├── stakeholder-register/
+                │   └── SKILL.md
+                └── ... (skills de los módulos instalados)
+```
+
+<Callout type="info">
+**Gemini CLI es global de usuario.** Si tienes varios proyectos de Gemini CLI, todos compartirán la misma instalación de pm-kit. Reinstalar con una config diferente actualiza los skills globales. Si necesitas configuraciones distintas por proyecto, usa Claude Code que sí instala por proyecto.
+</Callout>
+
+<h3 id="arbol-ambos">Claude Code + Gemini CLI</h3>
+
+Cuando seleccionas ambos agentes, el instalador escribe los dos árboles:
+
+```
+<tu-proyecto>/
+├── .claude/
+│   └── skills/
+│       └── pm-kit/
+│           └── ... (skills por proyecto para Claude Code)
+├── docs/
+│   └── pm-kit/  (siempre por proyecto)
+├── vendor/      (siempre por proyecto)
+└── .pm-kit.config.json
+
+~/ (directorio home del usuario)
+└── .gemini/
+    └── extensions/
+        └── pm-kit/
+            ├── gemini-extension.json
+            └── skills/
+                └── ... (skills globales para Gemini CLI)
+```
+
+---
+
+## Idiomas
+
+<h3 id="idiomas-libre">Entrada de idioma libre</h3>
+
+Los campos de idioma aceptan cualquier cadena de texto que escribas — no hay un menú fijo. El valor se almacena textualmente en `.pm-kit.config.json` y se pasa al agente tal como lo escribiste.
+
+**Idiomas con mejor cobertura en las fuentes empaquetadas:** inglés y español latinoamericano (la Guía Scrum está disponible en ambos). Para cualquier otro idioma el agente traduce bajo demanda; la calidad depende de la capacidad de traducción del agente.
+
+<h3 id="idiomas-comm-vs-output">`language.communication` vs `language.output`</h3>
+
+El config guarda dos campos de idioma separados:
+
+- **`language.communication`** — el idioma en el que el agente te habla durante la facilitación: hace preguntas, explica pasos, confirma decisiones. Es la "voz del agente".
+- **`language.output`** — el idioma en el que se redactan los artefactos finales. Es el idioma del charter, del WBS, de la matriz de riesgo, etc.
+
+Puedes tenerlos iguales (lo más común) o distintos. Ejemplo: comunicación en español, artefactos en inglés para un cliente internacional.
+
+---
+
+## Modo de fuentes
+
+<h3 id="fuentes-offline">Offline (por defecto)</h3>
+
+Los skills usan únicamente las fuentes empaquetadas: la Guía Scrum 2020 (inglés y español latinoamericano) y el Manifiesto Ágil. Para referencias de PMBOK, los skills instruyen al agente a citar conceptos al nivel de principios nombrados y dominios de desempeño, sin fabricar números de página, citas textuales directas ni detalles estructurales inventados. Cuando el agente no está seguro de un hecho específico de PMBOK, lo dice explícitamente y apunta al lector a la URL canónica en `vendor/pm-kit/sources-index.json`.
+
+Este modo es predecible, no requiere conexión de red por invocación y es el correcto para la mayoría de los casos de uso.
+
+<h3 id="fuentes-online">Online (opt-in)</h3>
+
+En modo online, los skills también instruyen al agente para que obtenga las URLs canónicas relevantes antes de redactar. Esto da acceso a páginas públicas de PMI, la tabla de contenidos de PMBOK disponible en línea y otras fuentes actualizadas. No soluciona el acceso a contenido detrás de paywall, pero para usuarios que quieren el máximo anclaje a fuentes actuales es la opción correcta.
+
+Actívalo en la pregunta 9 del instalador, o pasa `--online-mode` en el comando:
+
+```bash
+npx agentic-pm-kit install --online-mode
+```
+
+Puedes cambiar el modo después de la instalación inicial mediante el menú de ejecuciones subsecuentes.
+
+---
+
+## Ejecuciones subsecuentes
+
+Cuando corres `npx agentic-pm-kit` (sin el subcomando `install`) dentro de un directorio que ya tiene `.pm-kit.config.json`, el instalador detecta la instalación existente y abre un menú con las siguientes opciones:
+
+- **Agregar / quitar módulos** — instala o desinstala módulos del ciclo de vida sin tener que reinstalar todo.
+- **Cambiar idioma** — actualiza el idioma de comunicación o de artefactos.
+- **Cambiar modo de fuentes** — alterna entre offline y online.
+- **Reinstalar** — refresca todos los skills y archivos de vendor a la versión actual del paquete (útil para actualizar después de `npm update`).
+- **Desinstalar** — elimina `.claude/skills/pm-kit/`, la extensión global de Gemini CLI, `docs/pm-kit/`, `vendor/pm-kit/` y el archivo de config. Los artefactos que hayas generado en `docs/pm-kit/outputs/` **no se tocan** durante una reinstalación; sí se eliminan en una desinstalación completa.
+
+---
+
+## Solución de problemas
+
+<h3 id="command-not-found">El comando `npx agentic-pm-kit` no se encuentra</h3>
+
+El instalador requiere **Node.js 18 o superior**. Verifica tu versión:
+
+```bash
+node --version
+```
+
+Si `node` no está instalado o la versión es menor a 18, descarga Node.js desde [nodejs.org](https://nodejs.org) (elige la versión LTS). Bun 1.0+ también funciona:
+
+```bash
+bun --version
+bunx agentic-pm-kit install
+```
+
+Si `node` está instalado pero `npx` no lo reconoce, asegúrate de que el directorio `bin` de npm esté en tu `PATH`.
+
+<h3 id="permisos-gemini">Problemas de permisos en la ruta global de Gemini CLI</h3>
+
+Si el instalador falla al escribir en `~/.gemini/extensions/pm-kit/`, lo más probable es que el directorio `~/.gemini/` haya sido creado previamente por otro proceso con permisos de root. Para verificar y corregir:
+
+```bash
+ls -la ~/.gemini/
+# Si el propietario no eres tú, ejecuta:
+sudo chown -R $USER:$USER ~/.gemini/
+```
+
+<h3 id="fresh-config">Cómo reiniciar con una config limpia</h3>
+
+Para correr el instalador desde cero como si fuera la primera vez:
+
+```bash
+rm .pm-kit.config.json
+npx agentic-pm-kit install
+```
+
+Esto elimina la config existente y lanza el flujo interactivo completo de 10 preguntas. Los archivos de skills y vendor existentes se sobreescriben con los de la nueva instalación. Los artefactos que hayas generado en `docs/pm-kit/outputs/` no se modifican.
+
+<h3 id="desinstalar">Cómo desinstalar</h3>
+
+```bash
+npx agentic-pm-kit
+```
+
+El menú de ejecuciones subsecuentes aparece automáticamente cuando se detecta `.pm-kit.config.json`. Selecciona **Desinstalar** para eliminar:
+
+- `<tu-proyecto>/.claude/skills/pm-kit/` (si Claude Code estaba instalado)
+- `~/.gemini/extensions/pm-kit/` (si Gemini CLI estaba instalado)
+- `<tu-proyecto>/docs/pm-kit/`
+- `<tu-proyecto>/vendor/pm-kit/`
+- `<tu-proyecto>/.pm-kit.config.json`
+
+Los artefactos en `docs/pm-kit/outputs/` se eliminan junto con el resto en una desinstalación completa. Si quieres conservarlos, muévelos antes de desinstalar.
+
+---
+
+## Banderas de línea de comandos
+
+| Bandera | Efecto |
+|---|---|
+| `--full-deck` | Omite la pregunta 8 y usa el mazo completo de 60 estrategias (en v1 cae al curado de 20) |
+| `--online-mode` | Omite la pregunta 9 y activa el modo online |
+| `--help`, `-h` | Muestra la ayuda del comando |
+| `--version`, `-v` | Muestra la versión del paquete |
+
+El siguiente paso es invocar tu primer skill. Empieza con el módulo de Ideación para desarrollar el concepto de tu proyecto antes de redactar el charter.
