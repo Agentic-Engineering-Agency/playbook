@@ -1,0 +1,12 @@
+name = "playbook"
+compatibility_date = "2025-04-22"
+
+# Cloudflare Pages Functions directory
+# Functions placed here are deployed as part of the Pages deployment
+# https://developers.cloudflare.com/pages/functions/
+
+[env.production]
+# Environment variables for the Pages Function
+# Set these in the Cloudflare Pages dashboard: Settings > Environment variables
+# - OPENROUTER_API_KEY (required)
+# - OPENROUTER_MODEL (optional, defaults to google/gemini-2.0-flash-exp:free)
