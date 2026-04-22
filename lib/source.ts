@@ -1,4 +1,4 @@
-import { docs, blog, cases } from 'collections/server';
+import { docs } from 'collections/server';
 import { type InferPageType, loader } from 'fumadocs-core/source';
 import { i18n } from './i18n';
 import { docsContentRoute, docsImageRoute, docsRoute } from './shared';
@@ -12,11 +12,6 @@ export const source = loader({
   i18n,
   plugins: [],
 });
-
-// Blog and cases: defineCollections with type:'doc' returns an array of entries,
-// not a fumadocs source object. Access them directly.
-export const blogPosts = blog;
-export const casePosts = cases;
 
 export function getPageImage(page: InferPageType<typeof source>) {
   const segments = [...page.slugs, 'image.png'];

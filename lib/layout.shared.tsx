@@ -8,16 +8,8 @@ export function baseOptions(): BaseLayoutProps {
     },
     links: [
       {
-        text: 'Docs',
+        text: 'Documentation',
         url: '/docs',
-      },
-      {
-        text: 'Blog',
-        url: '/blog',
-      },
-      {
-        text: 'Case Studies',
-        url: '/cases',
       },
     ],
     githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,

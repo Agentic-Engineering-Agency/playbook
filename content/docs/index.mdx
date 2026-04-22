@@ -1,13 +1,13 @@
 ---
-title: Guides
-description: Opinionated playbooks for teams shipping with AI agents.
+title: Documentation
+description: Documentation and install commands for the kits we publish.
 ---
 
-# Guides
+# Documentation
 
-Opinionated playbooks for teams shipping with AI agents.
+Browse the published docs for our kits and workflows. This hub keeps the catalog, install commands, and external references in one place.
 
-## Available now
+## Kits
 
 <Cards>
   <Card title="Prototype Kit" href="/docs/prototype-kit">
@@ -16,25 +16,54 @@ Opinionated playbooks for teams shipping with AI agents.
   <Card title="PM Kit" href="/docs/pm-kit">
     Draft PMBOK and Scrum artifacts with AI, anchored to canonical sources. Works with Claude Code and Gemini CLI.
   </Card>
-</Cards>
-
-## Coming soon
-
-<Cards>
-  <Card title="Building with the Claude API" href="#">
-    Prompt caching, tool use, batch jobs, and structured outputs — patterns that hold in production.
-  </Card>
-  <Card title="BMad methodology end-to-end" href="#">
-    From brainstorm to shipped feature using the BMad planning system and SpecSafe development loop.
-  </Card>
-  <Card title="SpecSafe development discipline" href="#">
-    Spec → tests → implement → verify. The five-step loop that makes AI-assisted development auditable.
-  </Card>
-  <Card title="Research playbook" href="#">
-    How we run discovery, market research, and competitive analysis with AI agents at AEA.
+  <Card title="SpecSafe" href="https://specsafe.agenticengineering.lat/">
+    Run a two-phase planning plus spec-driven development workflow for AI-assisted engineering. Documentation lives on the dedicated SpecSafe site.
   </Card>
 </Cards>
+
+## Quick install
+
+### Prototype Kit
+
+```bash
+# Claude Code
+/plugin marketplace add Agentic-Engineering-Agency/prototype-kit
+/plugin install prototype-kit@prototype-kit
+
+# Gemini CLI
+gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/prototype-kit
+
+# OpenCode
+npx @agentic-engineering/prototype-kit init
+```
+
+### PM Kit
+
+```bash
+# Claude Code
+/plugin marketplace add Agentic-Engineering-Agency/agentic-pm-kit
+/plugin install agentic-pm-kit@agentic-engineering-agency
+
+# Gemini CLI
+gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/agentic-pm-kit
+
+# Universal
+npx agentic-pm-kit install
+```
+
+### SpecSafe
+
+```bash
+# Install the CLI
+npm install -g @specsafe/cli
+
+# Claude Code support
+specsafe install claude-code
+
+# Gemini support
+specsafe install gemini
+```
 
 <Callout type="info">
-**AI agents:** Fetch [`/llms-full.txt`](/llms-full.txt) for the complete machine-readable version of all published guides.
+**AI agents:** Fetch [`/llms-full.txt`](/llms-full.txt) for the complete machine-readable version of all published documentation.
 </Callout>

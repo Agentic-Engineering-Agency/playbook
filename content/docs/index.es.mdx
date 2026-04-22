@@ -1,40 +1,69 @@
 ---
-title: Guías
-description: Manuales con criterio para equipos que construyen con agentes de IA.
+title: Documentación
+description: Documentacion y comandos de instalacion para los kits que publicamos.
 ---
 
-# Guías
+# Documentación
 
-Manuales con criterio para equipos que construyen con agentes de IA.
+Consulta la documentacion publicada de nuestros kits y flujos. Este indice mantiene en un solo lugar el catalogo, los comandos de instalacion y las referencias externas.
 
-## Disponibles ahora
+## Kits
 
 <Cards>
   <Card title="Prototype Kit" href="/es/docs/prototype-kit">
-    Construye un prototipo pulido con React + shadcn en una tarde, sin escribir código. Funciona con Gemini CLI, Claude Code y OpenCode.
+    Construye un prototipo pulido con React + shadcn en una tarde, sin escribir codigo. Funciona con Gemini CLI, Claude Code y OpenCode.
   </Card>
   <Card title="PM Kit" href="/es/docs/pm-kit">
-    Redacta artefactos PMBOK y Scrum con IA, anclados a fuentes canónicas. Funciona con Claude Code y Gemini CLI.
+    Redacta artefactos PMBOK y Scrum con IA, anclados a fuentes canonicas. Funciona con Claude Code y Gemini CLI.
+  </Card>
+  <Card title="SpecSafe" href="https://specsafe.agenticengineering.lat/">
+    Corre un flujo de planeacion e implementacion guiada por especificaciones para ingenieria asistida por IA. La documentacion vive en el sitio dedicado de SpecSafe.
   </Card>
 </Cards>
 
-## Próximamente
+## Instalacion rapida
 
-<Cards>
-  <Card title="Construir con la API de Claude" href="#">
-    Caché de prompts, uso de herramientas, trabajos por lotes y salidas estructuradas — patrones que aguantan en producción.
-  </Card>
-  <Card title="Metodología BMad de principio a fin" href="#">
-    Del brainstorm a la funcionalidad publicada usando el sistema de planificación BMad y el ciclo de desarrollo SpecSafe.
-  </Card>
-  <Card title="Disciplina de desarrollo SpecSafe" href="#">
-    Spec → pruebas → implementación → verificación. El ciclo de cinco pasos que hace auditable el desarrollo asistido por IA.
-  </Card>
-  <Card title="Manual de investigación" href="#">
-    Cómo hacemos discovery, investigación de mercado y análisis competitivo con agentes de IA en AEA.
-  </Card>
-</Cards>
+### Prototype Kit
+
+```bash
+# Claude Code
+/plugin marketplace add Agentic-Engineering-Agency/prototype-kit
+/plugin install prototype-kit@prototype-kit
+
+# Gemini CLI
+gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/prototype-kit
+
+# OpenCode
+npx @agentic-engineering/prototype-kit init
+```
+
+### PM Kit
+
+```bash
+# Claude Code
+/plugin marketplace add Agentic-Engineering-Agency/agentic-pm-kit
+/plugin install agentic-pm-kit@agentic-engineering-agency
+
+# Gemini CLI
+gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/agentic-pm-kit
+
+# Universal
+npx agentic-pm-kit install
+```
+
+### SpecSafe
+
+```bash
+# Instalar el CLI
+npm install -g @specsafe/cli
+
+# Soporte para Claude Code
+specsafe install claude-code
+
+# Soporte para Gemini
+specsafe install gemini
+```
 
 <Callout type="info">
-**Agentes de IA:** Descarga [`/llms-full.txt`](/llms-full.txt) para obtener la versión completa en formato legible por máquinas de todas las guías publicadas.
+**Agentes de IA:** Descarga [`/llms-full.txt`](/llms-full.txt) para obtener la version completa en formato legible por maquinas de toda la documentacion publicada.
 </Callout>

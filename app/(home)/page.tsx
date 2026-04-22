@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import { ToolGrid } from '@/components/tool-grid';
-import { tools } from '@/lib/tools-catalog';
+import { getTools } from '@/lib/tools-catalog';
 
 export default function HomePage() {
+  const tools = getTools('en');
+
   return (
     <main className="flex flex-col items-center justify-center flex-1 px-4 py-20 text-center">
       <span className="text-xs font-mono text-fd-muted-foreground uppercase tracking-widest mb-4">
@@ -12,35 +14,36 @@ export default function HomePage() {
         The Playbook
       </h1>
       <p className="text-fd-muted-foreground text-lg mb-12 max-w-xl">
-        We build with AI agents for LATAM startups. This is where we share what we&apos;ve learned.
+        Documentation for the kits and workflows we use to ship with AI agents.
       </p>
 
-      {/* Tools & Plugins section */}
       <section className="w-full max-w-6xl mx-auto mb-16 text-left">
         <div className="text-center mb-10">
           <h2 className="text-2xl font-bold text-fd-foreground mb-2">
-            Tools & Plugins
+            Kits
           </h2>
           <p className="text-fd-muted-foreground max-w-xl mx-auto">
-            Open-source kits and frameworks we built to ship faster with AI agents.
+            Open-source documentation, install commands, and repos for Prototype Kit, PM Kit, and SpecSafe.
           </p>
         </div>
         <ToolGrid tools={tools} />
       </section>
 
-      {/* Navigation link cards */}
-      <section className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl w-full text-left mb-12">
-        {sections.map((s) => (
-          <Link
-            key={s.href}
-            href={s.href}
-            className="rounded-lg border border-fd-border p-5 hover:bg-fd-muted transition-colors"
-          >
-            <h2 className="font-semibold mb-1">{s.title}</h2>
-            <p className="text-sm text-fd-muted-foreground">{s.description}</p>
-          </Link>
-        ))}
-      </section>
+      <div className="max-w-3xl w-full text-left rounded-lg border border-fd-primary/30 bg-fd-primary/5 p-6">
+        <span className="text-xs font-mono text-fd-primary uppercase tracking-widest">
+          Documentation hub
+        </span>
+        <h2 className="font-semibold text-lg mt-1 mb-2">Browse all docs</h2>
+        <p className="text-sm text-fd-muted-foreground mb-4">
+          The documentation index groups the published kit docs in one place and includes quick install commands.
+        </p>
+        <Link
+          href="/docs"
+          className="rounded-md bg-fd-primary text-fd-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition-opacity inline-block"
+        >
+          Open documentation →
+        </Link>
+      </div>
 
       <footer className="mt-16 flex gap-6 text-sm text-fd-muted-foreground">
         <a
@@ -63,21 +66,3 @@ export default function HomePage() {
     </main>
   );
 }
-
-const sections = [
-  {
-    title: 'Guides →',
-    description: 'Opinionated playbooks for teams shipping with AI agents.',
-    href: '/docs',
-  },
-  {
-    title: 'Case Studies →',
-    description: 'Real products we built and what the process looked like.',
-    href: '/cases',
-  },
-  {
-    title: 'Blog →',
-    description: 'Short posts on agentic development, tools, and craft.',
-    href: '/blog',
-  },
-];

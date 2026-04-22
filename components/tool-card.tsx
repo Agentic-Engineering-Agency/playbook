@@ -13,7 +13,13 @@ import {
 } from 'lucide-react';
 import type { Tool, InstallCommand } from '@/lib/tools-catalog';
 
-function CopyButton({ command }: { command: string }) {
+function CopyButton({
+  command,
+  locale,
+}: {
+  command: string;
+  locale: 'en' | 'es';
+}) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = useCallback(async () => {
@@ -43,7 +49,7 @@ function CopyButton({ command }: { command: string }) {
       type="button"
       onClick={handleCopy}
       className="inline-flex items-center gap-1.5 rounded-md border border-fd-border bg-fd-background px-2.5 py-1.5 text-xs font-mono text-fd-foreground hover:bg-fd-muted transition-colors"
-      title="Copy to clipboard"
+      title={locale === 'es' ? 'Copiar al portapapeles' : 'Copy to clipboard'}
     >
       <Terminal className="w-3 h-3 text-fd-muted-foreground shrink-0" />
       <span className="truncate max-w-[180px] sm:max-w-[220px]">{command}</span>
@@ -58,8 +64,10 @@ function CopyButton({ command }: { command: string }) {
 
 function AgentInstallBlock({
   agent,
+  locale,
 }: {
   agent: Tool['agents'][number];
+  locale: 'en' | 'es';
 }) {
   return (
     <div className="space-y-2">
@@ -71,7 +79,7 @@ function AgentInstallBlock({
       </div>
       <div className="flex flex-col gap-2">
         {agent.installCommands.map((cmd: InstallCommand) => (
-          <CopyButton key={cmd.label} command={cmd.command} />
+          <CopyButton key={cmd.label} command={cmd.command} locale={locale} />
         ))}
       </div>
     </div>
@@ -80,31 +88,46 @@ function AgentInstallBlock({
 
 function CategoryBadge({
   category,
+  locale,
 }: {
   category: Tool['category'];
+  locale: 'en' | 'es';
 }) {
-  const label =
-    category === 'project-management'
-      ? 'Project Management'
-      : category.charAt(0).toUpperCase() + category.slice(1);
+  const labels =
+    locale === 'es'
+      ? {
+          prototyping: 'Prototipado',
+          'project-management': 'Gestion de proyectos',
+          development: 'Desarrollo',
+        }
+      : {
+          prototyping: 'Prototyping',
+          'project-management': 'Project Management',
+          development: 'Development',
+        };
 
   return (
     <span className="inline-flex items-center rounded-full bg-fd-primary/10 text-fd-primary px-2.5 py-0.5 text-xs font-medium">
-      {label}
+      {labels[category]}
     </span>
   );
 }
 
-export function ToolCard({ tool }: { tool: Tool }) {
+export function ToolCard({
+  tool,
+  locale = 'en',
+}: {
+  tool: Tool;
+  locale?: 'en' | 'es';
+}) {
   return (
     <article className="flex flex-col rounded-lg border border-fd-border bg-fd-card hover:bg-fd-muted transition-colors overflow-hidden">
-      {/* Header */}
       <div className="p-5 pb-3">
         <div className="flex items-start justify-between gap-3 mb-3">
           <h3 className="text-lg font-semibold text-fd-foreground leading-tight">
             {tool.name}
           </h3>
-          <CategoryBadge category={tool.category} />
+          <CategoryBadge category={tool.category} locale={locale} />
         </div>
         <p className="text-sm text-fd-muted-foreground leading-relaxed mb-3">
           {tool.tagline}
@@ -114,30 +137,28 @@ export function ToolCard({ tool }: { tool: Tool }) {
         </p>
       </div>
 
-      {/* Agent compatibility */}
       <div className="px-5 py-3 border-t border-fd-border">
         {tool.agents.length === 0 ? (
           <div className="flex items-center gap-2 text-sm text-fd-muted-foreground">
             <Clipboard className="w-4 h-4" />
-            <span>Documentation only</span>
+            <span>{locale === 'es' ? 'Solo documentacion' : 'Documentation only'}</span>
           </div>
         ) : (
           <div className="space-y-4">
             {tool.agents.map((agent) => (
-              <AgentInstallBlock key={agent.id} agent={agent} />
+              <AgentInstallBlock key={agent.id} agent={agent} locale={locale} />
             ))}
           </div>
         )}
       </div>
 
-      {/* Footer links */}
       <div className="mt-auto px-5 py-3 border-t border-fd-border flex items-center justify-between">
         <Link
           href={tool.docsHref}
           className="inline-flex items-center gap-1.5 text-sm font-medium text-fd-primary hover:opacity-80 transition-opacity"
         >
           <BookOpen className="w-4 h-4" />
-          Documentation
+          {locale === 'es' ? 'Documentacion' : 'Documentation'}
           <span aria-hidden="true">→</span>
         </Link>
         {tool.githubUrl && (
