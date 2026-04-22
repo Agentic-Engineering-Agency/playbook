@@ -59,6 +59,17 @@ const toolDefinitions: ToolDefinition[] = [
     githubUrl: 'https://github.com/Agentic-Engineering-Agency/prototype-kit',
     agents: [
       {
+        id: 'universal',
+        name: 'Universal',
+        installCommands: [
+          {
+            label: 'Universal install',
+            command: 'npx @agentic-engineering/prototype-kit init',
+            type: 'npx',
+          },
+        ],
+      },
+      {
         id: 'claude-code',
         name: 'Claude Code',
         installCommands: [
@@ -76,25 +87,14 @@ const toolDefinitions: ToolDefinition[] = [
         ],
       },
       {
-        id: 'gemini-cli',
-        name: 'Gemini CLI',
+        id: 'gemini',
+        name: 'Gemini',
         installCommands: [
           {
             label: 'Install extension',
             command:
               'gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/prototype-kit',
             type: 'cli',
-          },
-        ],
-      },
-      {
-        id: 'opencode',
-        name: 'OpenCode',
-        installCommands: [
-          {
-            label: 'Universal install',
-            command: 'npx @agentic-engineering/prototype-kit init',
-            type: 'npx',
           },
         ],
       },
@@ -123,6 +123,17 @@ const toolDefinitions: ToolDefinition[] = [
     githubUrl: 'https://github.com/Agentic-Engineering-Agency/agentic-pm-kit',
     agents: [
       {
+        id: 'universal',
+        name: 'Universal',
+        installCommands: [
+          {
+            label: 'Universal install',
+            command: 'npx agentic-pm-kit install',
+            type: 'npx',
+          },
+        ],
+      },
+      {
         id: 'claude-code',
         name: 'Claude Code',
         installCommands: [
@@ -141,25 +152,14 @@ const toolDefinitions: ToolDefinition[] = [
         ],
       },
       {
-        id: 'gemini-cli',
-        name: 'Gemini CLI',
+        id: 'gemini',
+        name: 'Gemini',
         installCommands: [
           {
             label: 'Install extension',
             command:
               'gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/agentic-pm-kit',
             type: 'cli',
-          },
-        ],
-      },
-      {
-        id: 'universal',
-        name: 'Universal',
-        installCommands: [
-          {
-            label: 'Universal install',
-            command: 'npx agentic-pm-kit install',
-            type: 'npx',
           },
         ],
       },
@@ -188,16 +188,22 @@ const toolDefinitions: ToolDefinition[] = [
     githubUrl: 'https://github.com/Agentic-Engineering-Agency/specsafe',
     agents: [
       {
+        id: 'universal',
+        name: 'Universal',
+        installCommands: [
+          {
+            label: 'Global install',
+            command: 'npm install -g @specsafe/cli',
+            type: 'cli',
+          },
+        ],
+      },
+      {
         id: 'claude-code',
         name: 'Claude Code',
         installCommands: [
           {
-            label: 'Install CLI',
-            command: 'npm install -g @specsafe/cli',
-            type: 'cli',
-          },
-          {
-            label: 'Install support',
+            label: 'Example',
             command: 'specsafe install claude-code',
             type: 'cli',
           },
@@ -208,12 +214,7 @@ const toolDefinitions: ToolDefinition[] = [
         name: 'Gemini',
         installCommands: [
           {
-            label: 'Install CLI',
-            command: 'npm install -g @specsafe/cli',
-            type: 'cli',
-          },
-          {
-            label: 'Install support',
+            label: 'Example',
             command: 'specsafe install gemini',
             type: 'cli',
           },
