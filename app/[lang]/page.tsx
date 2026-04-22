@@ -34,7 +34,7 @@ export default async function LocaleHomePage(
               Kits
             </h2>
             <p className="text-fd-muted-foreground max-w-xl mx-auto">
-              Documentacion, comandos de instalacion y repositorios de Prototype Kit, PM Kit y SpecSafe.
+              Documentacion, comandos de instalacion y repositorios de las herramientas y flujos que publicamos.
             </p>
           </div>
           <ToolGrid tools={tools} locale="es" />

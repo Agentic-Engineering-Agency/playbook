@@ -48,15 +48,17 @@ function CopyButton({
     <button
       type="button"
       onClick={handleCopy}
-      className="inline-flex items-center gap-1.5 rounded-md border border-fd-border bg-fd-background px-2.5 py-1.5 text-xs font-mono text-fd-foreground hover:bg-fd-muted transition-colors"
+      className="flex w-full items-start gap-2 rounded-md border border-fd-border bg-fd-background px-3 py-2 text-left text-xs font-mono text-fd-foreground hover:bg-fd-muted transition-colors"
       title={locale === 'es' ? 'Copiar al portapapeles' : 'Copy to clipboard'}
     >
-      <Terminal className="w-3 h-3 text-fd-muted-foreground shrink-0" />
-      <span className="truncate max-w-[180px] sm:max-w-[220px]">{command}</span>
+      <Terminal className="mt-0.5 h-3 w-3 shrink-0 text-fd-muted-foreground" />
+      <span className="min-w-0 flex-1 break-all whitespace-normal leading-relaxed">
+        {command}
+      </span>
       {copied ? (
-        <Check className="w-3 h-3 text-green-500 shrink-0" />
+        <Check className="mt-0.5 ml-auto h-3 w-3 shrink-0 text-green-500" />
       ) : (
-        <Copy className="w-3 h-3 text-fd-muted-foreground shrink-0" />
+        <Copy className="mt-0.5 ml-auto h-3 w-3 shrink-0 text-fd-muted-foreground" />
       )}
     </button>
   );
@@ -77,7 +79,7 @@ function AgentInstallBlock({
           {agent.name}
         </span>
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2.5">
         {agent.installCommands.map((cmd: InstallCommand) => (
           <CopyButton key={cmd.label} command={cmd.command} locale={locale} />
         ))}
@@ -137,7 +139,7 @@ export function ToolCard({
         </p>
       </div>
 
-      <div className="px-5 py-3 border-t border-fd-border">
+      <div className="border-t border-fd-border px-5 pt-3 pb-5">
         {tool.agents.length === 0 ? (
           <div className="flex items-center gap-2 text-sm text-fd-muted-foreground">
             <Clipboard className="w-4 h-4" />

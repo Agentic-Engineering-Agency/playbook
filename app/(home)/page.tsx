@@ -23,7 +23,7 @@ export default function HomePage() {
             Kits
           </h2>
           <p className="text-fd-muted-foreground max-w-xl mx-auto">
-            Open-source documentation, install commands, and repos for Prototype Kit, PM Kit, and SpecSafe.
+            Open-source documentation, install commands, and repositories for the tools and workflows we publish.
           </p>
         </div>
         <ToolGrid tools={tools} />
