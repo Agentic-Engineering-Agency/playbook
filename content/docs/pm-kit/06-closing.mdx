@@ -1,9 +1,9 @@
 ---
-title: "Phase 5: Closing"
+title: "Phase 4: Closing"
 description: Retrospective, post-mortem, and closure report — the three skills that close each sprint and each project with structured learning and formal documentation.
 ---
 
-# Phase 5 — Closing
+# Phase 4 — Closing
 
 Closing is not the end of work; it is the beginning of learning. This phase groups three skills that transform the team's accumulated experience into formal artifacts: the retrospective that inspects and adapts at the sprint cadence, the post-mortem that analyzes serious incidents with a blameless posture, and the closure report that formally signs off the project before sponsors and stakeholders.
 
@@ -72,22 +72,6 @@ The agent guides you through: gathering source documents (approved charter, fina
 **Generated artifact.** `docs/pm-kit/outputs/closure-report/<project-name-slug>.md`
 
 **Acceptance checklist.** `docs/pm-kit/checklists/closure-report.md`
-
----
-
-## Worked example — BookSwap Campus
-
-### Sprint 3 Retrospective
-
-The BookSwap Campus Sprint 3 retrospective was facilitated with the `retrospective` skill under the Start/Stop/Continue lens, focused on a partially-met sprint goal (23/40 first transactions in 7 days). The session produced five owned, dated action items with verifiable success criteria — notably the onboarding redesign due by end of Sprint 4 and the new "story stuck in review ≤ 2 days" rule already signed by the team. The follow-up section closes two prior actions as Resolved (staging pipeline and UI style guide) and one as Dropped with a documented rationale (external security consultant, consolidated into the integrated pentest via ADR-004). The retrospective feeds directly into Sprint 5 planning and cross-references the Five Whys memo's finding about empirical user-profile validation. [See full retrospective](/pm-kit/outputs/retrospective/sprint-3.md)
-
-### Post-Mortem — Staging Outage 2026-04-17
-
-The post-mortem for the 7-hour staging outage on 2026-04-17 was conducted with the `post-mortem` skill under a blameless contract. The incident cost approximately 32 person-hours (~10% of sprint capacity) and was traced to a missing governance practice: no change log, no drift alert, and no formal incident channel with the payment provider, not to any individual action. Six action items were produced, categorized as Prevent / Detect / Mitigate, each with a named owner, a due date, and a verifiable success criterion — including immediate deployment of a config-drift alert and a joint incident channel with the payment provider established before the next staging integration. [See full post-mortem](/pm-kit/outputs/post-mortem/2026-04-17-staging-outage.md)
-
-### Closure Report (pre-closure projection)
-
-The BookSwap Campus v1 closure report was generated with the `closure-report` skill as a pre-closure projection during Sprint 4 (2026-04-21) — placeholders mark the actual final metrics that will be completed at project end. The projected total cost is MXN 1,357,000, within the charter's MXN 1.25M–1.75M envelope; M6 is targeted for 2026-12-18; and only one approved scope change (CR-001, onboarding redesign) is on record. The report consolidates lessons from the Sprint 3 retrospective and the staging post-mortem into a single artifact readable by the sponsor, and lists the artifact archive locations for handover at formal close. [See full closure report](/pm-kit/outputs/closure-report/bookswap-campus-v1.md)
 
 ---
 

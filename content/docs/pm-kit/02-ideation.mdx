@@ -28,7 +28,7 @@ The ideation phase begins when someone — a sponsor, a teacher, a team — iden
 
 > _Invoke the `brainstorming-lab` skill._
 
-The agent will ask three to five diagnostic questions about your situation, problem type, team size, and available time, then recommend the most appropriate strategy. Once the selection is ready, the agent saves the rationale to `docs/pm-kit/outputs/brainstorming-lab/`.
+The agent first asks you to name the goal of your session. If your goal matches its shortcut table, the recommendation is immediate. If not, it falls back to up to three diagnostic questions covering problem type, team size, and available time, then recommends the most appropriate strategy. Once the selection is ready, the agent saves the rationale to `docs/pm-kit/outputs/brainstorming-lab/`.
 
 ---
 
@@ -79,16 +79,10 @@ Each strategy is a standalone skill with a facilitation script included. Invoke 
 
 ---
 
-## Worked example — BookSwap Campus
-
-The concept memo was produced with the `brainstorming-five-whys` skill against the recurring impediment "fewer than 30% of invited students complete a first transaction within 7 days." The five-layer chain walks from the symptom of onboarding drop-off down to a process-level root cause: the sprint acceptance rubric does not require empirical validation of the user profile before coding critical flows, so onboarding was built around an "ideal" student who rarely exists at the start of a semester. Both corrective actions are concrete and assigned: (1) add a mandatory "empirical user-profile validation" item to the acceptance rubric — owner Project Manager, due before Sprint 5 — and (2) redesign the onboarding flow to separate "verified registration" from "ready to transact" — owner Engineering, due by end of Sprint 4. [See full analysis](./outputs/brainstorming-five-whys/onboarding-friction-sprint-3-4.md)
-
----
-
 <Callout type="tip">
 **What ideation must get right**
 
-- **Don't skip the diagnosis.** Choosing the wrong strategy produces ideas that don't fit the problem type. The Lab's five questions take minutes and save hours later.
+- **Don't skip the diagnosis.** Choosing the wrong strategy produces ideas that don't fit the problem type. The Lab's short diagnosis takes minutes and saves hours later.
 - **Capture the reasoning, not just the ideas.** The concept memo the Lab produces must explain why the team chose that angle, not just what ideas emerged. The charter will need it.
 - **One approved concept, not ten.** Ideation ends when there is a single concept clear enough for the sponsor to authorize. Two or three candidates without a decision is not an ideation deliverable — it's unfinished planning work.
 </Callout>

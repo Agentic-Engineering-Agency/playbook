@@ -1,9 +1,9 @@
 ---
-title: "Fase 4: Ejecución"
+title: "Fase 3: Ejecución"
 description: Sprint planning, ejecución de historias, preparación de standup y sprint review — los cuatro skills que acompañan al equipo durante cada sprint.
 ---
 
-# Fase 4 — Ejecución
+# Fase 3 — Ejecución
 
 La fase de ejecución es donde el plan se convierte en incrementos entregables. Cada sprint tiene cuatro momentos clave: planear el trabajo, ejecutar las historias, mantener la sincronización diaria y revisar lo construido con los stakeholders. Esta fase cubre los cuatro skills que cubren esos momentos.
 
@@ -92,26 +92,6 @@ El agente te guiará en: reunir los insumos del sprint, revisar si se logró el 
 **Artefacto generado.** `docs/pm-kit/outputs/sprint-review/<sprint-slug>.md`
 
 **Lista de aceptación.** `docs/pm-kit/checklists/sprint-review.md`
-
----
-
-## Ejemplo trabajado — BookSwap Campus
-
-### Planning del Sprint 4
-
-El artefacto de planning del Sprint 4 se produjo con el skill `sprint-planning` para el sprint de dos semanas del 2026-04-21 al 2026-05-01, con el objetivo de separar el flujo de "registro verificado" del de "listo para transaccionar" y medir la conversión con la cohorte del Sprint 5. La capacidad total del equipo para el sprint es de 43.5 persona-días entre 5 integrantes; el equipo se comprometió con un techo de 28 puntos sobre el máximo de 30, seleccionando 9 historias (S-041 a S-049) y marcando el sandbox del proveedor de pagos como la principal dependencia externa antes del inicio. El sprint goal mapea directamente al riesgo R2 (fricción de onboarding, score 20) en la matriz de riesgos. [Ver planning del sprint completo](/pm-kit/outputs/sprint-planning/sprint-4.md)
-
-### Ejecución de historia — S-042
-
-El artefacto de ejecución de la historia S-042 se produjo con el skill `story-execution` para la historia "Separación del flujo de registro verificado del flujo listo para transaccionar". La historia tiene 5 criterios de aceptación verificados por 7 pruebas (3 unitarias + 3 de integración + 1 Playwright e2e), todas pasando al hacer merge; la cobertura automatizada del módulo `auth/status` alcanzó el 84 %, por encima del mínimo del 70 % establecido en el plan de calidad. Se completaron dos rondas de revisión — revisión de código por Ana Lucía y revisión UX por Sofía — antes de que el PR #214 hiciera merge el 2026-04-28, cerrando S-042 como la primera historia en completar el ciclo completo de cinco pasos SpecSafe en este sprint. [Ver ejecución de historia completa](/pm-kit/outputs/story-execution/s-042-registro-verificado-listo-transaccionar.md)
-
-### Standup prep — 2026-04-24
-
-La nota de preparación de standup de Valeria Cruz (backend) del 2026-04-24 se produjo con el skill `standup-prep`. Ayer: la actualización del endpoint `/api/users/me` (PR #211) aterrizó en staging con el 82 % de cobertura en el módulo `auth/status`, y 6 pruebas de integración para S-042 están escritas y pasando en CI. Hoy: pair programming con Daniela para conectar `user.status` con el enrutamiento frontend, y revisión del PR #212 (configuración de feature flag) antes del día. Bloqueo activo: la cuenta sandbox del proveedor de pagos para S-048 aún no está provisionada; Ana Lucía está escalando, y si no se resuelve antes del 2026-04-25, S-048 queda formalmente bloqueada y se notifica al PO. [Ver nota de standup completa](/pm-kit/outputs/standup-prep/2026-04-24-valeria.md)
-
-### Revisión del Sprint 4
-
-La revisión del Sprint 4 se realizó el 2026-05-02 con el skill `sprint-review`. Se cumplió el sprint goal: la separación entre "verificado" y "listo para transaccionar" está en producción y el feature flag llegó al 100 % de los usuarios el 2026-04-30. Siete de las 9 historias están completas — S-047 se difirió por una decisión de alcance durante el sprint y S-048 permanece bloqueada por el sandbox del proveedor de pagos externo. Los stakeholders surfacearon dos señales para el Sprint 5: la Federación Estudiantil señaló tiempos de respuesta SPEI de 8 a 22 minutos como punto de fricción, y DTI solicitó mayor observabilidad de las transiciones de estado del fideicomiso. [Ver revisión del sprint completa](/pm-kit/outputs/sprint-review/sprint-4.md)
 
 ---
 

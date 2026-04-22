@@ -1,9 +1,9 @@
 ---
-title: "Phase 4: Execution"
+title: "Phase 3: Execution"
 description: Sprint planning, story execution, standup prep, and sprint review — the four skills that accompany the team through every sprint.
 ---
 
-# Phase 4 — Execution
+# Phase 3 — Execution
 
 The execution phase is where the plan becomes deliverable increments. Each sprint has four key moments: planning the work, executing the stories, maintaining daily synchronization, and reviewing what was built with stakeholders. This phase covers the four skills that serve those moments.
 
@@ -92,26 +92,6 @@ The agent guides you through: gathering sprint inputs, reviewing whether the spr
 **Generated artifact.** `docs/pm-kit/outputs/sprint-review/<sprint-slug>.md`
 
 **Acceptance checklist.** `docs/pm-kit/checklists/sprint-review.md`
-
----
-
-## Worked example — BookSwap Campus
-
-### Sprint 4 Planning
-
-The Sprint 4 planning artifact was produced with the `sprint-planning` skill for the two-week sprint running 2026-04-21 to 2026-05-01, with the goal of separating the "verified registration" flow from the "ready to transact" flow and measuring conversion with the Sprint 5 cohort. Total team capacity for the sprint is 43.5 person-days across 5 contributors; the team committed to a 28-point ceiling out of the 30-point max, selecting 9 stories (S-041 through S-049) and flagging the payment-provider sandbox as the principal external dependency before start. The sprint goal maps directly to risk R2 (onboarding friction, score 20) in the risk matrix. [See full sprint planning](/pm-kit/outputs/sprint-planning/sprint-4.md)
-
-### Story Execution — S-042
-
-The S-042 story execution artifact was produced with the `story-execution` skill for the story "Separation of verified-registration flow from ready-to-transact flow." The story carries 5 acceptance criteria verified by 7 tests (3 unit + 3 integration + 1 Playwright end-to-end), all passing at merge; automated coverage for the `auth/status` module reached 84%, above the 70% minimum set by the quality plan. Two review rounds were completed — a code review by Ana Lucía and a UX review by Sofía — before PR #214 merged on 2026-04-28, closing S-042 as the first story to complete the full SpecSafe five-step loop in this sprint. [See full story execution](/pm-kit/outputs/story-execution/s-042-registro-verificado-listo-transaccionar.md)
-
-### Standup Prep — 2026-04-24
-
-The standup prep note for Valeria Cruz (backend) on 2026-04-24 was produced with the `standup-prep` skill. Yesterday: the `/api/users/me` endpoint update (PR #211) merged to staging with 82% coverage on the `auth/status` module, and 6 integration tests for S-042 are written and passing in CI. Today: pair programming with Daniela to connect `user.status` to frontend routing, and a review of PR #212 (feature-flag configuration) before end of day. Active blocker: the payment-provider sandbox account for S-048 is not yet provisioned; Ana Lucía is escalating, and if unresolved by 2026-04-25, S-048 is formally blocked and the PO is notified. [See full standup note](/pm-kit/outputs/standup-prep/2026-04-24-valeria.md)
-
-### Sprint 4 Review
-
-The Sprint 4 review was conducted on 2026-05-02 with the `sprint-review` skill. The sprint goal was met: the split between "verified" and "ready to transact" is live and the feature flag reached 100% of production users by 2026-04-30. Seven of 9 stories are complete — S-047 was deferred by a scope decision during the sprint, and S-048 remains blocked by the external payment-provider sandbox. Two signals were surfaced by stakeholders for Sprint 5 consideration: the Federación Estudiantil flagged SPEI response times of 8–22 minutes as a friction point, and DTI requested better observability of the escrow state transitions. [See full sprint review](/pm-kit/outputs/sprint-review/sprint-4.md)
 
 ---
 

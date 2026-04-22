@@ -28,7 +28,7 @@ La fase de ideación comienza cuando alguien — un patrocinador, un docente, un
 
 > _Invoca el skill `brainstorming-lab`._
 
-El agente te hará entre tres y cinco preguntas de diagnóstico sobre tu situación, el tipo de problema, el tamaño del equipo y el tiempo disponible, y al final recomendará la estrategia más apropiada. Cuando la selección esté lista, el agente guardará el razonamiento en `docs/pm-kit/outputs/brainstorming-lab/`.
+El agente primero te pide que nombres el objetivo de tu sesión. Si el objetivo coincide con su tabla de atajos, la recomendación es inmediata. Si no, recurre a un máximo de tres preguntas de diagnóstico sobre el tipo de problema, el tamaño del equipo y el tiempo disponible, y al final recomienda la estrategia más apropiada. Cuando la selección esté lista, el agente guardará el razonamiento en `docs/pm-kit/outputs/brainstorming-lab/`.
 
 ---
 
@@ -79,16 +79,10 @@ Cada estrategia es un skill autónomo con un guion de facilitación incluido. In
 
 ---
 
-## Ejemplo trabajado — BookSwap Campus
-
-El memo de concepto se generó con la skill `brainstorming-five-whys` a partir del impedimento recurrente "menos del 30 % de los estudiantes invitados completa su primera transacción en 7 días". La cadena de cinco preguntas desciende desde el síntoma de abandono hasta una causa raíz de proceso: la rúbrica de aceptación de sprints no exige validación empírica del perfil de usuario antes de codificar flujos críticos, por lo que el onboarding se construyó sobre un estudiante "ideal" que rara vez existe al inicio de semestre. Las dos acciones correctivas son accionables y asignadas: (1) incorporar un ítem obligatorio de validación empírica del perfil de usuario a la rúbrica —con dueño el Project Manager y fecha antes del Sprint 5— y (2) rediseñar el onboarding para separar "registro verificado" de "listo para transaccionar" —con dueño Ingeniería y fecha fin del Sprint 4—. [Ver análisis completo](./outputs/brainstorming-five-whys/onboarding-friction-sprint-3-4.md)
-
----
-
 <Callout type="tip">
 **Lo que no debe faltar en la ideación**
 
-- **No te saltes el diagnóstico.** Elegir la estrategia equivocada produce ideas que no encajan con el tipo de problema. Las cinco preguntas del Laboratorio sólo toman minutos y ahorran horas después.
+- **No te saltes el diagnóstico.** Elegir la estrategia equivocada produce ideas que no encajan con el tipo de problema. El breve diagnóstico del Laboratorio sólo toma minutos y ahorra horas después.
 - **Registra el razonamiento, no sólo las ideas.** El memorando de concepto que produce el Laboratorio debe capturar por qué el equipo eligió ese ángulo, no sólo qué ideas surgieron. El charter lo necesitará.
 - **Un concepto aprobado, no diez.** La ideación termina cuando hay un solo concepto lo suficientemente claro para que el patrocinador lo autorice. Dos o tres candidatos sin decisión no es un entregable de ideación — es trabajo de planeación sin terminar.
 </Callout>

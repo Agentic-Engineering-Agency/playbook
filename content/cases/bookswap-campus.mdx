@@ -1,0 +1,130 @@
+---
+title: "Case Study: BookSwap Campus"
+description: A peer textbook marketplace scaffolded end-to-end with agentic-pm-kit, from Five Whys ideation through Sprint 4 execution and pre-closure projection.
+date: "2026-04-21"
+client: "Universidad Iberoamericana Mexico City (Office of Educational Innovation)"
+---
+
+# Case Study: BookSwap Campus
+
+BookSwap Campus is a peer-to-peer textbook marketplace designed for university students in Mexico City — specifically those who pay an average MXN 4,800 per semester on required textbooks and the 38% of first-year students who have skipped at least one required book for financial reasons. The platform connects student sellers (carrying books from completed courses) with student buyers (facing the same costs at the start of a new semester) through a verified-registration, ISBN-catalogued, escrow-payment flow at three pilot universities: Universidad Iberoamericana, La Salle, and Panamericana.
+
+This page is the worked-example counterpart to the [agentic-pm-kit playbook](/docs/pm-kit). Every artifact described here was produced by invoking the kit's skills in the order the playbook prescribes — Five Whys ideation, then charter + stakeholder register + product brief, then the full nine-artifact planning suite, then Sprint 4 execution, then a pre-closure projection. Nothing was written by hand outside a skill invocation.
+
+Use this page alongside the playbook chapters — not as a replacement for them. The chapters explain what each skill does and why. This page shows what the output looks like when the kit runs against a real project brief: real names, real dates, real metrics, real open questions. Where the playbook says "the agent will collect …", this page shows what it collected.
+
+---
+
+## Ideation
+
+See the [Ideation chapter](/docs/pm-kit/02-ideation) of the playbook for what this phase is meant to produce.
+
+The concept memo was produced with the `brainstorming-five-whys` skill against the recurring impediment "fewer than 30% of invited students complete a first transaction within 7 days." The five-layer chain walks from the symptom of onboarding drop-off down to a process-level root cause: the sprint acceptance rubric does not require empirical validation of the user profile before coding critical flows, so onboarding was built around an "ideal" student who rarely exists at the start of a semester. Both corrective actions are concrete and assigned: (1) add a mandatory "empirical user-profile validation" item to the acceptance rubric — owner Project Manager, due before Sprint 5 — and (2) redesign the onboarding flow to separate "verified registration" from "ready to transact" — owner Engineering, due by end of Sprint 4. [See full analysis](/pm-kit/outputs/brainstorming-five-whys/onboarding-friction-sprint-3-4.md)
+
+---
+
+## Initiation
+
+See the [Initiation chapter](/docs/pm-kit/03-initiation) of the playbook for what this phase is meant to produce.
+
+### Project Charter
+
+The BookSwap Campus v1 charter was produced with the `charter` skill from the concept memo and records the formal authorization of the project by the Office of Educational Innovation at Universidad Iberoamericana Mexico City. Three execution decisions stand out: (1) three SMART objectives with hard dates tied to the academic calendar (go-live 2026-08-15, end-of-semester 2026-12-15), (2) a budget envelope stated as a range (MXN 1.25M–1.75M, ±20%) rather than a false-precision point estimate, and (3) five quantitative success metrics — including "median time-to-first-transaction ≤ 7 days," the exact metric the Five Whys memo flagged as critical. The charter is signature-ready for sponsor, PM, CIO, and the libraries' spokesperson. [See full charter](/pm-kit/outputs/charter/bookswap-campus-v1.md)
+
+### Stakeholder Register
+
+The stakeholder register for BookSwap Campus v1 identifies 15 stakeholders across all four Mendelow quadrants using the `brainstorming-role-playing` strategy — team members assumed the roles of student buyer, seller, university authority, library staff, technical team, regulator, payment provider, and organized student community to avoid omissions. Each entry specifies interest (1–5), influence (1–5), attitude (Advocate / Neutral), channel, cadence, and relationship owner, with the sponsor (Dra. Mariana Peralta, Influence 5 / Interest 5) and the libraries' spokesperson (Lic. Paola Quintero, Influence 4 / Interest 5) in Manage Closely. Four open questions are tracked for resolution — including the payment provider's attitude and the formal mapping of IT and Finance contacts at La Salle and Panamericana — with named owners and deadlines before M1. [See full stakeholder register](/pm-kit/outputs/stakeholder-register/bookswap-campus-v1.md)
+
+### Product Brief
+
+The product brief documents the business case that led to the charter, grounding the problem in two figures from Servicios Escolares: students at the three pilot universities pay an average MXN 4,800 per semester on required textbooks, and 38% of first-year students reported skipping at least one required book for financial reasons. The brief introduces Sofía (first-semester buyer) and Diego (sixth-semester seller) as personas showing both sides of the unmet need, and proposes four functional building blocks — verified registration, ISBN catalog, held-in-escrow payment, and bilateral rating — together with a pre-launch campaign targeting 200 books published and 300 pre-registered users before go-live. Six key risks are documented with ownership and mitigation, including the critical-mass adoption risk and onboarding friction identified later by the Five Whys analysis. [See full product brief](/pm-kit/outputs/product-brief/bookswap-campus-v1.md)
+
+---
+
+## Planning
+
+See the [Planning chapter](/docs/pm-kit/04-planning) of the playbook for what this phase is meant to produce.
+
+### Product Requirements Document
+
+The BookSwap Campus v1 PRD was produced with the `prd` skill from the charter and stakeholder register, and defines 17 functional requirements (FR-001 to FR-017) organized around four user types: buyer student, seller student, university administrator, and platform moderator. Non-functional requirements mandate LFPDPPP data-privacy compliance, WCAG 2.1 AA accessibility, and a p95 response time under 2 seconds — figures the team set before writing a single line of code. Five open questions are tracked with named owners and resolution deadlines, including the legal status of escrow under Mexican payment regulation. [See full PRD](/pm-kit/outputs/prd/bookswap-campus-v1.md)
+
+### Work Breakdown Structure
+
+The BookSwap Campus v1 WBS was produced with the `wbs` skill and structures the project into 7 phases at Level 1 (Foundation through Closure), roughly 32 work packages at Level 3, and a Mermaid `graph TD` diagram that maps phases to sub-deliverables. Each package carries a WBS code, owner, estimated duration, and dependencies; the WBS dictionary calls out the five most ambiguous packages — including the escrow integration and the institutional email verification — whose acceptance criteria were unclear in the PRD. The WBS became the direct input for the schedule and for sprint backlog decomposition. [See full WBS](/pm-kit/outputs/wbs/bookswap-campus-v1.md)
+
+### Epics and Stories
+
+The BookSwap Campus v1 epics-and-stories artifact was produced with the `epics-and-stories` skill and decomposes the PRD into 7 epics (EP-01 through EP-07) and 18 user stories (ST-01 through ST-18). Priority distribution is 12 Must / 5 Should / 1 Could; every story includes Gherkin acceptance criteria (Given / When / Then) and explicit dependencies on prior stories, so the team entered sprint planning with a backlog that was already sequenced. EP-03 (Verified Onboarding) and EP-04 (Marketplace Core) carry the highest story count and map directly to the red-zone risks R1 and R2 in the risk matrix. [See full epics and stories](/pm-kit/outputs/epics-and-stories/bookswap-campus-v1.md)
+
+### Schedule (Gantt)
+
+The BookSwap Campus v1 schedule was produced with the `schedule-gantt` skill and spans approximately 160 business days on the critical path, from kick-off on 2026-05-04 (M0) to formal close on 2026-12-18 (M6), with go-live at M4 = 2026-08-12. The Mermaid `gantt` block defines 7 milestones and identifies parallel branches — UX design and infrastructure setup run concurrently with sprint development to preserve float — and the narrative calls out the five tasks with zero float that would delay go-live if they slip. The schedule is cross-referenced to the WBS so any slippage in a work package cascades visibly to its milestone. [See full schedule](/pm-kit/outputs/schedule-gantt/bookswap-campus-v1.md)
+
+### Cost Estimation — Sprint 4
+
+The Sprint 4 cost estimation was facilitated with the `cost-estimation` skill and combines two techniques: Planning Poker (Fibonacci) for the 10 user stories and PERT three-point estimation for the 2 infrastructure tasks. Planning Poker produced 68 total story points; against the team's observed velocity of ~40 pts/sprint from Sprint 3, the backlog requires ~1.7 sprints — so the team committed a 28-pt ceiling for Sprint 4 and planned to carry ~28 pts into Sprint 5 pending the payment-provider SDK assumption. The two PERT tasks produced a combined expected duration of 9.17 business days with an 80% confidence interval of [6.6 — 11.8 days]. [See full estimation](/pm-kit/outputs/cost-estimation/sprint-4-backlog.md)
+
+### Risk Matrix
+
+The baseline risk matrix (v1.0) was produced with the `risk-matrix` skill and identifies 12 risks across all four PMBOK categories (technical, external, organizational, project management). The initial snapshot places four risks in the red zone: R1 adoption below critical threshold and R2 onboarding friction (both scored 20), followed by R6 architecture under start-of-semester traffic and R8 listings containing copyrighted material (both scored 15). Every Top-5 risk carries a concrete response plan with actions, owner, trigger conditions, and target date (e.g., R2 is assigned to the Product Owner with a due date at end of Sprint 4, 2026-05-08). The artifact is cross-referenced with the charter: R2 guards the "median time-to-first-transaction ≤ 7 days" metric and R1 guards the 1,500-users end-of-semester objective. [See full matrix](/pm-kit/outputs/risk-matrix/bookswap-campus-v1-planning.md)
+
+### Communications Plan
+
+The BookSwap Campus v1 communications plan was produced with the `communication-plan` skill and maps 11 distinct audiences — from the university sponsor to payment provider technical contacts — to 8 recurring meeting formats and 4 escalation routes. The plan documents who sends what to whom, at what cadence, and through which channel, covering everything from the daily standup to the quarterly steering-committee report for La Salle and Panamericana. A 2-year document retention policy and clear rules about when to escalate a blocker to the sponsor (unresolved after 2 business days at team level) are included. [See full communications plan](/pm-kit/outputs/communication-plan/bookswap-campus-v1.md)
+
+### Quality Plan
+
+The BookSwap Campus v1 quality plan was produced with the `quality-plan` skill and defines 9 measurable quality metrics with hard minimum targets, including p95 response time < 2 s, automated test coverage ≥ 70%, WCAG 2.1 AA compliance for all public screens, and OWASP Top 10 clearance confirmed by a penetration test before M3. Process quality is enforced via the SpecSafe five-step discipline — spec, tests, implementation, verify, archive — so that every story enters the sprint with acceptance criteria and exits with tests that pass. A penetration test and accessibility audit are scheduled as formal gates before go-live. [See full quality plan](/pm-kit/outputs/quality-plan/bookswap-campus-v1.md)
+
+### Resource Plan
+
+The BookSwap Campus v1 resource plan was produced with the `resource-plan` skill and assembles a core team of 5 (PM, PO, Eng Lead, backend developer, frontend/UX developer) plus 4 honorario student moderators for the pilot semester, with 4 TBD roles whose designation deadlines are tracked before M1. Total projected cost is MXN 1,357,000 — MXN 980,000 in personnel and MXN 377,000 in infrastructure, software licenses, and contingency — placing the project within the MXN 1.25M–1.75M envelope authorized in the charter. Open hiring tasks (two university liaisons at La Salle and Panamericana) are flagged with a hard deadline to avoid slipping the go-live milestone. [See full resource plan](/pm-kit/outputs/resource-plan/bookswap-campus-v1.md)
+
+---
+
+## Execution
+
+See the [Execution chapter](/docs/pm-kit/05-execution) of the playbook for what this phase is meant to produce.
+
+### Sprint 4 Planning
+
+The Sprint 4 planning artifact was produced with the `sprint-planning` skill for the two-week sprint running 2026-04-21 to 2026-05-01, with the goal of separating the "verified registration" flow from the "ready to transact" flow and measuring conversion with the Sprint 5 cohort. Total team capacity for the sprint is 43.5 person-days across 5 contributors; the team committed to a 28-point ceiling out of the 30-point max, selecting 9 stories (S-041 through S-049) and flagging the payment-provider sandbox as the principal external dependency before start. The sprint goal maps directly to risk R2 (onboarding friction, score 20) in the risk matrix. [See full sprint planning](/pm-kit/outputs/sprint-planning/sprint-4.md)
+
+### Story Execution — S-042
+
+The S-042 story execution artifact was produced with the `story-execution` skill for the story "Separation of verified-registration flow from ready-to-transact flow." The story carries 5 acceptance criteria verified by 7 tests (3 unit + 3 integration + 1 Playwright end-to-end), all passing at merge; automated coverage for the `auth/status` module reached 84%, above the 70% minimum set by the quality plan. Two review rounds were completed — a code review by Ana Lucía and a UX review by Sofía — before PR #214 merged on 2026-04-28, closing S-042 as the first story to complete the full SpecSafe five-step loop in this sprint. [See full story execution](/pm-kit/outputs/story-execution/s-042-registro-verificado-listo-transaccionar.md)
+
+### Standup Prep — 2026-04-24
+
+The standup prep note for Valeria Cruz (backend) on 2026-04-24 was produced with the `standup-prep` skill. Yesterday: the `/api/users/me` endpoint update (PR #211) merged to staging with 82% coverage on the `auth/status` module, and 6 integration tests for S-042 are written and passing in CI. Today: pair programming with Daniela to connect `user.status` to frontend routing, and a review of PR #212 (feature-flag configuration) before end of day. Active blocker: the payment-provider sandbox account for S-048 is not yet provisioned; Ana Lucía is escalating, and if unresolved by 2026-04-25, S-048 is formally blocked and the PO is notified. [See full standup note](/pm-kit/outputs/standup-prep/2026-04-24-valeria.md)
+
+### Sprint 4 Review
+
+The Sprint 4 review was conducted on 2026-05-02 with the `sprint-review` skill. The sprint goal was met: the split between "verified" and "ready to transact" is live and the feature flag reached 100% of production users by 2026-04-30. Seven of 9 stories are complete — S-047 was deferred by a scope decision during the sprint, and S-048 remains blocked by the external payment-provider sandbox. Two signals were surfaced by stakeholders for Sprint 5 consideration: the Federación Estudiantil flagged SPEI response times of 8–22 minutes as a friction point, and DTI requested better observability of the escrow state transitions. [See full sprint review](/pm-kit/outputs/sprint-review/sprint-4.md)
+
+---
+
+## Closing
+
+See the [Closing chapter](/docs/pm-kit/06-closing) of the playbook for what this phase is meant to produce.
+
+### Sprint 3 Retrospective
+
+The BookSwap Campus Sprint 3 retrospective was facilitated with the `retrospective` skill under the Start/Stop/Continue lens, focused on a partially-met sprint goal (23/40 first transactions in 7 days). The session produced five owned, dated action items with verifiable success criteria — notably the onboarding redesign due by end of Sprint 4 and the new "story stuck in review ≤ 2 days" rule already signed by the team. The follow-up section closes two prior actions as Resolved (staging pipeline and UI style guide) and one as Dropped with a documented rationale (external security consultant, consolidated into the integrated pentest via ADR-004). The retrospective feeds directly into Sprint 5 planning and cross-references the Five Whys memo's finding about empirical user-profile validation. [See full retrospective](/pm-kit/outputs/retrospective/sprint-3.md)
+
+### Post-Mortem — Staging Outage 2026-04-17
+
+The post-mortem for the 7-hour staging outage on 2026-04-17 was conducted with the `post-mortem` skill under a blameless contract. The incident cost approximately 32 person-hours (~10% of sprint capacity) and was traced to a missing governance practice: no change log, no drift alert, and no formal incident channel with the payment provider, not to any individual action. Six action items were produced, categorized as Prevent / Detect / Mitigate, each with a named owner, a due date, and a verifiable success criterion — including immediate deployment of a config-drift alert and a joint incident channel with the payment provider established before the next staging integration. [See full post-mortem](/pm-kit/outputs/post-mortem/2026-04-17-staging-outage.md)
+
+### Closure Report (pre-closure projection)
+
+The BookSwap Campus v1 closure report was generated with the `closure-report` skill as a pre-closure projection during Sprint 4 (2026-04-21) — placeholders mark the actual final metrics that will be completed at project end. The projected total cost is MXN 1,357,000, within the charter's MXN 1.25M–1.75M envelope; M6 is targeted for 2026-12-18; and only one approved scope change (CR-001, onboarding redesign) is on record. The report consolidates lessons from the Sprint 3 retrospective and the staging post-mortem into a single artifact readable by the sponsor, and lists the artifact archive locations for handover at formal close. [See full closure report](/pm-kit/outputs/closure-report/bookswap-campus-v1.md)
+
+---
+
+## What this demonstrates
+
+BookSwap Campus was chosen as the worked example precisely because it is a real project with real stakes: a Mexican university initiative with a budget envelope, an academic calendar with hard deadlines, a complex stakeholder map spanning three institutions, and technical risks (escrow regulation, critical-mass adoption) that a cursory planning process would miss. Every artifact on this page was produced by the kit's skills in the order the playbook prescribes — and every artifact surfaces constraints, open questions, and risk owners that the team would have had to discover the hard way in execution.
+
+The through-line of this case is the playbook's three core claims made visible: the agent enhances rather than replaces the project manager's judgment (the cost-estimation skill facilitates, but the team produces the numbers); each skill loads its authoritative source before it acts (the sprint-planning skill reads the 2020 Scrum Guide; the post-mortem skill opens with a blameless contract); and every artifact ends at a binary verification gate — PASS or FAIL — so that nothing moves forward on the basis of "the agent said it's done."
