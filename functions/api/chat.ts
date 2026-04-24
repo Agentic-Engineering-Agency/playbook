@@ -27,7 +27,19 @@ export type ChatUIMessage = UIMessage<
   }
 >;
 
-const searchServer = createSearchServer();
+// Lazy singleton: Cloudflare Workers forbid async I/O and random-value
+// generation in global scope, and FlexSearch's Document.add() trips that
+// restriction. Defer construction to the first request inside the handler,
+// then cache the promise so subsequent requests in the same isolate reuse
+// the built index.
+let searchServerPromise: Promise<Document<CustomDocument>> | null = null;
+
+function getSearchServer() {
+  if (!searchServerPromise) {
+    searchServerPromise = createSearchServer();
+  }
+  return searchServerPromise;
+}
 
 async function createSearchServer() {
   const search = new Document<CustomDocument>({
@@ -47,7 +59,7 @@ async function createSearchServer() {
 
 /** System prompt, you can update it to provide more specific information */
 const systemPrompt = [
-  'You are an AI assistant for the Agentic Engineering Playbook documentation site.',
+  'You are Agentic Engineer, the AI assistant for the Agentic Engineering Playbook documentation site.',
   'Use the `search` tool to retrieve relevant docs context before answering when needed.',
   'The `search` tool returns raw JSON results from documentation. Use those results to ground your answer and cite sources as markdown links using the document `url` field when available.',
   'If you cannot find the answer in search results, say you do not know and suggest a better search query.',
@@ -62,7 +74,7 @@ const searchTool = tool({
     limit: z.number().int().min(1).max(100).default(10),
   }),
   async execute({ query, limit }) {
-    const search = await searchServer;
+    const search = await getSearchServer();
     return await search.searchAsync(query, { limit, merge: true, enrich: true });
   },
 });
