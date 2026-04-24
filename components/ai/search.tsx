@@ -251,7 +251,7 @@ function Input(props: ComponentProps<'textarea'>) {
 
 const roleName: Record<string, string> = {
   user: 'you',
-  assistant: 'fumadocs',
+  assistant: 'Agentic Engineer',
 };
 
 function Message({ message, ...props }: { message: ChatUIMessage } & ComponentProps<'div'>) {
