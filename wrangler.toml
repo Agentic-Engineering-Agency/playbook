@@ -9,4 +9,4 @@ compatibility_date = "2025-04-22"
 # Environment variables for the Pages Function
 # Set these in the Cloudflare Pages dashboard: Settings > Environment variables
 # - OPENROUTER_API_KEY (required)
-# - OPENROUTER_MODEL (optional, defaults to google/gemini-2.0-flash-exp:free)
+# - OPENROUTER_MODEL (optional, defaults to openrouter/free — OpenRouter's auto-router across healthy free models)
