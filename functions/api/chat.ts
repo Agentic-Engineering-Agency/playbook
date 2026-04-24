@@ -89,9 +89,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   };
 
   const result = streamText({
-    model: openrouter.chat(
-      env.OPENROUTER_MODEL ?? 'google/gemini-2.0-flash-exp:free',
-    ),
+    model: openrouter.chat(env.OPENROUTER_MODEL ?? 'openrouter/free'),
     stopWhen: stepCountIs(5),
     tools: {
       search: searchTool,
