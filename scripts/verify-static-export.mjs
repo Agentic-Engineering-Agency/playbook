@@ -64,9 +64,16 @@ const routeExpectations = [
   ['/llms-full.txt', 'About this Playbook'],
   ['/llms-full.txt', 'Acerca de este Playbook'],
   ['/llms-full.txt', 'https://www.npmjs.com/package/@specsafe/cli'],
+  ['/api/search', 'Ultimate Harness'],
+  ['/api/search', 'SpecSafe'],
+  ['/api/search', 'Agentic PM Kit'],
+  ['/api/search', 'Prototype Kit'],
   ['/api/search', 'Paperclip OMP Adapter'],
   ['/api/search', 'Paperclip Langfuse Export'],
   ['/api/search', 'Triage'],
+  ['/api/search', 'Un arnés de desarrollo de software independiente del runtime'],
+  ['/docs/projects', 'aria-label="View source: Ultimate Harness"'],
+  ['/es/docs/projects', 'aria-label="Ver código: Ultimate Harness"'],
 ];
 
 for (const [route, expected] of routeExpectations) {

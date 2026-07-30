@@ -31,13 +31,21 @@ npx agentic-pm-kit install
 
 Prototype Kit se distribuye actualmente mediante manifests de Claude Code y Gemini CLI respaldados por el código fuente. Su README también menciona un paquete npm que no es público, por lo que ese comando se omite intencionalmente.
 
+Para Claude Code, abre `claude` en la carpeta de tu proyecto y luego ejecuta estos comandos dentro de su sesión interactiva:
+
 ```bash
-# Claude Code
+claude
+```
+
+```text
 /plugin marketplace add Agentic-Engineering-Agency/prototype-kit
 /plugin install prototype-kit@prototype-kit
 /reload-plugins
+```
 
-# Gemini CLI
+Para Gemini CLI, ejecuta la instalación de la extensión desde tu terminal:
+
+```bash
 gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/prototype-kit
 ```
 

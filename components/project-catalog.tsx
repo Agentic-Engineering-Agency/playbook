@@ -178,26 +178,35 @@ function ProjectCard({
         <ProjectLink
           href={project.sourceUrl}
           label={linkCopy[locale].source}
+          projectName={project.name}
           icon="source"
           primary
         />
         <ProjectLink
           href={project.licenseUrl}
           label={linkCopy[locale].license}
+          projectName={project.name}
           icon="license"
         />
         <ProjectLink
           href={project.statusUrl}
           label={linkCopy[locale].status}
+          projectName={project.name}
           icon="status"
         />
         {project.docsUrl ? (
-          <ProjectLink href={project.docsUrl} label={linkCopy[locale].docs} icon="docs" />
+          <ProjectLink
+            href={project.docsUrl}
+            label={linkCopy[locale].docs}
+            projectName={project.name}
+            icon="docs"
+          />
         ) : null}
         {project.packageUrl ? (
           <ProjectLink
             href={project.packageUrl}
             label={linkCopy[locale].package}
+            projectName={project.name}
             icon="package"
           />
         ) : null}
@@ -209,11 +218,13 @@ function ProjectCard({
 function ProjectLink({
   href,
   label,
+  projectName,
   icon,
   primary = false,
 }: {
   href: string;
   label: string;
+  projectName: string;
   icon: 'source' | 'docs' | 'package' | 'license' | 'status';
   primary?: boolean;
 }) {
@@ -233,7 +244,13 @@ function ProjectLink({
 
   if (external) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+        aria-label={`${label}: ${projectName}`}
+      >
         <Icon aria-hidden="true" className="h-3.5 w-3.5" />
         {label}
         <ArrowUpRight aria-hidden="true" className="h-3 w-3" />
@@ -242,7 +259,7 @@ function ProjectLink({
   }
 
   return (
-    <Link href={href} className={className}>
+    <Link href={href} className={className} aria-label={`${label}: ${projectName}`}>
       <Icon aria-hidden="true" className="h-3.5 w-3.5" />
       {label}
     </Link>
