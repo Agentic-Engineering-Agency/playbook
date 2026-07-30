@@ -107,10 +107,10 @@ export async function generateMetadata(
   const { lang } = await props.params;
   if (lang === 'es') {
     return {
-      title: 'Agentic Engineering Playbook',
+      title: { absolute: 'Agentic Engineering Playbook' },
       description:
         'Documentación pública y bilingüe de los métodos abiertos, kits y rutas de evidencia verificadas de Agentic Engineering.',
     };
   }
-  return { title: 'Agentic Engineering Playbook' };
+  return { title: { absolute: 'Agentic Engineering Playbook' } };
 }
