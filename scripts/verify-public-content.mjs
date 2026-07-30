@@ -33,6 +33,7 @@ const forbidden = [
   ['removed generative chat endpoint', '/api/chat'],
   ['removed OpenRouter secret binding', 'OPENROUTER_API_KEY'],
   ['removed AI chat trigger', 'Ask AI'],
+  ['internal KLGV data', 'KLGV'],
 ];
 
 for (const [label, value] of forbidden) {
@@ -52,6 +53,15 @@ const required = [
   ],
   ['public boundary page', 'The Playbook is a public documentation and proof-distribution surface'],
   ['Spanish public boundary page', 'El Playbook es una superficie pública'],
+  [
+    'Ultimate Harness canonical source',
+    'https://github.com/Agentic-Engineering-Agency/ultimate-harness',
+  ],
+  ['Ultimate Harness public package', '@agenticengineeringagency/ultimate-harness'],
+  ['public project catalog heading', 'Public projects'],
+  ['Spanish public project catalog heading', 'Proyectos públicos'],
+  ['proof publication rule', 'Public visibility alone is not enough'],
+  ['Spanish proof publication rule', 'La visibilidad pública por sí sola no es suficiente'],
 ];
 
 for (const [label, value] of required) {
@@ -87,6 +97,35 @@ for (const dependency of [
   }
 }
 
+const catalogFile = readFileSync(join(root, 'lib/public-projects.ts'), 'utf8');
+const catalogProjects = [
+  'ultimate-harness',
+  'specsafe',
+  'agentic-pm-kit',
+  'prototype-kit',
+  'paperclip-adapter-omp',
+  'paperclip-plugin-langfuse-export',
+  'triage',
+];
+
+for (const project of catalogProjects) {
+  if (!catalogFile.includes(`id: '${project}'`)) {
+    throw new Error(`Verified public project is missing from the catalog: ${project}`);
+  }
+}
+
+for (const excludedProject of [
+  'curia-landing',
+  'code-colony',
+  'omp-pantheon',
+  'pi-seshat',
+  'agentic-engineering-wiki',
+]) {
+  if (catalogFile.includes(`id: '${excludedProject}'`)) {
+    throw new Error(`Intentionally excluded project is present in the catalog: ${excludedProject}`);
+  }
+}
+
 const docsDir = join(root, 'content/docs');
 const mdxFiles = walk(docsDir, (file) => file.endsWith('.mdx'));
 for (const file of mdxFiles) {
@@ -101,5 +140,5 @@ for (const file of mdxFiles) {
 }
 
 console.log(
-  `Public content verified: ${publicFiles.length} source files, ${mdxFiles.length / 2} bilingual page pairs, no generative chat surface, and no unpublished Prototype Kit npm command.`,
+  `Public content verified: ${publicFiles.length} source files, ${mdxFiles.length / 2} bilingual page pairs, ${catalogProjects.length} source-verified catalog projects, no generative chat surface, and no unpublished Prototype Kit npm command.`,
 );

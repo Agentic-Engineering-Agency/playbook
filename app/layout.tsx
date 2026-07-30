@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     template: '%s | Agentic Engineering Playbook',
   },
   description:
-    'Public bilingual documentation for the open methods, kits, and verified proof paths published by Agentic Engineering.',
+    'Public bilingual documentation for the methods, kits, proof paths, and source-verified projects published by Agentic Engineering.',
   openGraph: {
     type: 'website',
     siteName: 'Agentic Engineering Playbook',
     title: 'Agentic Engineering Playbook',
     description:
-      'Public bilingual documentation for the open methods, kits, and verified proof paths published by Agentic Engineering.',
+      'Public bilingual documentation for the methods, kits, proof paths, and source-verified projects published by Agentic Engineering.',
   },
 };
 

@@ -1,0 +1,55 @@
+---
+title: Kits
+description: Source-verified installation and usage paths for packaged Agentic Engineering skills and workflows.
+---
+
+# Kits
+
+Kits package public methods into reusable skills, templates, and agent workflows. Commands appear here only when the source repository and public distribution path agree.
+
+<Cards>
+  <Card title="Agentic PM Kit" href="/docs/pm-kit">
+    Project-management Agent Skills for drafting PMBOK- and Scrum-shaped artifacts with Claude Code and Gemini CLI.
+  </Card>
+  <Card title="Prototype Kit" href="/docs/prototype-kit">
+    A source-distributed plugin and extension for turning product documents into React and shadcn/ui prototypes.
+  </Card>
+  <Card title="SpecSafe CLI" href="https://github.com/Agentic-Engineering-Agency/specsafe">
+    A public CLI for installing the SpecSafe planning and spec-driven delivery workflow into supported coding tools.
+  </Card>
+</Cards>
+
+## Verified distribution paths
+
+### Agentic PM Kit
+
+The `agentic-pm-kit` package is public on npm and the command below matches its canonical README.
+
+```bash
+npx agentic-pm-kit install
+```
+
+### Prototype Kit
+
+Prototype Kit is currently distributed through source-backed Claude Code and Gemini CLI manifests. Its README also mentions an npm package that is not public, so that command is intentionally omitted here.
+
+```bash
+# Claude Code
+/plugin marketplace add Agentic-Engineering-Agency/prototype-kit
+/plugin install prototype-kit@prototype-kit
+
+# Gemini CLI
+gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/prototype-kit
+```
+
+### SpecSafe
+
+The `@specsafe/cli` package is public on npm and the command matches the canonical repository.
+
+```bash
+npm install -g @specsafe/cli
+```
+
+<Callout type="warn">
+Re-check the linked source before installing. The catalog is a reviewed publication snapshot, not a live package registry.
+</Callout>

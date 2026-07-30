@@ -1,0 +1,45 @@
+---
+title: Methods
+description: Public engineering methods for reducing ambiguity, executing bounded work, and carrying evidence into human review.
+---
+
+# Methods
+
+The Playbook documents repeatable ways to move agent-assisted work from intent to review. These are public method references, not a claim that one workflow fits every team.
+
+## The shared delivery loop
+
+<Cards>
+  <Card title="1. Frame the work">
+    Turn a request into a bounded objective, constraints, acceptance criteria, and an explicit public or private boundary.
+  </Card>
+  <Card title="2. Make the contract durable">
+    Capture the spec, mission, or plan in a reviewable artifact rather than leaving critical decisions only in a chat transcript.
+  </Card>
+  <Card title="3. Execute in isolation">
+    Use a constrained workspace or sandbox and keep runtime configuration separate from the work contract.
+  </Card>
+  <Card title="4. Verify before promotion">
+    Run declared checks, preserve the evidence, and require a human decision before canonical state changes.
+  </Card>
+</Cards>
+
+## Public implementations
+
+### Ultimate Harness
+
+Ultimate Harness implements a runtime-agnostic mission lifecycle around agent execution. Its public model connects workflow profiles, mission packets, runtime adapters, sandbox policy, verification records, and human promotion decisions.
+
+- [Read the public quickstart](https://github.com/Agentic-Engineering-Agency/ultimate-harness/blob/main/docs/quickstart.md)
+- [Inspect the source](https://github.com/Agentic-Engineering-Agency/ultimate-harness)
+
+### SpecSafe
+
+SpecSafe separates planning from delivery. Its canonical workflow moves from principles, brief, requirements, UX, and architecture into small spec slices, test-driven implementation, verification, QA, and a human completion gate.
+
+- [Read the canonical workflow](https://github.com/Agentic-Engineering-Agency/specsafe/blob/main/docs/SPECSAFE-CANONICAL-WORKFLOW.md)
+- [Inspect the source](https://github.com/Agentic-Engineering-Agency/specsafe)
+
+<Callout type="info">
+These descriptions are derived from each project's canonical public documentation. Runtime support and release details belong to the source repository and should be checked there before adoption.
+</Callout>

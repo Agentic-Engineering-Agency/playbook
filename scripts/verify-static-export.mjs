@@ -21,12 +21,20 @@ function resolveRoute(route) {
 }
 
 const routeExpectations = [
-  ['/', 'Public, bilingual documentation'],
-  ['/es', 'Documentación pública y bilingüe'],
+  ['/', 'Methods, kits, and proof for building with agents.'],
+  ['/es', 'Métodos, kits y evidencia para construir con agentes.'],
   ['/docs', 'The Playbook is a public documentation'],
   ['/es/docs', 'El Playbook es una superficie pública'],
   ['/docs/about', 'About this Playbook'],
   ['/es/docs/about', 'Acerca de este Playbook'],
+  ['/docs/methods', 'The shared delivery loop'],
+  ['/es/docs/methods', 'El ciclo compartido de entrega'],
+  ['/docs/kits', 'Verified distribution paths'],
+  ['/es/docs/kits', 'Rutas de distribución verificadas'],
+  ['/docs/proof', 'What we publish'],
+  ['/es/docs/proof', 'Qué publicamos'],
+  ['/docs/projects', 'Ultimate Harness'],
+  ['/es/docs/projects', 'Ultimate Harness'],
   ['/llms.txt', 'About this Playbook'],
   ['/llms-full.txt', 'About this Playbook'],
 ];

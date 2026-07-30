@@ -14,7 +14,7 @@ export default async function LocaleDocsLayout(
     <DocsLayout
       tree={source.getPageTree(lang as 'en' | 'es')}
       i18n={i18n}
-      {...baseOptions()}
+      {...baseOptions(lang as 'en' | 'es')}
     >
       {props.children}
     </DocsLayout>

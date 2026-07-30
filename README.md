@@ -11,6 +11,7 @@ The Playbook is a public documentation and proof-distribution surface.
 It includes:
 
 - reviewed English and Spanish guides for public methods and kits;
+- a source-verified catalog of suitable public Agentic Engineering projects;
 - install paths verified against a source repository or package registry;
 - machine-readable documentation at `/llms.txt` and `/llms-full.txt`;
 - public proof paths only after their sources and claims have been reviewed.
@@ -23,11 +24,14 @@ It does not include:
 
 The linked product repositories remain the source for releases and implementation details. The [Agentic Engineering website](https://agenticengineering.agency) owns the public services and contact journey.
 
-## Published documentation
+## Information architecture
 
-- [Prototype Kit](https://labs.agenticengineering.agency/docs/prototype-kit)
-- [PM Kit](https://labs.agenticengineering.agency/docs/pm-kit)
-- [SpecSafe](https://specsafe.agenticengineering.lat/) (canonical documentation is hosted separately)
+- **Methods** — reusable planning, specification, execution, verification, and review loops.
+- **Kits** — verified distribution paths for packaged public workflows.
+- **Proof** — the ownership, license, availability, and evidence rules behind public claims.
+- **Public projects** — organization-owned, non-archived repositories with a sufficiently clear public release or documentation boundary.
+
+The catalog distinguishes a repository license from license metadata attached only to a distributed package. Public visibility by itself is not treated as an open-source grant or as evidence that a project is ready to promote.
 
 ## Local development
 

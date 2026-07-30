@@ -1,0 +1,44 @@
+---
+title: Proof
+description: The evidence and labeling rules used when Agentic Engineering publishes public project documentation.
+---
+
+# Proof
+
+Proof in this Playbook means that a public statement has an inspectable source. It does not mean that every public repository is production-ready or that a repository's current state has been independently certified.
+
+## What we publish
+
+| Public label | Required evidence |
+| --- | --- |
+| Organization-owned | GitHub reports `Agentic-Engineering-Agency` as owner and the repository is not a fork. |
+| Open source | The repository or distributed package declares a recognized license; the card identifies which surface carries it. |
+| Public source | The source is visible, but no repository-wide open-source grant is implied. |
+| Public package | The named package resolves in the public registry at review time. |
+| Public docs | The link points to canonical documentation owned by the project or organization. |
+
+## Evidence paths
+
+<Cards>
+  <Card title="Project catalog" href="/docs/projects">
+    Ownership, availability, license wording, canonical source, and appropriate next actions for cataloged public work.
+  </Card>
+  <Card title="Source organization" href="https://github.com/Agentic-Engineering-Agency">
+    The public GitHub organization remains the canonical source for repository visibility, history, issues, and releases.
+  </Card>
+  <Card title="Machine-readable docs" href="/llms-full.txt">
+    The full reviewed Playbook content in a static text representation for agents and retrieval systems.
+  </Card>
+</Cards>
+
+## What is intentionally absent
+
+- internal project health, roadmaps, customers, operating metrics, or founder data
+- benchmark or production claims that have not completed a separate evidence review
+- install commands that do not resolve in their stated registry or source manifest
+- forks presented as Agentic Engineering-owned projects
+- archived experiments presented as current catalog entries
+
+<Callout type="info">
+Catalog facts are a dated editorial snapshot. Before changing a status, license, package, or install path, re-check its canonical public source.
+</Callout>

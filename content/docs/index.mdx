@@ -1,73 +1,46 @@
 ---
 title: Documentation
-description: Public, source-linked documentation and verified install paths for the methods and kits we publish.
+description: Navigate public methods, kits, proof rules, and source-verified Agentic Engineering projects.
 ---
 
 # Documentation
 
-Browse the public docs for our methods and kits. This hub keeps reviewed guides, verified install paths, and source repositories in one place.
+Use this hub to move from engineering method to reusable kit, inspect the evidence boundary, or discover suitable public Agentic Engineering projects.
 
 <Callout type="info">
 The Playbook is a public documentation and proof-distribution surface. It is not an internal operating dashboard or a source of live customer or company status. See [About this Playbook](/docs/about).
 </Callout>
 
-## Kits
+## Choose a path
 
 <Cards>
-  <Card title="Prototype Kit" href="/docs/prototype-kit">
-    Ship a polished React + shadcn prototype in an afternoon, without writing code. Works with Gemini CLI, Claude Code, and OpenCode.
+  <Card title="Methods" href="/docs/methods">
+    Planning, specification, bounded execution, verification, and human review as a reusable public delivery loop.
   </Card>
-  <Card title="PM Kit" href="/docs/pm-kit">
-    Draft PMBOK and Scrum artifacts with AI, anchored to canonical sources. Works with Claude Code and Gemini CLI.
+  <Card title="Kits" href="/docs/kits">
+    Source-verified distribution paths for Prototype Kit, Agentic PM Kit, and SpecSafe.
   </Card>
-  <Card title="SpecSafe" href="https://specsafe.agenticengineering.lat/">
-    Run a two-phase planning plus spec-driven development workflow for AI-assisted engineering. Documentation lives on the dedicated SpecSafe site.
+  <Card title="Proof" href="/docs/proof">
+    The evidence, ownership, availability, and license rules behind public Playbook claims.
+  </Card>
+  <Card title="Public projects" href="/docs/projects">
+    A reviewed catalog led by Ultimate Harness, with canonical source, docs, package, and status links.
   </Card>
 </Cards>
 
-## Quick install
+## Featured public work
 
-### Prototype Kit
-
-```bash
-# Claude Code
-/plugin marketplace add Agentic-Engineering-Agency/prototype-kit
-/plugin install prototype-kit@prototype-kit
-
-# Gemini CLI
-gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/prototype-kit
-
-```
-
-### PM Kit
-
-```bash
-# Claude Code
-/plugin marketplace add Agentic-Engineering-Agency/agentic-pm-kit
-/plugin install agentic-pm-kit@agentic-engineering-agency
-
-# Gemini CLI
-gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/agentic-pm-kit
-
-# Universal
-npx agentic-pm-kit install
-```
-
-### SpecSafe
-
-```bash
-# Recommended install
-npm install -g @specsafe/cli
-
-# Alternative
-pnpm install -g @specsafe/cli
-
-# Claude Code support
-specsafe install claude-code
-
-# Gemini support
-specsafe install gemini
-```
+<Cards>
+  <Card title="Ultimate Harness" href="https://github.com/Agentic-Engineering-Agency/ultimate-harness">
+    A runtime-agnostic harness for mission packets, runtime adapters, sandboxed execution, verification records, and human promotion.
+  </Card>
+  <Card title="SpecSafe" href="https://github.com/Agentic-Engineering-Agency/specsafe">
+    A two-phase planning and test-driven delivery framework for AI-assisted development.
+  </Card>
+  <Card title="Agentic PM Kit" href="/docs/pm-kit">
+    Project-management Agent Skills for source-grounded PMBOK- and Scrum-shaped drafts.
+  </Card>
+</Cards>
 
 <Callout type="info">
 **AI agents:** Fetch [`/llms-full.txt`](/llms-full.txt) for the complete machine-readable version of all published documentation.
