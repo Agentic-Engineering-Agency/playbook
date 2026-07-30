@@ -17,11 +17,7 @@ gemini extensions install --consent https://github.com/Agentic-Engineering-Agenc
 gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/prototype-kit
 ```
 
-La bandera `--consent` salta el prompt interactivo de confirmación. Sin ella, la instalación puede quedar en silencio cuando stdin está canalizado (por ejemplo, dentro de un script). El agente descargará e instalará la extensión automáticamente. Deberías ver:
-
-```
-Extension 'prototype-kit' installed successfully.
-```
+La bandera `--consent` salta el prompt interactivo de confirmación. Sin ella, la instalación puede no hacer nada cuando stdin está canalizado, por ejemplo dentro de un script. El agente descarga y registra la extensión automáticamente. Un resultado exitoso nombra `prototype-kit` e indica que quedó instalado y habilitado; la puntuación y el texto exactos pueden variar según la versión de Gemini CLI.
 
 ## Verificar que la extensión está registrada
 
@@ -35,11 +31,7 @@ gemini extensions list
 gemini extensions list
 ```
 
-La salida esperada incluye:
-
-```
-prototype-kit  v0.x.x  Agentic Engineering Agency
-```
+Confirma que la salida contenga `prototype-kit` y lo marque como activo o habilitado. Los números de versión, rutas, nombres de campos y formato cambian entre versiones de Gemini CLI.
 
 ## Confirmar la instalación en disco
 

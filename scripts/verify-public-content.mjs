@@ -63,6 +63,10 @@ const forbidden = [
     'stale Gemini extension-list guidance',
     '`gemini extensions list` only renders inside an interactive',
   ],
+  [
+    'stale Gemini extension-list literal output',
+    'prototype-kit  v0.x.x  Agentic Engineering Agency',
+  ],
 ];
 
 for (const [label, value] of forbidden) {
@@ -102,6 +106,8 @@ const required = [
   ['canonical Claude Prototype Kit command', '/prototype-kit:prototype-from-docs'],
   ['current Gemini CLI Node floor', 'Node.js 20'],
   ['interactive Gemini extension-list command', '/extensions list'],
+  ['stable Gemini extension success criterion', 'marks it active or enabled'],
+  ['stable Spanish Gemini extension success criterion', 'marque como activo o habilitado'],
 ];
 
 for (const [label, value] of required) {

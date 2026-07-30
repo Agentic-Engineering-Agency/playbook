@@ -17,11 +17,7 @@ gemini extensions install --consent https://github.com/Agentic-Engineering-Agenc
 gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/prototype-kit
 ```
 
-The `--consent` flag skips the interactive confirmation prompt. Without it, the install silently no-ops when stdin is piped (e.g., in a script). The agent will download the extension and register it automatically. You should see:
-
-```
-Extension 'prototype-kit' installed successfully.
-```
+The `--consent` flag skips the interactive confirmation prompt. Without it, the install can no-op when stdin is piped, such as in a script. The agent downloads and registers the extension automatically. A successful result names `prototype-kit` and indicates that it was installed and enabled; exact punctuation and wording can vary by Gemini CLI version.
 
 ## Verify the extension is registered
 
@@ -35,11 +31,7 @@ gemini extensions list
 gemini extensions list
 ```
 
-Expected output includes:
-
-```
-prototype-kit  v0.x.x  Agentic Engineering Agency
-```
+Confirm that the output contains `prototype-kit` and marks it active or enabled. Version numbers, paths, field labels, and formatting vary by Gemini CLI version.
 
 ## Confirm the install on disk
 
