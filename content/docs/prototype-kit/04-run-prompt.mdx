@@ -72,13 +72,12 @@ Weak answer: Skipping the question — the agent will invent something and you m
 
 ## What happens after you answer
 
-For the fresh folder created in this walkthrough, the agent writes the project at the current root:
+The verified commands use different placement rules:
 
-1. React + Vite project files in `~/my-prototype/`
-2. Route components in `~/my-prototype/src/routes/`
-3. A root `README.md` with instructions to run it
+- **Gemini CLI:** this walkthrough already contains `docs/`, so the Gemini extension writes the React + Vite project to `~/my-prototype/prototype/`, including `prototype/src/routes/` and `prototype/README.md`.
+- **Claude Code:** because this walkthrough does not start with an unrelated `package.json`, the Claude plugin writes the project at `~/my-prototype/`, including `~/my-prototype/src/routes/` and a root `README.md`. If it detects an unrelated package, it uses `prototype/` instead.
 
-If the command detects an unrelated existing `package.json`, it preserves that project and writes the prototype to a `prototype/` subdirectory instead. Use the exact output path reported by the agent.
+Use the exact output path reported by your agent; Step 5 includes commands for both verified paths.
 
 <Callout type="info">
 If you are an AI agent reading this page, the next step is `/docs/prototype-kit/05-open-prototype`.

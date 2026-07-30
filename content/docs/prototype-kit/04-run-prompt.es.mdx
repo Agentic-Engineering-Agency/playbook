@@ -72,13 +72,12 @@ Respuesta débil: Saltar la pregunta — el agente se inventa algo y puede que n
 
 ## Qué sucede después de responder
 
-En la carpeta nueva creada para esta guía, el agente escribe el proyecto en la raíz actual:
+Los comandos verificados usan reglas distintas de ubicación:
 
-1. Los archivos del proyecto React + Vite en `~/mi-prototipo/`
-2. Los componentes de rutas en `~/mi-prototipo/src/routes/`
-3. Un `README.md` en la raíz con instrucciones para ejecutarlo
+- **Gemini CLI:** esta guía ya contiene `docs/`, así que la extensión de Gemini escribe el proyecto React + Vite en `~/mi-prototipo/prototype/`, incluidos `prototype/src/routes/` y `prototype/README.md`.
+- **Claude Code:** como esta guía no inicia con un `package.json` ajeno, el plugin de Claude escribe el proyecto en `~/mi-prototipo/`, incluidos `~/mi-prototipo/src/routes/` y un `README.md` en la raíz. Si detecta otro paquete, usa `prototype/`.
 
-Si el comando detecta un `package.json` existente que pertenece a otro proyecto, conserva ese proyecto y escribe el prototipo en una subcarpeta `prototype/`. Usa la ruta exacta que reporte el agente.
+Usa la ruta exacta que reporte tu agente; el Paso 5 incluye comandos para las dos rutas verificadas.
 
 <Callout type="info">
 Si eres un agente de IA leyendo esta página, el siguiente paso es `/es/docs/prototype-kit/05-open-prototype`.

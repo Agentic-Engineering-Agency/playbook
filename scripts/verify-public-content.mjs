@@ -55,8 +55,6 @@ const forbidden = [
   ['retired Gemini individual free-account instruction', 'authenticate with your free Google account'],
   ['retired Spanish Gemini free-account instruction', 'cuenta de Google gratuita'],
   ['incorrect Prototype Kit screen output path', 'prototype/src/screens/'],
-  ['incorrect fresh-project launch path', 'my-prototype/prototype'],
-  ['incorrect Spanish fresh-project launch path', 'mi-prototipo/prototype'],
 ];
 
 for (const [label, value] of forbidden) {
@@ -91,6 +89,8 @@ const required = [
   ],
   ['canonical Prototype Kit route output', 'my-prototype/src/routes/'],
   ['canonical Spanish Prototype Kit route output', 'mi-prototipo/src/routes/'],
+  ['canonical Gemini Prototype Kit output', 'my-prototype/prototype/'],
+  ['canonical Spanish Gemini Prototype Kit output', 'mi-prototipo/prototype/'],
 ];
 
 for (const [label, value] of required) {

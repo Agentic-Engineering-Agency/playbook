@@ -3,9 +3,25 @@ title: "Paso 5: Abrir el prototipo"
 description: Inicia el servidor de desarrollo y abre tu prototipo en http://localhost:5173.
 ---
 
-La ruta de proyecto nuevo de esta guía escribe el prototipo en `~/mi-prototipo/`. Si el agente reportó una subcarpeta `prototype/` porque encontró un proyecto existente, usa esa ruta reportada.
+Usa la carpeta de salida que reporte tu agente. En esta guía, Gemini CLI y Claude Code usan rutas verificadas distintas.
 
-## Iniciar el servidor de desarrollo
+## Iniciar la salida de Gemini CLI
+
+```bash
+# macOS / Linux
+cd ~/mi-prototipo/prototype
+npm install
+npm run dev
+```
+
+```powershell
+# Windows PowerShell
+cd $HOME\mi-prototipo\prototype
+npm install
+npm run dev
+```
+
+## Iniciar la salida de Claude Code
 
 ```bash
 # macOS / Linux
@@ -20,6 +36,8 @@ cd $HOME\mi-prototipo
 npm install
 npm run dev
 ```
+
+Si cualquiera de los agentes reporta otra ruta de salida, usa esa ruta.
 
 Deberías ver:
 
@@ -70,14 +88,12 @@ Si ves errores como `Cannot find module 'xxx'`, ejecuta:
 
 ```bash
 # macOS / Linux
-cd ~/mi-prototipo
 rm -rf node_modules package-lock.json
 npm install
 ```
 
 ```powershell
 # Windows PowerShell
-cd $HOME\mi-prototipo
 Remove-Item -Recurse -Force node_modules, package-lock.json
 npm install
 ```

@@ -3,9 +3,25 @@ title: "Step 5: Open the prototype"
 description: Start the dev server and open your prototype at http://localhost:5173.
 ---
 
-The fresh-project path in this guide writes the prototype at `~/my-prototype/`. If the agent reported a `prototype/` subdirectory because it found an existing project, use that reported directory instead.
+Use the output directory reported by your agent. In this walkthrough, Gemini CLI and Claude Code use different verified paths.
 
-## Start the dev server
+## Start the Gemini CLI output
+
+```bash
+# macOS / Linux
+cd ~/my-prototype/prototype
+npm install
+npm run dev
+```
+
+```powershell
+# Windows PowerShell
+cd $HOME\my-prototype\prototype
+npm install
+npm run dev
+```
+
+## Start the Claude Code output
 
 ```bash
 # macOS / Linux
@@ -20,6 +36,8 @@ cd $HOME\my-prototype
 npm install
 npm run dev
 ```
+
+If either agent reports a different output path, use that reported path instead.
 
 You should see:
 
@@ -70,14 +88,12 @@ If you see errors like `Cannot find module 'xxx'`, run:
 
 ```bash
 # macOS / Linux
-cd ~/my-prototype
 rm -rf node_modules package-lock.json
 npm install
 ```
 
 ```powershell
 # Windows PowerShell
-cd $HOME\my-prototype
 Remove-Item -Recurse -Force node_modules, package-lock.json
 npm install
 ```
