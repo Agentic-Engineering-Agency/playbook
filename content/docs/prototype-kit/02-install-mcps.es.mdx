@@ -1,9 +1,9 @@
 ---
 title: "Paso 2: Instalar prototype-kit"
-description: Agrega la extensión prototype-kit a Gemini CLI y verifica que esté registrada.
+description: Agrega prototype-kit a Gemini CLI o Claude Code y verifica que esté registrado.
 ---
 
-prototype-kit es una extensión de Gemini CLI mantenida por Agentic Engineering Agency. Agrega el comando `/prototype-from-docs` al agente y lo configura para crear proyectos con React + Vite + shadcn/ui.
+prototype-kit lo mantiene Agentic Engineering Agency y se distribuye como extensión de Gemini CLI y como plugin de Claude Code. Cualquiera de las dos rutas agrega el comando del prototipo al agente y lo configura para crear proyectos con React + Vite + shadcn/ui. Sigue la sección que corresponda al agente que instalaste en el Paso 1.
 
 ## Instalar mediante extensiones de Gemini CLI
 
@@ -56,6 +56,29 @@ Get-Item $HOME\.gemini\extensions\prototype-kit\gemini-extension.json
 ```
 
 Si el archivo aparece, la instalación funcionó. Si dice "No such file", vuelve a correr el comando de install con la bandera `--consent`.
+
+## Instalar mediante el plugin de Claude Code
+
+Si sigues la ruta de Claude Code en lugar de Gemini CLI, primero instala Claude Code con la [guía oficial de instalación](https://code.claude.com/docs/en/setup) y luego ábrelo desde tu terminal:
+
+```bash
+# macOS / Linux
+claude
+```
+
+```powershell
+# Windows PowerShell
+claude
+```
+
+Dentro de esa sesión interactiva, ejecuta los dos comandos de plugin verificados que también aparecen en la [página de Kits](/es/docs/kits#prototype-kit):
+
+```
+/plugin marketplace add Agentic-Engineering-Agency/prototype-kit
+/plugin install prototype-kit@prototype-kit
+```
+
+Cuando el plugin queda instalado, el comando con namespace `/prototype-kit:prototype-from-docs` aparece en la lista de comandos `/help` de esa sesión; el Paso 4 usa esa forma para Claude Code. El acceso a Claude Code tiene sus propios requisitos de suscripción o API, y el paquete npm que menciona el README de prototype-kit no es público, así que aquí no se documenta ningún comando `npx`.
 
 ## Fallback manual (detrás de un proxy o sin red)
 

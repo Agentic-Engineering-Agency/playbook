@@ -1,9 +1,9 @@
 ---
 title: "Step 2: Install prototype-kit"
-description: Add the prototype-kit extension to Gemini CLI and verify it is registered.
+description: Add prototype-kit to Gemini CLI or Claude Code and verify it is registered.
 ---
 
-prototype-kit is a Gemini CLI extension maintained by Agentic Engineering Agency. It adds the `/prototype-from-docs` command to the agent and configures it to scaffold React + Vite + shadcn/ui projects.
+prototype-kit is maintained by Agentic Engineering Agency and is distributed as a Gemini CLI extension and a Claude Code plugin. Either path adds the prototype command to the agent and configures it to scaffold React + Vite + shadcn/ui projects. Follow the section that matches the agent you installed in Step 1.
 
 ## Install via Gemini CLI extensions
 
@@ -56,6 +56,29 @@ Get-Item $HOME\.gemini\extensions\prototype-kit\gemini-extension.json
 ```
 
 A file listing means the install succeeded. "No such file" means it didn't — re-run the install command with the `--consent` flag.
+
+## Install via Claude Code plugin
+
+If you are following the Claude Code path instead of Gemini CLI, install Claude Code first with the [official setup guide](https://code.claude.com/docs/en/setup), then launch it from your terminal:
+
+```bash
+# macOS / Linux
+claude
+```
+
+```powershell
+# Windows PowerShell
+claude
+```
+
+Inside that interactive session, run the two verified plugin commands also listed on the [Kits page](/docs/kits#prototype-kit):
+
+```
+/plugin marketplace add Agentic-Engineering-Agency/prototype-kit
+/plugin install prototype-kit@prototype-kit
+```
+
+Once the plugin is installed, the namespaced `/prototype-kit:prototype-from-docs` command appears in the session's `/help` command list; Step 4 uses that form for Claude Code. Claude Code access has its own subscription or API requirements, and the npm package named in the prototype-kit README is not public, so no `npx` command is documented here.
 
 ## Manual fallback (behind a proxy or air-gapped)
 
