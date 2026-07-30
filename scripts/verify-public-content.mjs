@@ -108,6 +108,7 @@ const required = [
   ['interactive Gemini extension-list command', '/extensions list'],
   ['stable Gemini extension success criterion', 'marks it active or enabled'],
   ['stable Spanish Gemini extension success criterion', 'marque como activo o habilitado'],
+  ['Claude plugin activation command', '/reload-plugins'],
 ];
 
 for (const [label, value] of required) {

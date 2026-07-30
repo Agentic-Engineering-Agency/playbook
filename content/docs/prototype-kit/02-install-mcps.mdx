@@ -63,14 +63,15 @@ claude
 claude
 ```
 
-Inside that interactive session, run the two verified plugin commands also listed on the [Kits page](/docs/kits#prototype-kit):
+Inside that interactive session, run the verified plugin setup also listed on the [Kits page](/docs/kits#prototype-kit):
 
 ```
 /plugin marketplace add Agentic-Engineering-Agency/prototype-kit
 /plugin install prototype-kit@prototype-kit
+/reload-plugins
 ```
 
-Once the plugin is installed, the namespaced `/prototype-kit:prototype-from-docs` command appears in the session's `/help` command list; Step 4 uses that form for Claude Code. Claude Code access has its own subscription or API requirements, and the npm package named in the prototype-kit README is not public, so no `npx` command is documented here.
+`/reload-plugins` activates the newly installed plugin in the current session. After it completes, the namespaced `/prototype-kit:prototype-from-docs` command appears in `/help`; restarting Claude Code is the fallback if reload fails. Step 4 uses that namespaced form. Claude Code access has its own subscription or API requirements, and the npm package named in the prototype-kit README is not public, so no `npx` command is documented here.
 
 ## Manual fallback (behind a proxy or air-gapped)
 
