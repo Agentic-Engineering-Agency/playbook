@@ -37,11 +37,15 @@ jobs:
 
       - name: Verify app
         run: |
+          npm run verify:content
           npm run types:check
           npm run lint
 
       - name: Build static export
         run: npm run build
+
+      - name: Verify static routes
+        run: npm run verify:routes
 
       - name: Deploy to Cloudflare Pages
         id: deploy

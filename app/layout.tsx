@@ -10,6 +10,20 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://labs.agenticengineering.agency'),
+  applicationName: 'Agentic Engineering Playbook',
+  title: {
+    default: 'Agentic Engineering Playbook',
+    template: '%s | Agentic Engineering Playbook',
+  },
+  description:
+    'Public bilingual documentation for the open methods, kits, and verified proof paths published by Agentic Engineering.',
+  openGraph: {
+    type: 'website',
+    siteName: 'Agentic Engineering Playbook',
+    title: 'Agentic Engineering Playbook',
+    description:
+      'Public bilingual documentation for the open methods, kits, and verified proof paths published by Agentic Engineering.',
+  },
 };
 
 export default function Layout({ children }: LayoutProps<'/'>) {

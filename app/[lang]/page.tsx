@@ -25,34 +25,51 @@ export default async function LocaleHomePage(
           El Playbook
         </h1>
         <p className="text-fd-muted-foreground text-lg mb-12 max-w-xl">
-          Documentacion de los kits y flujos que usamos para construir con agentes de IA.
+          Documentación pública y bilingüe de los métodos abiertos y kits que publicamos.
         </p>
 
         <section className="w-full max-w-6xl mx-auto mb-16 text-left">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-bold text-fd-foreground mb-2">
-              Kits
+              Documentación publicada
             </h2>
             <p className="text-fd-muted-foreground max-w-xl mx-auto">
-              Documentacion, comandos de instalacion y repositorios de las herramientas y flujos que publicamos.
+              Guías vinculadas a sus fuentes y rutas de instalación verificadas para el trabajo público de Agentic Engineering.
             </p>
           </div>
           <ToolGrid tools={tools} locale="es" />
         </section>
 
-        <div className="max-w-3xl w-full text-left rounded-lg border border-fd-primary/30 bg-fd-primary/5 p-6">
+        <div className="max-w-3xl w-full text-left rounded-lg border border-fd-primary/30 bg-fd-primary/5 p-6 mb-6">
           <span className="text-xs font-mono text-fd-primary uppercase tracking-widest">
-            Centro de documentacion
+            Centro de documentación
           </span>
-          <h2 className="font-semibold text-lg mt-1 mb-2">Explora toda la documentacion</h2>
+          <h2 className="font-semibold text-lg mt-1 mb-2">Explora toda la documentación</h2>
           <p className="text-sm text-fd-muted-foreground mb-4">
-            El indice de documentacion agrupa los kits publicados en un solo lugar e incluye comandos rapidos de instalacion.
+            El índice de documentación agrupa los kits publicados en un solo lugar e incluye comandos rápidos de instalación.
           </p>
           <Link
             href="/es/docs"
             className="rounded-md bg-fd-primary text-fd-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition-opacity inline-block"
           >
-            Abrir documentacion →
+            Abrir documentación →
+          </Link>
+        </div>
+
+        <div className="max-w-3xl w-full text-left rounded-lg border border-fd-border bg-fd-card p-6">
+          <span className="text-xs font-mono text-fd-muted-foreground uppercase tracking-widest">
+            Límite público
+          </span>
+          <h2 className="font-semibold text-lg mt-1 mb-2">Qué pertenece aquí</h2>
+          <p className="text-sm text-fd-muted-foreground mb-4">
+            El Playbook publica documentación revisada y rutas de evidencia. No es un dashboard
+            interno, un espacio de clientes ni una fuente del estado operativo de la empresa.
+          </p>
+          <Link
+            href="/es/docs/about"
+            className="text-sm font-medium text-fd-primary hover:opacity-80 transition-opacity"
+          >
+            Leer el límite de publicación →
           </Link>
         </div>
 
@@ -92,7 +109,7 @@ export async function generateMetadata(
     return {
       title: 'Agentic Engineering Playbook',
       description:
-        'Documentacion de los kits y flujos de Agentic Engineering Agency para equipos que construyen con agentes de IA.',
+        'Documentación pública y bilingüe de los métodos abiertos, kits y rutas de evidencia verificadas de Agentic Engineering.',
     };
   }
   return { title: 'Agentic Engineering Playbook' };

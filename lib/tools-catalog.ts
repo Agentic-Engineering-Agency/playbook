@@ -59,17 +59,6 @@ const toolDefinitions: ToolDefinition[] = [
     githubUrl: 'https://github.com/Agentic-Engineering-Agency/prototype-kit',
     agents: [
       {
-        id: 'universal',
-        name: 'Universal',
-        installCommands: [
-          {
-            label: 'Universal install',
-            command: 'npx @agentic-engineering/prototype-kit init',
-            type: 'npx',
-          },
-        ],
-      },
-      {
         id: 'claude-code',
         name: 'Claude Code',
         installCommands: [

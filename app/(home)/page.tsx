@@ -14,22 +14,22 @@ export default function HomePage() {
         The Playbook
       </h1>
       <p className="text-fd-muted-foreground text-lg mb-12 max-w-xl">
-        Documentation for the kits and workflows we use to ship with AI agents.
+        Public, bilingual documentation for the open methods and kits we publish.
       </p>
 
       <section className="w-full max-w-6xl mx-auto mb-16 text-left">
         <div className="text-center mb-10">
           <h2 className="text-2xl font-bold text-fd-foreground mb-2">
-            Kits
+            Published documentation
           </h2>
           <p className="text-fd-muted-foreground max-w-xl mx-auto">
-            Open-source documentation, install commands, and repositories for the tools and workflows we publish.
+            Source-linked guides and verified install paths for public Agentic Engineering work.
           </p>
         </div>
         <ToolGrid tools={tools} />
       </section>
 
-      <div className="max-w-3xl w-full text-left rounded-lg border border-fd-primary/30 bg-fd-primary/5 p-6">
+      <div className="max-w-3xl w-full text-left rounded-lg border border-fd-primary/30 bg-fd-primary/5 p-6 mb-6">
         <span className="text-xs font-mono text-fd-primary uppercase tracking-widest">
           Documentation hub
         </span>
@@ -42,6 +42,23 @@ export default function HomePage() {
           className="rounded-md bg-fd-primary text-fd-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition-opacity inline-block"
         >
           Open documentation →
+        </Link>
+      </div>
+
+      <div className="max-w-3xl w-full text-left rounded-lg border border-fd-border bg-fd-card p-6">
+        <span className="text-xs font-mono text-fd-muted-foreground uppercase tracking-widest">
+          Public boundary
+        </span>
+        <h2 className="font-semibold text-lg mt-1 mb-2">What belongs here</h2>
+        <p className="text-sm text-fd-muted-foreground mb-4">
+          The Playbook publishes reviewed documentation and proof paths. It is not an internal
+          dashboard, customer workspace, or source of live company status.
+        </p>
+        <Link
+          href="/docs/about"
+          className="text-sm font-medium text-fd-primary hover:opacity-80 transition-opacity"
+        >
+          Read the publishing boundary →
         </Link>
       </div>
 
