@@ -13,7 +13,7 @@ import { getMDXComponents } from '@/components/mdx';
 import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { gitConfig } from '@/lib/shared';
-import { getPageAlternates } from '@/lib/metadata';
+import { getDocsAlternates } from '@/lib/metadata';
 
 export default async function Page(props: PageProps<'/[lang]/docs/[[...slug]]'>) {
   const params = await props.params;
@@ -73,7 +73,7 @@ export async function generateMetadata(
   return {
     title: page.data.title,
     description: page.data.description,
-    alternates: getPageAlternates('es', page.slugs),
+    alternates: getDocsAlternates('es', page.slugs),
     openGraph: {
       title: page.data.title,
       description: page.data.description,

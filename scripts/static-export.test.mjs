@@ -34,6 +34,31 @@ test('Spanish home metadata is localized and language-linked', () => {
 
 test('the static sitemap covers both locale roots', () => {
   const body = readFileSync(join(outDir, 'sitemap.xml'), 'utf8');
-  assert.match(body, /https:\/\/labs\.agenticengineering\.agency\/<\/loc>/);
+  assert.match(body, /https:\/\/labs\.agenticengineering\.agency<\/loc>/);
   assert.match(body, /https:\/\/labs\.agenticengineering\.agency\/es<\/loc>/);
+  assert.match(body, /https:\/\/labs\.agenticengineering\.agency\/docs<\/loc>/);
+  assert.match(body, /https:\/\/labs\.agenticengineering\.agency\/es\/docs<\/loc>/);
+});
+
+test('docs indexes keep their own bilingual canonical routes', () => {
+  const english = readFileSync(join(outDir, 'docs.html'), 'utf8');
+  const spanish = readFileSync(join(outDir, 'es', 'docs.html'), 'utf8');
+  assert.match(
+    english,
+    /rel="canonical" href="https:\/\/labs\.agenticengineering\.agency\/docs"/,
+  );
+  assert.match(
+    spanish,
+    /rel="canonical" href="https:\/\/labs\.agenticengineering\.agency\/es\/docs"/,
+  );
+});
+
+test('Spanish docs use locale-specific social images', () => {
+  const body = readFileSync(join(outDir, 'es', 'docs', 'methods.html'), 'utf8');
+  assert.match(
+    body,
+    /content="https:\/\/labs\.agenticengineering\.agency\/og\/docs\/es\/methods\/image\.png"/,
+  );
+  const image = join(outDir, 'og', 'docs', 'es', 'methods', 'image.png');
+  assert.ok(readFileSync(image).byteLength > 0);
 });

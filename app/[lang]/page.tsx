@@ -4,7 +4,7 @@ import { HomeLayout } from 'fumadocs-ui/layouts/home';
 import { baseOptions } from '@/lib/layout.shared';
 import type { Metadata } from 'next';
 import { PlaybookHome } from '@/components/playbook-home';
-import { getPageAlternates } from '@/lib/metadata';
+import { getHomeAlternates } from '@/lib/metadata';
 
 const spanishDescription =
   'Documentación pública y bilingüe de los métodos abiertos, kits, proyectos y rutas de evidencia verificadas de Agentic Engineering.';
@@ -35,7 +35,7 @@ export async function generateMetadata(
     return {
       title: { absolute: 'Agentic Engineering Playbook' },
       description: spanishDescription,
-      alternates: getPageAlternates('es'),
+      alternates: getHomeAlternates('es'),
       openGraph: {
         type: 'website',
         siteName: 'Agentic Engineering Playbook',

@@ -3,12 +3,17 @@ import { notFound } from 'next/navigation';
 import { ImageResponse } from 'next/og';
 import { generate as DefaultImage } from 'fumadocs-ui/og';
 import { appName } from '@/lib/shared';
+import { i18n } from '@/lib/i18n';
 
 export const revalidate = false;
 
 export async function GET(_req: Request, { params }: RouteContext<'/og/docs/[...slug]'>) {
   const { slug } = await params;
-  const page = source.getPage(slug.slice(0, -1));
+  const pageSegments = slug.slice(0, -1);
+  const [maybeLocale, ...localizedSegments] = pageSegments;
+  const locale = maybeLocale === 'es' ? 'es' : 'en';
+  const slugs = locale === 'es' ? localizedSegments : pageSegments;
+  const page = source.getPage(slugs, locale);
   if (!page) notFound();
 
   return new ImageResponse(
@@ -21,8 +26,9 @@ export async function GET(_req: Request, { params }: RouteContext<'/og/docs/[...
 }
 
 export function generateStaticParams() {
-  return source.getPages().map((page) => ({
-    lang: page.locale,
-    slug: getPageImage(page).segments,
-  }));
+  return i18n.languages.flatMap((locale) =>
+    source.getPages(locale).map((page) => ({
+      slug: getPageImage(page).segments,
+    })),
+  );
 }

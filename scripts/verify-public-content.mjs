@@ -114,6 +114,17 @@ for (const project of catalogProjects) {
   }
 }
 
+for (const evidenceField of ['licenseUrl:', 'statusUrl:']) {
+  const occurrences = catalogFile.match(
+    new RegExp(`^    ${evidenceField}`, 'gm'),
+  )?.length ?? 0;
+  if (occurrences !== catalogProjects.length) {
+    throw new Error(
+      `Catalog must provide ${evidenceField} for all ${catalogProjects.length} projects; found ${occurrences}`,
+    );
+  }
+}
+
 for (const excludedProject of [
   'curia-landing',
   'code-colony',

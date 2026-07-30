@@ -36,7 +36,11 @@ const routeExpectations = [
   ['/docs/projects', 'Ultimate Harness'],
   ['/es/docs/projects', 'Ultimate Harness'],
   ['/llms.mdx/docs/projects/content.md', 'Catalog data'],
+  ['/llms.mdx/docs/projects/content.md', 'License evidence'],
+  ['/llms.mdx/docs/projects/content.md', 'Status evidence'],
   ['/llms.mdx/docs/es/projects/content.md', 'Datos del catálogo'],
+  ['/llms.mdx/docs/es/projects/content.md', 'Evidencia de licencia'],
+  ['/llms.mdx/docs/es/projects/content.md', 'Evidencia de estado'],
   ['/llms.txt', 'About this Playbook'],
   ['/llms-full.txt', 'About this Playbook'],
   ['/llms-full.txt', 'Acerca de este Playbook'],
@@ -82,6 +86,8 @@ const sitemap = readFileSync(join(outDir, 'sitemap.xml'), 'utf8');
 for (const expectedUrl of [
   'https://labs.agenticengineering.agency/',
   'https://labs.agenticengineering.agency/es',
+  'https://labs.agenticengineering.agency/docs',
+  'https://labs.agenticengineering.agency/es/docs',
   'https://labs.agenticengineering.agency/docs/projects',
   'https://labs.agenticengineering.agency/es/docs/projects',
 ]) {

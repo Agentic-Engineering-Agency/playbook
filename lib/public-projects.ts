@@ -17,6 +17,8 @@ export interface PublicProject {
   category: ProjectCategory;
   featured?: boolean;
   license: 'MIT repository' | 'MIT package metadata';
+  licenseUrl: string;
+  statusUrl: string;
   sourceUrl: string;
   docsUrl?: string;
   packageUrl?: string;
@@ -30,6 +32,10 @@ export const publicProjects: PublicProject[] = [
     category: 'systems',
     featured: true,
     license: 'MIT package metadata',
+    licenseUrl:
+      'https://github.com/Agentic-Engineering-Agency/ultimate-harness/blob/main/package.json',
+    statusUrl:
+      'https://github.com/Agentic-Engineering-Agency/ultimate-harness#current-status',
     sourceUrl: 'https://github.com/Agentic-Engineering-Agency/ultimate-harness',
     docsUrl: 'https://uh.agenticengineering.lat',
     packageUrl: 'https://www.npmjs.com/package/@agenticengineeringagency/ultimate-harness',
@@ -52,6 +58,9 @@ export const publicProjects: PublicProject[] = [
     category: 'methods',
     featured: true,
     license: 'MIT repository',
+    licenseUrl:
+      'https://github.com/Agentic-Engineering-Agency/specsafe/blob/main/LICENSE',
+    statusUrl: 'https://github.com/Agentic-Engineering-Agency/specsafe#quick-start',
     sourceUrl: 'https://github.com/Agentic-Engineering-Agency/specsafe',
     docsUrl: 'https://specsafe.agenticengineering.lat/',
     packageUrl: 'https://www.npmjs.com/package/@specsafe/cli',
@@ -74,6 +83,10 @@ export const publicProjects: PublicProject[] = [
     category: 'methods',
     featured: true,
     license: 'MIT repository',
+    licenseUrl:
+      'https://github.com/Agentic-Engineering-Agency/agentic-pm-kit/blob/master/LICENSE',
+    statusUrl:
+      'https://github.com/Agentic-Engineering-Agency/agentic-pm-kit#install',
     sourceUrl: 'https://github.com/Agentic-Engineering-Agency/agentic-pm-kit',
     docsUrl: 'https://labs.agenticengineering.agency/docs/pm-kit',
     packageUrl: 'https://www.npmjs.com/package/agentic-pm-kit',
@@ -95,6 +108,10 @@ export const publicProjects: PublicProject[] = [
     name: 'Prototype Kit',
     category: 'methods',
     license: 'MIT repository',
+    licenseUrl:
+      'https://github.com/Agentic-Engineering-Agency/prototype-kit/blob/main/LICENSE',
+    statusUrl:
+      'https://github.com/Agentic-Engineering-Agency/prototype-kit',
     sourceUrl: 'https://github.com/Agentic-Engineering-Agency/prototype-kit',
     docsUrl: 'https://labs.agenticengineering.agency/docs/prototype-kit',
     copy: {
@@ -115,6 +132,10 @@ export const publicProjects: PublicProject[] = [
     name: 'Paperclip OMP Adapter',
     category: 'integrations',
     license: 'MIT repository',
+    licenseUrl:
+      'https://github.com/Agentic-Engineering-Agency/paperclip-adapter-omp/blob/main/LICENSE',
+    statusUrl:
+      'https://github.com/Agentic-Engineering-Agency/paperclip-adapter-omp/blob/main/docs/integration.md',
     sourceUrl:
       'https://github.com/Agentic-Engineering-Agency/paperclip-adapter-omp',
     docsUrl:
@@ -139,6 +160,10 @@ export const publicProjects: PublicProject[] = [
     name: 'Paperclip Langfuse Export',
     category: 'integrations',
     license: 'MIT package metadata',
+    licenseUrl:
+      'https://www.npmjs.com/package/@agentic-engineering-agency/paperclip-plugin-langfuse-export',
+    statusUrl:
+      'https://github.com/Agentic-Engineering-Agency/paperclip-plugin-langfuse-export',
     sourceUrl:
       'https://github.com/Agentic-Engineering-Agency/paperclip-plugin-langfuse-export',
     packageUrl:
@@ -161,6 +186,9 @@ export const publicProjects: PublicProject[] = [
     name: 'Triage',
     category: 'applications',
     license: 'MIT repository',
+    licenseUrl:
+      'https://github.com/Agentic-Engineering-Agency/triage/blob/main/LICENSE',
+    statusUrl: 'https://triage.agenticengineering.lat',
     sourceUrl: 'https://github.com/Agentic-Engineering-Agency/triage',
     docsUrl: 'https://triage.agenticengineering.lat',
     copy: {
@@ -193,6 +221,8 @@ const catalogTextCopy = {
     category: 'Category',
     license: 'License',
     status: 'Status',
+    statusEvidence: 'Status evidence',
+    licenseEvidence: 'License evidence',
     source: 'Source',
     docs: 'Documentation',
     package: 'Package',
@@ -214,6 +244,8 @@ const catalogTextCopy = {
     category: 'Categoría',
     license: 'Licencia',
     status: 'Estado',
+    statusEvidence: 'Evidencia de estado',
+    licenseEvidence: 'Evidencia de licencia',
     source: 'Código',
     docs: 'Documentación',
     package: 'Paquete',
@@ -236,6 +268,8 @@ const catalogTextCopy = {
     category: string;
     license: string;
     status: string;
+    statusEvidence: string;
+    licenseEvidence: string;
     source: string;
     docs: string;
     package: string;
@@ -261,6 +295,8 @@ export function getPublicProjectsText(locale: ProjectLocale) {
       `- ${copy.category}: ${copy.categories[project.category]}`,
       `- ${copy.license}: ${copy.licenses[project.license]}`,
       `- ${copy.status}: ${project.status}`,
+      `- ${copy.licenseEvidence}: ${project.licenseUrl}`,
+      `- ${copy.statusEvidence}: ${project.statusUrl}`,
       `- ${copy.source}: ${project.sourceUrl}`,
     );
 

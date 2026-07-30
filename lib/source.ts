@@ -15,7 +15,8 @@ export const source = loader({
 });
 
 export function getPageImage(page: InferPageType<typeof source>) {
-  const segments = [...page.slugs, 'image.png'];
+  const localePrefix = page.locale === 'es' ? ['es'] : [];
+  const segments = [...localePrefix, ...page.slugs, 'image.png'];
 
   return {
     segments,

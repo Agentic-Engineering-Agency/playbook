@@ -1,9 +1,9 @@
 import { PlaybookHome } from '@/components/playbook-home';
 import type { Metadata } from 'next';
-import { getPageAlternates } from '@/lib/metadata';
+import { getHomeAlternates } from '@/lib/metadata';
 
 export const metadata: Metadata = {
-  alternates: getPageAlternates('en'),
+  alternates: getHomeAlternates('en'),
 };
 
 export default function HomePage() {

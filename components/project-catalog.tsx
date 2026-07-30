@@ -4,6 +4,7 @@ import {
   BookOpen,
   Github,
   Package,
+  Scale,
   ShieldCheck,
 } from 'lucide-react';
 import {
@@ -66,8 +67,20 @@ const categoryCopy: Record<
 };
 
 const linkCopy = {
-  en: { source: 'Source', docs: 'Docs', package: 'Package' },
-  es: { source: 'Código', docs: 'Docs', package: 'Paquete' },
+  en: {
+    source: 'Source',
+    docs: 'Docs',
+    package: 'Package',
+    license: 'License',
+    status: 'Status evidence',
+  },
+  es: {
+    source: 'Código',
+    docs: 'Docs',
+    package: 'Paquete',
+    license: 'Licencia',
+    status: 'Evidencia de estado',
+  },
 } satisfies Record<ProjectLocale, Record<string, string>>;
 
 export function ProjectCatalog({
@@ -160,6 +173,16 @@ function ProjectCard({
 
       <div className="mt-auto flex flex-wrap gap-2 pt-5">
         <ProjectLink href={project.sourceUrl} label={linkCopy[locale].source} icon="source" />
+        <ProjectLink
+          href={project.licenseUrl}
+          label={linkCopy[locale].license}
+          icon="license"
+        />
+        <ProjectLink
+          href={project.statusUrl}
+          label={linkCopy[locale].status}
+          icon="status"
+        />
         {project.docsUrl ? (
           <ProjectLink href={project.docsUrl} label={linkCopy[locale].docs} icon="docs" />
         ) : null}
@@ -182,9 +205,16 @@ function ProjectLink({
 }: {
   href: string;
   label: string;
-  icon: 'source' | 'docs' | 'package';
+  icon: 'source' | 'docs' | 'package' | 'license' | 'status';
 }) {
-  const Icon = icon === 'source' ? Github : icon === 'docs' ? BookOpen : Package;
+  const Icon =
+    icon === 'source'
+      ? Github
+      : icon === 'docs' || icon === 'status'
+        ? BookOpen
+        : icon === 'license'
+          ? Scale
+          : Package;
   const external = href.startsWith('http');
 
   const className =
