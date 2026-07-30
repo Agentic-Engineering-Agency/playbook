@@ -74,6 +74,12 @@ const routeExpectations = [
   ['/api/search', 'Un arnés de desarrollo de software independiente del runtime'],
   ['/docs/projects', 'aria-label="View source: Ultimate Harness"'],
   ['/es/docs/projects', 'aria-label="Ver código: Ultimate Harness"'],
+  ['/docs/projects', 'aria-label="Catalog sections"'],
+  ['/docs/projects', 'href="#projects-systems"'],
+  ['/docs/projects', 'href="#projects-applications"'],
+  ['/es/docs/projects', 'aria-label="Secciones del catálogo"'],
+  ['/es/docs/projects', 'href="#projects-systems"'],
+  ['/es/docs/projects', 'href="#projects-applications"'],
 ];
 
 for (const [route, expected] of routeExpectations) {

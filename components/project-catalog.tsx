@@ -108,6 +108,20 @@ export function ProjectCatalog({
 
   return (
     <div className="space-y-14">
+      <nav
+        aria-label={locale === 'es' ? 'Secciones del catálogo' : 'Catalog sections'}
+        className="flex flex-wrap gap-2 rounded-2xl border border-fd-border bg-fd-card/50 p-4"
+      >
+        {categoryOrder.map((category) => (
+          <a
+            key={category}
+            href={`#projects-${category}`}
+            className="inline-flex min-h-9 items-center rounded-full border border-fd-border bg-fd-background px-3 text-xs font-medium text-fd-foreground transition-colors hover:border-fd-primary/50 hover:text-fd-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fd-primary"
+          >
+            {categoryCopy[locale][category].title}
+          </a>
+        ))}
+      </nav>
       {categoryOrder.map((category) => {
         const categoryProjects = visibleProjects.filter(
           (project) => project.category === category,
