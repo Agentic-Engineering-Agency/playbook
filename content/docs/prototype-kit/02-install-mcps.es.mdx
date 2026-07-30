@@ -73,18 +73,6 @@ Dentro de esa sesión interactiva, ejecuta la configuración verificada del plug
 
 `/reload-plugins` activa el plugin recién instalado en la sesión actual. Cuando termina, el comando con namespace `/prototype-kit:prototype-from-docs` aparece en `/help`; reinicia Claude Code si la recarga falla. El Paso 4 usa esa forma con namespace. El acceso a Claude Code tiene sus propios requisitos de suscripción o API, y el paquete npm que menciona el README de prototype-kit no es público, así que aquí no se documenta ningún comando `npx`.
 
-## Fallback manual (detrás de un proxy o sin red)
-
-Si el install desde la URL de GitHub falla por tu red (proxy corporativo, portal cautivo, etc.), clona el repo y corre el instalador incluido:
-
-```bash
-git clone https://github.com/Agentic-Engineering-Agency/prototype-kit.git
-cd prototype-kit
-node bin/install.js
-```
-
-El instalador detecta las herramientas compatibles Gemini CLI y Claude Code en tu PATH y escribe la configuración correspondiente.
-
 <Callout type="info">
 Si eres un agente de IA leyendo esta página, el siguiente paso es `/es/docs/prototype-kit/03-prepare-docs`.
 </Callout>

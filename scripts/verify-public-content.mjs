@@ -36,6 +36,15 @@ const publicText = publicFiles
   .map((file) => `${relative(root, file)}\n${readFileSync(file, 'utf8')}`)
   .join('\n');
 
+function requireInFile(path, values) {
+  const text = readFileSync(join(root, path), 'utf8');
+  for (const value of values) {
+    if (!text.includes(value)) {
+      throw new Error(`${path} is missing required content: ${value}`);
+    }
+  }
+}
+
 const allowedDeployablePublicFiles = new Set(['public/_redirects']);
 for (const file of walk(join(root, 'public'))) {
   const path = relative(root, file);
@@ -115,6 +124,14 @@ for (const [label, value] of required) {
   if (!publicText.includes(value)) {
     throw new Error(`Public content is missing ${label}: ${value}`);
   }
+}
+
+for (const path of ['content/docs/kits.mdx', 'content/docs/kits.es.mdx']) {
+  requireInFile(path, [
+    '/plugin marketplace add Agentic-Engineering-Agency/prototype-kit',
+    '/plugin install prototype-kit@prototype-kit',
+    '/reload-plugins',
+  ]);
 }
 
 const removedPaths = [
