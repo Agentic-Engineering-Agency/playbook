@@ -55,6 +55,14 @@ const forbidden = [
   ['retired Gemini individual free-account instruction', 'authenticate with your free Google account'],
   ['retired Spanish Gemini free-account instruction', 'cuenta de Google gratuita'],
   ['incorrect Prototype Kit screen output path', 'prototype/src/screens/'],
+  ['stale Gemini CLI Node floor', 'Gemini CLI requires Node.js 18'],
+  ['stale Spanish Gemini CLI Node floor', 'Gemini CLI requiere Node.js 18'],
+  ['stale Prototype workflow Node threshold', 'below `v18.0.0`'],
+  ['stale Spanish Prototype workflow Node threshold', 'menor a `v18.0.0`'],
+  [
+    'stale Gemini extension-list guidance',
+    '`gemini extensions list` only renders inside an interactive',
+  ],
 ];
 
 for (const [label, value] of forbidden) {
@@ -92,6 +100,8 @@ const required = [
   ['canonical Gemini Prototype Kit output', 'my-prototype/prototype/'],
   ['canonical Spanish Gemini Prototype Kit output', 'mi-prototipo/prototype/'],
   ['canonical Claude Prototype Kit command', '/prototype-kit:prototype-from-docs'],
+  ['current Gemini CLI Node floor', 'Node.js 20'],
+  ['interactive Gemini extension-list command', '/extensions list'],
 ];
 
 for (const [label, value] of required) {
