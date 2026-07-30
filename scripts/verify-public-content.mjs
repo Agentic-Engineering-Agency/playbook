@@ -91,6 +91,7 @@ const required = [
   ['canonical Spanish Prototype Kit route output', 'mi-prototipo/src/routes/'],
   ['canonical Gemini Prototype Kit output', 'my-prototype/prototype/'],
   ['canonical Spanish Gemini Prototype Kit output', 'mi-prototipo/prototype/'],
+  ['canonical Claude Prototype Kit command', '/prototype-kit:prototype-from-docs'],
 ];
 
 for (const [label, value] of required) {
