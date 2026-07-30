@@ -1,0 +1,67 @@
+name: Documentation or site issue
+description: Report a public documentation, catalog, locale, accessibility, or static-site problem.
+title: "[Docs]: "
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for public Playbook problems. Do not include secrets, customer information, private links, or unpatched vulnerability details.
+  - type: dropdown
+    id: type
+    attributes:
+      label: Issue type
+      options:
+        - Incorrect or stale documentation
+        - Broken source, package, or status link
+        - English and Spanish mismatch
+        - Accessibility problem
+        - Static site, search, or machine-readable output problem
+        - Other public Playbook problem
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Affected public URL
+      placeholder: https://labs.agenticengineering.agency/docs/...
+    validations:
+      required: true
+  - type: dropdown
+    id: locale
+    attributes:
+      label: Locale
+      options:
+        - English
+        - Spanish
+        - Both
+        - Not locale-specific
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What is wrong?
+      description: Describe the current public behavior or wording.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should change?
+      description: Describe the expected public behavior or wording.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Canonical evidence
+      description: Link the source repository, package, official documentation, or other public evidence when the report changes a factual claim.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public-safety check
+      options:
+        - label: I have not included credentials, private customer or company data, or unpatched vulnerability details.
+          required: true

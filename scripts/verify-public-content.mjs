@@ -18,6 +18,9 @@ function walk(dir, predicate = () => true) {
 
 const contentRoots = [
   'README.md',
+  'CONTRIBUTING.md',
+  'SECURITY.md',
+  'SUPPORT.md',
   'app',
   'components',
   'content',
@@ -125,6 +128,34 @@ for (const [label, value] of required) {
     throw new Error(`Public content is missing ${label}: ${value}`);
   }
 }
+
+for (const path of [
+  'README.md',
+  'CONTRIBUTING.md',
+  'SECURITY.md',
+  'SUPPORT.md',
+  '.github/ISSUE_TEMPLATE/documentation.yml',
+  '.github/PULL_REQUEST_TEMPLATE.md',
+]) {
+  if (!existsSync(join(root, path))) {
+    throw new Error(`Repository governance documentation is missing: ${path}`);
+  }
+}
+
+requireInFile('README.md', [
+  'CONTRIBUTING.md',
+  'SECURITY.md',
+  'SUPPORT.md',
+  'issues/5',
+]);
+requireInFile('content/docs/about.mdx', [
+  '## Repository licensing',
+  'issues/5',
+]);
+requireInFile('content/docs/about.es.mdx', [
+  '## Licencia del repositorio',
+  'issues/5',
+]);
 
 for (const path of ['content/docs/kits.mdx', 'content/docs/kits.es.mdx']) {
   requireInFile(path, [
