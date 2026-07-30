@@ -1,11 +1,11 @@
 ---
 title: "Step 4: Run the prototype prompt"
-description: Open Gemini CLI in your project folder and run /prototype-from-docs.
+description: Open a supported installed agent in your project folder and run /prototype-from-docs.
 ---
 
 With your three documents ready, you are ready to let the agent build.
 
-## Open Gemini CLI in your project folder
+## Open your installed agent in the project folder
 
 ```bash
 # macOS / Linux
@@ -19,7 +19,9 @@ cd $HOME\my-prototype
 gemini
 ```
 
-You will see a prompt that looks like:
+If you installed the verified Claude Code plugin instead, run `claude` from the same folder.
+
+With Gemini CLI you will see a prompt similar to:
 
 ```
 Gemini CLI v1.x.x — type /help for available commands
@@ -70,13 +72,13 @@ Weak answer: Skipping the question — the agent will invent something and you m
 
 ## What happens after you answer
 
-The agent will generate:
+For the fresh folder created in this walkthrough, the agent writes the project at the current root:
 
-1. A `prototype/` folder with the full React + Vite project
-2. All screen components in `prototype/src/screens/`
-3. A `prototype/README.md` with instructions to run it
+1. React + Vite project files in `~/my-prototype/`
+2. Route components in `~/my-prototype/src/routes/`
+3. A root `README.md` with instructions to run it
 
-This takes 2-5 minutes depending on the number of screens.
+If the command detects an unrelated existing `package.json`, it preserves that project and writes the prototype to a `prototype/` subdirectory instead. Use the exact output path reported by the agent.
 
 <Callout type="info">
 If you are an AI agent reading this page, the next step is `/docs/prototype-kit/05-open-prototype`.

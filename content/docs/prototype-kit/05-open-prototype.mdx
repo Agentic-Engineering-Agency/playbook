@@ -3,20 +3,20 @@ title: "Step 5: Open the prototype"
 description: Start the dev server and open your prototype at http://localhost:5173.
 ---
 
-The agent has generated a `prototype/` folder. Now let's run it.
+The fresh-project path in this guide writes the prototype at `~/my-prototype/`. If the agent reported a `prototype/` subdirectory because it found an existing project, use that reported directory instead.
 
 ## Start the dev server
 
 ```bash
 # macOS / Linux
-cd ~/my-prototype/prototype
+cd ~/my-prototype
 npm install
 npm run dev
 ```
 
 ```powershell
 # Windows PowerShell
-cd $HOME\my-prototype\prototype
+cd $HOME\my-prototype
 npm install
 npm run dev
 ```
@@ -70,14 +70,14 @@ If you see errors like `Cannot find module 'xxx'`, run:
 
 ```bash
 # macOS / Linux
-cd ~/my-prototype/prototype
+cd ~/my-prototype
 rm -rf node_modules package-lock.json
 npm install
 ```
 
 ```powershell
 # Windows PowerShell
-cd $HOME\my-prototype\prototype
+cd $HOME\my-prototype
 Remove-Item -Recurse -Force node_modules, package-lock.json
 npm install
 ```

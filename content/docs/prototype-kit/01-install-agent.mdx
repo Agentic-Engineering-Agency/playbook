@@ -1,11 +1,13 @@
 ---
-title: "Step 1: Install Gemini CLI"
-description: Install the Gemini CLI agent on macOS, Linux, or Windows and authenticate with your Google account.
+title: "Step 1: Install a supported agent"
+description: Install Gemini CLI on macOS, Linux, or Windows and configure a currently supported paid or organization-backed credential.
 ---
 
-Gemini CLI is a free, open-source AI coding agent from Google. It runs in your terminal and can read your project files, write code, and execute commands on your behalf.
+Gemini CLI is an open-source AI coding agent from Google. It runs in your terminal and can read project files, write code, and execute commands on your behalf.
 
-**Quota:** The free tier gives you 60 model requests per minute and 1,000 requests per day — more than enough for building a prototype. See [Gemini CLI quota docs](https://ai.google.dev/gemini-api/docs/rate-limits) for current limits.
+<Callout type="warn">
+**Access changed on June 18, 2026.** Gemini CLI no longer serves individual free, Google AI Pro, or Google AI Ultra accounts. Continue only if you have an eligible organization or Google Cloud entitlement, or a paid Gemini API key. See the [official transition notice](https://github.com/google-gemini/gemini-cli/discussions/27274) before installing. Prototype Kit also supports Claude Code through its verified plugin path; Claude access has its own subscription or API requirements.
+</Callout>
 
 ## Install Node.js first
 
@@ -49,7 +51,7 @@ gemini --version
 
 Expected output: a version string such as `0.x.x`.
 
-## Sign in with your Google account
+## Configure supported access
 
 Launch `gemini` for the first time:
 
@@ -63,10 +65,10 @@ gemini
 gemini
 ```
 
-The CLI opens a browser tab — sign in with any personal Google account. No paid plan required. Once you are signed in, the terminal shows the interactive prompt. Type `/quit` to exit and return to your shell.
+Follow the prompt using the organization or Google Cloud account that provides your Gemini CLI entitlement. Once authenticated, the terminal shows the interactive prompt. Type `/quit` to exit and return to your shell.
 
 <Callout type="info">
-**Headless machines (no browser):** export a `GEMINI_API_KEY` from [Google AI Studio](https://aistudio.google.com/apikey) before launching `gemini`.
+**API-key or headless access:** export a paid `GEMINI_API_KEY` before launching `gemini`. Review the [current Gemini API pricing and rate limits](https://ai.google.dev/gemini-api/docs/rate-limits) rather than assuming free access.
 </Callout>
 
 <Callout type="info">

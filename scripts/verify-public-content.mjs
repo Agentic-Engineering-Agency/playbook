@@ -52,6 +52,11 @@ const forbidden = [
   ['removed OpenRouter secret binding', 'OPENROUTER_API_KEY'],
   ['removed AI chat trigger', 'Ask AI'],
   ['internal KLGV data', 'KLGV'],
+  ['retired Gemini individual free-account instruction', 'authenticate with your free Google account'],
+  ['retired Spanish Gemini free-account instruction', 'cuenta de Google gratuita'],
+  ['incorrect Prototype Kit screen output path', 'prototype/src/screens/'],
+  ['incorrect fresh-project launch path', 'my-prototype/prototype'],
+  ['incorrect Spanish fresh-project launch path', 'mi-prototipo/prototype'],
 ];
 
 for (const [label, value] of forbidden) {
@@ -80,6 +85,12 @@ const required = [
   ['Spanish public project catalog heading', 'Proyectos públicos'],
   ['proof publication rule', 'Public visibility alone is not enough'],
   ['Spanish proof publication rule', 'La visibilidad pública por sí sola no es suficiente'],
+  [
+    'current Gemini CLI access transition notice',
+    'https://github.com/google-gemini/gemini-cli/discussions/27274',
+  ],
+  ['canonical Prototype Kit route output', 'my-prototype/src/routes/'],
+  ['canonical Spanish Prototype Kit route output', 'mi-prototipo/src/routes/'],
 ];
 
 for (const [label, value] of required) {

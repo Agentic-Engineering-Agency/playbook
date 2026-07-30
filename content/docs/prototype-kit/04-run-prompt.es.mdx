@@ -1,11 +1,11 @@
 ---
 title: "Paso 4: Ejecutar el prompt del prototipo"
-description: Abre Gemini CLI en la carpeta de tu proyecto y ejecuta /prototype-from-docs.
+description: Abre un agente compatible ya instalado en la carpeta de tu proyecto y ejecuta /prototype-from-docs.
 ---
 
 Con tus tres documentos listos, ya puedes dejar que el agente construya.
 
-## Abre Gemini CLI en la carpeta de tu proyecto
+## Abre tu agente instalado en la carpeta del proyecto
 
 ```bash
 # macOS / Linux
@@ -19,7 +19,9 @@ cd $HOME\mi-prototipo
 gemini
 ```
 
-Verás un prompt que se ve así:
+Si instalaste el plugin verificado de Claude Code, ejecuta `claude` desde la misma carpeta.
+
+Con Gemini CLI verás un prompt similar a este:
 
 ```
 Gemini CLI v1.x.x — type /help for available commands
@@ -70,13 +72,13 @@ Respuesta débil: Saltar la pregunta — el agente se inventa algo y puede que n
 
 ## Qué sucede después de responder
 
-El agente generará:
+En la carpeta nueva creada para esta guía, el agente escribe el proyecto en la raíz actual:
 
-1. Una carpeta `prototype/` con el proyecto completo de React + Vite
-2. Todos los componentes de pantalla en `prototype/src/screens/`
-3. Un archivo `prototype/README.md` con instrucciones para ejecutarlo
+1. Los archivos del proyecto React + Vite en `~/mi-prototipo/`
+2. Los componentes de rutas en `~/mi-prototipo/src/routes/`
+3. Un `README.md` en la raíz con instrucciones para ejecutarlo
 
-Esto tarda 2-5 minutos dependiendo del número de pantallas.
+Si el comando detecta un `package.json` existente que pertenece a otro proyecto, conserva ese proyecto y escribe el prototipo en una subcarpeta `prototype/`. Usa la ruta exacta que reporte el agente.
 
 <Callout type="info">
 Si eres un agente de IA leyendo esta página, el siguiente paso es `/es/docs/prototype-kit/05-open-prototype`.

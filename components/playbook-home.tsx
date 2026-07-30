@@ -181,7 +181,10 @@ export function PlaybookHome({ locale }: { locale: ProjectLocale }) {
             </ul>
           </div>
 
-          <div className="signal-panel" aria-label={locale === 'es' ? 'Mapa del Playbook' : 'Playbook map'}>
+          <section
+            className="signal-panel"
+            aria-label={locale === 'es' ? 'Mapa del Playbook' : 'Playbook map'}
+          >
             <div className="signal-panel-header">
               <span>PLAYBOOK / PUBLIC</span>
               <span className="flex items-center gap-2">
@@ -208,7 +211,7 @@ export function PlaybookHome({ locale }: { locale: ProjectLocale }) {
                 </li>
               ))}
             </ol>
-          </div>
+          </section>
         </div>
       </section>
 

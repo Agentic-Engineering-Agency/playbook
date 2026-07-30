@@ -1,11 +1,13 @@
 ---
-title: "Paso 1: Instalar Gemini CLI"
-description: Instala el agente Gemini CLI en macOS, Linux o Windows y autentícate con tu cuenta de Google.
+title: "Paso 1: Instalar un agente compatible"
+description: Instala Gemini CLI en macOS, Linux o Windows y configura una credencial vigente de pago o respaldada por una organización.
 ---
 
-Gemini CLI es un agente de IA de código abierto y gratuito de Google. Corre en tu terminal y puede leer los archivos de tu proyecto, escribir código y ejecutar comandos.
+Gemini CLI es un agente de IA de código abierto de Google. Corre en tu terminal y puede leer los archivos de tu proyecto, escribir código y ejecutar comandos.
 
-**Cuota:** El nivel gratuito te da 60 solicitudes por minuto y 1,000 por día — más que suficiente para construir un prototipo. Consulta los [límites de cuota de Gemini CLI](https://ai.google.dev/gemini-api/docs/rate-limits) para los valores actuales.
+<Callout type="warn">
+**El acceso cambió el 18 de junio de 2026.** Gemini CLI dejó de atender cuentas individuales gratuitas, Google AI Pro y Google AI Ultra. Continúa solo si tienes acceso elegible mediante una organización o Google Cloud, o una clave de pago de la API de Gemini. Revisa el [aviso oficial de transición](https://github.com/google-gemini/gemini-cli/discussions/27274) antes de instalar. Prototype Kit también admite Claude Code mediante su ruta verificada de plugin; el acceso a Claude tiene sus propios requisitos de suscripción o API.
+</Callout>
 
 ## Primero instala Node.js
 
@@ -49,7 +51,7 @@ gemini --version
 
 Resultado esperado: una cadena de versión como `0.x.x`.
 
-## Inicia sesión con tu cuenta de Google
+## Configurar un acceso compatible
 
 Ejecuta `gemini` por primera vez:
 
@@ -63,10 +65,10 @@ gemini
 gemini
 ```
 
-El CLI abre una pestaña del navegador — inicia sesión con cualquier cuenta personal de Google. No se requiere plan de pago. Al terminar verás el prompt interactivo de Gemini. Escribe `/quit` para regresar a tu terminal.
+Sigue el flujo con la cuenta de organización o Google Cloud que te da acceso a Gemini CLI. Al terminar verás el prompt interactivo. Escribe `/quit` para regresar a tu terminal.
 
 <Callout type="info">
-**Máquinas sin navegador:** exporta un `GEMINI_API_KEY` desde [Google AI Studio](https://aistudio.google.com/apikey) antes de lanzar `gemini`.
+**Acceso por clave o en una máquina sin navegador:** exporta un `GEMINI_API_KEY` de pago antes de lanzar `gemini`. Revisa los [precios y límites vigentes de la API de Gemini](https://ai.google.dev/gemini-api/docs/rate-limits) en lugar de asumir acceso gratuito.
 </Callout>
 
 <Callout type="info">
