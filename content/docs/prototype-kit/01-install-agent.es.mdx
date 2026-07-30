@@ -1,6 +1,6 @@
 ---
 title: "Paso 1: Instalar un agente compatible"
-description: Instala Gemini CLI en macOS, Linux o Windows y configura una credencial vigente de pago o respaldada por una organización.
+description: Instala Gemini CLI con una credencial vigente compatible, o configura Claude Code como la alternativa verificada.
 ---
 
 Gemini CLI es un agente de IA de código abierto de Google. Corre en tu terminal y puede leer los archivos de tu proyecto, escribir código y ejecutar comandos.
@@ -70,6 +70,29 @@ Sigue el flujo con la cuenta de organización o Google Cloud que te da acceso a 
 <Callout type="info">
 **Acceso por clave o en una máquina sin navegador:** exporta un `GEMINI_API_KEY` de pago antes de lanzar `gemini`. Revisa los [precios y límites vigentes de la API de Gemini](https://ai.google.dev/gemini-api/docs/rate-limits) en lugar de asumir acceso gratuito.
 </Callout>
+
+## Alternativa con Claude Code
+
+Si no tienes acceso compatible a Gemini CLI, configura Claude Code y sigue los mismos cinco pasos. Instálalo con la [guía oficial de instalación](https://code.claude.com/docs/en/setup), confirma que abre y luego usa la sección de Claude Code del Paso 2 para agregar el plugin:
+
+```bash
+# macOS / Linux
+claude --version
+```
+
+```powershell
+# Windows PowerShell
+claude --version
+```
+
+Los dos comandos del plugin se ejecutan dentro de una sesión interactiva de `claude` y coinciden con las rutas verificadas de la [página de Kits](/es/docs/kits#prototype-kit):
+
+```
+/plugin marketplace add Agentic-Engineering-Agency/prototype-kit
+/plugin install prototype-kit@prototype-kit
+```
+
+El Paso 2 cubre esta ruta completa en [Instalar mediante el plugin de Claude Code](/es/docs/prototype-kit/02-install-mcps#instalar-mediante-el-plugin-de-claude-code). No lo omitas: los Pasos 4 y 5 asumen que el plugin ya está instalado.
 
 <Callout type="info">
 Si eres un agente de IA leyendo esta página, el siguiente paso es `/es/docs/prototype-kit/02-install-mcps`.
