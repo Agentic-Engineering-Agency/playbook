@@ -1,4 +1,8 @@
+import { siteUrl } from './metadata';
+
 export type ProjectLocale = 'en' | 'es';
+
+const defaultLocale: ProjectLocale = 'en';
 
 export type ProjectCategory =
   | 'systems'
@@ -20,7 +24,10 @@ export interface PublicProject {
   licenseUrl: string;
   statusUrl: string;
   sourceUrl: string;
+  /** Documentation hosted outside the Playbook. */
   docsUrl?: string;
+  /** Documentation hosted by the Playbook, resolved against the active locale. */
+  docsPath?: string;
   packageUrl?: string;
   copy: Record<ProjectLocale, ProjectCopy>;
 }
@@ -88,7 +95,7 @@ export const publicProjects: PublicProject[] = [
     statusUrl:
       'https://github.com/Agentic-Engineering-Agency/agentic-pm-kit#install',
     sourceUrl: 'https://github.com/Agentic-Engineering-Agency/agentic-pm-kit',
-    docsUrl: 'https://labs.agenticengineering.agency/docs/pm-kit',
+    docsPath: '/docs/pm-kit',
     packageUrl: 'https://www.npmjs.com/package/agentic-pm-kit',
     copy: {
       en: {
@@ -113,7 +120,7 @@ export const publicProjects: PublicProject[] = [
     statusUrl:
       'https://github.com/Agentic-Engineering-Agency/prototype-kit',
     sourceUrl: 'https://github.com/Agentic-Engineering-Agency/prototype-kit',
-    docsUrl: 'https://labs.agenticengineering.agency/docs/prototype-kit',
+    docsPath: '/docs/prototype-kit',
     copy: {
       en: {
         summary:
@@ -206,9 +213,19 @@ export const publicProjects: PublicProject[] = [
   },
 ];
 
+// Playbook-hosted documentation lives at /docs/... in the default locale and at
+// /<locale>/docs/... everywhere else, so a Spanish reader is never sent to the
+// English page.
+function localizeDocsPath(path: string, locale: ProjectLocale) {
+  return locale === defaultLocale ? path : `/${locale}${path}`;
+}
+
 export function getPublicProjects(locale: ProjectLocale) {
-  return publicProjects.map(({ copy, ...project }) => ({
+  return publicProjects.map(({ copy, docsPath, ...project }) => ({
     ...project,
+    docsUrl:
+      project.docsUrl ??
+      (docsPath ? localizeDocsPath(docsPath, locale) : undefined),
     ...copy[locale],
   }));
 }
@@ -301,7 +318,12 @@ export function getPublicProjectsText(locale: ProjectLocale) {
     );
 
     if (project.docsUrl) {
-      lines.push(`- ${copy.docs}: ${project.docsUrl}`);
+      // Text exports are consumed off-site, so Playbook-hosted documentation
+      // needs an origin; the locale prefix already comes from getPublicProjects.
+      const docsUrl = project.docsUrl.startsWith('/')
+        ? new URL(project.docsUrl, siteUrl).toString()
+        : project.docsUrl;
+      lines.push(`- ${copy.docs}: ${docsUrl}`);
     }
 
     if (project.packageUrl) {

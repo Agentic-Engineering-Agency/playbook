@@ -35,7 +35,18 @@ const routeExpectations = [
   ['/es/docs/proof', 'Qué publicamos'],
   ['/docs/projects', 'Ultimate Harness'],
   ['/es/docs/projects', 'Ultimate Harness'],
+  ['/docs/projects', 'href="/docs/pm-kit"'],
+  ['/es/docs/projects', 'href="/es/docs/pm-kit"'],
+  ['/es/docs/projects', 'href="/es/docs/prototype-kit"'],
   ['/llms.mdx/docs/projects/content.md', 'Catalog data'],
+  [
+    '/llms.mdx/docs/projects/content.md',
+    'https://labs.agenticengineering.agency/docs/pm-kit',
+  ],
+  [
+    '/llms.mdx/docs/es/projects/content.md',
+    'https://labs.agenticengineering.agency/es/docs/pm-kit',
+  ],
   ['/llms.mdx/docs/projects/content.md', 'License evidence'],
   ['/llms.mdx/docs/projects/content.md', 'Status evidence'],
   ['/llms.mdx/docs/es/projects/content.md', 'Datos del catálogo'],
