@@ -18,7 +18,8 @@ const copy = {
     eyebrow: 'Public engineering field guide',
     title: 'Methods, kits, and proof for building with agents.',
     intro:
-      'A bilingual, source-linked guide to the open systems Agentic Engineering publishes—designed for inspection, adoption, and reuse.',
+      'A bilingual, source-linked guide to the public systems Agentic Engineering publishes—designed for inspection, adoption, and reuse.',
+    sourceLinked: 'SOURCE-LINKED',
     primaryCta: 'Explore the catalog',
     secondaryCta: 'Read the methods',
     trust: ['English + Español', 'Source-linked', 'Static and machine-readable'],
@@ -42,7 +43,8 @@ const copy = {
     eyebrow: 'Guía pública de ingeniería',
     title: 'Métodos, kits y evidencia para construir con agentes.',
     intro:
-      'Una guía bilingüe y vinculada a fuentes de los sistemas abiertos que publica Agentic Engineering, diseñada para inspección, adopción y reutilización.',
+      'Una guía bilingüe y vinculada a fuentes de los sistemas públicos que publica Agentic Engineering, diseñada para inspección, adopción y reutilización.',
+    sourceLinked: 'VINCULADO A FUENTES',
     primaryCta: 'Explorar el catálogo',
     secondaryCta: 'Leer los métodos',
     trust: ['English + Español', 'Vinculado a fuentes', 'Estático y legible por máquinas'],
@@ -89,7 +91,7 @@ const paths = {
     },
     {
       number: '04',
-      title: 'Open projects',
+      title: 'Public projects',
       description: 'Browse every suitable public repository with its ownership and source.',
       href: '/docs/projects',
       icon: Library,
@@ -119,7 +121,7 @@ const paths = {
     },
     {
       number: '04',
-      title: 'Proyectos abiertos',
+      title: 'Proyectos públicos',
       description: 'Explora cada repositorio público apto, con propiedad y fuente.',
       href: '/es/docs/projects',
       icon: Library,
@@ -184,7 +186,7 @@ export function PlaybookHome({ locale }: { locale: ProjectLocale }) {
               <span>PLAYBOOK / PUBLIC</span>
               <span className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                SOURCE-LINKED
+                {text.sourceLinked}
               </span>
             </div>
             <ol className="divide-y divide-white/10">

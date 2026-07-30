@@ -42,16 +42,16 @@ const toolDefinitions: ToolDefinition[] = [
       en: {
         name: 'Prototype Kit',
         tagline:
-          'Ship a polished React + shadcn prototype in an afternoon, without writing code.',
+          'Build a React + shadcn/ui prototype from product documents with an AI coding agent.',
         description:
-          'Scaffold production-grade React + shadcn/ui frontend prototypes from product docs. Bundles a frontend-design skill and a /prototype-from-docs command.',
+          'Scaffold a React + shadcn/ui frontend prototype from product documents. Bundles a frontend-design skill and a /prototype-from-docs command.',
       },
       es: {
         name: 'Prototype Kit',
         tagline:
-          'Construye un prototipo pulido con React + shadcn en una tarde, sin escribir codigo.',
+          'Construye un prototipo con React + shadcn/ui desde documentos de producto mediante un agente de IA.',
         description:
-          'Genera prototipos frontend de React + shadcn/ui a partir de documentos de producto. Incluye un skill de diseno frontend y el comando /prototype-from-docs.',
+          'Genera un prototipo frontend con React + shadcn/ui a partir de documentos de producto. Incluye un skill de diseño frontend y el comando /prototype-from-docs.',
       },
     },
     category: 'prototyping',

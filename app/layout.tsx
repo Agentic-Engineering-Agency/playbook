@@ -11,6 +11,7 @@ const inter = Inter({
 
 const englishDescription =
   'Public bilingual documentation for the methods, kits, proof paths, and source-verified projects published by Agentic Engineering.';
+const englishSocialImage = `${siteUrl}/og/docs/image.png`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -26,11 +27,13 @@ export const metadata: Metadata = {
     title: 'Agentic Engineering Playbook',
     description: englishDescription,
     locale: 'en_US',
+    images: englishSocialImage,
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Agentic Engineering Playbook',
     description: englishDescription,
+    images: englishSocialImage,
   },
 };
 

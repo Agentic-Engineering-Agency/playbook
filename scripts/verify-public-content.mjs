@@ -16,7 +16,15 @@ function walk(dir, predicate = () => true) {
   return paths;
 }
 
-const contentRoots = ['README.md', 'app', 'components', 'content', 'lib', 'package.json'];
+const contentRoots = [
+  'README.md',
+  'app',
+  'components',
+  'content',
+  'lib',
+  'package.json',
+  'public',
+];
 const publicFiles = contentRoots.flatMap((path) => {
   const absolute = join(root, path);
   return path.endsWith('.md') || path.endsWith('.json')
@@ -27,6 +35,16 @@ const publicFiles = contentRoots.flatMap((path) => {
 const publicText = publicFiles
   .map((file) => `${relative(root, file)}\n${readFileSync(file, 'utf8')}`)
   .join('\n');
+
+const allowedDeployablePublicFiles = new Set(['public/_redirects']);
+for (const file of walk(join(root, 'public'))) {
+  const path = relative(root, file);
+  if (!allowedDeployablePublicFiles.has(path)) {
+    throw new Error(
+      `Deployable public asset requires an explicit privacy review and allowlist entry: ${path}`,
+    );
+  }
+}
 
 const forbidden = [
   ['unpublished Prototype Kit npm command', 'npx @agentic-engineering/prototype-kit init'],
@@ -123,6 +141,14 @@ for (const evidenceField of ['licenseUrl:', 'statusUrl:']) {
       `Catalog must provide ${evidenceField} for all ${catalogProjects.length} projects; found ${occurrences}`,
     );
   }
+}
+
+const ownershipOccurrences =
+  catalogFile.match(/^    owner: 'Agentic-Engineering-Agency',$/gm)?.length ?? 0;
+if (ownershipOccurrences !== catalogProjects.length) {
+  throw new Error(
+    `Catalog must provide verified ownership for all ${catalogProjects.length} projects; found ${ownershipOccurrences}`,
+  );
 }
 
 for (const excludedProject of [

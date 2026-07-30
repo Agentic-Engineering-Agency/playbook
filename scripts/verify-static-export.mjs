@@ -47,9 +47,11 @@ const routeExpectations = [
     '/llms.mdx/docs/es/projects/content.md',
     'https://labs.agenticengineering.agency/es/docs/pm-kit',
   ],
+  ['/llms.mdx/docs/projects/content.md', 'Owner: Agentic-Engineering-Agency'],
   ['/llms.mdx/docs/projects/content.md', 'License evidence'],
   ['/llms.mdx/docs/projects/content.md', 'Status evidence'],
   ['/llms.mdx/docs/es/projects/content.md', 'Datos del catálogo'],
+  ['/llms.mdx/docs/es/projects/content.md', 'Propiedad: Agentic-Engineering-Agency'],
   ['/llms.mdx/docs/es/projects/content.md', 'Evidencia de licencia'],
   ['/llms.mdx/docs/es/projects/content.md', 'Evidencia de estado'],
   ['/llms.txt', 'About this Playbook'],
@@ -123,6 +125,8 @@ for (const forbidden of [
   'npx @agentic-engineering/prototype-kit init',
   'Ask AI',
   'OPENROUTER_API_KEY',
+  'KLGV',
+  'Curia',
 ]) {
   if (renderedText.includes(forbidden)) {
     throw new Error(`Static export contains forbidden public text: ${forbidden}`);

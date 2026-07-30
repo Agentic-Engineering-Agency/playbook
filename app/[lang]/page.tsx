@@ -8,6 +8,8 @@ import { getHomeAlternates } from '@/lib/metadata';
 
 const spanishDescription =
   'Documentación pública y bilingüe de los métodos abiertos, kits, proyectos y rutas de evidencia verificadas de Agentic Engineering.';
+const spanishSocialImage =
+  'https://labs.agenticengineering.agency/og/docs/es/image.png';
 
 export default async function LocaleHomePage(
   props: PageProps<'/[lang]'> & { params: Promise<{ lang: string }> },
@@ -42,11 +44,13 @@ export async function generateMetadata(
         title: 'Agentic Engineering Playbook',
         description: spanishDescription,
         locale: 'es_MX',
+        images: spanishSocialImage,
       },
       twitter: {
         card: 'summary_large_image',
         title: 'Agentic Engineering Playbook',
         description: spanishDescription,
+        images: spanishSocialImage,
       },
     };
   }

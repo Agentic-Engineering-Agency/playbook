@@ -28,8 +28,28 @@ test('Spanish home metadata is localized and language-linked', () => {
   assert.match(body, /property="og:locale" content="es_MX"/);
   assert.match(body, /property="og:description" content="Documentación pública/);
   assert.match(body, /name="twitter:description" content="Documentación pública/);
+  assert.match(
+    body,
+    /property="og:image" content="https:\/\/labs\.agenticengineering\.agency\/og\/docs\/es\/image\.png"/,
+  );
+  assert.match(
+    body,
+    /name="twitter:image" content="https:\/\/labs\.agenticengineering\.agency\/og\/docs\/es\/image\.png"/,
+  );
   assert.match(body, /hrefLang="en" href="https:\/\/labs\.agenticengineering\.agency"/);
   assert.match(body, /hrefLang="es" href="https:\/\/labs\.agenticengineering\.agency\/es"/);
+});
+
+test('English home publishes its matching social image', () => {
+  const body = readFileSync(join(outDir, 'index.html'), 'utf8');
+  assert.match(
+    body,
+    /property="og:image" content="https:\/\/labs\.agenticengineering\.agency\/og\/docs\/image\.png"/,
+  );
+  assert.match(
+    body,
+    /name="twitter:image" content="https:\/\/labs\.agenticengineering\.agency\/og\/docs\/image\.png"/,
+  );
 });
 
 test('the static sitemap covers both locale roots', () => {
@@ -61,4 +81,17 @@ test('Spanish docs use locale-specific social images', () => {
   );
   const image = join(outDir, 'og', 'docs', 'es', 'methods', 'image.png');
   assert.ok(readFileSync(image).byteLength > 0);
+});
+
+test('every documentation page has exactly one primary heading', () => {
+  const files = [
+    join(outDir, 'docs.html'),
+    ...walk(join(outDir, 'docs')).filter((file) => extname(file) === '.html'),
+    join(outDir, 'es', 'docs.html'),
+    ...walk(join(outDir, 'es', 'docs')).filter((file) => extname(file) === '.html'),
+  ];
+  for (const file of files) {
+    const headings = readFileSync(file, 'utf8').match(/<h1(?:\s|>)/g) ?? [];
+    assert.equal(headings.length, 1, `${file} should contain exactly one h1`);
+  }
 });

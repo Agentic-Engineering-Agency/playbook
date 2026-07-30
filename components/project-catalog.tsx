@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import {
   getPublicProjects,
+  projectLicenseCopy,
   type ProjectCategory,
   type ProjectLocale,
 } from '@/lib/public-projects';
@@ -68,14 +69,14 @@ const categoryCopy: Record<
 
 const linkCopy = {
   en: {
-    source: 'Source',
+    source: 'View source',
     docs: 'Docs',
     package: 'Package',
     license: 'License',
     status: 'Status evidence',
   },
   es: {
-    source: 'Código',
+    source: 'Ver código',
     docs: 'Docs',
     package: 'Paquete',
     license: 'Licencia',
@@ -168,11 +169,18 @@ function ProjectCard({
       </div>
 
       <p className="mt-5 border-t border-fd-border pt-4 text-xs leading-5 text-fd-muted-foreground">
-        {project.status}
+        {locale === 'es' ? 'Propiedad' : 'Owner'}: {project.owner}
+        <br />
+        {projectLicenseCopy[locale][project.license]} · {project.availability}
       </p>
 
       <div className="mt-auto flex flex-wrap gap-2 pt-5">
-        <ProjectLink href={project.sourceUrl} label={linkCopy[locale].source} icon="source" />
+        <ProjectLink
+          href={project.sourceUrl}
+          label={linkCopy[locale].source}
+          icon="source"
+          primary
+        />
         <ProjectLink
           href={project.licenseUrl}
           label={linkCopy[locale].license}
@@ -202,10 +210,12 @@ function ProjectLink({
   href,
   label,
   icon,
+  primary = false,
 }: {
   href: string;
   label: string;
   icon: 'source' | 'docs' | 'package' | 'license' | 'status';
+  primary?: boolean;
 }) {
   const Icon =
     icon === 'source'
@@ -217,8 +227,9 @@ function ProjectLink({
           : Package;
   const external = href.startsWith('http');
 
-  const className =
-    'inline-flex min-h-9 items-center gap-1.5 rounded-full border border-fd-border bg-fd-background px-3 text-xs font-medium text-fd-foreground transition-colors hover:border-fd-primary/50 hover:text-fd-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fd-primary';
+  const className = primary
+    ? 'inline-flex min-h-9 items-center gap-1.5 rounded-full border border-fd-primary bg-fd-primary px-3 text-xs font-medium text-fd-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fd-primary'
+    : 'inline-flex min-h-9 items-center gap-1.5 rounded-full border border-fd-border bg-fd-background px-3 text-xs font-medium text-fd-foreground transition-colors hover:border-fd-primary/50 hover:text-fd-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fd-primary';
 
   if (external) {
     return (

@@ -12,12 +12,13 @@ export type ProjectCategory =
 
 interface ProjectCopy {
   summary: string;
-  status: string;
+  availability: string;
 }
 
 export interface PublicProject {
   id: string;
   name: string;
+  owner: 'Agentic-Engineering-Agency';
   category: ProjectCategory;
   featured?: boolean;
   license: 'MIT repository' | 'MIT package metadata';
@@ -36,6 +37,7 @@ export const publicProjects: PublicProject[] = [
   {
     id: 'ultimate-harness',
     name: 'Ultimate Harness',
+    owner: 'Agentic-Engineering-Agency',
     category: 'systems',
     featured: true,
     license: 'MIT package metadata',
@@ -50,18 +52,19 @@ export const publicProjects: PublicProject[] = [
       en: {
         summary:
           'A runtime-agnostic software-development harness built around mission packets, runtime adapters, sandboxed execution, verification records, and human promotion decisions.',
-        status: 'Public source · MIT package metadata · npm package',
+        availability: 'npm package',
       },
       es: {
         summary:
           'Un arnés de desarrollo de software independiente del runtime, basado en paquetes de misión, adaptadores, ejecución aislada, registros de verificación y decisiones humanas de promoción.',
-        status: 'Código público · metadatos de paquete MIT · paquete npm',
+        availability: 'paquete npm',
       },
     },
   },
   {
     id: 'specsafe',
     name: 'SpecSafe',
+    owner: 'Agentic-Engineering-Agency',
     category: 'methods',
     featured: true,
     license: 'MIT repository',
@@ -75,18 +78,19 @@ export const publicProjects: PublicProject[] = [
       en: {
         summary:
           'A two-phase framework for AI-assisted development: reduce ambiguity through planning, then deliver through spec slices, tests, verification, QA, and human approval.',
-        status: 'Open source · MIT · npm package',
+        availability: 'npm package',
       },
       es: {
         summary:
           'Un framework de dos fases para desarrollo asistido por IA: reduce ambigüedad mediante planeación y después entrega con slices de especificación, pruebas, verificación, QA y aprobación humana.',
-        status: 'Código abierto · MIT · paquete npm',
+        availability: 'paquete npm',
       },
     },
   },
   {
     id: 'agentic-pm-kit',
     name: 'Agentic PM Kit',
+    owner: 'Agentic-Engineering-Agency',
     category: 'methods',
     featured: true,
     license: 'MIT repository',
@@ -101,18 +105,19 @@ export const publicProjects: PublicProject[] = [
       en: {
         summary:
           'A source-grounded collection of project-management Agent Skills for drafting PMBOK- and Scrum-shaped artifacts with Claude Code and Gemini CLI.',
-        status: 'Open source · MIT · npm package',
+        availability: 'npm package',
       },
       es: {
         summary:
           'Una colección de Agent Skills de gestión de proyectos, anclada a fuentes, para redactar artefactos con forma PMBOK y Scrum en Claude Code y Gemini CLI.',
-        status: 'Código abierto · MIT · paquete npm',
+        availability: 'paquete npm',
       },
     },
   },
   {
     id: 'prototype-kit',
     name: 'Prototype Kit',
+    owner: 'Agentic-Engineering-Agency',
     category: 'methods',
     license: 'MIT repository',
     licenseUrl:
@@ -125,18 +130,19 @@ export const publicProjects: PublicProject[] = [
       en: {
         summary:
           'A documented workflow for turning product documents into a React and shadcn/ui prototype through supported agent plugin and extension paths.',
-        status: 'Open source · MIT · source installs verified',
+        availability: 'source installs verified',
       },
       es: {
         summary:
           'Un flujo documentado para convertir documentos de producto en un prototipo con React y shadcn/ui mediante rutas verificadas de plugins y extensiones.',
-        status: 'Código abierto · MIT · instalaciones desde fuente verificadas',
+        availability: 'instalaciones desde fuente verificadas',
       },
     },
   },
   {
     id: 'paperclip-adapter-omp',
     name: 'Paperclip OMP Adapter',
+    owner: 'Agentic-Engineering-Agency',
     category: 'integrations',
     license: 'MIT repository',
     licenseUrl:
@@ -153,18 +159,19 @@ export const publicProjects: PublicProject[] = [
       en: {
         summary:
           'A Paperclip runtime adapter that invokes OMP locally, parses its event stream, persists sessions, and surfaces model, usage, and cost metadata.',
-        status: 'Open source · MIT · npm package',
+        availability: 'npm package',
       },
       es: {
         summary:
           'Un adaptador de runtime para Paperclip que ejecuta OMP localmente, interpreta su flujo de eventos, conserva sesiones y expone metadatos de modelo, uso y costo.',
-        status: 'Código abierto · MIT · paquete npm',
+        availability: 'paquete npm',
       },
     },
   },
   {
     id: 'paperclip-plugin-langfuse-export',
     name: 'Paperclip Langfuse Export',
+    owner: 'Agentic-Engineering-Agency',
     category: 'integrations',
     license: 'MIT package metadata',
     licenseUrl:
@@ -179,18 +186,19 @@ export const publicProjects: PublicProject[] = [
       en: {
         summary:
           'A Paperclip plugin that maps trace-shaped events to Langfuse traces and observations with bounded retry behavior and credential redaction.',
-        status: 'Public source · MIT package metadata · npm package',
+        availability: 'npm package',
       },
       es: {
         summary:
           'Un plugin de Paperclip que transforma eventos de trazas en trazas y observaciones de Langfuse, con reintentos acotados y ocultamiento de credenciales.',
-        status: 'Código público · metadatos de paquete MIT · paquete npm',
+        availability: 'paquete npm',
       },
     },
   },
   {
     id: 'triage',
     name: 'Triage',
+    owner: 'Agentic-Engineering-Agency',
     category: 'applications',
     license: 'MIT repository',
     licenseUrl:
@@ -202,12 +210,12 @@ export const publicProjects: PublicProject[] = [
       en: {
         summary:
           'An incident-intake and SRE triage application that grounds analysis in a connected codebase and supports human-reviewed ticket and notification workflows.',
-        status: 'Open source · MIT · public documentation',
+        availability: 'public documentation',
       },
       es: {
         summary:
           'Una aplicación de recepción y triage de incidentes SRE que fundamenta el análisis en un repositorio conectado y permite flujos de tickets y notificaciones con revisión humana.',
-        status: 'Código abierto · MIT · documentación pública',
+        availability: 'documentación pública',
       },
     },
   },
@@ -230,12 +238,27 @@ export function getPublicProjects(locale: ProjectLocale) {
   }));
 }
 
+export const projectLicenseCopy = {
+  en: {
+    'MIT repository': 'Open source · MIT',
+    'MIT package metadata': 'Public source · MIT package metadata',
+  },
+  es: {
+    'MIT repository': 'Código abierto · MIT',
+    'MIT package metadata': 'Código público · metadatos de paquete MIT',
+  },
+} satisfies Record<
+  ProjectLocale,
+  Record<PublicProject['license'], string>
+>;
+
 const catalogTextCopy = {
   en: {
     heading: 'Catalog data',
     intro:
       'Serialized from the same reviewed catalog data used to render the project cards.',
     category: 'Category',
+    owner: 'Owner',
     license: 'License',
     status: 'Status',
     statusEvidence: 'Status evidence',
@@ -249,16 +272,14 @@ const catalogTextCopy = {
       integrations: 'Integrations',
       applications: 'Applications and knowledge',
     },
-    licenses: {
-      'MIT repository': 'MIT repository',
-      'MIT package metadata': 'MIT package metadata',
-    },
+    licenses: projectLicenseCopy.en,
   },
   es: {
     heading: 'Datos del catálogo',
     intro:
       'Serializado a partir de los mismos datos revisados que generan las tarjetas de proyecto.',
     category: 'Categoría',
+    owner: 'Propiedad',
     license: 'Licencia',
     status: 'Estado',
     statusEvidence: 'Evidencia de estado',
@@ -272,10 +293,7 @@ const catalogTextCopy = {
       integrations: 'Integraciones',
       applications: 'Aplicaciones y conocimiento',
     },
-    licenses: {
-      'MIT repository': 'repositorio MIT',
-      'MIT package metadata': 'metadatos de paquete MIT',
-    },
+    licenses: projectLicenseCopy.es,
   },
 } satisfies Record<
   ProjectLocale,
@@ -283,6 +301,7 @@ const catalogTextCopy = {
     heading: string;
     intro: string;
     category: string;
+    owner: string;
     license: string;
     status: string;
     statusEvidence: string;
@@ -309,9 +328,10 @@ export function getPublicProjectsText(locale: ProjectLocale) {
       '',
       project.summary,
       '',
+      `- ${copy.owner}: ${project.owner}`,
       `- ${copy.category}: ${copy.categories[project.category]}`,
       `- ${copy.license}: ${copy.licenses[project.license]}`,
-      `- ${copy.status}: ${project.status}`,
+      `- ${copy.status}: ${project.availability}`,
       `- ${copy.licenseEvidence}: ${project.licenseUrl}`,
       `- ${copy.statusEvidence}: ${project.statusUrl}`,
       `- ${copy.source}: ${project.sourceUrl}`,
