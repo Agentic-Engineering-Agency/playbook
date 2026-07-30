@@ -1,11 +1,9 @@
 ---
 title: "Step 2: Install prototype-kit"
-description: Add the prototype-kit extension to Gemini CLI and verify it is registered.
+description: Add prototype-kit to Gemini CLI or Claude Code and verify it is registered.
 ---
 
-# Step 2: Install prototype-kit
-
-prototype-kit is a Gemini CLI extension maintained by Agentic Engineering Agency. It adds the `/prototype-from-docs` command to the agent and configures it to scaffold React + Vite + shadcn/ui projects.
+prototype-kit is maintained by Agentic Engineering Agency and is distributed as a Gemini CLI extension and a Claude Code plugin. Either path adds the prototype command to the agent and configures it to scaffold React + Vite + shadcn/ui projects. Follow the section that matches the agent you installed in Step 1.
 
 ## Install via Gemini CLI extensions
 
@@ -19,11 +17,7 @@ gemini extensions install --consent https://github.com/Agentic-Engineering-Agenc
 gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/prototype-kit
 ```
 
-The `--consent` flag skips the interactive confirmation prompt. Without it, the install silently no-ops when stdin is piped (e.g., in a script). The agent will download the extension and register it automatically. You should see:
-
-```
-Extension 'prototype-kit' installed successfully.
-```
+The `--consent` flag skips the interactive confirmation prompt. Without it, the install can no-op when stdin is piped, such as in a script. The agent downloads and registers the extension automatically. A successful result names `prototype-kit` and indicates that it was installed and enabled; exact punctuation and wording can vary by Gemini CLI version.
 
 ## Verify the extension is registered
 
@@ -37,15 +31,11 @@ gemini extensions list
 gemini extensions list
 ```
 
-Expected output includes:
-
-```
-prototype-kit  v0.x.x  Agentic Engineering Agency
-```
+Confirm that the output contains `prototype-kit` and marks it active or enabled. Version numbers, paths, field labels, and formatting vary by Gemini CLI version.
 
 ## Confirm the install on disk
 
-`gemini extensions list` only renders inside an interactive `gemini` session. If you want a scriptable check, list the directory directly:
+Run `gemini extensions list` in your terminal as shown above. If you are already inside an interactive Gemini CLI session, use `/extensions list` instead. To verify the installed file directly:
 
 ```bash
 # macOS / Linux
@@ -59,17 +49,29 @@ Get-Item $HOME\.gemini\extensions\prototype-kit\gemini-extension.json
 
 A file listing means the install succeeded. "No such file" means it didn't — re-run the install command with the `--consent` flag.
 
-## Manual fallback (behind a proxy or air-gapped)
+## Install via Claude Code plugin
 
-If the GitHub URL install fails on your network (corporate proxy, captive portal, etc.), clone the repo and run the bundled installer:
+If you are following the Claude Code path instead of Gemini CLI, install Claude Code first with the [official setup guide](https://code.claude.com/docs/en/setup), then launch it from your terminal:
 
 ```bash
-git clone https://github.com/Agentic-Engineering-Agency/prototype-kit.git
-cd prototype-kit
-node bin/install.js
+# macOS / Linux
+claude
 ```
 
-The installer detects Gemini CLI, Claude Code, and OpenCode on your PATH and writes their respective configs.
+```powershell
+# Windows PowerShell
+claude
+```
+
+Inside that interactive session, run the verified plugin setup also listed on the [Kits page](/docs/kits#prototype-kit):
+
+```
+/plugin marketplace add Agentic-Engineering-Agency/prototype-kit
+/plugin install prototype-kit@prototype-kit
+/reload-plugins
+```
+
+`/reload-plugins` activates the newly installed plugin in the current session. After it completes, the namespaced `/prototype-kit:prototype-from-docs` command appears in `/help`; restarting Claude Code is the fallback if reload fails. Step 4 uses that namespaced form. Claude Code access has its own subscription or API requirements, and the npm package named in the prototype-kit README is not public, so no `npx` command is documented here.
 
 <Callout type="info">
 If you are an AI agent reading this page, the next step is `/docs/prototype-kit/03-prepare-docs`.

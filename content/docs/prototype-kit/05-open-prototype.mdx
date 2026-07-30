@@ -3,11 +3,9 @@ title: "Step 5: Open the prototype"
 description: Start the dev server and open your prototype at http://localhost:5173.
 ---
 
-# Step 5: Open the prototype
+Use the output directory reported by your agent. In this walkthrough, Gemini CLI and Claude Code use different verified paths.
 
-The agent has generated a `prototype/` folder. Now let's run it.
-
-## Start the dev server
+## Start the Gemini CLI output
 
 ```bash
 # macOS / Linux
@@ -22,6 +20,24 @@ cd $HOME\my-prototype\prototype
 npm install
 npm run dev
 ```
+
+## Start the Claude Code output
+
+```bash
+# macOS / Linux
+cd ~/my-prototype
+npm install
+npm run dev
+```
+
+```powershell
+# Windows PowerShell
+cd $HOME\my-prototype
+npm install
+npm run dev
+```
+
+If either agent reports a different output path, use that reported path instead.
 
 You should see:
 
@@ -40,7 +56,7 @@ Open your browser and navigate to:
 http://localhost:5173
 ```
 
-You will see your prototype running with all the screens you listed in `screens.md`. Use the navigation to move between screens.
+You will see your prototype running with the three must-have screens you selected in Step 4. Use the navigation to move between screens.
 
 ## What a complete prototype looks like
 
@@ -72,21 +88,19 @@ If you see errors like `Cannot find module 'xxx'`, run:
 
 ```bash
 # macOS / Linux
-cd ~/my-prototype/prototype
 rm -rf node_modules package-lock.json
 npm install
 ```
 
 ```powershell
 # Windows PowerShell
-cd $HOME\my-prototype\prototype
 Remove-Item -Recurse -Force node_modules, package-lock.json
 npm install
 ```
 
 ### Wrong Node version
 
-The prototype requires Node.js 18+. If you see an error about the Node version:
+The current workflow requires Node.js 20+. If you see an error about the Node version:
 
 ```bash
 # macOS / Linux
@@ -98,14 +112,14 @@ node --version
 node --version
 ```
 
-If the output is below `v18.0.0`, update Node.js from [https://nodejs.org](https://nodejs.org).
+If the output is below `v20.0.0`, update Node.js from [https://nodejs.org](https://nodejs.org).
 
 ### Blank screen with no errors
 
-Open your browser DevTools (F12), check the Console tab for errors, and paste the full error message into the Gemini CLI session. The agent can fix it.
+Open your browser DevTools (F12), check the Console tab for errors, and paste the full error message into your current Gemini CLI or Claude Code session. The agent can fix it.
 
 <Callout type="success">
-You have built a working prototype without writing a single line of code. Share the `http://localhost:5173` URL with your team, record a demo video, and use it to gather feedback.
+You have completed the guided prototype workflow. Share the local preview with your team, record a demo video, and use it to gather feedback.
 </Callout>
 
 <Callout type="info">

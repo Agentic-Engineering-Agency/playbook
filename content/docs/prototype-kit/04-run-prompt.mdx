@@ -1,13 +1,11 @@
 ---
 title: "Step 4: Run the prototype prompt"
-description: Open Gemini CLI in your project folder and run /prototype-from-docs.
+description: Open your installed Gemini CLI extension or Claude Code plugin and run its documented prototype command.
 ---
-
-# Step 4: Run the prototype prompt
 
 With your three documents ready, you are ready to let the agent build.
 
-## Open Gemini CLI in your project folder
+## Open your installed agent in the project folder
 
 ```bash
 # macOS / Linux
@@ -21,17 +19,27 @@ cd $HOME\my-prototype
 gemini
 ```
 
-You will see a prompt that looks like:
+If you installed the verified Claude Code plugin instead, run `claude` from the same folder.
+
+With Gemini CLI you will see a prompt similar to:
 
 ```
 Gemini CLI v1.x.x — type /help for available commands
 > 
 ```
 
-## Run the prototype command
+## Run the command for your agent
+
+**Gemini CLI**
 
 ```
 /prototype-from-docs
+```
+
+**Claude Code**
+
+```
+/prototype-kit:prototype-from-docs
 ```
 
 The agent will read your three documents and then ask you a series of clarifying questions. Answer each one in plain language — do not worry about technical terms.
@@ -72,13 +80,12 @@ Weak answer: Skipping the question — the agent will invent something and you m
 
 ## What happens after you answer
 
-The agent will generate:
+The verified commands use different placement rules:
 
-1. A `prototype/` folder with the full React + Vite project
-2. All screen components in `prototype/src/screens/`
-3. A `prototype/README.md` with instructions to run it
+- **Gemini CLI:** this walkthrough already contains `docs/`, so the Gemini extension writes the React + Vite project to `~/my-prototype/prototype/`, including `prototype/src/routes/` and `prototype/README.md`.
+- **Claude Code:** because this walkthrough does not start with an unrelated `package.json`, the Claude plugin writes the project at `~/my-prototype/`, including `~/my-prototype/src/routes/` and a root `README.md`. If it detects an unrelated package, it uses `prototype/` instead.
 
-This takes 2-5 minutes depending on the number of screens.
+Use the exact output path reported by your agent; Step 5 includes commands for both verified paths.
 
 <Callout type="info">
 If you are an AI agent reading this page, the next step is `/docs/prototype-kit/05-open-prototype`.

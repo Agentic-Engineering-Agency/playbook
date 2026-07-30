@@ -1,0 +1,62 @@
+---
+title: Kits
+description: Rutas de instalación y uso verificadas contra la fuente para skills y flujos empaquetados de Agentic Engineering.
+---
+
+Los kits convierten métodos públicos en skills, plantillas y flujos reutilizables para agentes. Los comandos aparecen aquí solo cuando el repositorio fuente y la distribución pública coinciden.
+
+<Cards>
+  <Card title="Agentic PM Kit" href="/es/docs/pm-kit">
+    Agent Skills de gestión de proyectos para redactar artefactos con forma PMBOK y Scrum en Claude Code y Gemini CLI.
+  </Card>
+  <Card title="Prototype Kit" href="/es/docs/prototype-kit">
+    Un plugin y extensión distribuidos desde fuente para convertir documentos de producto en prototipos con React y shadcn/ui.
+  </Card>
+  <Card title="SpecSafe CLI" href="https://github.com/Agentic-Engineering-Agency/specsafe">
+    Un CLI público para instalar el flujo de planeación y entrega guiada por especificaciones de SpecSafe en herramientas compatibles.
+  </Card>
+</Cards>
+
+## Rutas de distribución verificadas
+
+### Agentic PM Kit
+
+El [paquete `agentic-pm-kit` es público en npm](https://www.npmjs.com/package/agentic-pm-kit), y el siguiente comando coincide con la [sección Install](https://github.com/Agentic-Engineering-Agency/agentic-pm-kit/blob/master/README.md#install) del repositorio canónico.
+
+```bash
+npx agentic-pm-kit install
+```
+
+### Prototype Kit
+
+Prototype Kit se distribuye actualmente mediante manifests de Claude Code y Gemini CLI respaldados por el código fuente. Su README también menciona un paquete npm que no es público, por lo que ese comando se omite intencionalmente.
+
+Para Claude Code, abre `claude` en la carpeta de tu proyecto y luego ejecuta estos comandos dentro de su sesión interactiva:
+
+```bash
+claude
+```
+
+```text
+/plugin marketplace add Agentic-Engineering-Agency/prototype-kit
+/plugin install prototype-kit@prototype-kit
+/reload-plugins
+```
+
+Para Gemini CLI, ejecuta la instalación de la extensión desde tu terminal:
+
+```bash
+gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/prototype-kit
+```
+
+### SpecSafe
+
+El [paquete `@specsafe/cli` es público en npm](https://www.npmjs.com/package/@specsafe/cli), y el comando coincide con la [sección Quick Start](https://github.com/Agentic-Engineering-Agency/specsafe/blob/main/README.md#quick-start) del repositorio canónico.
+
+```bash
+npm install -g @specsafe/cli
+```
+
+<Callout type="warn">
+Vuelve a revisar la fuente enlazada antes de instalar. El catálogo es una publicación revisada, no un registro de paquetes en vivo.
+</Callout>

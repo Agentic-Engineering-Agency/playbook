@@ -1,72 +1,45 @@
 ---
 title: Documentación
-description: Documentacion y comandos de instalacion para los kits que publicamos.
+description: Navega métodos públicos, kits, reglas de evidencia y proyectos de Agentic Engineering verificados contra fuentes.
 ---
 
-# Documentación
+Usa este índice para pasar del método de ingeniería al kit reutilizable, inspeccionar el límite de evidencia o descubrir proyectos públicos aptos de Agentic Engineering.
 
-Consulta la documentacion publicada de nuestros kits y flujos. Este indice mantiene en un solo lugar el catalogo, los comandos de instalacion y las referencias externas.
+<Callout type="info">
+El Playbook es una superficie pública de documentación y distribución de evidencia. No es un dashboard operativo interno ni una fuente del estado en vivo de clientes o de la empresa. Consulta [Acerca de este Playbook](/es/docs/about).
+</Callout>
 
-## Kits
+## Elige una ruta
 
 <Cards>
-  <Card title="Prototype Kit" href="/es/docs/prototype-kit">
-    Construye un prototipo pulido con React + shadcn en una tarde, sin escribir codigo. Funciona con Gemini CLI, Claude Code y OpenCode.
+  <Card title="Métodos" href="/es/docs/methods">
+    Planeación, especificación, ejecución acotada, verificación y revisión humana como un ciclo público reutilizable.
   </Card>
-  <Card title="PM Kit" href="/es/docs/pm-kit">
-    Redacta artefactos PMBOK y Scrum con IA, anclados a fuentes canonicas. Funciona con Claude Code y Gemini CLI.
+  <Card title="Kits" href="/es/docs/kits">
+    Rutas de distribución verificadas contra fuentes para Prototype Kit, Agentic PM Kit y SpecSafe.
   </Card>
-  <Card title="SpecSafe" href="https://specsafe.agenticengineering.lat/">
-    Corre un flujo de planeacion e implementacion guiada por especificaciones para ingenieria asistida por IA. La documentacion vive en el sitio dedicado de SpecSafe.
+  <Card title="Evidencia" href="/es/docs/proof">
+    Las reglas de evidencia, propiedad, disponibilidad y licencia detrás de las afirmaciones públicas del Playbook.
+  </Card>
+  <Card title="Proyectos públicos" href="/es/docs/projects">
+    Un catálogo revisado encabezado por Ultimate Harness, con enlaces canónicos de código, docs, paquetes y estado.
   </Card>
 </Cards>
 
-## Instalacion rapida
+## Trabajo público destacado
 
-### Prototype Kit
-
-```bash
-# Claude Code
-/plugin marketplace add Agentic-Engineering-Agency/prototype-kit
-/plugin install prototype-kit@prototype-kit
-
-# Gemini CLI
-gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/prototype-kit
-
-# OpenCode
-npx @agentic-engineering/prototype-kit init
-```
-
-### PM Kit
-
-```bash
-# Claude Code
-/plugin marketplace add Agentic-Engineering-Agency/agentic-pm-kit
-/plugin install agentic-pm-kit@agentic-engineering-agency
-
-# Gemini CLI
-gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/agentic-pm-kit
-
-# Universal
-npx agentic-pm-kit install
-```
-
-### SpecSafe
-
-```bash
-# Instalacion recomendada
-npm install -g @specsafe/cli
-
-# Alternativa
-pnpm install -g @specsafe/cli
-
-# Soporte para Claude Code
-specsafe install claude-code
-
-# Soporte para Gemini
-specsafe install gemini
-```
+<Cards>
+  <Card title="Ultimate Harness" href="https://github.com/Agentic-Engineering-Agency/ultimate-harness">
+    Un arnés independiente del runtime para paquetes de misión, adaptadores, ejecución aislada, registros de verificación y promoción humana.
+  </Card>
+  <Card title="SpecSafe" href="https://github.com/Agentic-Engineering-Agency/specsafe">
+    Un framework de dos fases para planeación y entrega guiada por pruebas en desarrollo asistido por IA.
+  </Card>
+  <Card title="Agentic PM Kit" href="/es/docs/pm-kit">
+    Agent Skills de gestión de proyectos para borradores con forma PMBOK y Scrum anclados a fuentes.
+  </Card>
+</Cards>
 
 <Callout type="info">
-**Agentes de IA:** Descarga [`/llms-full.txt`](/llms-full.txt) para obtener la version completa en formato legible por maquinas de toda la documentacion publicada.
+**Agentes de IA:** Descarga [`/llms-full.txt`](/llms-full.txt) para obtener la versión completa en formato legible por máquinas de toda la documentación publicada.
 </Callout>

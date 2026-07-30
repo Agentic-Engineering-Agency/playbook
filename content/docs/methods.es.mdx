@@ -1,0 +1,43 @@
+---
+title: Métodos
+description: Métodos públicos de ingeniería para reducir ambigüedad, ejecutar trabajo acotado y llevar evidencia a revisión humana.
+---
+
+El Playbook documenta formas repetibles de llevar trabajo asistido por agentes desde la intención hasta la revisión. Son referencias públicas de métodos, no una afirmación de que un solo flujo funciona para todos los equipos.
+
+## El ciclo compartido de entrega
+
+<Cards>
+  <Card title="1. Delimitar el trabajo">
+    Convierte una solicitud en un objetivo acotado, restricciones, criterios de aceptación y un límite público o privado explícito.
+  </Card>
+  <Card title="2. Hacer durable el contrato">
+    Captura la spec, misión o plan en un artefacto revisable en lugar de dejar decisiones críticas solo en una conversación.
+  </Card>
+  <Card title="3. Ejecutar con aislamiento">
+    Usa un workspace o sandbox restringido y separa la configuración del runtime del contrato de trabajo.
+  </Card>
+  <Card title="4. Verificar antes de promover">
+    Ejecuta las verificaciones declaradas, conserva la evidencia y exige una decisión humana antes de cambiar el estado canónico.
+  </Card>
+</Cards>
+
+## Implementaciones públicas
+
+### Ultimate Harness
+
+Ultimate Harness implementa un ciclo de misiones independiente del runtime alrededor de la ejecución con agentes. Su modelo público conecta perfiles de flujo, paquetes de misión, adaptadores, políticas de aislamiento, registros de verificación y decisiones humanas de promoción.
+
+- [Leer el quickstart público](https://github.com/Agentic-Engineering-Agency/ultimate-harness/blob/main/docs/quickstart.md)
+- [Inspeccionar el código](https://github.com/Agentic-Engineering-Agency/ultimate-harness)
+
+### SpecSafe
+
+SpecSafe separa la planeación de la entrega. Su flujo canónico avanza desde principios, brief, requisitos, UX y arquitectura hacia slices pequeños de especificación, implementación guiada por pruebas, verificación, QA y una compuerta humana de cierre.
+
+- [Leer el flujo canónico](https://github.com/Agentic-Engineering-Agency/specsafe/blob/main/docs/SPECSAFE-CANONICAL-WORKFLOW.md)
+- [Inspeccionar el código](https://github.com/Agentic-Engineering-Agency/specsafe)
+
+<Callout type="info">
+Estas descripciones se derivan de la documentación pública canónica de cada proyecto. El soporte de runtimes y los detalles de releases pertenecen al repositorio fuente y deben revisarse ahí antes de adoptar.
+</Callout>

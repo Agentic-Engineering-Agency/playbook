@@ -1,13 +1,11 @@
 ---
 title: "Paso 4: Ejecutar el prompt del prototipo"
-description: Abre Gemini CLI en la carpeta de tu proyecto y ejecuta /prototype-from-docs.
+description: Abre tu extensión instalada de Gemini CLI o tu plugin de Claude Code y ejecuta su comando de prototipo documentado.
 ---
-
-# Paso 4: Ejecutar el prompt del prototipo
 
 Con tus tres documentos listos, ya puedes dejar que el agente construya.
 
-## Abre Gemini CLI en la carpeta de tu proyecto
+## Abre tu agente instalado en la carpeta del proyecto
 
 ```bash
 # macOS / Linux
@@ -21,17 +19,27 @@ cd $HOME\mi-prototipo
 gemini
 ```
 
-Verás un prompt que se ve así:
+Si instalaste el plugin verificado de Claude Code, ejecuta `claude` desde la misma carpeta.
+
+Con Gemini CLI verás un prompt similar a este:
 
 ```
 Gemini CLI v1.x.x — type /help for available commands
 > 
 ```
 
-## Ejecuta el comando del prototipo
+## Ejecuta el comando de tu agente
+
+**Gemini CLI**
 
 ```
 /prototype-from-docs
+```
+
+**Claude Code**
+
+```
+/prototype-kit:prototype-from-docs
 ```
 
 El agente leerá tus tres documentos y luego te hará una serie de preguntas de aclaración. Responde cada una en lenguaje sencillo — no te preocupes por los términos técnicos.
@@ -72,13 +80,12 @@ Respuesta débil: Saltar la pregunta — el agente se inventa algo y puede que n
 
 ## Qué sucede después de responder
 
-El agente generará:
+Los comandos verificados usan reglas distintas de ubicación:
 
-1. Una carpeta `prototype/` con el proyecto completo de React + Vite
-2. Todos los componentes de pantalla en `prototype/src/screens/`
-3. Un archivo `prototype/README.md` con instrucciones para ejecutarlo
+- **Gemini CLI:** esta guía ya contiene `docs/`, así que la extensión de Gemini escribe el proyecto React + Vite en `~/mi-prototipo/prototype/`, incluidos `prototype/src/routes/` y `prototype/README.md`.
+- **Claude Code:** como esta guía no inicia con un `package.json` ajeno, el plugin de Claude escribe el proyecto en `~/mi-prototipo/`, incluidos `~/mi-prototipo/src/routes/` y un `README.md` en la raíz. Si detecta otro paquete, usa `prototype/`.
 
-Esto tarda 2-5 minutos dependiendo del número de pantallas.
+Usa la ruta exacta que reporte tu agente; el Paso 5 incluye comandos para las dos rutas verificadas.
 
 <Callout type="info">
 Si eres un agente de IA leyendo esta página, el siguiente paso es `/es/docs/prototype-kit/05-open-prototype`.

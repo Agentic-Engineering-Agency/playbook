@@ -3,11 +3,9 @@ title: "Paso 5: Abrir el prototipo"
 description: Inicia el servidor de desarrollo y abre tu prototipo en http://localhost:5173.
 ---
 
-# Paso 5: Abrir el prototipo
+Usa la carpeta de salida que reporte tu agente. En esta guía, Gemini CLI y Claude Code usan rutas verificadas distintas.
 
-El agente generó una carpeta `prototype/`. Ahora vamos a ejecutarla.
-
-## Iniciar el servidor de desarrollo
+## Iniciar la salida de Gemini CLI
 
 ```bash
 # macOS / Linux
@@ -22,6 +20,24 @@ cd $HOME\mi-prototipo\prototype
 npm install
 npm run dev
 ```
+
+## Iniciar la salida de Claude Code
+
+```bash
+# macOS / Linux
+cd ~/mi-prototipo
+npm install
+npm run dev
+```
+
+```powershell
+# Windows PowerShell
+cd $HOME\mi-prototipo
+npm install
+npm run dev
+```
+
+Si cualquiera de los agentes reporta otra ruta de salida, usa esa ruta.
 
 Deberías ver:
 
@@ -40,7 +56,15 @@ Abre tu navegador y ve a:
 http://localhost:5173
 ```
 
-Verás tu prototipo ejecutándose con todas las pantallas que listaste en `screens.md`.
+Verás tu prototipo ejecutándose con las tres pantallas must-have que seleccionaste en el Paso 4. Usa la navegación para moverte entre ellas.
+
+## Cómo se ve un prototipo completo
+
+- Una pantalla de inicio como punto de entrada
+- Navegación lateral o inferior que conecta todas las pantallas
+- Datos de ejemplo realistas, como números, nombres y fechas
+- Componentes de shadcn/ui adaptados a los colores de tu marca
+- Un diseño adaptable que funciona en pantallas móviles
 
 ## Solución de problemas
 
@@ -64,26 +88,28 @@ Si ves errores como `Cannot find module 'xxx'`, ejecuta:
 
 ```bash
 # macOS / Linux
-cd ~/mi-prototipo/prototype
 rm -rf node_modules package-lock.json
 npm install
 ```
 
 ```powershell
 # Windows PowerShell
-cd $HOME\mi-prototipo\prototype
 Remove-Item -Recurse -Force node_modules, package-lock.json
 npm install
 ```
 
 ### Versión incorrecta de Node
 
-El prototipo requiere Node.js 18+. Si ves un error sobre la versión de Node:
+El flujo actual requiere Node.js 20+. Si ves un error sobre la versión de Node:
 
-Verifica con `node --version`. Si la salida es menor a `v18.0.0`, actualiza Node.js desde [https://nodejs.org](https://nodejs.org).
+Verifica con `node --version`. Si la salida es menor a `v20.0.0`, actualiza Node.js desde [https://nodejs.org](https://nodejs.org).
+
+### Pantalla en blanco sin errores
+
+Abre las herramientas de desarrollo del navegador con F12, revisa la pestaña Consola y pega el mensaje de error completo en tu sesión actual de Gemini CLI o Claude Code para que el agente pueda corregirlo.
 
 <Callout type="success">
-Has construido un prototipo funcional sin escribir una sola línea de código. Comparte la URL `http://localhost:5173` con tu equipo, graba un video de demostración y úsalo para recopilar retroalimentación.
+Has completado el flujo guiado del prototipo. Comparte la vista previa local con tu equipo, graba un video de demostración y úsalo para recopilar retroalimentación.
 </Callout>
 
 <Callout type="info">
