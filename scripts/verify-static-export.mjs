@@ -47,7 +47,7 @@ function walk(dir) {
 }
 
 const renderedText = walk(outDir)
-  .filter((file) => ['.html', '.txt', '.mdx'].includes(extname(file)))
+  .filter((file) => ['.html', '.txt', '.md', '.mdx'].includes(extname(file)))
   .map((file) => readFileSync(file, 'utf8'))
   .join('\n');
 
