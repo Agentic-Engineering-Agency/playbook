@@ -52,6 +52,13 @@ test('English home publishes its matching social image', () => {
   );
 });
 
+test('each home page exposes one main landmark', () => {
+  for (const file of [join(outDir, 'index.html'), join(outDir, 'es.html')]) {
+    const landmarks = readFileSync(file, 'utf8').match(/<main(?:\s|>)/g) ?? [];
+    assert.equal(landmarks.length, 1, `${file} should contain exactly one main landmark`);
+  }
+});
+
 test('the static sitemap covers both locale roots', () => {
   const body = readFileSync(join(outDir, 'sitemap.xml'), 'utf8');
   assert.match(body, /https:\/\/labs\.agenticengineering\.agency<\/loc>/);

@@ -143,7 +143,7 @@ export function PlaybookHome({ locale }: { locale: ProjectLocale }) {
   const localePrefix = locale === 'es' ? '/es' : '';
 
   return (
-    <main className="playbook-shell">
+    <div className="playbook-shell">
       <section className="hero-grid overflow-hidden border-b border-fd-border">
         <div className="mx-auto grid min-h-[640px] max-w-7xl items-center gap-12 px-5 py-20 md:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:py-28">
           <div>
@@ -301,6 +301,6 @@ export function PlaybookHome({ locale }: { locale: ProjectLocale }) {
           </div>
         </div>
       </footer>
-    </main>
+    </div>
   );
 }
