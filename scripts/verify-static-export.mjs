@@ -38,6 +38,12 @@ const routeExpectations = [
   ['/docs/projects', 'href="/docs/pm-kit"'],
   ['/es/docs/projects', 'href="/es/docs/pm-kit"'],
   ['/es/docs/projects', 'href="/es/docs/prototype-kit"'],
+  ['/docs/prototype-kit/02-install-mcps', '/reload-plugins'],
+  ['/es/docs/prototype-kit/02-install-mcps', '/reload-plugins'],
+  ['/docs/prototype-kit/04-run-prompt', '/prototype-kit:prototype-from-docs'],
+  ['/es/docs/prototype-kit/04-run-prompt', '/prototype-kit:prototype-from-docs'],
+  ['/docs/prototype-kit/05-open-prototype', 'three must-have screens'],
+  ['/es/docs/prototype-kit/05-open-prototype', 'tres pantallas must-have'],
   ['/llms.mdx/docs/projects/content.md', 'Catalog data'],
   [
     '/llms.mdx/docs/projects/content.md',
@@ -58,6 +64,9 @@ const routeExpectations = [
   ['/llms-full.txt', 'About this Playbook'],
   ['/llms-full.txt', 'Acerca de este Playbook'],
   ['/llms-full.txt', 'https://www.npmjs.com/package/@specsafe/cli'],
+  ['/api/search', 'Paperclip OMP Adapter'],
+  ['/api/search', 'Paperclip Langfuse Export'],
+  ['/api/search', 'Triage'],
 ];
 
 for (const [route, expected] of routeExpectations) {

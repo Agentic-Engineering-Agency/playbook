@@ -134,6 +134,43 @@ for (const path of ['content/docs/kits.mdx', 'content/docs/kits.es.mdx']) {
   ]);
 }
 
+const prototypePageRequirements = {
+  'content/docs/prototype-kit/02-install-mcps.mdx': [
+    '/extensions list',
+    '/reload-plugins',
+    '/prototype-kit:prototype-from-docs',
+  ],
+  'content/docs/prototype-kit/02-install-mcps.es.mdx': [
+    '/extensions list',
+    '/reload-plugins',
+    '/prototype-kit:prototype-from-docs',
+  ],
+  'content/docs/prototype-kit/04-run-prompt.mdx': [
+    '/prototype-from-docs',
+    '/prototype-kit:prototype-from-docs',
+    'my-prototype/prototype/',
+    'my-prototype/src/routes/',
+  ],
+  'content/docs/prototype-kit/04-run-prompt.es.mdx': [
+    '/prototype-from-docs',
+    '/prototype-kit:prototype-from-docs',
+    'mi-prototipo/prototype/',
+    'mi-prototipo/src/routes/',
+  ],
+  'content/docs/prototype-kit/05-open-prototype.mdx': [
+    'three must-have screens you selected in Step 4',
+    'Gemini CLI or Claude Code session',
+  ],
+  'content/docs/prototype-kit/05-open-prototype.es.mdx': [
+    'tres pantallas must-have que seleccionaste en el Paso 4',
+    'Gemini CLI o Claude Code',
+  ],
+};
+
+for (const [path, values] of Object.entries(prototypePageRequirements)) {
+  requireInFile(path, values);
+}
+
 const removedPaths = [
   'app/api/chat/route.ts',
   'components/ai/search.tsx',
