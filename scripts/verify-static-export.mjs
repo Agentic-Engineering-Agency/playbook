@@ -37,6 +37,8 @@ const routeExpectations = [
   ['/es/docs/projects', 'Ultimate Harness'],
   ['/llms.txt', 'About this Playbook'],
   ['/llms-full.txt', 'About this Playbook'],
+  ['/llms-full.txt', 'Acerca de este Playbook'],
+  ['/llms-full.txt', 'https://www.npmjs.com/package/@specsafe/cli'],
 ];
 
 for (const [route, expected] of routeExpectations) {

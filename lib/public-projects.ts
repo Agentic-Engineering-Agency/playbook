@@ -184,3 +184,94 @@ export function getPublicProjects(locale: ProjectLocale) {
     ...copy[locale],
   }));
 }
+
+const catalogTextCopy = {
+  en: {
+    heading: 'Catalog data',
+    intro:
+      'Serialized from the same reviewed catalog data used to render the project cards.',
+    category: 'Category',
+    license: 'License',
+    status: 'Status',
+    source: 'Source',
+    docs: 'Documentation',
+    package: 'Package',
+    categories: {
+      systems: 'Engineering systems',
+      methods: 'Methods and kits',
+      integrations: 'Integrations',
+      applications: 'Applications and knowledge',
+    },
+    licenses: {
+      'MIT repository': 'MIT repository',
+      'MIT package metadata': 'MIT package metadata',
+    },
+  },
+  es: {
+    heading: 'Datos del catálogo',
+    intro:
+      'Serializado a partir de los mismos datos revisados que generan las tarjetas de proyecto.',
+    category: 'Categoría',
+    license: 'Licencia',
+    status: 'Estado',
+    source: 'Código',
+    docs: 'Documentación',
+    package: 'Paquete',
+    categories: {
+      systems: 'Sistemas de ingeniería',
+      methods: 'Métodos y kits',
+      integrations: 'Integraciones',
+      applications: 'Aplicaciones y conocimiento',
+    },
+    licenses: {
+      'MIT repository': 'repositorio MIT',
+      'MIT package metadata': 'metadatos de paquete MIT',
+    },
+  },
+} satisfies Record<
+  ProjectLocale,
+  {
+    heading: string;
+    intro: string;
+    category: string;
+    license: string;
+    status: string;
+    source: string;
+    docs: string;
+    package: string;
+    categories: Record<ProjectCategory, string>;
+    licenses: Record<PublicProject['license'], string>;
+  }
+>;
+
+// Text-export representation of the catalog. `<ProjectCatalog />` renders React,
+// so the MDX text pipeline that powers /llms-full.txt and the per-page Markdown
+// copies would otherwise omit every project status, source, and package link.
+export function getPublicProjectsText(locale: ProjectLocale) {
+  const copy = catalogTextCopy[locale];
+  const lines = [`## ${copy.heading}`, '', copy.intro];
+
+  for (const project of getPublicProjects(locale)) {
+    lines.push(
+      '',
+      `### ${project.name}`,
+      '',
+      project.summary,
+      '',
+      `- ${copy.category}: ${copy.categories[project.category]}`,
+      `- ${copy.license}: ${copy.licenses[project.license]}`,
+      `- ${copy.status}: ${project.status}`,
+      `- ${copy.source}: ${project.sourceUrl}`,
+    );
+
+    if (project.docsUrl) {
+      lines.push(`- ${copy.docs}: ${project.docsUrl}`);
+    }
+
+    if (project.packageUrl) {
+      lines.push(`- ${copy.package}: ${project.packageUrl}`);
+    }
+  }
+
+  return lines.join('\n');
+}
