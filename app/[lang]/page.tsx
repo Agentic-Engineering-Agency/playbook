@@ -4,12 +4,10 @@ import { HomeLayout } from 'fumadocs-ui/layouts/home';
 import { baseOptions } from '@/lib/layout.shared';
 import type { Metadata } from 'next';
 import { PlaybookHome } from '@/components/playbook-home';
-import { getHomeAlternates } from '@/lib/metadata';
+import { getHomeAlternates, getHomeSocialImage, homeSocialCards } from '@/lib/metadata';
 
-const spanishDescription =
-  'Documentación pública y bilingüe de los métodos abiertos, kits, proyectos y rutas de evidencia verificadas de Agentic Engineering.';
-const spanishSocialImage =
-  'https://labs.agenticengineering.agency/og/docs/es/image.png';
+const spanishDescription = homeSocialCards.es.description;
+const spanishSocialImage = getHomeSocialImage('es');
 
 export default async function LocaleHomePage(
   props: PageProps<'/[lang]'> & { params: Promise<{ lang: string }> },

@@ -4,6 +4,32 @@ export const siteUrl = 'https://labs.agenticengineering.agency';
 
 type SupportedLocale = 'en' | 'es';
 
+export const homeImageRoute = '/og/home';
+
+// The landing pages are not docs pages, so they cannot reuse /og/docs/*, which
+// would render the docs index title and description instead of the home copy.
+export const homeSocialCards = {
+  en: {
+    title: 'Methods, kits, and proof for building with agents.',
+    description:
+      'Public bilingual documentation for the methods, kits, proof paths, and source-verified projects published by Agentic Engineering.',
+    imagePath: `${homeImageRoute}/image.png`,
+  },
+  es: {
+    title: 'Métodos, kits y evidencia para construir con agentes.',
+    description:
+      'Documentación pública y bilingüe de los métodos abiertos, kits, proyectos y rutas de evidencia verificadas de Agentic Engineering.',
+    imagePath: `${homeImageRoute}/es/image.png`,
+  },
+} satisfies Record<
+  SupportedLocale,
+  { title: string; description: string; imagePath: string }
+>;
+
+export function getHomeSocialImage(locale: SupportedLocale) {
+  return new URL(homeSocialCards[locale].imagePath, siteUrl).toString();
+}
+
 function homePaths() {
   return { en: '/', es: '/es' };
 }

@@ -95,6 +95,27 @@ for (const expectedMetadata of [
   }
 }
 
+// The landing pages must advertise dedicated home cards; /og/docs/* renders the
+// docs index title and description instead of the home copy.
+for (const [route, expectedImage] of [
+  ['/', 'https://labs.agenticengineering.agency/og/home/image.png'],
+  ['/es', 'https://labs.agenticengineering.agency/og/home/es/image.png'],
+]) {
+  const body = readFileSync(resolveRoute(route), 'utf8');
+  if (!body.includes(`property="og:image" content="${expectedImage}"`)) {
+    throw new Error(`Static route ${route} does not use its dedicated social card: ${expectedImage}`);
+  }
+  if (body.includes('/og/docs/')) {
+    throw new Error(`Static route ${route} still references a docs social card`);
+  }
+}
+
+for (const cardAsset of ['og/home/image.png', 'og/home/es/image.png']) {
+  if (!existsSync(join(outDir, cardAsset))) {
+    throw new Error(`Home social card is missing from the static export: /${cardAsset}`);
+  }
+}
+
 const sitemap = readFileSync(join(outDir, 'sitemap.xml'), 'utf8');
 for (const expectedUrl of [
   'https://labs.agenticengineering.agency/',

@@ -30,11 +30,11 @@ test('Spanish home metadata is localized and language-linked', () => {
   assert.match(body, /name="twitter:description" content="Documentación pública/);
   assert.match(
     body,
-    /property="og:image" content="https:\/\/labs\.agenticengineering\.agency\/og\/docs\/es\/image\.png"/,
+    /property="og:image" content="https:\/\/labs\.agenticengineering\.agency\/og\/home\/es\/image\.png"/,
   );
   assert.match(
     body,
-    /name="twitter:image" content="https:\/\/labs\.agenticengineering\.agency\/og\/docs\/es\/image\.png"/,
+    /name="twitter:image" content="https:\/\/labs\.agenticengineering\.agency\/og\/home\/es\/image\.png"/,
   );
   assert.match(body, /hrefLang="en" href="https:\/\/labs\.agenticengineering\.agency"/);
   assert.match(body, /hrefLang="es" href="https:\/\/labs\.agenticengineering\.agency\/es"/);
@@ -44,12 +44,23 @@ test('English home publishes its matching social image', () => {
   const body = readFileSync(join(outDir, 'index.html'), 'utf8');
   assert.match(
     body,
-    /property="og:image" content="https:\/\/labs\.agenticengineering\.agency\/og\/docs\/image\.png"/,
+    /property="og:image" content="https:\/\/labs\.agenticengineering\.agency\/og\/home\/image\.png"/,
   );
   assert.match(
     body,
-    /name="twitter:image" content="https:\/\/labs\.agenticengineering\.agency\/og\/docs\/image\.png"/,
+    /name="twitter:image" content="https:\/\/labs\.agenticengineering\.agency\/og\/home\/image\.png"/,
   );
+});
+
+test('landing pages render dedicated home social cards', () => {
+  for (const segments of [['image.png'], ['es', 'image.png']]) {
+    const card = join(outDir, 'og', 'home', ...segments);
+    assert.ok(readFileSync(card).byteLength > 0);
+  }
+  // The home cards must not fall back to the docs index copy.
+  for (const file of [join(outDir, 'index.html'), join(outDir, 'es.html')]) {
+    assert.doesNotMatch(readFileSync(file, 'utf8'), /\/og\/docs\//);
+  }
 });
 
 test('each home page exposes one main landmark', () => {

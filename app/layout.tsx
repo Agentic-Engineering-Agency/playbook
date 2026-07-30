@@ -2,16 +2,15 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Provider } from '@/components/provider';
 import { HtmlLangSetter } from '@/components/html-lang-setter';
-import { siteUrl } from '@/lib/metadata';
+import { getHomeSocialImage, homeSocialCards, siteUrl } from '@/lib/metadata';
 import './global.css';
 
 const inter = Inter({
   subsets: ['latin'],
 });
 
-const englishDescription =
-  'Public bilingual documentation for the methods, kits, proof paths, and source-verified projects published by Agentic Engineering.';
-const englishSocialImage = `${siteUrl}/og/docs/image.png`;
+const englishDescription = homeSocialCards.en.description;
+const englishSocialImage = getHomeSocialImage('en');
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
