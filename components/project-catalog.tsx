@@ -162,7 +162,12 @@ function ProjectCard({
       </div>
 
       <div className="mt-5">
-        <h3 className="text-xl font-semibold tracking-tight">{project.name}</h3>
+        <h3
+          id={`project-${project.id}`}
+          className="scroll-mt-24 text-xl font-semibold tracking-tight"
+        >
+          {project.name}
+        </h3>
         <p className="mt-3 text-sm leading-6 text-fd-muted-foreground">
           {project.summary}
         </p>

@@ -84,6 +84,57 @@ for (const [route, expected] of routeExpectations) {
   }
 }
 
+const searchExport = JSON.parse(
+  readFileSync(resolveRoute('/api/search'), 'utf8'),
+);
+const catalogProjects = [
+  ['ultimate-harness', 'Ultimate Harness'],
+  ['specsafe', 'SpecSafe'],
+  ['agentic-pm-kit', 'Agentic PM Kit'],
+  ['prototype-kit', 'Prototype Kit'],
+  ['paperclip-adapter-omp', 'Paperclip OMP Adapter'],
+  ['paperclip-plugin-langfuse-export', 'Paperclip Langfuse Export'],
+  ['triage', 'Triage'],
+];
+
+for (const [locale, routePrefix] of [
+  ['en', '/docs/projects'],
+  ['es', '/es/docs/projects'],
+]) {
+  const documents = Object.values(searchExport.data[locale].docs.docs);
+  for (const [id, name] of catalogProjects) {
+    const url = `${routePrefix}#project-${id}`;
+    const heading = documents.find(
+      (document) =>
+        document.type === 'heading' &&
+        document.url === url &&
+        document.content === name,
+    );
+    const content = documents.find(
+      (document) =>
+        document.type === 'text' &&
+        document.url === url &&
+        document.content.startsWith(`${name}. `),
+    );
+    if (!heading || !content) {
+      throw new Error(
+        `Search export ${locale} is missing a discrete catalog result for ${name}`,
+      );
+    }
+  }
+
+  const oversizedCatalogResult = documents.find(
+    (document) =>
+      document.type === 'text' &&
+      catalogProjects.every(([, name]) => document.content.includes(name)),
+  );
+  if (oversizedCatalogResult) {
+    throw new Error(
+      `Search export ${locale} combines every catalog project into one result`,
+    );
+  }
+}
+
 for (const [route, expectedLanguage] of [
   ['/', 'en'],
   ['/docs/projects', 'en'],
