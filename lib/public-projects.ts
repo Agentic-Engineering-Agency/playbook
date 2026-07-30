@@ -118,7 +118,7 @@ export const publicProjects: PublicProject[] = [
     sourceUrl:
       'https://github.com/Agentic-Engineering-Agency/paperclip-adapter-omp',
     docsUrl:
-      'https://github.com/Agentic-Engineering-Agency/paperclip-adapter-omp/tree/main/docs',
+      'https://github.com/Agentic-Engineering-Agency/paperclip-adapter-omp/blob/main/docs/integration.md',
     packageUrl:
       'https://www.npmjs.com/package/@agentic-engineering-agency/paperclip-adapter-omp',
     copy: {

@@ -52,7 +52,7 @@ Run the complete local release gate:
 npm run verify
 ```
 
-That command verifies the public-content boundary and bilingual page pairs, runs TypeScript and ESLint, builds the static export, and checks representative generated routes and machine-readable documentation.
+That command verifies the public-content boundary and bilingual page pairs, runs TypeScript and ESLint, builds and tests the static export, and checks representative generated routes, locale metadata, the sitemap, and machine-readable documentation.
 
 Individual checks:
 
@@ -61,6 +61,7 @@ npm run verify:content
 npm run types:check
 npm run lint
 npm run build
+npm run test:static
 npm run verify:routes
 ```
 

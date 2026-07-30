@@ -148,7 +148,6 @@ Repository ownership below means the repository is owned by
 | [`awesome-openclaw-usecases`](https://github.com/Agentic-Engineering-Agency/awesome-openclaw-usecases) | Fork of `hesamsheikh/awesome-openclaw-usecases`; not owned project work. |
 | [`capital-sentinel`](https://github.com/Agentic-Engineering-Agency/capital-sentinel) | Archived and no declared license. |
 | [`code-colony`](https://github.com/Agentic-Engineering-Agency/code-colony) | Public source preview, but package is private, no license is declared, and the README explicitly describes a seeded local vertical slice with mocked/partial surfaces and internal sprint-ticket language. Reconsider after a public release boundary and license exist. |
-| [`curia-landing`](https://github.com/Agentic-Engineering-Agency/curia-landing) | Product landing-page implementation, not an open-source public tool; no declared license. Excluded to preserve the instruction not to publish internal Curia data in Playbook. |
 | [`freellmapi`](https://github.com/Agentic-Engineering-Agency/freellmapi) | Archived fork. |
 | [`hermes-claude-auth`](https://github.com/Agentic-Engineering-Agency/hermes-claude-auth) | Archived fork. |
 | [`memorybench-memswe`](https://github.com/Agentic-Engineering-Agency/memorybench-memswe) | Fork of `supermemoryai/memorybench`; its own README says it is reference material only and not the canonical MemSWE runtime/spec. |

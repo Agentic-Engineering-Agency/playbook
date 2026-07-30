@@ -4,6 +4,10 @@ import { HomeLayout } from 'fumadocs-ui/layouts/home';
 import { baseOptions } from '@/lib/layout.shared';
 import type { Metadata } from 'next';
 import { PlaybookHome } from '@/components/playbook-home';
+import { getPageAlternates } from '@/lib/metadata';
+
+const spanishDescription =
+  'Documentación pública y bilingüe de los métodos abiertos, kits, proyectos y rutas de evidencia verificadas de Agentic Engineering.';
 
 export default async function LocaleHomePage(
   props: PageProps<'/[lang]'> & { params: Promise<{ lang: string }> },
@@ -30,8 +34,20 @@ export async function generateMetadata(
   if (lang === 'es') {
     return {
       title: { absolute: 'Agentic Engineering Playbook' },
-      description:
-        'Documentación pública y bilingüe de los métodos abiertos, kits y rutas de evidencia verificadas de Agentic Engineering.',
+      description: spanishDescription,
+      alternates: getPageAlternates('es'),
+      openGraph: {
+        type: 'website',
+        siteName: 'Agentic Engineering Playbook',
+        title: 'Agentic Engineering Playbook',
+        description: spanishDescription,
+        locale: 'es_MX',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: 'Agentic Engineering Playbook',
+        description: spanishDescription,
+      },
     };
   }
   return { title: { absolute: 'Agentic Engineering Playbook' } };

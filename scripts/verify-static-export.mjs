@@ -51,6 +51,45 @@ for (const [route, expected] of routeExpectations) {
   }
 }
 
+for (const [route, expectedLanguage] of [
+  ['/', 'en'],
+  ['/docs/projects', 'en'],
+  ['/es', 'es'],
+  ['/es/docs/projects', 'es'],
+]) {
+  const body = readFileSync(resolveRoute(route), 'utf8');
+  if (!body.includes(`<html lang="${expectedLanguage}"`)) {
+    throw new Error(
+      `Static route ${route} does not declare lang="${expectedLanguage}" at parse time`,
+    );
+  }
+}
+
+const spanishHome = readFileSync(resolveRoute('/es'), 'utf8');
+for (const expectedMetadata of [
+  'property="og:locale" content="es_MX"',
+  'property="og:description" content="Documentación pública',
+  'name="twitter:description" content="Documentación pública',
+  'hrefLang="en" href="https://labs.agenticengineering.agency"',
+  'hrefLang="es" href="https://labs.agenticengineering.agency/es',
+]) {
+  if (!spanishHome.includes(expectedMetadata)) {
+    throw new Error(`Spanish home metadata is missing: ${expectedMetadata}`);
+  }
+}
+
+const sitemap = readFileSync(join(outDir, 'sitemap.xml'), 'utf8');
+for (const expectedUrl of [
+  'https://labs.agenticengineering.agency/',
+  'https://labs.agenticengineering.agency/es',
+  'https://labs.agenticengineering.agency/docs/projects',
+  'https://labs.agenticengineering.agency/es/docs/projects',
+]) {
+  if (!sitemap.includes(expectedUrl)) {
+    throw new Error(`Sitemap is missing bilingual route: ${expectedUrl}`);
+  }
+}
+
 function walk(dir) {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const path = join(dir, entry.name);
