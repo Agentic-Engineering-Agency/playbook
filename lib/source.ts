@@ -23,13 +23,32 @@ export function getPageImage(page: InferPageType<typeof source>) {
   };
 }
 
+// Non-default locales carry their language as the first segment so the Markdown
+// copy of a Spanish page resolves to the Spanish source instead of the English
+// fallback. See app/llms.mdx/docs/[[...slug]]/route.ts.
 export function getPageMarkdownUrl(page: InferPageType<typeof source>) {
-  const segments = [...page.slugs, 'content.md'];
+  const localePrefix =
+    page.locale && page.locale !== i18n.defaultLanguage ? [page.locale] : [];
+  const segments = [...localePrefix, ...page.slugs, 'content.md'];
 
   return {
     segments,
     url: `${docsContentRoute}/${segments.join('/')}`,
   };
+}
+
+// Split the Markdown route segments (without the trailing "content.md") into a
+// language and the page slugs.
+export function parsePageMarkdownSegments(segments: string[]) {
+  const [maybeLanguage, ...rest] = segments;
+  const isLanguage =
+    maybeLanguage !== undefined &&
+    maybeLanguage !== i18n.defaultLanguage &&
+    (i18n.languages as string[]).includes(maybeLanguage);
+
+  return isLanguage
+    ? { language: maybeLanguage, slugs: rest }
+    : { language: undefined, slugs: segments };
 }
 
 export async function getLLMText(page: InferPageType<typeof source>) {

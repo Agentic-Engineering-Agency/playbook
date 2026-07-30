@@ -1,12 +1,18 @@
-import { getLLMText, getPageMarkdownUrl, source } from '@/lib/source';
+import {
+  getLLMText,
+  getPageMarkdownUrl,
+  parsePageMarkdownSegments,
+  source,
+} from '@/lib/source';
 import { notFound } from 'next/navigation';
 
 export const revalidate = false;
 
 export async function GET(_req: Request, { params }: RouteContext<'/llms.mdx/docs/[[...slug]]'>) {
   const { slug } = await params;
-  // remove the appended "content.md"
-  const page = source.getPage(slug?.slice(0, -1));
+  // remove the appended "content.md", then split off an optional locale prefix
+  const { language, slugs } = parsePageMarkdownSegments(slug?.slice(0, -1) ?? []);
+  const page = source.getPage(slugs, language);
   if (!page) notFound();
 
   return new Response(await getLLMText(page), {

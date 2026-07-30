@@ -35,6 +35,8 @@ const routeExpectations = [
   ['/es/docs/proof', 'Qué publicamos'],
   ['/docs/projects', 'Ultimate Harness'],
   ['/es/docs/projects', 'Ultimate Harness'],
+  ['/llms.mdx/docs/projects/content.md', 'Catalog data'],
+  ['/llms.mdx/docs/es/projects/content.md', 'Datos del catálogo'],
   ['/llms.txt', 'About this Playbook'],
   ['/llms-full.txt', 'About this Playbook'],
   ['/llms-full.txt', 'Acerca de este Playbook'],
@@ -69,6 +71,11 @@ for (const forbidden of [
   if (renderedText.includes(forbidden)) {
     throw new Error(`Static export contains forbidden public text: ${forbidden}`);
   }
+}
+
+const redirects = readFileSync(join(outDir, '_redirects'), 'utf8');
+if (/^\/es\s/m.test(redirects)) {
+  throw new Error('Deployment redirects shadow the Spanish landing page at /es');
 }
 
 for (const removedRoute of ['/api/chat', '/api/chat.html', '/api/chat/index.html']) {
