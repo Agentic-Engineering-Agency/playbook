@@ -27,6 +27,8 @@ const routeExpectations = [
   ['/es/docs', 'El Playbook es una superficie pública'],
   ['/docs/about', 'About this Playbook'],
   ['/es/docs/about', 'Acerca de este Playbook'],
+  ['/docs/about', 'Repository licensing'],
+  ['/es/docs/about', 'Licencia del repositorio'],
   ['/docs/methods', 'The shared delivery loop'],
   ['/es/docs/methods', 'El ciclo compartido de entrega'],
   ['/docs/kits', 'Verified distribution paths'],

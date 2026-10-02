@@ -1,37 +1,38 @@
 # Agentic Engineering Playbook
 
-Public, bilingual documentation for the open methods, kits, and verified proof paths published by Agentic Engineering.
+[![Deploy to Cloudflare Pages](https://github.com/Agentic-Engineering-Agency/playbook/actions/workflows/deploy-cloudflare-pages.yml/badge.svg)](https://github.com/Agentic-Engineering-Agency/playbook/actions/workflows/deploy-cloudflare-pages.yml)
+[![License decision pending](https://img.shields.io/badge/license-decision%20pending-yellow)](https://github.com/Agentic-Engineering-Agency/playbook/issues/5)
 
-Production: <https://labs.agenticengineering.agency>
+The Playbook is Agentic Engineering’s public, bilingual documentation and proof-distribution surface for open methods, reusable kits, and source-verified public projects.
+
+- Production: <https://labs.agenticengineering.agency>
+- Spanish: <https://labs.agenticengineering.agency/es>
+- Machine-readable corpus: <https://labs.agenticengineering.agency/llms-full.txt>
 
 ## Product boundary
 
-The Playbook is a public documentation and proof-distribution surface.
+This repository contains reviewed public documentation, the static site that publishes it, and the checks that keep its claims, locale pairs, metadata, and routes aligned.
 
-It includes:
+It does not contain internal operating status, customer workspaces, credentials, private runbooks, founder data, or unverified portfolio and performance claims. Product repositories remain the source of truth for their releases and implementation details; the [Agentic Engineering website](https://agenticengineering.agency) owns the public services and contact journey.
 
-- reviewed English and Spanish guides for public methods and kits;
-- a source-verified catalog of suitable public Agentic Engineering projects;
-- install paths verified against a source repository or package registry;
-- machine-readable documentation at `/llms.txt` and `/llms-full.txt`;
-- public proof paths only after their sources and claims have been reviewed.
+Read the complete publication boundary in [About this Playbook](https://labs.agenticengineering.agency/docs/about) or [Acerca de este Playbook](https://labs.agenticengineering.agency/es/docs/about).
 
-It does not include:
+## Documentation map
 
-- internal operating dashboards or live project status;
-- customer workspaces, private data, credentials, or internal runbooks;
-- unverified portfolio, ownership, performance, or production claims.
+- [Methods](https://labs.agenticengineering.agency/docs/methods) explains the shared planning, delivery, verification, and review loop.
+- [Kits](https://labs.agenticengineering.agency/docs/kits) publishes installation paths only when they agree with a canonical source.
+- [Proof](https://labs.agenticengineering.agency/docs/proof) defines the evidence and labeling rules behind public claims.
+- [Public projects](https://labs.agenticengineering.agency/docs/projects) is generated from the reviewed catalog in [`lib/public-projects.ts`](lib/public-projects.ts).
+- [`/llms.txt`](https://labs.agenticengineering.agency/llms.txt), [`/llms-full.txt`](https://labs.agenticengineering.agency/llms-full.txt), and per-page Markdown routes expose the same reviewed material to machine readers.
 
-The linked product repositories remain the source for releases and implementation details. The [Agentic Engineering website](https://agenticengineering.agency) owns the public services and contact journey.
+## Repository map
 
-## Information architecture
+- [`content/docs/`](content/docs/) is the canonical English and Spanish documentation corpus.
+- [`lib/public-projects.ts`](lib/public-projects.ts) owns catalog facts, evidence links, localized summaries, and license wording.
+- [`scripts/`](scripts/) contains the publication-boundary and static-export release checks.
+- [`.github/workflows/deploy-cloudflare-pages.yml`](.github/workflows/deploy-cloudflare-pages.yml) is the production deployment contract.
 
-- **Methods** — reusable planning, specification, execution, verification, and review loops.
-- **Kits** — verified distribution paths for packaged public workflows.
-- **Proof** — the ownership, license, availability, and evidence rules behind public claims.
-- **Public projects** — organization-owned, non-archived repositories with a sufficiently clear public release or documentation boundary.
-
-The catalog distinguishes a repository license from license metadata attached only to a distributed package. Public visibility by itself is not treated as an open-source grant or as evidence that a project is ready to promote.
+The generated export in `out/` is a build artifact, not a documentation source.
 
 ## Local development
 
@@ -46,39 +47,27 @@ Open <http://localhost:3000>.
 
 ## Verification
 
-Run the complete local release gate:
+Run the same release gate used before production deployment:
 
 ```bash
 npm run verify
+npm audit --audit-level=low
 ```
 
-That command verifies the public-content boundary and bilingual page pairs, runs TypeScript and ESLint, builds and tests the static export, and checks representative generated routes, locale metadata, the sitemap, and machine-readable documentation.
+`npm run verify` checks the public-content boundary and bilingual pairs, generates route types, runs TypeScript and ESLint, builds the static export, tests locale and metadata behavior, and verifies representative routes and machine-readable outputs.
 
-Individual checks:
+## Contributing, support, and security
 
-```bash
-npm run verify:content
-npm run types:check
-npm run lint
-npm run build
-npm run test:static
-npm run verify:routes
-```
-
-## Content rules
-
-1. Add or change public MDX pages in English and Spanish together.
-2. Link product claims and install paths to their canonical public source.
-3. Omit commands that cannot be verified.
-4. Keep customer, company-operating, and internal project data out of this repository.
-5. Preserve `/llms.txt`, `/llms-full.txt`, and per-page Markdown routes for machine readers.
-
-## AI and search
-
-The site provides local documentation search. It intentionally does not expose a secret-backed generative chat endpoint. Any future AI assistant requires a separate, reviewed design with bounded inputs, abuse controls, deterministic model policy, cost limits, and safe observability before it can be enabled.
+- Read [CONTRIBUTING.md](CONTRIBUTING.md) before changing content, catalog facts, or site behavior.
+- Use [GitHub issues](https://github.com/Agentic-Engineering-Agency/playbook/issues) for public documentation and site problems after checking [SUPPORT.md](SUPPORT.md).
+- Follow [SECURITY.md](SECURITY.md) for private vulnerability reports. Do not place secrets, private customer information, or exploitable details in a public issue.
 
 ## Deployment
 
-Cloudflare Pages deployment is automated from `main` by the repository workflow after verification succeeds. Do not manually deploy from a development branch.
+Merges to `main` run the full verification gate and deploy the static `out/` directory to the existing Cloudflare Pages production project. Development branches must use local or preview validation; they must not be manually promoted to the production project.
 
-The repository does not currently declare a repository-wide license. Each linked product repository documents its own license.
+## Licensing status
+
+This repository does not yet grant a repository-wide open-source or open-content license. Default copyright therefore applies beyond the rights GitHub grants for viewing and forking public repositories.
+
+[Issue #5](https://github.com/Agentic-Engineering-Agency/playbook/issues/5) records the recommended split—CC BY 4.0 for original documentation and MIT for site code/tooling—and the rights review required before applying it. Linked product repositories retain their own license terms.
